@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1c\x61pi/models/v1/projects.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\"\xdd\x01\n\x07Project\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12)\n\x05users\x18\x06 \x03(\x0b\x32\x13.api.models.v1.UserR\x05usersBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n\x1c\x61pi/models/v1/projects.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\"\xdd\x01\n\x07Project\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12)\n\x05users\x18\x06 \x03(\x0b\x32\x13.api.models.v1.UserR\x05usersBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,])
 
@@ -37,8 +37,8 @@ _PROJECT = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.models.v1.Project.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),

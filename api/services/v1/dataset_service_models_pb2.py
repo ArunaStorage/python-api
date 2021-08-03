@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\024DatasetServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/dataset_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1b\x61pi/models/v1/dataset.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xac\x01\n\x14\x43reateDatasetRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nproject_id\x18\x03 \x01(\x04R\tprojectId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\"\'\n\x15\x43reateDatasetResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"#\n\x11GetDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"F\n\x12GetDatasetResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\"+\n\x19GetDatasetVersionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"f\n\x1aGetDatasetVersionsResponse\x12H\n\x10\x64\x61taset_versions\x18\x01 \x03(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0f\x64\x61tasetVersions\"/\n\x1dGetDatasetObjectGroupsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"a\n\x1eGetDatasetObjectGroupsResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\"7\n%GetCurrentObjectGroupRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x82\x01\n&GetCurrentObjectGroupRevisionsResponse\x12X\n\x16object_group_revisions\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x14objectGroupRevisions\"f\n\x19UpdateDatasetFieldRequest\x12I\n\x0eupdate_request\x18\x01 \x01(\x0b\x32\".api.models.v1.UpdateFieldsRequestR\rupdateRequest\"\x1c\n\x1aUpdateDatasetFieldResponse\"&\n\x14\x44\x65leteDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x17\n\x15\x44\x65leteDatasetResponse\"\xb3\x02\n\x1cReleaseDatasetVersionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x02 \x01(\tR\tdatasetId\x12\x30\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12(\n\x10object_group_ids\x18\x04 \x03(\tR\x0eobjectGroupIds\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12!\n\x0crevision_ids\x18\x07 \x03(\tR\x0brevisionIds\"/\n\x1dReleaseDatasetVersionResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"*\n\x18GetDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"c\n\x19GetDatasetVersionResponse\x12\x46\n\x0f\x64\x61taset_version\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0e\x64\x61tasetVersion\"2\n GetDatsetVersionRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"{\n!GetDatsetVersionRevisionsResponse\x12V\n\x15object_group_revision\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"-\n\x1b\x44\x65leteDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1e\n\x1c\x44\x65leteDatasetVersionResponseB\x82\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x14\x44\x61tasetServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/dataset_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1b\x61pi/models/v1/dataset.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xac\x01\n\x14\x43reateDatasetRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\"\'\n\x15\x43reateDatasetResponse\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"#\n\x11GetDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"F\n\x12GetDatasetResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\"+\n\x19GetDatasetVersionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"f\n\x1aGetDatasetVersionsResponse\x12H\n\x10\x64\x61taset_versions\x18\x01 \x03(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0f\x64\x61tasetVersions\"/\n\x1dGetDatasetObjectGroupsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"a\n\x1eGetDatasetObjectGroupsResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\"7\n%GetCurrentObjectGroupRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x82\x01\n&GetCurrentObjectGroupRevisionsResponse\x12X\n\x16object_group_revisions\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x14objectGroupRevisions\"f\n\x19UpdateDatasetFieldRequest\x12I\n\x0eupdate_request\x18\x01 \x01(\x0b\x32\".api.models.v1.UpdateFieldsRequestR\rupdateRequest\"\x1c\n\x1aUpdateDatasetFieldResponse\"&\n\x14\x44\x65leteDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x17\n\x15\x44\x65leteDatasetResponse\"\xb3\x02\n\x1cReleaseDatasetVersionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x02 \x01(\tR\tdatasetId\x12\x30\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12(\n\x10object_group_ids\x18\x04 \x03(\tR\x0eobjectGroupIds\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12!\n\x0crevision_ids\x18\x07 \x03(\tR\x0brevisionIds\"/\n\x1dReleaseDatasetVersionResponse\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"*\n\x18GetDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"c\n\x19GetDatasetVersionResponse\x12\x46\n\x0f\x64\x61taset_version\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0e\x64\x61tasetVersion\"2\n GetDatsetVersionRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"{\n!GetDatsetVersionRevisionsResponse\x12V\n\x15object_group_revision\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"-\n\x1b\x44\x65leteDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1e\n\x1c\x44\x65leteDatasetVersionResponseB\x82\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x14\x44\x61tasetServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_dataset__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
@@ -46,8 +46,8 @@ _CREATEDATASETREQUEST = _descriptor.Descriptor(
       serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='api.services.v1.CreateDatasetRequest.project_id', index=1,
-      number=3, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='projectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -92,8 +92,8 @@ _CREATEDATASETRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.CreateDatasetResponse.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -124,8 +124,8 @@ _GETDATASETREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetDatasetRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -188,8 +188,8 @@ _GETDATASETVERSIONSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetDatasetVersionsRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -252,8 +252,8 @@ _GETDATASETOBJECTGROUPSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetDatasetObjectGroupsRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -316,8 +316,8 @@ _GETCURRENTOBJECTGROUPREVISIONSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetCurrentObjectGroupRevisionsRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -437,8 +437,8 @@ _DELETEDATASETREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.DeleteDatasetRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -568,8 +568,8 @@ _RELEASEDATASETVERSIONRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.ReleaseDatasetVersionResponse.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -600,8 +600,8 @@ _GETDATASETVERSIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetDatasetVersionRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -664,8 +664,8 @@ _GETDATSETVERSIONREVISIONSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetDatsetVersionRevisionsRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -728,8 +728,8 @@ _DELETEDATASETVERSIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.DeleteDatasetVersionRequest.id', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
