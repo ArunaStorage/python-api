@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\027ObjectLoadServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(api/services/v1/object_load_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/object_models.proto\"\"\n\x10\x43reateUploadLink\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\")\n\x17\x43reateUploadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\";\n\x18\x43reateUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\"+\n\x19\x43reateDownloadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"l\n\x1a\x43reateDownloadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\x12-\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"-\n\x1bStartMultipartUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"M\n\x1cStartMultipartUploadResponse\x12-\n\x06object\x18\x01 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"p\n\x1eGetMultipartUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\x12-\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"]\n\x1dGetMultipartUploadLinkRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x1f\n\x0bupload_part\x18\x02 \x01(\x03R\nuploadPart\"t\n\x1e\x43ompleteMultipartUploadRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12\x35\n\x05parts\x18\x02 \x03(\x0b\x32\x1f.api.services.v1.CompletedPartsR\x05parts\"!\n\x1f\x43ompleteMultipartUploadResponse\"8\n\x0e\x43ompletedParts\x12\x12\n\x04\x65tag\x18\x01 \x01(\tR\x04\x65tag\x12\x12\n\x04part\x18\x02 \x01(\x03R\x04partB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ObjectLoadServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n(api/services/v1/object_load_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/object_models.proto\"\x1e\n\x10\x43reateUploadLink\x12\n\n\x02id\x18\x01 \x01(\t\"%\n\x17\x43reateUploadLinkRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x18\x43reateUploadLinkResponse\x12\x13\n\x0bupload_link\x18\x01 \x01(\t\"\'\n\x19\x43reateDownloadLinkRequest\x12\n\n\x02id\x18\x01 \x01(\t\"X\n\x1a\x43reateDownloadLinkResponse\x12\x13\n\x0bupload_link\x18\x01 \x01(\t\x12%\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.Object\")\n\x1bStartMultipartUploadRequest\x12\n\n\x02id\x18\x01 \x01(\t\"E\n\x1cStartMultipartUploadResponse\x12%\n\x06object\x18\x01 \x01(\x0b\x32\x15.api.models.v1.Object\"\\\n\x1eGetMultipartUploadLinkResponse\x12\x13\n\x0bupload_link\x18\x01 \x01(\t\x12%\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.Object\"G\n\x1dGetMultipartUploadLinkRequest\x12\x11\n\tobject_id\x18\x01 \x01(\t\x12\x13\n\x0bupload_part\x18\x02 \x01(\x03\"c\n\x1e\x43ompleteMultipartUploadRequest\x12\x11\n\tobject_id\x18\x01 \x01(\t\x12.\n\x05parts\x18\x02 \x03(\x0b\x32\x1f.api.services.v1.CompletedParts\"!\n\x1f\x43ompleteMultipartUploadResponse\",\n\x0e\x43ompletedParts\x12\x0c\n\x04\x65tag\x18\x01 \x01(\t\x12\x0c\n\x04part\x18\x02 \x01(\x03\x42\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ObjectLoadServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
@@ -41,7 +41,7 @@ _CREATEUPLOADLINK = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -55,7 +55,7 @@ _CREATEUPLOADLINK = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=96,
-  serialized_end=130,
+  serialized_end=126,
 )
 
 
@@ -73,7 +73,7 @@ _CREATEUPLOADLINKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -86,8 +86,8 @@ _CREATEUPLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=173,
+  serialized_start=128,
+  serialized_end=165,
 )
 
 
@@ -105,7 +105,7 @@ _CREATEUPLOADLINKRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='uploadLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -118,8 +118,8 @@ _CREATEUPLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=175,
-  serialized_end=234,
+  serialized_start=167,
+  serialized_end=214,
 )
 
 
@@ -137,7 +137,7 @@ _CREATEDOWNLOADLINKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -150,8 +150,8 @@ _CREATEDOWNLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=236,
-  serialized_end=279,
+  serialized_start=216,
+  serialized_end=255,
 )
 
 
@@ -169,14 +169,14 @@ _CREATEDOWNLOADLINKRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='uploadLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object', full_name='api.services.v1.CreateDownloadLinkResponse.object', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='object', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -189,8 +189,8 @@ _CREATEDOWNLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=281,
-  serialized_end=389,
+  serialized_start=257,
+  serialized_end=345,
 )
 
 
@@ -208,7 +208,7 @@ _STARTMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -221,8 +221,8 @@ _STARTMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=391,
-  serialized_end=436,
+  serialized_start=347,
+  serialized_end=388,
 )
 
 
@@ -240,7 +240,7 @@ _STARTMULTIPARTUPLOADRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='object', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -253,8 +253,8 @@ _STARTMULTIPARTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=438,
-  serialized_end=515,
+  serialized_start=390,
+  serialized_end=459,
 )
 
 
@@ -272,14 +272,14 @@ _GETMULTIPARTUPLOADLINKRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='uploadLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object', full_name='api.services.v1.GetMultipartUploadLinkResponse.object', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='object', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -292,8 +292,8 @@ _GETMULTIPARTUPLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=517,
-  serialized_end=629,
+  serialized_start=461,
+  serialized_end=553,
 )
 
 
@@ -311,14 +311,14 @@ _GETMULTIPARTUPLOADLINKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='objectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='upload_part', full_name='api.services.v1.GetMultipartUploadLinkRequest.upload_part', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='uploadPart', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -331,8 +331,8 @@ _GETMULTIPARTUPLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=631,
-  serialized_end=724,
+  serialized_start=555,
+  serialized_end=626,
 )
 
 
@@ -350,14 +350,14 @@ _COMPLETEMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='objectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='parts', full_name='api.services.v1.CompleteMultipartUploadRequest.parts', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='parts', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -370,8 +370,8 @@ _COMPLETEMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=726,
-  serialized_end=842,
+  serialized_start=628,
+  serialized_end=727,
 )
 
 
@@ -395,8 +395,8 @@ _COMPLETEMULTIPARTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=844,
-  serialized_end=877,
+  serialized_start=729,
+  serialized_end=762,
 )
 
 
@@ -414,14 +414,14 @@ _COMPLETEDPARTS = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='etag', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='part', full_name='api.services.v1.CompletedParts.part', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='part', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -434,8 +434,8 @@ _COMPLETEDPARTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=879,
-  serialized_end=935,
+  serialized_start=764,
+  serialized_end=808,
 )
 
 _CREATEDOWNLOADLINKRESPONSE.fields_by_name['object'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECT

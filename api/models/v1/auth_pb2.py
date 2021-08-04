@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\nAuthModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x18\x61pi/models/v1/auth.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"[\n\tTokenList\x12\x1d\n\nproject_id\x18\x01 \x01(\tR\tprojectId\x12/\n\x05token\x18\x02 \x03(\x0b\x32\x19.api.models.v1.TokenEntryR\x05token\"\x81\x02\n\nTokenEntry\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12,\n\x07user_id\x18\x02 \x01(\x0b\x32\x13.api.models.v1.UserR\x06userId\x12\x14\n\x05token\x18\x03 \x01(\tR\x05token\x12\x33\n\x08resource\x18\x04 \x01(\x0e\x32\x17.api.models.v1.ResourceR\x08resource\x12\x34\n\x07\x63reated\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12\x34\n\x07\x65xpires\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65xpires\"\xce\x01\n\x12\x43reateTokenRequest\x12\x1f\n\x0bresource_id\x18\x01 \x01(\tR\nresourceId\x12,\n\x06rights\x18\x02 \x03(\x0e\x32\x14.api.models.v1.RightR\x06rights\x12\x33\n\x08resource\x18\x03 \x01(\x0e\x32\x17.api.models.v1.ResourceR\x08resource\x12\x34\n\x07\x65xpires\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65xpiresBt\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\nAuthModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n\x18\x61pi/models/v1/auth.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"I\n\tTokenList\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12(\n\x05token\x18\x02 \x03(\x0b\x32\x19.api.models.v1.TokenEntry\"\xd2\x01\n\nTokenEntry\x12\n\n\x02id\x18\x01 \x01(\t\x12$\n\x07user_id\x18\x02 \x01(\x0b\x32\x13.api.models.v1.User\x12\r\n\x05token\x18\x03 \x01(\t\x12)\n\x08resource\x18\x04 \x01(\x0e\x32\x17.api.models.v1.Resource\x12+\n\x07\x63reated\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x07\x65xpires\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa7\x01\n\x12\x43reateTokenRequest\x12\x13\n\x0bresource_id\x18\x01 \x01(\t\x12$\n\x06rights\x18\x02 \x03(\x0e\x32\x14.api.models.v1.Right\x12)\n\x08resource\x18\x03 \x01(\x0e\x32\x17.api.models.v1.Resource\x12+\n\x07\x65xpires\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampBt\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\nAuthModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -42,14 +42,14 @@ _TOKENLIST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='projectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='token', full_name='api.models.v1.TokenList.token', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='token', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -63,7 +63,7 @@ _TOKENLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=111,
-  serialized_end=202,
+  serialized_end=184,
 )
 
 
@@ -81,42 +81,42 @@ _TOKENENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='user_id', full_name='api.models.v1.TokenEntry.user_id', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='token', full_name='api.models.v1.TokenEntry.token', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='token', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='resource', full_name='api.models.v1.TokenEntry.resource', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='resource', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='created', full_name='api.models.v1.TokenEntry.created', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='created', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='expires', full_name='api.models.v1.TokenEntry.expires', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='expires', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -129,8 +129,8 @@ _TOKENENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=205,
-  serialized_end=462,
+  serialized_start=187,
+  serialized_end=397,
 )
 
 
@@ -148,28 +148,28 @@ _CREATETOKENREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='resourceId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='rights', full_name='api.models.v1.CreateTokenRequest.rights', index=1,
       number=2, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='rights', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='resource', full_name='api.models.v1.CreateTokenRequest.resource', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='resource', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='expires', full_name='api.models.v1.CreateTokenRequest.expires', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='expires', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -182,8 +182,8 @@ _CREATETOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=465,
-  serialized_end=671,
+  serialized_start=400,
+  serialized_end=567,
 )
 
 _TOKENLIST.fields_by_name['token'].message_type = _TOKENENTRY

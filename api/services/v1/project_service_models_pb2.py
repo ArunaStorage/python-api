@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\027ProjectAPIServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/project_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a\x1b\x61pi/models/v1/dataset.proto\x1a\x1c\x61pi/models/v1/projects.proto\"\xaf\x01\n\x14\x43reateProjectRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x33\n\x08metadata\x18\x03 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\"1\n\x15\x43reateProjectResponse\x12\x18\n\x07project\x18\x01 \x01(\tR\x07project\"}\n\x17\x41\x64\x64UserToProjectRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12*\n\x05scope\x18\x02 \x03(\x0e\x32\x14.api.models.v1.RightR\x05scope\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"\x1a\n\x18\x41\x64\x64UserToProjectResponse\"\'\n\x15\x43reateAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"G\n\x16\x43reateAPITokenResponse\x12-\n\x05token\x18\x01 \x01(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"+\n\x19GetProjectDatasetsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"|\n\x1aGetProjectDatasetsResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x03(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\x12,\n\x06labels\x18\x02 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\"\x18\n\x16GetUserProjectsRequest\"M\n\x17GetUserProjectsResponse\x12\x32\n\x08projects\x18\x01 \x03(\x0b\x32\x16.api.models.v1.ProjectR\x08projects\"#\n\x11GetProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"F\n\x12GetProjectResponse\x12\x30\n\x07project\x18\x01 \x01(\x0b\x32\x16.api.models.v1.ProjectR\x07project\"D\n\x13GetAPITokenResponse\x12-\n\x05token\x18\x01 \x03(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"\x14\n\x12GetAPITokenRequest\"\'\n\x15\x44\x65leteAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x18\n\x16\x44\x65leteAPITokenResponse\"&\n\x14\x44\x65leteProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x17\n\x15\x44\x65leteProjectResponseB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ProjectAPIServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/project_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a\x1b\x61pi/models/v1/dataset.proto\x1a\x1c\x61pi/models/v1/projects.proto\"\x8a\x01\n\x14\x43reateProjectRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12)\n\x08metadata\x18\x03 \x03(\x0b\x32\x17.api.models.v1.Metadata\x12$\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.Label\"(\n\x15\x43reateProjectResponse\x12\x0f\n\x07project\x18\x01 \x01(\t\"c\n\x17\x41\x64\x64UserToProjectRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12#\n\x05scope\x18\x02 \x03(\x0e\x32\x14.api.models.v1.Right\x12\x12\n\nproject_id\x18\x03 \x01(\t\"\x1a\n\x18\x41\x64\x64UserToProjectResponse\"#\n\x15\x43reateAPITokenRequest\x12\n\n\x02id\x18\x01 \x01(\t\"@\n\x16\x43reateAPITokenResponse\x12&\n\x05token\x18\x01 \x01(\x0b\x32\x17.api.models.v1.APIToken\"\'\n\x19GetProjectDatasetsRequest\x12\n\n\x02id\x18\x01 \x01(\t\"k\n\x1aGetProjectDatasetsResponse\x12\'\n\x07\x64\x61taset\x18\x01 \x03(\x0b\x32\x16.api.models.v1.Dataset\x12$\n\x06labels\x18\x02 \x03(\x0b\x32\x14.api.models.v1.Label\"\x18\n\x16GetUserProjectsRequest\"C\n\x17GetUserProjectsResponse\x12(\n\x08projects\x18\x01 \x03(\x0b\x32\x16.api.models.v1.Project\"\x1f\n\x11GetProjectRequest\x12\n\n\x02id\x18\x01 \x01(\t\"=\n\x12GetProjectResponse\x12\'\n\x07project\x18\x01 \x01(\x0b\x32\x16.api.models.v1.Project\"=\n\x13GetAPITokenResponse\x12&\n\x05token\x18\x01 \x03(\x0b\x32\x17.api.models.v1.APIToken\"\x14\n\x12GetAPITokenRequest\"#\n\x15\x44\x65leteAPITokenRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x18\n\x16\x44\x65leteAPITokenResponse\"\"\n\x14\x44\x65leteProjectRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x17\n\x15\x44\x65leteProjectResponseB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ProjectAPIServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_dataset__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_projects__pb2.DESCRIPTOR,])
 
@@ -43,28 +43,28 @@ _CREATEPROJECTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='description', full_name='api.services.v1.CreateProjectRequest.description', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.services.v1.CreateProjectRequest.metadata', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.services.v1.CreateProjectRequest.labels', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -78,7 +78,7 @@ _CREATEPROJECTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=160,
-  serialized_end=335,
+  serialized_end=298,
 )
 
 
@@ -96,7 +96,7 @@ _CREATEPROJECTRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='project', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -109,8 +109,8 @@ _CREATEPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=337,
-  serialized_end=386,
+  serialized_start=300,
+  serialized_end=340,
 )
 
 
@@ -128,21 +128,21 @@ _ADDUSERTOPROJECTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='scope', full_name='api.services.v1.AddUserToProjectRequest.scope', index=1,
       number=2, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='scope', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='api.services.v1.AddUserToProjectRequest.project_id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='projectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -155,8 +155,8 @@ _ADDUSERTOPROJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=388,
-  serialized_end=513,
+  serialized_start=342,
+  serialized_end=441,
 )
 
 
@@ -180,8 +180,8 @@ _ADDUSERTOPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=515,
-  serialized_end=541,
+  serialized_start=443,
+  serialized_end=469,
 )
 
 
@@ -199,7 +199,7 @@ _CREATEAPITOKENREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -212,8 +212,8 @@ _CREATEAPITOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=543,
-  serialized_end=582,
+  serialized_start=471,
+  serialized_end=506,
 )
 
 
@@ -231,7 +231,7 @@ _CREATEAPITOKENRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='token', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -244,8 +244,8 @@ _CREATEAPITOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=655,
+  serialized_start=508,
+  serialized_end=572,
 )
 
 
@@ -263,7 +263,7 @@ _GETPROJECTDATASETSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -276,8 +276,8 @@ _GETPROJECTDATASETSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=657,
-  serialized_end=700,
+  serialized_start=574,
+  serialized_end=613,
 )
 
 
@@ -295,14 +295,14 @@ _GETPROJECTDATASETSRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='dataset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.services.v1.GetProjectDatasetsResponse.labels', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -315,8 +315,8 @@ _GETPROJECTDATASETSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=702,
-  serialized_end=826,
+  serialized_start=615,
+  serialized_end=722,
 )
 
 
@@ -340,8 +340,8 @@ _GETUSERPROJECTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=828,
-  serialized_end=852,
+  serialized_start=724,
+  serialized_end=748,
 )
 
 
@@ -359,7 +359,7 @@ _GETUSERPROJECTSRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='projects', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -372,8 +372,8 @@ _GETUSERPROJECTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=854,
-  serialized_end=931,
+  serialized_start=750,
+  serialized_end=817,
 )
 
 
@@ -391,7 +391,7 @@ _GETPROJECTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -404,8 +404,8 @@ _GETPROJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=933,
-  serialized_end=968,
+  serialized_start=819,
+  serialized_end=850,
 )
 
 
@@ -423,7 +423,7 @@ _GETPROJECTRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='project', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -436,8 +436,8 @@ _GETPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=970,
-  serialized_end=1040,
+  serialized_start=852,
+  serialized_end=913,
 )
 
 
@@ -455,7 +455,7 @@ _GETAPITOKENRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='token', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -468,8 +468,8 @@ _GETAPITOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1042,
-  serialized_end=1110,
+  serialized_start=915,
+  serialized_end=976,
 )
 
 
@@ -493,8 +493,8 @@ _GETAPITOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1112,
-  serialized_end=1132,
+  serialized_start=978,
+  serialized_end=998,
 )
 
 
@@ -512,7 +512,7 @@ _DELETEAPITOKENREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -525,8 +525,8 @@ _DELETEAPITOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1173,
+  serialized_start=1000,
+  serialized_end=1035,
 )
 
 
@@ -550,8 +550,8 @@ _DELETEAPITOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1175,
-  serialized_end=1199,
+  serialized_start=1037,
+  serialized_end=1061,
 )
 
 
@@ -569,7 +569,7 @@ _DELETEPROJECTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -582,8 +582,8 @@ _DELETEPROJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1201,
-  serialized_end=1239,
+  serialized_start=1063,
+  serialized_end=1097,
 )
 
 
@@ -607,8 +607,8 @@ _DELETEPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1241,
-  serialized_end=1264,
+  serialized_start=1099,
+  serialized_end=1122,
 )
 
 _CREATEPROJECTREQUEST.fields_by_name['metadata'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._METADATA

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1c\x61pi/models/v1/projects.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\"\xdd\x01\n\x07Project\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12)\n\x05users\x18\x06 \x03(\x0b\x32\x13.api.models.v1.UserR\x05usersBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n\x1c\x61pi/models/v1/projects.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\"\xad\x01\n\x07Project\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12$\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.Label\x12)\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.Metadata\x12\"\n\x05users\x18\x06 \x03(\x0b\x32\x13.api.models.v1.UserBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rProjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,])
 
@@ -41,42 +41,42 @@ _PROJECT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='name', full_name='api.models.v1.Project.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='description', full_name='api.models.v1.Project.description', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.models.v1.Project.labels', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.models.v1.Project.metadata', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='users', full_name='api.models.v1.Project.users', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='users', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -90,7 +90,7 @@ _PROJECT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=83,
-  serialized_end=304,
+  serialized_end=256,
 )
 
 _PROJECT.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
