@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\033DatasetObjectsServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3api/services/v1/dataset_object_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xdf\x01\n\x18\x43reateObjectGroupRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ndataset_id\x18\x02 \x01(\t\x12$\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.Label\x12)\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.Metadata\x12P\n\x15object_group_revision\x18\x05 \x01(\x0b\x32\x31.api.services.v1.CreateObjectGroupRevisionRequest\"I\n\x19\x43reateObjectGroupResponse\x12\x17\n\x0fobject_group_id\x18\x01 \x01(\t\x12\x13\n\x0brevision_id\x18\x02 \x01(\t\"\xaa\x01\n CreateObjectGroupRevisionRequest\x12\x35\n\x07objects\x18\x04 \x03(\x0b\x32$.api.services.v1.CreateObjectRequest\x12$\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.Label\x12)\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.Metadata\"\x84\x01\n\x1f\x41\x64\x64RevisionToObjectGroupRequest\x12\x17\n\x0fobject_group_id\x18\x01 \x01(\t\x12H\n\rgroup_revison\x18\x02 \x01(\x0b\x32\x31.api.services.v1.CreateObjectGroupRevisionRequest\"P\n AddRevisionToObjectGroupResponse\x12\x13\n\x0brevision_id\x18\x01 \x01(\t\x12\x17\n\x0frevision_number\x18\x02 \x01(\x04\"\xc6\x01\n\x13\x43reateObjectRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x10\n\x08\x66iletype\x18\x02 \x01(\t\x12$\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.Label\x12)\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.Metadata\x12\x13\n\x0b\x63ontent_len\x18\x05 \x01(\x03\x12%\n\x06origin\x18\x06 \x01(\x0b\x32\x15.api.models.v1.Origin\"#\n\x15GetObjectGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"J\n\x16GetObjectGroupResponse\x12\x30\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroup\"\xb1\x01\n\x1dGetObjectGroupRevisionRequest\x12I\n\x0ereference_type\x18\x01 \x01(\x0e\x32\x31.api.services.v1.ObjectGroupRevisionReferenceType\x12\x10\n\x08revision\x18\x02 \x01(\x03\x12\'\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.Version\x12\n\n\x02id\x18\x04 \x01(\t\"\x95\x01\n\x1eGetObjectGroupRevisionResponse\x12\x30\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroup\x12\x41\n\x15object_group_revision\x18\x02 \x01(\x0b\x32\".api.models.v1.ObjectGroupRevision\"2\n$GetCurrentObjectGroupRevisionRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x9c\x01\n%GetCurrentObjectGroupRevisionResponse\x12\x30\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroup\x12\x41\n\x15object_group_revision\x18\x02 \x01(\x0b\x32\".api.models.v1.ObjectGroupRevision\",\n\x1eGetObjectGroupRevisionsRequest\x12\n\n\x02id\x18\x01 \x01(\t\"d\n\x1fGetObjectGroupRevisionsResponse\x12\x41\n\x15object_group_revision\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevision\"\'\n\x19\x46inishObjectUploadRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1c\n\x1a\x46inishObjectUploadResponse\"&\n\x18\x44\x65leteObjectGroupRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1b\n\x19\x44\x65leteObjectGroupResponse\".\n DeleteObjectGroupRevisionRequest\x12\n\n\x02id\x18\x01 \x01(\t\"#\n!DeleteObjectGroupRevisionResponse*E\n ObjectGroupRevisionReferenceType\x12\x0b\n\x07VERSION\x10\x00\x12\x0c\n\x08REVISION\x10\x01\x12\x06\n\x02ID\x10\x02\x42\x89\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n3api/services/v1/dataset_object_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\x97\x02\n\x18\x43reateObjectGroupRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x02 \x01(\tR\tdatasetId\x12,\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x65\n\x15object_group_revision\x18\x05 \x01(\x0b\x32\x31.api.services.v1.CreateObjectGroupRevisionRequestR\x13objectGroupRevision\"d\n\x19\x43reateObjectGroupResponse\x12&\n\x0fobject_group_id\x18\x01 \x01(\tR\robjectGroupId\x12\x1f\n\x0brevision_id\x18\x02 \x01(\tR\nrevisionId\"\xc5\x01\n CreateObjectGroupRevisionRequest\x12>\n\x07objects\x18\x04 \x03(\x0b\x32$.api.services.v1.CreateObjectRequestR\x07objects\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\"\xa1\x01\n\x1f\x41\x64\x64RevisionToObjectGroupRequest\x12&\n\x0fobject_group_id\x18\x01 \x01(\tR\robjectGroupId\x12V\n\rgroup_revison\x18\x02 \x01(\x0b\x32\x31.api.services.v1.CreateObjectGroupRevisionRequestR\x0cgroupRevison\"l\n AddRevisionToObjectGroupResponse\x12\x1f\n\x0brevision_id\x18\x01 \x01(\tR\nrevisionId\x12\'\n\x0frevision_number\x18\x02 \x01(\x04R\x0erevisionNumber\"\x80\x02\n\x13\x43reateObjectRequest\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x02 \x01(\tR\x08\x66iletype\x12,\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x1f\n\x0b\x63ontent_len\x18\x05 \x01(\x03R\ncontentLen\x12-\n\x06origin\x18\x06 \x01(\x0b\x32\x15.api.models.v1.OriginR\x06origin\"\'\n\x15GetObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"W\n\x16GetObjectGroupResponse\x12=\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\"\xd7\x01\n\x1dGetObjectGroupRevisionRequest\x12X\n\x0ereference_type\x18\x01 \x01(\x0e\x32\x31.api.services.v1.ObjectGroupRevisionReferenceTypeR\rreferenceType\x12\x1a\n\x08revision\x18\x02 \x01(\x03R\x08revision\x12\x30\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12\x0e\n\x02id\x18\x04 \x01(\tR\x02id\"\xb7\x01\n\x1eGetObjectGroupRevisionResponse\x12=\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\x12V\n\x15object_group_revision\x18\x02 \x01(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"6\n$GetCurrentObjectGroupRevisionRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\xbe\x01\n%GetCurrentObjectGroupRevisionResponse\x12=\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\x12V\n\x15object_group_revision\x18\x02 \x01(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"0\n\x1eGetObjectGroupRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"y\n\x1fGetObjectGroupRevisionsResponse\x12V\n\x15object_group_revision\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"+\n\x19\x46inishObjectUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1c\n\x1a\x46inishObjectUploadResponse\"*\n\x18\x44\x65leteObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1b\n\x19\x44\x65leteObjectGroupResponse\"2\n DeleteObjectGroupRevisionRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"#\n!DeleteObjectGroupRevisionResponse*E\n ObjectGroupRevisionReferenceType\x12\x0b\n\x07VERSION\x10\x00\x12\x0c\n\x08REVISION\x10\x01\x12\x06\n\x02ID\x10\x02\x42\x89\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _OBJECTGROUPREVISIONREFERENCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2063,
-  serialized_end=2132,
+  serialized_start=2452,
+  serialized_end=2521,
 )
 _sym_db.RegisterEnumDescriptor(_OBJECTGROUPREVISIONREFERENCETYPE)
 
@@ -77,35 +77,35 @@ _CREATEOBJECTGROUPREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='dataset_id', full_name='api.services.v1.CreateObjectGroupRequest.dataset_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.services.v1.CreateObjectGroupRequest.labels', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.services.v1.CreateObjectGroupRequest.metadata', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_group_revision', full_name='api.services.v1.CreateObjectGroupRequest.object_group_revision', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupRevision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -119,7 +119,7 @@ _CREATEOBJECTGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=143,
-  serialized_end=366,
+  serialized_end=422,
 )
 
 
@@ -137,14 +137,14 @@ _CREATEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='revision_id', full_name='api.services.v1.CreateObjectGroupResponse.revision_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='revisionId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -157,8 +157,8 @@ _CREATEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=368,
-  serialized_end=441,
+  serialized_start=424,
+  serialized_end=524,
 )
 
 
@@ -176,21 +176,21 @@ _CREATEOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objects', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.services.v1.CreateObjectGroupRevisionRequest.labels', index=1,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.services.v1.CreateObjectGroupRevisionRequest.metadata', index=2,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -203,8 +203,8 @@ _CREATEOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=444,
-  serialized_end=614,
+  serialized_start=527,
+  serialized_end=724,
 )
 
 
@@ -222,14 +222,14 @@ _ADDREVISIONTOOBJECTGROUPREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='group_revison', full_name='api.services.v1.AddRevisionToObjectGroupRequest.group_revison', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='groupRevison', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -242,8 +242,8 @@ _ADDREVISIONTOOBJECTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=617,
-  serialized_end=749,
+  serialized_start=727,
+  serialized_end=888,
 )
 
 
@@ -261,14 +261,14 @@ _ADDREVISIONTOOBJECTGROUPRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='revisionId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='revision_number', full_name='api.services.v1.AddRevisionToObjectGroupResponse.revision_number', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='revisionNumber', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -281,8 +281,8 @@ _ADDREVISIONTOOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=751,
-  serialized_end=831,
+  serialized_start=890,
+  serialized_end=998,
 )
 
 
@@ -300,42 +300,42 @@ _CREATEOBJECTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='filename', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='filetype', full_name='api.services.v1.CreateObjectRequest.filetype', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='filetype', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.services.v1.CreateObjectRequest.labels', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.services.v1.CreateObjectRequest.metadata', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='content_len', full_name='api.services.v1.CreateObjectRequest.content_len', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='contentLen', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='origin', full_name='api.services.v1.CreateObjectRequest.origin', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='origin', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -348,8 +348,8 @@ _CREATEOBJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=834,
-  serialized_end=1032,
+  serialized_start=1001,
+  serialized_end=1257,
 )
 
 
@@ -367,7 +367,7 @@ _GETOBJECTGROUPREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -380,8 +380,8 @@ _GETOBJECTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1034,
-  serialized_end=1069,
+  serialized_start=1259,
+  serialized_end=1298,
 )
 
 
@@ -399,7 +399,7 @@ _GETOBJECTGROUPRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -412,8 +412,8 @@ _GETOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1071,
-  serialized_end=1145,
+  serialized_start=1300,
+  serialized_end=1387,
 )
 
 
@@ -431,28 +431,28 @@ _GETOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='referenceType', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='revision', full_name='api.services.v1.GetObjectGroupRevisionRequest.revision', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='revision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='version', full_name='api.services.v1.GetObjectGroupRevisionRequest.version', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='version', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='id', full_name='api.services.v1.GetObjectGroupRevisionRequest.id', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -465,8 +465,8 @@ _GETOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1148,
-  serialized_end=1325,
+  serialized_start=1390,
+  serialized_end=1605,
 )
 
 
@@ -484,14 +484,14 @@ _GETOBJECTGROUPREVISIONRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_group_revision', full_name='api.services.v1.GetObjectGroupRevisionResponse.object_group_revision', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupRevision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -504,8 +504,8 @@ _GETOBJECTGROUPREVISIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1328,
-  serialized_end=1477,
+  serialized_start=1608,
+  serialized_end=1791,
 )
 
 
@@ -523,7 +523,7 @@ _GETCURRENTOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -536,8 +536,8 @@ _GETCURRENTOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1479,
-  serialized_end=1529,
+  serialized_start=1793,
+  serialized_end=1847,
 )
 
 
@@ -555,14 +555,14 @@ _GETCURRENTOBJECTGROUPREVISIONRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_group_revision', full_name='api.services.v1.GetCurrentObjectGroupRevisionResponse.object_group_revision', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupRevision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -575,8 +575,8 @@ _GETCURRENTOBJECTGROUPREVISIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1532,
-  serialized_end=1688,
+  serialized_start=1850,
+  serialized_end=2040,
 )
 
 
@@ -594,7 +594,7 @@ _GETOBJECTGROUPREVISIONSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -607,8 +607,8 @@ _GETOBJECTGROUPREVISIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1690,
-  serialized_end=1734,
+  serialized_start=2042,
+  serialized_end=2090,
 )
 
 
@@ -626,7 +626,7 @@ _GETOBJECTGROUPREVISIONSRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupRevision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -639,8 +639,8 @@ _GETOBJECTGROUPREVISIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1736,
-  serialized_end=1836,
+  serialized_start=2092,
+  serialized_end=2213,
 )
 
 
@@ -658,7 +658,7 @@ _FINISHOBJECTUPLOADREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -671,8 +671,8 @@ _FINISHOBJECTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1838,
-  serialized_end=1877,
+  serialized_start=2215,
+  serialized_end=2258,
 )
 
 
@@ -696,8 +696,8 @@ _FINISHOBJECTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1879,
-  serialized_end=1907,
+  serialized_start=2260,
+  serialized_end=2288,
 )
 
 
@@ -715,7 +715,7 @@ _DELETEOBJECTGROUPREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -728,8 +728,8 @@ _DELETEOBJECTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1909,
-  serialized_end=1947,
+  serialized_start=2290,
+  serialized_end=2332,
 )
 
 
@@ -753,8 +753,8 @@ _DELETEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1949,
-  serialized_end=1976,
+  serialized_start=2334,
+  serialized_end=2361,
 )
 
 
@@ -772,7 +772,7 @@ _DELETEOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -785,8 +785,8 @@ _DELETEOBJECTGROUPREVISIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1978,
-  serialized_end=2024,
+  serialized_start=2363,
+  serialized_end=2413,
 )
 
 
@@ -810,8 +810,8 @@ _DELETEOBJECTGROUPREVISIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2026,
-  serialized_end=2061,
+  serialized_start=2415,
+  serialized_end=2450,
 )
 
 _CREATEOBJECTGROUPREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL

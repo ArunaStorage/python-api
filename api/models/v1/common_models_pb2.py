@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\014CommonModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!api/models/v1/common_models.proto\x12\rapi.models.v1\"\x97\x01\n\x08Location\x12\x38\n\x0fobject_location\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.ObjectLocationH\x00\x12\x45\n\x15object_index_location\x18\x02 \x01(\x0b\x32$.api.models.v1.IndexedObjectLocationH\x00\x42\n\n\x08location\":\n\x0eObjectLocation\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x01(\t\"f\n\x15IndexedObjectLocation\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x01(\t\x12#\n\x05index\x18\x04 \x01(\x0b\x32\x14.api.models.v1.Index\"-\n\x05Index\x12\x12\n\nstart_byte\x18\x01 \x01(\x03\x12\x10\n\x08\x65nd_byte\x18\x02 \x01(\x03\"\xce\x01\n\x06Origin\x12\x0c\n\x04link\x18\x01 \x01(\t\x12\x38\n\x0fobject_location\x18\x02 \x01(\x0b\x32\x1d.api.models.v1.ObjectLocationH\x00\x12\x39\n\x0borigin_type\x18\x03 \x01(\x0e\x32$.api.models.v1.Origin.OriginTypeEnum\"5\n\x0eOriginTypeEnum\x12\x12\n\x0eOBJECT_STORAGE\x10\x00\x12\x0f\n\x0bORIGIN_LINK\x10\x01\x42\n\n\x08location\"\xb5\x01\n\x07Version\x12\r\n\x05major\x18\x01 \x01(\x05\x12\r\n\x05minor\x18\x02 \x01(\x05\x12\r\n\x05patch\x18\x03 \x01(\x05\x12\x10\n\x08revision\x18\x04 \x01(\x05\x12\x32\n\x05stage\x18\x05 \x01(\x0e\x32#.api.models.v1.Version.VersionStage\"7\n\x0cVersionStage\x12\n\n\x06STABLE\x10\x00\x12\x06\n\x02RC\x10\x01\x12\x08\n\x04\x42\x45TA\x10\x02\x12\t\n\x05\x41LPHA\x10\x03\"#\n\x05Label\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x10\n\x02ID\x12\n\n\x02id\x18\x01 \x01(\t\"\xb9\x01\n\x13UpdateFieldsRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12Z\n\x15updated_string_fields\x18\x02 \x03(\x0b\x32;.api.models.v1.UpdateFieldsRequest.UpdatedStringFieldsEntry\x1a:\n\x18UpdatedStringFieldsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"h\n\x04User\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12$\n\x06rights\x18\x02 \x03(\x0e\x32\x14.api.models.v1.Right\x12)\n\x08resource\x18\x03 \x01(\x0e\x32\x17.api.models.v1.Resource\"r\n\x08Metadata\x12\x0b\n\x03key\x18\x01 \x01(\t\x12$\n\x06labels\x18\x02 \x03(\x0b\x32\x14.api.models.v1.Label\x12\x10\n\x08metadata\x18\x03 \x01(\x0c\x12\x17\n\rsimple_schema\x18\x04 \x01(\tH\x00\x42\x08\n\x06schema\".\n\nVersionTag\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nversion_id\x18\x02 \x01(\t\"_\n\x08\x41PIToken\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05token\x18\x02 \x01(\t\x12$\n\x06rights\x18\x03 \x03(\x0e\x32\x14.api.models.v1.Right\x12\x12\n\nproject_id\x18\x04 \x01(\t\"\x07\n\x05\x45mpty*Q\n\x06Status\x12\x0e\n\nINITIATING\x10\x00\x12\r\n\tAVAILABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02\x12\x0c\n\x08\x41RCHIVED\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04*\x1c\n\x05Right\x12\x08\n\x04READ\x10\x00\x12\t\n\x05WRITE\x10\x01*\xa8\x01\n\x08Resource\x12\x14\n\x10PROJECT_RESOURCE\x10\x00\x12\x14\n\x10\x44\x41TASET_RESOURCE\x10\x01\x12\x1c\n\x18\x44\x41TASET_VERSION_RESOURCE\x10\x02\x12\x13\n\x0fOBJECT_RESOURCE\x10\x03\x12\x19\n\x15OBJECT_GROUP_RESOURCE\x10\x04\x12\"\n\x1eOBJECT_GROUP_REVISION_RESOURCE\x10\x05\x42v\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\x0c\x43ommonModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n!api/models/v1/common_models.proto\x12\rapi.models.v1\"\xbc\x01\n\x08Location\x12H\n\x0fobject_location\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.ObjectLocationH\x00R\x0eobjectLocation\x12Z\n\x15object_index_location\x18\x02 \x01(\x0b\x32$.api.models.v1.IndexedObjectLocationH\x00R\x13objectIndexLocationB\n\n\x08location\"L\n\x0eObjectLocation\x12\x16\n\x06\x62ucket\x18\x01 \x01(\tR\x06\x62ucket\x12\x10\n\x03key\x18\x02 \x01(\tR\x03key\x12\x10\n\x03url\x18\x03 \x01(\tR\x03url\"\x7f\n\x15IndexedObjectLocation\x12\x16\n\x06\x62ucket\x18\x01 \x01(\tR\x06\x62ucket\x12\x10\n\x03key\x18\x02 \x01(\tR\x03key\x12\x10\n\x03url\x18\x03 \x01(\tR\x03url\x12*\n\x05index\x18\x04 \x01(\x0b\x32\x14.api.models.v1.IndexR\x05index\"A\n\x05Index\x12\x1d\n\nstart_byte\x18\x01 \x01(\x03R\tstartByte\x12\x19\n\x08\x65nd_byte\x18\x02 \x01(\x03R\x07\x65ndByte\"\xf0\x01\n\x06Origin\x12\x12\n\x04link\x18\x01 \x01(\tR\x04link\x12H\n\x0fobject_location\x18\x02 \x01(\x0b\x32\x1d.api.models.v1.ObjectLocationH\x00R\x0eobjectLocation\x12\x45\n\x0borigin_type\x18\x03 \x01(\x0e\x32$.api.models.v1.Origin.OriginTypeEnumR\noriginType\"5\n\x0eOriginTypeEnum\x12\x12\n\x0eOBJECT_STORAGE\x10\x00\x12\x0f\n\x0bORIGIN_LINK\x10\x01\x42\n\n\x08location\"\xdb\x01\n\x07Version\x12\x14\n\x05major\x18\x01 \x01(\x05R\x05major\x12\x14\n\x05minor\x18\x02 \x01(\x05R\x05minor\x12\x14\n\x05patch\x18\x03 \x01(\x05R\x05patch\x12\x1a\n\x08revision\x18\x04 \x01(\x05R\x08revision\x12\x39\n\x05stage\x18\x05 \x01(\x0e\x32#.api.models.v1.Version.VersionStageR\x05stage\"7\n\x0cVersionStage\x12\n\n\x06STABLE\x10\x00\x12\x06\n\x02RC\x10\x01\x12\x08\n\x04\x42\x45TA\x10\x02\x12\t\n\x05\x41LPHA\x10\x03\"/\n\x05Label\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\"\x14\n\x02ID\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\xde\x01\n\x13UpdateFieldsRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12o\n\x15updated_string_fields\x18\x02 \x03(\x0b\x32;.api.models.v1.UpdateFieldsRequest.UpdatedStringFieldsEntryR\x13updatedStringFields\x1a\x46\n\x18UpdatedStringFieldsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x82\x01\n\x04User\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12,\n\x06rights\x18\x02 \x03(\x0e\x32\x14.api.models.v1.RightR\x06rights\x12\x33\n\x08resource\x18\x03 \x01(\x0e\x32\x17.api.models.v1.ResourceR\x08resource\"\x97\x01\n\x08Metadata\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12,\n\x06labels\x18\x02 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x1a\n\x08metadata\x18\x03 \x01(\x0cR\x08metadata\x12%\n\rsimple_schema\x18\x04 \x01(\tH\x00R\x0csimpleSchemaB\x08\n\x06schema\"?\n\nVersionTag\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\nversion_id\x18\x02 \x01(\tR\tversionId\"}\n\x08\x41PIToken\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\x12,\n\x06rights\x18\x03 \x03(\x0e\x32\x14.api.models.v1.RightR\x06rights\x12\x1d\n\nproject_id\x18\x04 \x01(\tR\tprojectId\"\x07\n\x05\x45mpty*Q\n\x06Status\x12\x0e\n\nINITIATING\x10\x00\x12\r\n\tAVAILABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02\x12\x0c\n\x08\x41RCHIVED\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04*\x1c\n\x05Right\x12\x08\n\x04READ\x10\x00\x12\t\n\x05WRITE\x10\x01*\xa8\x01\n\x08Resource\x12\x14\n\x10PROJECT_RESOURCE\x10\x00\x12\x14\n\x10\x44\x41TASET_RESOURCE\x10\x01\x12\x1c\n\x18\x44\x41TASET_VERSION_RESOURCE\x10\x02\x12\x13\n\x0fOBJECT_RESOURCE\x10\x03\x12\x19\n\x15OBJECT_GROUP_RESOURCE\x10\x04\x12\"\n\x1eOBJECT_GROUP_REVISION_RESOURCE\x10\x05\x42v\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\x0c\x43ommonModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
 )
 
 _STATUS = _descriptor.EnumDescriptor(
@@ -58,8 +58,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1429,
-  serialized_end=1510,
+  serialized_start=1766,
+  serialized_end=1847,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -84,8 +84,8 @@ _RIGHT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1512,
-  serialized_end=1540,
+  serialized_start=1849,
+  serialized_end=1877,
 )
 _sym_db.RegisterEnumDescriptor(_RIGHT)
 
@@ -130,8 +130,8 @@ _RESOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1543,
-  serialized_end=1711,
+  serialized_start=1880,
+  serialized_end=2048,
 )
 _sym_db.RegisterEnumDescriptor(_RESOURCE)
 
@@ -171,8 +171,8 @@ _ORIGIN_ORIGINTYPEENUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=559,
-  serialized_end=612,
+  serialized_start=693,
+  serialized_end=746,
 )
 _sym_db.RegisterEnumDescriptor(_ORIGIN_ORIGINTYPEENUM)
 
@@ -206,8 +206,8 @@ _VERSION_VERSIONSTAGE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=753,
-  serialized_end=808,
+  serialized_start=925,
+  serialized_end=980,
 )
 _sym_db.RegisterEnumDescriptor(_VERSION_VERSIONSTAGE)
 
@@ -226,14 +226,14 @@ _LOCATION = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectLocation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_index_location', full_name='api.models.v1.Location.object_index_location', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectIndexLocation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -252,7 +252,7 @@ _LOCATION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=53,
-  serialized_end=204,
+  serialized_end=241,
 )
 
 
@@ -270,21 +270,21 @@ _OBJECTLOCATION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='bucket', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='key', full_name='api.models.v1.ObjectLocation.key', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='url', full_name='api.models.v1.ObjectLocation.url', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='url', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -297,8 +297,8 @@ _OBJECTLOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=206,
-  serialized_end=264,
+  serialized_start=243,
+  serialized_end=319,
 )
 
 
@@ -316,28 +316,28 @@ _INDEXEDOBJECTLOCATION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='bucket', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='key', full_name='api.models.v1.IndexedObjectLocation.key', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='url', full_name='api.models.v1.IndexedObjectLocation.url', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='url', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='index', full_name='api.models.v1.IndexedObjectLocation.index', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='index', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -350,8 +350,8 @@ _INDEXEDOBJECTLOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=266,
-  serialized_end=368,
+  serialized_start=321,
+  serialized_end=448,
 )
 
 
@@ -369,14 +369,14 @@ _INDEX = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='startByte', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='end_byte', full_name='api.models.v1.Index.end_byte', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='endByte', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -389,8 +389,8 @@ _INDEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=370,
-  serialized_end=415,
+  serialized_start=450,
+  serialized_end=515,
 )
 
 
@@ -408,21 +408,21 @@ _ORIGIN = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='link', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_location', full_name='api.models.v1.Origin.object_location', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectLocation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='origin_type', full_name='api.models.v1.Origin.origin_type', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='originType', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -441,8 +441,8 @@ _ORIGIN = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=418,
-  serialized_end=624,
+  serialized_start=518,
+  serialized_end=758,
 )
 
 
@@ -460,35 +460,35 @@ _VERSION = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='major', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='minor', full_name='api.models.v1.Version.minor', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='minor', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='patch', full_name='api.models.v1.Version.patch', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='patch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='revision', full_name='api.models.v1.Version.revision', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='revision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='stage', full_name='api.models.v1.Version.stage', index=4,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='stage', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -502,8 +502,8 @@ _VERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=627,
-  serialized_end=808,
+  serialized_start=761,
+  serialized_end=980,
 )
 
 
@@ -521,14 +521,14 @@ _LABEL = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='api.models.v1.Label.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='value', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -541,8 +541,8 @@ _LABEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=810,
-  serialized_end=845,
+  serialized_start=982,
+  serialized_end=1029,
 )
 
 
@@ -560,7 +560,7 @@ _ID = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -573,8 +573,8 @@ _ID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=847,
-  serialized_end=863,
+  serialized_start=1031,
+  serialized_end=1051,
 )
 
 
@@ -592,14 +592,14 @@ _UPDATEFIELDSREQUEST_UPDATEDSTRINGFIELDSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='api.models.v1.UpdateFieldsRequest.UpdatedStringFieldsEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='value', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -612,8 +612,8 @@ _UPDATEFIELDSREQUEST_UPDATEDSTRINGFIELDSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=993,
-  serialized_end=1051,
+  serialized_start=1206,
+  serialized_end=1276,
 )
 
 _UPDATEFIELDSREQUEST = _descriptor.Descriptor(
@@ -630,14 +630,14 @@ _UPDATEFIELDSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='updated_string_fields', full_name='api.models.v1.UpdateFieldsRequest.updated_string_fields', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='updatedStringFields', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -650,8 +650,8 @@ _UPDATEFIELDSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=866,
-  serialized_end=1051,
+  serialized_start=1054,
+  serialized_end=1276,
 )
 
 
@@ -669,21 +669,21 @@ _USER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='rights', full_name='api.models.v1.User.rights', index=1,
       number=2, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='rights', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='resource', full_name='api.models.v1.User.resource', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='resource', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -696,8 +696,8 @@ _USER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1053,
-  serialized_end=1157,
+  serialized_start=1279,
+  serialized_end=1409,
 )
 
 
@@ -715,28 +715,28 @@ _METADATA = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='labels', full_name='api.models.v1.Metadata.labels', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata', full_name='api.models.v1.Metadata.metadata', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='simple_schema', full_name='api.models.v1.Metadata.simple_schema', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='simpleSchema', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -754,8 +754,8 @@ _METADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1159,
-  serialized_end=1273,
+  serialized_start=1412,
+  serialized_end=1563,
 )
 
 
@@ -773,14 +773,14 @@ _VERSIONTAG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='version_id', full_name='api.models.v1.VersionTag.version_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='versionId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -793,8 +793,8 @@ _VERSIONTAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1275,
-  serialized_end=1321,
+  serialized_start=1565,
+  serialized_end=1628,
 )
 
 
@@ -812,28 +812,28 @@ _APITOKEN = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='token', full_name='api.models.v1.APIToken.token', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='token', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='rights', full_name='api.models.v1.APIToken.rights', index=2,
       number=3, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='rights', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='api.models.v1.APIToken.project_id', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='projectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -846,8 +846,8 @@ _APITOKEN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1323,
-  serialized_end=1418,
+  serialized_start=1630,
+  serialized_end=1755,
 )
 
 
@@ -871,8 +871,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1420,
-  serialized_end=1427,
+  serialized_start=1757,
+  serialized_end=1764,
 )
 
 _LOCATION.fields_by_name['object_location'].message_type = _OBJECTLOCATION
