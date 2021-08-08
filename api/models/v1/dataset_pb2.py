@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rDatasetModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1b\x61pi/models/v1/dataset.proto\x12\rapi.models.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!api/models/v1/common_models.proto\"\x91\x03\n\x07\x44\x61taset\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x34\n\x07\x63reated\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x1d\n\nproject_id\x18\x07 \x01(\tR\tprojectId\x12\x1b\n\tis_public\x18\x08 \x01(\x08R\x08isPublic\x12-\n\x06status\x18\t \x01(\x0e\x32\x15.api.models.v1.StatusR\x06status\x12<\n\x0cversion_tags\x18\n \x03(\x0b\x32\x19.api.models.v1.VersionTagR\x0bversionTags\"\xa8\x03\n\x0e\x44\x61tasetVersion\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n\ndataset_id\x18\x02 \x01(\tR\tdatasetId\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12\x30\n\x07version\x18\x07 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12(\n\x10object_group_ids\x18\x08 \x03(\tR\x0eobjectGroupIds\x12!\n\x0cobject_count\x18\t \x01(\x03R\x0bobjectCount\x12-\n\x06status\x18\n \x01(\x0e\x32\x15.api.models.v1.StatusR\x06statusBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rDatasetModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n\x1b\x61pi/models/v1/dataset.proto\x12\rapi.models.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!api/models/v1/common_models.proto\"\x91\x03\n\x07\x44\x61taset\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x34\n\x07\x63reated\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x1d\n\nproject_id\x18\x07 \x01(\x04R\tprojectId\x12\x1b\n\tis_public\x18\x08 \x01(\x08R\x08isPublic\x12-\n\x06status\x18\t \x01(\x0e\x32\x15.api.models.v1.StatusR\x06status\x12<\n\x0cversion_tags\x18\n \x03(\x0b\x32\x19.api.models.v1.VersionTagR\x0bversionTags\"\xa8\x03\n\x0e\x44\x61tasetVersion\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x1d\n\ndataset_id\x18\x02 \x01(\x04R\tdatasetId\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12\x30\n\x07version\x18\x07 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12(\n\x10object_group_ids\x18\x08 \x03(\x04R\x0eobjectGroupIds\x12!\n\x0cobject_count\x18\t \x01(\x03R\x0bobjectCount\x12-\n\x06status\x18\n \x01(\x0e\x32\x15.api.models.v1.StatusR\x06statusBw\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\rDatasetModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,])
 
@@ -38,8 +38,8 @@ _DATASET = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.models.v1.Dataset.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -80,8 +80,8 @@ _DATASET = _descriptor.Descriptor(
       serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='api.models.v1.Dataset.project_id', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=7, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='projectId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -133,15 +133,15 @@ _DATASETVERSION = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='api.models.v1.DatasetVersion.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='dataset_id', full_name='api.models.v1.DatasetVersion.dataset_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -182,7 +182,7 @@ _DATASETVERSION = _descriptor.Descriptor(
       serialized_options=None, json_name='version', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='object_group_ids', full_name='api.models.v1.DatasetVersion.object_group_ids', index=7,
-      number=8, type=9, cpp_type=9, label=3,
+      number=8, type=4, cpp_type=4, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,

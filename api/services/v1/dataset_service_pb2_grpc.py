@@ -65,8 +65,8 @@ class DatasetServiceStub(object):
                 )
         self.GetDatsetVersionRevisions = channel.unary_unary(
                 '/api.services.v1.DatasetService/GetDatsetVersionRevisions',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsResponse.FromString,
+                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
                 )
         self.DeleteDatasetVersion = channel.unary_unary(
                 '/api.services.v1.DatasetService/DeleteDatasetVersion',
@@ -207,8 +207,8 @@ def add_DatasetServiceServicer_to_server(servicer, server):
             ),
             'GetDatsetVersionRevisions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDatsetVersionRevisions,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsResponse.SerializeToString,
+                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.SerializeToString,
             ),
             'DeleteDatasetVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteDatasetVersion,
@@ -394,8 +394,8 @@ class DatasetService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetDatsetVersionRevisions',
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatsetVersionRevisionsResponse.FromString,
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
