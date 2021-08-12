@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\027ProjectAPIServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/project_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a\x1b\x61pi/models/v1/dataset.proto\x1a\x1c\x61pi/models/v1/projects.proto\"\xaf\x01\n\x14\x43reateProjectRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x33\n\x08metadata\x18\x03 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\"\'\n\x15\x43reateProjectResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"}\n\x17\x41\x64\x64UserToProjectRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12*\n\x05scope\x18\x02 \x03(\x0e\x32\x14.api.models.v1.RightR\x05scope\x12\x1d\n\nproject_id\x18\x03 \x01(\x04R\tprojectId\"\x1a\n\x18\x41\x64\x64UserToProjectResponse\"\'\n\x15\x43reateAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"G\n\x16\x43reateAPITokenResponse\x12-\n\x05token\x18\x01 \x01(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"+\n\x19GetProjectDatasetsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"|\n\x1aGetProjectDatasetsResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x03(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\x12,\n\x06labels\x18\x02 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\"\x18\n\x16GetUserProjectsRequest\"M\n\x17GetUserProjectsResponse\x12\x32\n\x08projects\x18\x01 \x03(\x0b\x32\x16.api.models.v1.ProjectR\x08projects\"#\n\x11GetProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"F\n\x12GetProjectResponse\x12\x30\n\x07project\x18\x01 \x01(\x0b\x32\x16.api.models.v1.ProjectR\x07project\"D\n\x13GetAPITokenResponse\x12-\n\x05token\x18\x01 \x03(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"\x14\n\x12GetAPITokenRequest\"\'\n\x15\x44\x65leteAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x18\n\x16\x44\x65leteAPITokenResponse\"&\n\x14\x44\x65leteProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x17\n\x15\x44\x65leteProjectResponseB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ProjectAPIServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/project_service_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/common_models.proto\x1a\x1b\x61pi/models/v1/dataset.proto\x1a\x1c\x61pi/models/v1/projects.proto\"\xaf\x01\n\x14\x43reateProjectRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x33\n\x08metadata\x18\x03 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\"\'\n\x15\x43reateProjectResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"}\n\x17\x41\x64\x64UserToProjectRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12*\n\x05scope\x18\x02 \x03(\x0e\x32\x14.api.models.v1.RightR\x05scope\x12\x1d\n\nproject_id\x18\x03 \x01(\x04R\tprojectId\"\x1a\n\x18\x41\x64\x64UserToProjectResponse\"\'\n\x15\x43reateAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"G\n\x16\x43reateAPITokenResponse\x12-\n\x05token\x18\x01 \x01(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"+\n\x19GetProjectDatasetsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"N\n\x1aGetProjectDatasetsResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x03(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\"\x18\n\x16GetUserProjectsRequest\"M\n\x17GetUserProjectsResponse\x12\x32\n\x08projects\x18\x01 \x03(\x0b\x32\x16.api.models.v1.ProjectR\x08projects\"#\n\x11GetProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"F\n\x12GetProjectResponse\x12\x30\n\x07project\x18\x01 \x01(\x0b\x32\x16.api.models.v1.ProjectR\x07project\"D\n\x13GetAPITokenResponse\x12-\n\x05token\x18\x01 \x03(\x0b\x32\x17.api.models.v1.APITokenR\x05token\"\x14\n\x12GetAPITokenRequest\"\'\n\x15\x44\x65leteAPITokenRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x18\n\x16\x44\x65leteAPITokenResponse\"&\n\x14\x44\x65leteProjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x17\n\x15\x44\x65leteProjectResponseB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ProjectAPIServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_dataset__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_projects__pb2.DESCRIPTOR,])
 
@@ -296,13 +296,6 @@ _GETPROJECTDATASETSRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='dataset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='labels', full_name='api.services.v1.GetProjectDatasetsResponse.labels', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -316,7 +309,7 @@ _GETPROJECTDATASETSRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=692,
-  serialized_end=816,
+  serialized_end=770,
 )
 
 
@@ -340,8 +333,8 @@ _GETUSERPROJECTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=818,
-  serialized_end=842,
+  serialized_start=772,
+  serialized_end=796,
 )
 
 
@@ -372,8 +365,8 @@ _GETUSERPROJECTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=844,
-  serialized_end=921,
+  serialized_start=798,
+  serialized_end=875,
 )
 
 
@@ -404,8 +397,8 @@ _GETPROJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=923,
-  serialized_end=958,
+  serialized_start=877,
+  serialized_end=912,
 )
 
 
@@ -436,8 +429,8 @@ _GETPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=960,
-  serialized_end=1030,
+  serialized_start=914,
+  serialized_end=984,
 )
 
 
@@ -468,8 +461,8 @@ _GETAPITOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1032,
-  serialized_end=1100,
+  serialized_start=986,
+  serialized_end=1054,
 )
 
 
@@ -493,8 +486,8 @@ _GETAPITOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1102,
-  serialized_end=1122,
+  serialized_start=1056,
+  serialized_end=1076,
 )
 
 
@@ -525,8 +518,8 @@ _DELETEAPITOKENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1124,
-  serialized_end=1163,
+  serialized_start=1078,
+  serialized_end=1117,
 )
 
 
@@ -550,8 +543,8 @@ _DELETEAPITOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1165,
-  serialized_end=1189,
+  serialized_start=1119,
+  serialized_end=1143,
 )
 
 
@@ -582,8 +575,8 @@ _DELETEPROJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1191,
-  serialized_end=1229,
+  serialized_start=1145,
+  serialized_end=1183,
 )
 
 
@@ -607,8 +600,8 @@ _DELETEPROJECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1231,
-  serialized_end=1254,
+  serialized_start=1185,
+  serialized_end=1208,
 )
 
 _CREATEPROJECTREQUEST.fields_by_name['metadata'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._METADATA
@@ -616,7 +609,6 @@ _CREATEPROJECTREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot
 _ADDUSERTOPROJECTREQUEST.fields_by_name['scope'].enum_type = api_dot_models_dot_v1_dot_common__models__pb2._RIGHT
 _CREATEAPITOKENRESPONSE.fields_by_name['token'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._APITOKEN
 _GETPROJECTDATASETSRESPONSE.fields_by_name['dataset'].message_type = api_dot_models_dot_v1_dot_dataset__pb2._DATASET
-_GETPROJECTDATASETSRESPONSE.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
 _GETUSERPROJECTSRESPONSE.fields_by_name['projects'].message_type = api_dot_models_dot_v1_dot_projects__pb2._PROJECT
 _GETPROJECTRESPONSE.fields_by_name['project'].message_type = api_dot_models_dot_v1_dot_projects__pb2._PROJECT
 _GETAPITOKENRESPONSE.fields_by_name['token'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._APITOKEN

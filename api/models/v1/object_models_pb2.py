@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\014ObjectModelsP\001Z0github.com/ScienceObjectsDB/go-api/api/models/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!api/models/v1/object_models.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa6\x02\n\x0bObjectGroup\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x03 \x01(\x04R\tdatasetId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12-\n\x06status\x18\x06 \x01(\x0e\x32\x15.api.models.v1.StatusR\x06status\x12\x17\n\x07head_id\x18\x07 \x01(\x04R\x06headId\x12)\n\x10\x63urrent_revision\x18\x08 \x01(\x03R\x0f\x63urrentRevision\"\x84\x03\n\x13ObjectGroupRevision\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x1d\n\ndataset_id\x18\x04 \x01(\x04R\tdatasetId\x12\x30\n\x07version\x18\x05 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12,\n\x06labels\x18\x07 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x08 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12/\n\x07objects\x18\t \x03(\x0b\x32\x15.api.models.v1.ObjectR\x07objects\x12&\n\x0fobject_group_id\x18\n \x01(\x04R\robjectGroupId\x12\x1a\n\x08revision\x18\x0b \x01(\x03R\x08revision\"\x8b\x03\n\x06Object\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x1a\n\x08\x66ilename\x18\x02 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x03 \x01(\tR\x08\x66iletype\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12\x33\n\x08location\x18\x07 \x01(\x0b\x32\x17.api.models.v1.LocationR\x08location\x12-\n\x06origin\x18\x08 \x01(\x0b\x32\x15.api.models.v1.OriginR\x06origin\x12\x1f\n\x0b\x63ontent_len\x18\t \x01(\x03R\ncontentLen\x12\x1b\n\tupload_id\x18\n \x01(\tR\x08uploadIdBv\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\x0cObjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
+  serialized_pb=b'\n!api/models/v1/object_models.proto\x12\rapi.models.v1\x1a!api/models/v1/common_models.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc8\x02\n\x0bObjectGroup\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\ndataset_id\x18\x04 \x01(\x04R\tdatasetId\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12-\n\x06status\x18\x07 \x01(\x0e\x32\x15.api.models.v1.StatusR\x06status\x12\x17\n\x07head_id\x18\x08 \x01(\x04R\x06headId\x12)\n\x10\x63urrent_revision\x18\t \x01(\x03R\x0f\x63urrentRevision\"\x84\x03\n\x13ObjectGroupRevision\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x1d\n\ndataset_id\x18\x04 \x01(\x04R\tdatasetId\x12\x30\n\x07version\x18\x05 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12,\n\x06labels\x18\x07 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x08 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12/\n\x07objects\x18\t \x03(\x0b\x32\x15.api.models.v1.ObjectR\x07objects\x12&\n\x0fobject_group_id\x18\n \x01(\x04R\robjectGroupId\x12\x1a\n\x08revision\x18\x0b \x01(\x03R\x08revision\"\x8b\x03\n\x06Object\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x1a\n\x08\x66ilename\x18\x02 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x03 \x01(\tR\x08\x66iletype\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x34\n\x07\x63reated\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x63reated\x12\x33\n\x08location\x18\x07 \x01(\x0b\x32\x17.api.models.v1.LocationR\x08location\x12-\n\x06origin\x18\x08 \x01(\x0b\x32\x15.api.models.v1.OriginR\x06origin\x12\x1f\n\x0b\x63ontent_len\x18\t \x01(\x03R\ncontentLen\x12\x1b\n\tupload_id\x18\n \x01(\tR\x08uploadIdBv\n2com.github.ScienceObjectsDB.java_api.api.models.v1B\x0cObjectModelsP\x01Z0github.com/ScienceObjectsDB/go-api/api/models/v1b\x06proto3'
   ,
   dependencies=[api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -51,43 +51,50 @@ _OBJECTGROUP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='dataset_id', full_name='api.models.v1.ObjectGroup.dataset_id', index=2,
-      number=3, type=4, cpp_type=4, label=1,
+      name='description', full_name='api.models.v1.ObjectGroup.description', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.models.v1.ObjectGroup.dataset_id', index=3,
+      number=4, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='labels', full_name='api.models.v1.ObjectGroup.labels', index=3,
-      number=4, type=11, cpp_type=10, label=3,
+      name='labels', full_name='api.models.v1.ObjectGroup.labels', index=4,
+      number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='labels', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='api.models.v1.ObjectGroup.metadata', index=4,
-      number=5, type=11, cpp_type=10, label=3,
+      name='metadata', full_name='api.models.v1.ObjectGroup.metadata', index=5,
+      number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='api.models.v1.ObjectGroup.status', index=5,
-      number=6, type=14, cpp_type=8, label=1,
+      name='status', full_name='api.models.v1.ObjectGroup.status', index=6,
+      number=7, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='status', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='head_id', full_name='api.models.v1.ObjectGroup.head_id', index=6,
-      number=7, type=4, cpp_type=4, label=1,
+      name='head_id', full_name='api.models.v1.ObjectGroup.head_id', index=7,
+      number=8, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='headId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='current_revision', full_name='api.models.v1.ObjectGroup.current_revision', index=7,
-      number=8, type=3, cpp_type=2, label=1,
+      name='current_revision', full_name='api.models.v1.ObjectGroup.current_revision', index=8,
+      number=9, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -105,7 +112,7 @@ _OBJECTGROUP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=121,
-  serialized_end=415,
+  serialized_end=449,
 )
 
 
@@ -192,8 +199,8 @@ _OBJECTGROUPREVISION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=418,
-  serialized_end=806,
+  serialized_start=452,
+  serialized_end=840,
 )
 
 
@@ -287,8 +294,8 @@ _OBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=809,
-  serialized_end=1204,
+  serialized_start=843,
+  serialized_end=1238,
 )
 
 _OBJECTGROUP.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
