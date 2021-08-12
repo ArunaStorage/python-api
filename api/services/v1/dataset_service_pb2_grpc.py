@@ -63,8 +63,8 @@ class DatasetServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionResponse.FromString,
                 )
-        self.GetDatsetVersionRevisions = channel.unary_unary(
-                '/api.services.v1.DatasetService/GetDatsetVersionRevisions',
+        self.GetDatasetVersionRevisions = channel.unary_unary(
+                '/api.services.v1.DatasetService/GetDatasetVersionRevisions',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
                 )
@@ -145,7 +145,7 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetDatsetVersionRevisions(self, request, context):
+    def GetDatasetVersionRevisions(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -205,8 +205,8 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionResponse.SerializeToString,
             ),
-            'GetDatsetVersionRevisions': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDatsetVersionRevisions,
+            'GetDatasetVersionRevisions': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDatasetVersionRevisions,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.SerializeToString,
             ),
@@ -383,7 +383,7 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetDatsetVersionRevisions(request,
+    def GetDatasetVersionRevisions(request,
             target,
             options=(),
             channel_credentials=None,
@@ -393,7 +393,7 @@ class DatasetService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetDatsetVersionRevisions',
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetDatasetVersionRevisions',
             api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
             api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
             options, channel_credentials,
