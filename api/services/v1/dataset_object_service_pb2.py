@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\026DatasetObjectsServicesP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/dataset_object_service.proto\x12\x0f\x61pi.services.v1\x1a\x33\x61pi/services/v1/dataset_object_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\xc3\x0b\n\x15\x44\x61tasetObjectsService\x12\x91\x01\n\x11\x43reateObjectGroup\x12).api.services.v1.CreateObjectGroupRequest\x1a*.api.services.v1.CreateObjectGroupResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/objectgroup/create:\x01*\x12\xaf\x01\n\x18\x41\x64\x64RevisionToObjectGroup\x12\x30.api.services.v1.AddRevisionToObjectGroupRequest\x1a\x31.api.services.v1.AddRevisionToObjectGroupResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v1/objectgrouprevisions/create:\x01*\x12\x85\x01\n\x0eGetObjectGroup\x12&.api.services.v1.GetObjectGroupRequest\x1a\'.api.services.v1.GetObjectGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v1/objectgroup/get:\x01*\x12\xb9\x01\n\x1dGetCurrentObjectGroupRevision\x12\x35.api.services.v1.GetCurrentObjectGroupRevisionRequest\x1a\x36.api.services.v1.GetCurrentObjectGroupRevisionResponse\")\x82\xd3\xe4\x93\x02#\"\x1e/api/v1/currentobjectgroup/get:\x01*\x12\xa6\x01\n\x16GetObjectGroupRevision\x12..api.services.v1.GetObjectGroupRevisionRequest\x1a/.api.services.v1.GetObjectGroupRevisionResponse\"+\x82\xd3\xe4\x93\x02%\" /api/v1/objectgrouprevisions/get:\x01*\x12\xa6\x01\n\x17GetObjectGroupRevisions\x12/.api.services.v1.GetObjectGroupRevisionsRequest\x1a\x30.api.services.v1.GetObjectGroupRevisionsResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /api/v1/objectgrouprevisions/get\x12\x8f\x01\n\x12\x46inishObjectUpload\x12*.api.services.v1.FinishObjectUploadRequest\x1a+.api.services.v1.FinishObjectUploadResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v1/object/finish:\x01*\x12\x8c\x01\n\x11\x44\x65leteObjectGroup\x12).api.services.v1.DeleteObjectGroupRequest\x1a*.api.services.v1.DeleteObjectGroupResponse\" \x82\xd3\xe4\x93\x02\x1a*\x18/api/v1/objectgroup/{id}\x12\xac\x01\n\x19\x44\x65leteObjectGroupRevision\x12\x31.api.services.v1.DeleteObjectGroupRevisionRequest\x1a\x32.api.services.v1.DeleteObjectGroupRevisionResponse\"(\x82\xd3\xe4\x93\x02\"* /api/v1/objectgrouprevision/{id}B\x84\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x16\x44\x61tasetObjectsServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/dataset_object_service.proto\x12\x0f\x61pi.services.v1\x1a\x33\x61pi/services/v1/dataset_object_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\xd4\x04\n\x15\x44\x61tasetObjectsService\x12\x91\x01\n\x11\x43reateObjectGroup\x12).api.services.v1.CreateObjectGroupRequest\x1a*.api.services.v1.CreateObjectGroupResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/objectgroup/create:\x01*\x12\x85\x01\n\x0eGetObjectGroup\x12&.api.services.v1.GetObjectGroupRequest\x1a\'.api.services.v1.GetObjectGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v1/objectgroup/get:\x01*\x12\x8f\x01\n\x12\x46inishObjectUpload\x12*.api.services.v1.FinishObjectUploadRequest\x1a+.api.services.v1.FinishObjectUploadResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v1/object/finish:\x01*\x12\x8c\x01\n\x11\x44\x65leteObjectGroup\x12).api.services.v1.DeleteObjectGroupRequest\x1a*.api.services.v1.DeleteObjectGroupResponse\" \x82\xd3\xe4\x93\x02\x1a*\x18/api/v1/objectgroup/{id}B\x84\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x16\x44\x61tasetObjectsServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -40,7 +40,7 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=149,
-  serialized_end=1624,
+  serialized_end=745,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateObjectGroup',
@@ -53,19 +53,9 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='AddRevisionToObjectGroup',
-    full_name='api.services.v1.DatasetObjectsService.AddRevisionToObjectGroup',
-    index=1,
-    containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._ADDREVISIONTOOBJECTGROUPREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._ADDREVISIONTOOBJECTGROUPRESPONSE,
-    serialized_options=b'\202\323\344\223\002(\"#/api/v1/objectgrouprevisions/create:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='GetObjectGroup',
     full_name='api.services.v1.DatasetObjectsService.GetObjectGroup',
-    index=2,
+    index=1,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPRESPONSE,
@@ -73,39 +63,9 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetCurrentObjectGroupRevision',
-    full_name='api.services.v1.DatasetObjectsService.GetCurrentObjectGroupRevision',
-    index=3,
-    containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETCURRENTOBJECTGROUPREVISIONREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETCURRENTOBJECTGROUPREVISIONRESPONSE,
-    serialized_options=b'\202\323\344\223\002#\"\036/api/v1/currentobjectgroup/get:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetObjectGroupRevision',
-    full_name='api.services.v1.DatasetObjectsService.GetObjectGroupRevision',
-    index=4,
-    containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREVISIONREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREVISIONRESPONSE,
-    serialized_options=b'\202\323\344\223\002%\" /api/v1/objectgrouprevisions/get:\001*',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetObjectGroupRevisions',
-    full_name='api.services.v1.DatasetObjectsService.GetObjectGroupRevisions',
-    index=5,
-    containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREVISIONSREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREVISIONSRESPONSE,
-    serialized_options=b'\202\323\344\223\002\"\022 /api/v1/objectgrouprevisions/get',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='FinishObjectUpload',
     full_name='api.services.v1.DatasetObjectsService.FinishObjectUpload',
-    index=6,
+    index=2,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._FINISHOBJECTUPLOADREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._FINISHOBJECTUPLOADRESPONSE,
@@ -115,21 +75,11 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteObjectGroup',
     full_name='api.services.v1.DatasetObjectsService.DeleteObjectGroup',
-    index=7,
+    index=3,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPRESPONSE,
     serialized_options=b'\202\323\344\223\002\032*\030/api/v1/objectgroup/{id}',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DeleteObjectGroupRevision',
-    full_name='api.services.v1.DatasetObjectsService.DeleteObjectGroupRevision',
-    index=8,
-    containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPREVISIONREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPREVISIONRESPONSE,
-    serialized_options=b'\202\323\344\223\002\"* /api/v1/objectgrouprevision/{id}',
     create_key=_descriptor._internal_create_key,
   ),
 ])

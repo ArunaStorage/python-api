@@ -38,10 +38,10 @@ class DatasetServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsResponse.FromString,
                 )
-        self.GetCurrentObjectGroupRevisions = channel.unary_unary(
-                '/api.services.v1.DatasetService/GetCurrentObjectGroupRevisions',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsResponse.FromString,
+        self.GetObjectGroupsStream = channel.unary_unary(
+                '/api.services.v1.DatasetService/GetObjectGroupsStream',
+                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.FromString,
                 )
         self.UpdateDatasetField = channel.unary_unary(
                 '/api.services.v1.DatasetService/UpdateDatasetField',
@@ -53,6 +53,11 @@ class DatasetServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetResponse.FromString,
                 )
+        self.GetObjectGroupsInDateRange = channel.unary_unary(
+                '/api.services.v1.DatasetService/GetObjectGroupsInDateRange',
+                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.FromString,
+                )
         self.ReleaseDatasetVersion = channel.unary_unary(
                 '/api.services.v1.DatasetService/ReleaseDatasetVersion',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.ReleaseDatasetVersionRequest.SerializeToString,
@@ -63,10 +68,10 @@ class DatasetServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionResponse.FromString,
                 )
-        self.GetDatasetVersionRevisions = channel.unary_unary(
-                '/api.services.v1.DatasetService/GetDatasetVersionRevisions',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
+        self.GetDatasetVersionObjectGroups = channel.unary_unary(
+                '/api.services.v1.DatasetService/GetDatasetVersionObjectGroups',
+                request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsResponse.FromString,
                 )
         self.DeleteDatasetVersion = channel.unary_unary(
                 '/api.services.v1.DatasetService/DeleteDatasetVersion',
@@ -109,7 +114,7 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetCurrentObjectGroupRevisions(self, request, context):
+    def GetObjectGroupsStream(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -125,6 +130,12 @@ class DatasetServiceServicer(object):
     def DeleteDataset(self, request, context):
         """DeleteDataset Delete a dataset
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectGroupsInDateRange(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -145,7 +156,7 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetDatasetVersionRevisions(self, request, context):
+    def GetDatasetVersionObjectGroups(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -180,10 +191,10 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsResponse.SerializeToString,
             ),
-            'GetCurrentObjectGroupRevisions': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCurrentObjectGroupRevisions,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsResponse.SerializeToString,
+            'GetObjectGroupsStream': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectGroupsStream,
+                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.SerializeToString,
             ),
             'UpdateDatasetField': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateDatasetField,
@@ -195,6 +206,11 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetResponse.SerializeToString,
             ),
+            'GetObjectGroupsInDateRange': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectGroupsInDateRange,
+                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.SerializeToString,
+            ),
             'ReleaseDatasetVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.ReleaseDatasetVersion,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.ReleaseDatasetVersionRequest.FromString,
@@ -205,10 +221,10 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionResponse.SerializeToString,
             ),
-            'GetDatasetVersionRevisions': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDatasetVersionRevisions,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.SerializeToString,
+            'GetDatasetVersionObjectGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDatasetVersionObjectGroups,
+                    request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsResponse.SerializeToString,
             ),
             'DeleteDatasetVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteDatasetVersion,
@@ -298,7 +314,7 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCurrentObjectGroupRevisions(request,
+    def GetObjectGroupsStream(request,
             target,
             options=(),
             channel_credentials=None,
@@ -308,9 +324,9 @@ class DatasetService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetCurrentObjectGroupRevisions',
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetCurrentObjectGroupRevisionsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetObjectGroupsStream',
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -349,6 +365,23 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetObjectGroupsInDateRange(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetObjectGroupsInDateRange',
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ReleaseDatasetVersion(request,
             target,
             options=(),
@@ -383,7 +416,7 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetDatasetVersionRevisions(request,
+    def GetDatasetVersionObjectGroups(request,
             target,
             options=(),
             channel_credentials=None,
@@ -393,9 +426,9 @@ class DatasetService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetDatasetVersionRevisions',
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionRevisionsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetDatasetVersionObjectGroups',
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionObjectGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

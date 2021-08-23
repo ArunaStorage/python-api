@@ -19,30 +19,10 @@ class DatasetObjectsServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupResponse.FromString,
                 )
-        self.AddRevisionToObjectGroup = channel.unary_unary(
-                '/api.services.v1.DatasetObjectsService/AddRevisionToObjectGroup',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupResponse.FromString,
-                )
         self.GetObjectGroup = channel.unary_unary(
                 '/api.services.v1.DatasetObjectsService/GetObjectGroup',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupResponse.FromString,
-                )
-        self.GetCurrentObjectGroupRevision = channel.unary_unary(
-                '/api.services.v1.DatasetObjectsService/GetCurrentObjectGroupRevision',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionResponse.FromString,
-                )
-        self.GetObjectGroupRevision = channel.unary_unary(
-                '/api.services.v1.DatasetObjectsService/GetObjectGroupRevision',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.FromString,
-                )
-        self.GetObjectGroupRevisions = channel.unary_unary(
-                '/api.services.v1.DatasetObjectsService/GetObjectGroupRevisions',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsResponse.FromString,
                 )
         self.FinishObjectUpload = channel.unary_unary(
                 '/api.services.v1.DatasetObjectsService/FinishObjectUpload',
@@ -53,11 +33,6 @@ class DatasetObjectsServiceStub(object):
                 '/api.services.v1.DatasetObjectsService/DeleteObjectGroup',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.FromString,
-                )
-        self.DeleteObjectGroupRevision = channel.unary_unary(
-                '/api.services.v1.DatasetObjectsService/DeleteObjectGroupRevision',
-                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionResponse.FromString,
                 )
 
 
@@ -71,35 +46,9 @@ class DatasetObjectsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AddRevisionToObjectGroup(self, request, context):
-        """CreateObjectGroupVersion Creates a new object group version
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetObjectGroup(self, request, context):
         """GetObjectGroup Returns the object group with the given ID
         """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetCurrentObjectGroupRevision(self, request, context):
-        """GetObjectGroupCurrentVersion Returns the head version in the history of a given object group
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetObjectGroupRevision(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetObjectGroupRevisions(self, request, context):
-        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -117,12 +66,6 @@ class DatasetObjectsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteObjectGroupRevision(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_DatasetObjectsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -131,30 +74,10 @@ def add_DatasetObjectsServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupResponse.SerializeToString,
             ),
-            'AddRevisionToObjectGroup': grpc.unary_unary_rpc_method_handler(
-                    servicer.AddRevisionToObjectGroup,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupResponse.SerializeToString,
-            ),
             'GetObjectGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectGroup,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupResponse.SerializeToString,
-            ),
-            'GetCurrentObjectGroupRevision': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCurrentObjectGroupRevision,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionResponse.SerializeToString,
-            ),
-            'GetObjectGroupRevision': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetObjectGroupRevision,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.SerializeToString,
-            ),
-            'GetObjectGroupRevisions': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetObjectGroupRevisions,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsResponse.SerializeToString,
             ),
             'FinishObjectUpload': grpc.unary_unary_rpc_method_handler(
                     servicer.FinishObjectUpload,
@@ -165,11 +88,6 @@ def add_DatasetObjectsServiceServicer_to_server(servicer, server):
                     servicer.DeleteObjectGroup,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.SerializeToString,
-            ),
-            'DeleteObjectGroupRevision': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteObjectGroupRevision,
-                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionRequest.FromString,
-                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -199,23 +117,6 @@ class DatasetObjectsService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddRevisionToObjectGroup(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/AddRevisionToObjectGroup',
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.AddRevisionToObjectGroupResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetObjectGroup(request,
             target,
             options=(),
@@ -229,57 +130,6 @@ class DatasetObjectsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/GetObjectGroup',
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.SerializeToString,
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetCurrentObjectGroupRevision(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/GetCurrentObjectGroupRevision',
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetCurrentObjectGroupRevisionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetObjectGroupRevision(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/GetObjectGroupRevision',
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetObjectGroupRevisions(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/GetObjectGroupRevisions',
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -314,22 +164,5 @@ class DatasetObjectsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/DeleteObjectGroup',
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.SerializeToString,
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteObjectGroupRevision(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/DeleteObjectGroupRevision',
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionRequest.SerializeToString,
-            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRevisionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

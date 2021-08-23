@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\017DatasetServicesP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%api/services/v1/dataset_service.proto\x12\x0f\x61pi.services.v1\x1a,api/services/v1/dataset_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\x9b\r\n\x0e\x44\x61tasetService\x12\x81\x01\n\rCreateDataset\x12%.api.services.v1.CreateDatasetRequest\x1a&.api.services.v1.CreateDatasetResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v1/dataset/create:\x01*\x12u\n\nGetDataset\x12\".api.services.v1.GetDatasetRequest\x1a#.api.services.v1.GetDatasetResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/api/v1/dataset/get:\x01*\x12\x96\x01\n\x12GetDatasetVersions\x12*.api.services.v1.GetDatasetVersionsRequest\x1a+.api.services.v1.GetDatasetVersionsResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v1/datasetversions/list:\x01*\x12\x9a\x01\n\x16GetDatasetObjectGroups\x12..api.services.v1.GetDatasetObjectGroupsRequest\x1a/.api.services.v1.GetDatasetObjectGroupsResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x14/api/v1/dataset/list:\x01*\x12\xc4\x01\n\x1eGetCurrentObjectGroupRevisions\x12\x36.api.services.v1.GetCurrentObjectGroupRevisionsRequest\x1a\x37.api.services.v1.GetCurrentObjectGroupRevisionsResponse\"1\x82\xd3\xe4\x93\x02+\x12)/api/v1/dataset/{id}/currentgroupversions\x12\x90\x01\n\x12UpdateDatasetField\x12*.api.services.v1.UpdateDatasetFieldRequest\x1a+.api.services.v1.UpdateDatasetFieldResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v1/dataset/update:\x01*\x12|\n\rDeleteDataset\x12%.api.services.v1.DeleteDatasetRequest\x1a&.api.services.v1.DeleteDatasetResponse\"\x1c\x82\xd3\xe4\x93\x02\x16*\x14/api/v1/dataset/{id}\x12\xa0\x01\n\x15ReleaseDatasetVersion\x12-.api.services.v1.ReleaseDatasetVersionRequest\x1a..api.services.v1.ReleaseDatasetVersionResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/api/v1/datasetversion/create:\x01*\x12\x91\x01\n\x11GetDatasetVersion\x12).api.services.v1.GetDatasetVersionRequest\x1a*.api.services.v1.GetDatasetVersionResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/datasetversion/get:\x01*\x12\xad\x01\n\x1aGetDatasetVersionRevisions\x12\x32.api.services.v1.GetDatasetVersionRevisionsRequest\x1a\x33.api.services.v1.GetDatasetVersionRevisionsResponse\"&\x82\xd3\xe4\x93\x02 \"\x1b/api/v1/datasetversion/list:\x01*\x12\x98\x01\n\x14\x44\x65leteDatasetVersion\x12,.api.services.v1.DeleteDatasetVersionRequest\x1a-.api.services.v1.DeleteDatasetVersionResponse\"#\x82\xd3\xe4\x93\x02\x1d*\x1b/api/v1/datasetversion/{id}B}\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x0f\x44\x61tasetServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n%api/services/v1/dataset_service.proto\x12\x0f\x61pi.services.v1\x1a,api/services/v1/dataset_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\xbf\x0e\n\x0e\x44\x61tasetService\x12\x81\x01\n\rCreateDataset\x12%.api.services.v1.CreateDatasetRequest\x1a&.api.services.v1.CreateDatasetResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v1/dataset/create:\x01*\x12u\n\nGetDataset\x12\".api.services.v1.GetDatasetRequest\x1a#.api.services.v1.GetDatasetResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/api/v1/dataset/get:\x01*\x12\x96\x01\n\x12GetDatasetVersions\x12*.api.services.v1.GetDatasetVersionsRequest\x1a+.api.services.v1.GetDatasetVersionsResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v1/datasetversions/list:\x01*\x12\x9a\x01\n\x16GetDatasetObjectGroups\x12..api.services.v1.GetDatasetObjectGroupsRequest\x1a/.api.services.v1.GetDatasetObjectGroupsResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x14/api/v1/dataset/list:\x01*\x12\xa5\x01\n\x15GetObjectGroupsStream\x12\x31.api.services.v1.GetObjectGroupsStreamLinkRequest\x1a\x32.api.services.v1.GetObjectGroupsStreamLinkResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/objectgroupsstream:\x01*\x12\x90\x01\n\x12UpdateDatasetField\x12*.api.services.v1.UpdateDatasetFieldRequest\x1a+.api.services.v1.UpdateDatasetFieldResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v1/dataset/update:\x01*\x12|\n\rDeleteDataset\x12%.api.services.v1.DeleteDatasetRequest\x1a&.api.services.v1.DeleteDatasetResponse\"\x1c\x82\xd3\xe4\x93\x02\x16*\x14/api/v1/dataset/{id}\x12\xb7\x01\n\x1aGetObjectGroupsInDateRange\x12\x32.api.services.v1.GetObjectGroupsInDateRangeRequest\x1a\x33.api.services.v1.GetObjectGroupsInDateRangeResponse\"0\x82\xd3\xe4\x93\x02*\"%/api/v1/objectgroupsindaterange/query:\x01*\x12\xa0\x01\n\x15ReleaseDatasetVersion\x12-.api.services.v1.ReleaseDatasetVersionRequest\x1a..api.services.v1.ReleaseDatasetVersionResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/api/v1/datasetversion/create:\x01*\x12\x91\x01\n\x11GetDatasetVersion\x12).api.services.v1.GetDatasetVersionRequest\x1a*.api.services.v1.GetDatasetVersionResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/datasetversion/get:\x01*\x12\xb6\x01\n\x1dGetDatasetVersionObjectGroups\x12\x35.api.services.v1.GetDatasetVersionObjectGroupsRequest\x1a\x36.api.services.v1.GetDatasetVersionObjectGroupsResponse\"&\x82\xd3\xe4\x93\x02 \"\x1b/api/v1/datasetversion/list:\x01*\x12\x98\x01\n\x14\x44\x65leteDatasetVersion\x12,.api.services.v1.DeleteDatasetVersionRequest\x1a-.api.services.v1.DeleteDatasetVersionResponse\"#\x82\xd3\xe4\x93\x02\x1d*\x1b/api/v1/datasetversion/{id}B}\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x0f\x44\x61tasetServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_services_dot_v1_dot_dataset__service__models__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -40,7 +40,7 @@ _DATASETSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=135,
-  serialized_end=1826,
+  serialized_end=1990,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateDataset',
@@ -83,13 +83,13 @@ _DATASETSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetCurrentObjectGroupRevisions',
-    full_name='api.services.v1.DatasetService.GetCurrentObjectGroupRevisions',
+    name='GetObjectGroupsStream',
+    full_name='api.services.v1.DatasetService.GetObjectGroupsStream',
     index=4,
     containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETCURRENTOBJECTGROUPREVISIONSREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETCURRENTOBJECTGROUPREVISIONSRESPONSE,
-    serialized_options=b'\202\323\344\223\002+\022)/api/v1/dataset/{id}/currentgroupversions',
+    input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETOBJECTGROUPSSTREAMLINKREQUEST,
+    output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETOBJECTGROUPSSTREAMLINKRESPONSE,
+    serialized_options=b'\202\323\344\223\002\037\"\032/api/v1/objectgroupsstream:\001*',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -113,9 +113,19 @@ _DATASETSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetObjectGroupsInDateRange',
+    full_name='api.services.v1.DatasetService.GetObjectGroupsInDateRange',
+    index=7,
+    containing_service=None,
+    input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETOBJECTGROUPSINDATERANGEREQUEST,
+    output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETOBJECTGROUPSINDATERANGERESPONSE,
+    serialized_options=b'\202\323\344\223\002*\"%/api/v1/objectgroupsindaterange/query:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ReleaseDatasetVersion',
     full_name='api.services.v1.DatasetService.ReleaseDatasetVersion',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._RELEASEDATASETVERSIONREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._RELEASEDATASETVERSIONRESPONSE,
@@ -125,7 +135,7 @@ _DATASETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetDatasetVersion',
     full_name='api.services.v1.DatasetService.GetDatasetVersion',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONRESPONSE,
@@ -133,19 +143,19 @@ _DATASETSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetDatasetVersionRevisions',
-    full_name='api.services.v1.DatasetService.GetDatasetVersionRevisions',
-    index=9,
+    name='GetDatasetVersionObjectGroups',
+    full_name='api.services.v1.DatasetService.GetDatasetVersionObjectGroups',
+    index=10,
     containing_service=None,
-    input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONREVISIONSREQUEST,
-    output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONREVISIONSRESPONSE,
+    input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONOBJECTGROUPSREQUEST,
+    output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._GETDATASETVERSIONOBJECTGROUPSRESPONSE,
     serialized_options=b'\202\323\344\223\002 \"\033/api/v1/datasetversion/list:\001*',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='DeleteDatasetVersion',
     full_name='api.services.v1.DatasetService.DeleteDatasetVersion',
-    index=10,
+    index=11,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._DELETEDATASETVERSIONREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__service__models__pb2._DELETEDATASETVERSIONRESPONSE,

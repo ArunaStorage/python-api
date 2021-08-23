@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from api.models.v1 import dataset_pb2 as api_dot_models_dot_v1_dot_dataset__pb2
 from api.models.v1 import common_models_pb2 as api_dot_models_dot_v1_dot_common__models__pb2
 from api.models.v1 import object_models_pb2 as api_dot_models_dot_v1_dot_object__models__pb2
@@ -22,11 +23,76 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\024DatasetServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/dataset_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1b\x61pi/models/v1/dataset.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xce\x01\n\x14\x43reateDatasetRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\nproject_id\x18\x03 \x01(\x04R\tprojectId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\"\'\n\x15\x43reateDatasetResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"#\n\x11GetDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"F\n\x12GetDatasetResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\"+\n\x19GetDatasetVersionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"f\n\x1aGetDatasetVersionsResponse\x12H\n\x10\x64\x61taset_versions\x18\x01 \x03(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0f\x64\x61tasetVersions\"/\n\x1dGetDatasetObjectGroupsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"a\n\x1eGetDatasetObjectGroupsResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\"7\n%GetCurrentObjectGroupRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x82\x01\n&GetCurrentObjectGroupRevisionsResponse\x12X\n\x16object_group_revisions\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x14objectGroupRevisions\"f\n\x19UpdateDatasetFieldRequest\x12I\n\x0eupdate_request\x18\x01 \x01(\x0b\x32\".api.models.v1.UpdateFieldsRequestR\rupdateRequest\"\x1c\n\x1aUpdateDatasetFieldResponse\"&\n\x14\x44\x65leteDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x17\n\x15\x44\x65leteDatasetResponse\"\xab\x02\n\x1cReleaseDatasetVersionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x02 \x01(\x04R\tdatasetId\x12\x30\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12!\n\x0crevision_ids\x18\x07 \x03(\x04R\x0brevisionIds\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\"/\n\x1dReleaseDatasetVersionResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"*\n\x18GetDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"c\n\x19GetDatasetVersionResponse\x12\x46\n\x0f\x64\x61taset_version\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0e\x64\x61tasetVersion\"3\n!GetDatasetVersionRevisionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"|\n\"GetDatasetVersionRevisionsResponse\x12V\n\x15object_group_revision\x18\x01 \x03(\x0b\x32\".api.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"-\n\x1b\x44\x65leteDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1e\n\x1c\x44\x65leteDatasetVersionResponseB\x82\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x14\x44\x61tasetServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/dataset_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1b\x61pi/models/v1/dataset.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xce\x01\n\x14\x43reateDatasetRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\nproject_id\x18\x03 \x01(\x04R\tprojectId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\"\'\n\x15\x43reateDatasetResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"#\n\x11GetDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"F\n\x12GetDatasetResponse\x12\x30\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32\x16.api.models.v1.DatasetR\x07\x64\x61taset\"+\n\x19GetDatasetVersionsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"f\n\x1aGetDatasetVersionsResponse\x12H\n\x10\x64\x61taset_versions\x18\x01 \x03(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0f\x64\x61tasetVersions\"/\n\x1dGetDatasetObjectGroupsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"a\n\x1eGetDatasetObjectGroupsResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\"\x93\x01\n!GetObjectGroupsInDateRangeRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\x12\x30\n\x05start\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\"e\n\"GetObjectGroupsInDateRangeResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\"\xd3\x08\n GetObjectGroupsStreamLinkRequest\x12Z\n\nquery_type\x18\x02 \x01(\x0e\x32;.api.services.v1.GetObjectGroupsStreamLinkRequest.QueryTypeR\tqueryType\x12]\n\x0bstream_type\x18\x03 \x01(\x0e\x32<.api.services.v1.GetObjectGroupsStreamLinkRequest.StreamTypeR\nstreamType\x12^\n\tgroup_ids\x18\x04 \x01(\x0b\x32?.api.services.v1.GetObjectGroupsStreamLinkRequest.GroupIDsQueryH\x00R\x08groupIds\x12\x61\n\ndate_range\x18\x05 \x01(\x0b\x32@.api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQueryH\x00R\tdateRange\x12Z\n\x07\x64\x61taset\x18\x06 \x01(\x0b\x32>.api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetQueryH\x00R\x07\x64\x61taset\x12p\n\x0f\x64\x61taset_version\x18\x07 \x01(\x0b\x32\x45.api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetVersionQueryH\x00R\x0e\x64\x61tasetVersion\x1a\x8f\x01\n\x0e\x44\x61teRangeQuery\x12\x1d\n\ndataset_id\x18\x03 \x01(\x04R\tdatasetId\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\x1aS\n\rGroupIDsQuery\x12\x1d\n\ndataset_id\x18\x02 \x01(\x04R\tdatasetId\x12#\n\robject_groups\x18\x01 \x03(\x04R\x0cobjectGroups\x1a-\n\x0c\x44\x61tasetQuery\x12\x1d\n\ndataset_id\x18\x01 \x01(\x04R\tdatasetId\x1a>\n\x13\x44\x61tasetVersionQuery\x12\'\n\x0f\x64\x61taset_version\x18\x01 \x01(\x04R\x0e\x64\x61tasetVersion\"O\n\tQueryType\x12\x0c\n\x08GROUPIDS\x10\x00\x12\x0e\n\nDATASETALL\x10\x01\x12\x15\n\x11\x44\x41TASETVERSIONALL\x10\x02\x12\r\n\tDATERANGE\x10\x03\"3\n\nStreamType\x12\x11\n\rBASE64NEWLINE\x10\x00\x12\x07\n\x03ZIP\x10\x01\x12\t\n\x05TARGZ\x10\x02\x42\x07\n\x05Query\"5\n!GetObjectGroupsStreamLinkResponse\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\"f\n\x19UpdateDatasetFieldRequest\x12I\n\x0eupdate_request\x18\x01 \x01(\x0b\x32\".api.models.v1.UpdateFieldsRequestR\rupdateRequest\"\x1c\n\x1aUpdateDatasetFieldResponse\"&\n\x14\x44\x65leteDatasetRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x17\n\x15\x44\x65leteDatasetResponse\"\xb2\x02\n\x1cReleaseDatasetVersionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\ndataset_id\x18\x02 \x01(\x04R\tdatasetId\x12\x30\n\x07version\x18\x03 \x01(\x0b\x32\x16.api.models.v1.VersionR\x07version\x12,\n\x06labels\x18\x05 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x06 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12(\n\x10object_group_ids\x18\x07 \x03(\x04R\x0eobjectGroupIds\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\"/\n\x1dReleaseDatasetVersionResponse\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"*\n\x18GetDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"c\n\x19GetDatasetVersionResponse\x12\x46\n\x0f\x64\x61taset_version\x18\x01 \x01(\x0b\x32\x1d.api.models.v1.DatasetVersionR\x0e\x64\x61tasetVersion\"6\n$GetDatasetVersionObjectGroupsRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"f\n%GetDatasetVersionObjectGroupsResponse\x12=\n\x0cobject_group\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\"-\n\x1b\x44\x65leteDatasetVersionRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1e\n\x1c\x44\x65leteDatasetVersionResponseB\x82\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x14\x44\x61tasetServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
-  dependencies=[api_dot_models_dot_v1_dot_dataset__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_dataset__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
 
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_QUERYTYPE = _descriptor.EnumDescriptor(
+  name='QueryType',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.QueryType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GROUPIDS', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DATASETALL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DATASETVERSIONALL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DATERANGE', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2073,
+  serialized_end=2152,
+)
+_sym_db.RegisterEnumDescriptor(_GETOBJECTGROUPSSTREAMLINKREQUEST_QUERYTYPE)
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_STREAMTYPE = _descriptor.EnumDescriptor(
+  name='StreamType',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.StreamType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BASE64NEWLINE', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ZIP', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TARGZ', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2154,
+  serialized_end=2205,
+)
+_sym_db.RegisterEnumDescriptor(_GETOBJECTGROUPSSTREAMLINKREQUEST_STREAMTYPE)
 
 
 _CREATEDATASETREQUEST = _descriptor.Descriptor(
@@ -84,8 +150,8 @@ _CREATEDATASETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=165,
-  serialized_end=371,
+  serialized_start=198,
+  serialized_end=404,
 )
 
 
@@ -116,8 +182,8 @@ _CREATEDATASETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=373,
-  serialized_end=412,
+  serialized_start=406,
+  serialized_end=445,
 )
 
 
@@ -148,8 +214,8 @@ _GETDATASETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=414,
-  serialized_end=449,
+  serialized_start=447,
+  serialized_end=482,
 )
 
 
@@ -180,8 +246,8 @@ _GETDATASETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=451,
-  serialized_end=521,
+  serialized_start=484,
+  serialized_end=554,
 )
 
 
@@ -212,8 +278,8 @@ _GETDATASETVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=523,
-  serialized_end=566,
+  serialized_start=556,
+  serialized_end=599,
 )
 
 
@@ -244,8 +310,8 @@ _GETDATASETVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=568,
-  serialized_end=670,
+  serialized_start=601,
+  serialized_end=703,
 )
 
 
@@ -276,8 +342,8 @@ _GETDATASETOBJECTGROUPSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=672,
-  serialized_end=719,
+  serialized_start=705,
+  serialized_end=752,
 )
 
 
@@ -308,26 +374,40 @@ _GETDATASETOBJECTGROUPSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=721,
-  serialized_end=818,
+  serialized_start=754,
+  serialized_end=851,
 )
 
 
-_GETCURRENTOBJECTGROUPREVISIONSREQUEST = _descriptor.Descriptor(
-  name='GetCurrentObjectGroupRevisionsRequest',
-  full_name='api.services.v1.GetCurrentObjectGroupRevisionsRequest',
+_GETOBJECTGROUPSINDATERANGEREQUEST = _descriptor.Descriptor(
+  name='GetObjectGroupsInDateRangeRequest',
+  full_name='api.services.v1.GetObjectGroupsInDateRangeRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='api.services.v1.GetCurrentObjectGroupRevisionsRequest.id', index=0,
+      name='id', full_name='api.services.v1.GetObjectGroupsInDateRangeRequest.id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start', full_name='api.services.v1.GetObjectGroupsInDateRangeRequest.start', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='start', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end', full_name='api.services.v1.GetObjectGroupsInDateRangeRequest.end', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='end', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -340,26 +420,26 @@ _GETCURRENTOBJECTGROUPREVISIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=820,
-  serialized_end=875,
+  serialized_start=854,
+  serialized_end=1001,
 )
 
 
-_GETCURRENTOBJECTGROUPREVISIONSRESPONSE = _descriptor.Descriptor(
-  name='GetCurrentObjectGroupRevisionsResponse',
-  full_name='api.services.v1.GetCurrentObjectGroupRevisionsResponse',
+_GETOBJECTGROUPSINDATERANGERESPONSE = _descriptor.Descriptor(
+  name='GetObjectGroupsInDateRangeResponse',
+  full_name='api.services.v1.GetObjectGroupsInDateRangeResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='object_group_revisions', full_name='api.services.v1.GetCurrentObjectGroupRevisionsResponse.object_group_revisions', index=0,
+      name='object_groups', full_name='api.services.v1.GetObjectGroupsInDateRangeResponse.object_groups', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='objectGroupRevisions', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroups', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -372,8 +452,259 @@ _GETCURRENTOBJECTGROUPREVISIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=1008,
+  serialized_start=1003,
+  serialized_end=1104,
+)
+
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY = _descriptor.Descriptor(
+  name='DateRangeQuery',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQuery.dataset_id', index=0,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQuery.start', index=1,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='start', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQuery.end', index=2,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='end', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1732,
+  serialized_end=1875,
+)
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_GROUPIDSQUERY = _descriptor.Descriptor(
+  name='GroupIDsQuery',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.GroupIDsQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.GroupIDsQuery.dataset_id', index=0,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object_groups', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.GroupIDsQuery.object_groups', index=1,
+      number=1, type=4, cpp_type=4, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='objectGroups', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1877,
+  serialized_end=1960,
+)
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETQUERY = _descriptor.Descriptor(
+  name='DatasetQuery',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetQuery.dataset_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1962,
+  serialized_end=2007,
+)
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETVERSIONQUERY = _descriptor.Descriptor(
+  name='DatasetVersionQuery',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetVersionQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_version', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetVersionQuery.dataset_version', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetVersion', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2009,
+  serialized_end=2071,
+)
+
+_GETOBJECTGROUPSSTREAMLINKREQUEST = _descriptor.Descriptor(
+  name='GetObjectGroupsStreamLinkRequest',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='query_type', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.query_type', index=0,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='queryType', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='stream_type', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.stream_type', index=1,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='streamType', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='group_ids', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.group_ids', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='groupIds', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='date_range', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.date_range', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='dateRange', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.dataset', index=4,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='dataset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset_version', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.dataset_version', index=5,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetVersion', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY, _GETOBJECTGROUPSSTREAMLINKREQUEST_GROUPIDSQUERY, _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETQUERY, _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETVERSIONQUERY, ],
+  enum_types=[
+    _GETOBJECTGROUPSSTREAMLINKREQUEST_QUERYTYPE,
+    _GETOBJECTGROUPSSTREAMLINKREQUEST_STREAMTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='Query', full_name='api.services.v1.GetObjectGroupsStreamLinkRequest.Query',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1107,
+  serialized_end=2214,
+)
+
+
+_GETOBJECTGROUPSSTREAMLINKRESPONSE = _descriptor.Descriptor(
+  name='GetObjectGroupsStreamLinkResponse',
+  full_name='api.services.v1.GetObjectGroupsStreamLinkResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='url', full_name='api.services.v1.GetObjectGroupsStreamLinkResponse.url', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='url', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2216,
+  serialized_end=2269,
 )
 
 
@@ -404,8 +735,8 @@ _UPDATEDATASETFIELDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1010,
-  serialized_end=1112,
+  serialized_start=2271,
+  serialized_end=2373,
 )
 
 
@@ -429,8 +760,8 @@ _UPDATEDATASETFIELDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1114,
-  serialized_end=1142,
+  serialized_start=2375,
+  serialized_end=2403,
 )
 
 
@@ -461,8 +792,8 @@ _DELETEDATASETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1144,
-  serialized_end=1182,
+  serialized_start=2405,
+  serialized_end=2443,
 )
 
 
@@ -486,8 +817,8 @@ _DELETEDATASETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1184,
-  serialized_end=1207,
+  serialized_start=2445,
+  serialized_end=2468,
 )
 
 
@@ -535,12 +866,12 @@ _RELEASEDATASETVERSIONREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='metadata', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='revision_ids', full_name='api.services.v1.ReleaseDatasetVersionRequest.revision_ids', index=5,
+      name='object_group_ids', full_name='api.services.v1.ReleaseDatasetVersionRequest.object_group_ids', index=5,
       number=7, type=4, cpp_type=4, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='revisionIds', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroupIds', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='description', full_name='api.services.v1.ReleaseDatasetVersionRequest.description', index=6,
       number=8, type=9, cpp_type=9, label=1,
@@ -560,8 +891,8 @@ _RELEASEDATASETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1210,
-  serialized_end=1509,
+  serialized_start=2471,
+  serialized_end=2777,
 )
 
 
@@ -592,8 +923,8 @@ _RELEASEDATASETVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1511,
-  serialized_end=1558,
+  serialized_start=2779,
+  serialized_end=2826,
 )
 
 
@@ -624,8 +955,8 @@ _GETDATASETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1560,
-  serialized_end=1602,
+  serialized_start=2828,
+  serialized_end=2870,
 )
 
 
@@ -656,21 +987,21 @@ _GETDATASETVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1604,
-  serialized_end=1703,
+  serialized_start=2872,
+  serialized_end=2971,
 )
 
 
-_GETDATASETVERSIONREVISIONSREQUEST = _descriptor.Descriptor(
-  name='GetDatasetVersionRevisionsRequest',
-  full_name='api.services.v1.GetDatasetVersionRevisionsRequest',
+_GETDATASETVERSIONOBJECTGROUPSREQUEST = _descriptor.Descriptor(
+  name='GetDatasetVersionObjectGroupsRequest',
+  full_name='api.services.v1.GetDatasetVersionObjectGroupsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='api.services.v1.GetDatasetVersionRevisionsRequest.id', index=0,
+      name='id', full_name='api.services.v1.GetDatasetVersionObjectGroupsRequest.id', index=0,
       number=1, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -688,26 +1019,26 @@ _GETDATASETVERSIONREVISIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1705,
-  serialized_end=1756,
+  serialized_start=2973,
+  serialized_end=3027,
 )
 
 
-_GETDATASETVERSIONREVISIONSRESPONSE = _descriptor.Descriptor(
-  name='GetDatasetVersionRevisionsResponse',
-  full_name='api.services.v1.GetDatasetVersionRevisionsResponse',
+_GETDATASETVERSIONOBJECTGROUPSRESPONSE = _descriptor.Descriptor(
+  name='GetDatasetVersionObjectGroupsResponse',
+  full_name='api.services.v1.GetDatasetVersionObjectGroupsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='object_group_revision', full_name='api.services.v1.GetDatasetVersionRevisionsResponse.object_group_revision', index=0,
+      name='object_group', full_name='api.services.v1.GetDatasetVersionObjectGroupsResponse.object_group', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='objectGroupRevision', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='objectGroup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -720,8 +1051,8 @@ _GETDATASETVERSIONREVISIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1758,
-  serialized_end=1882,
+  serialized_start=3029,
+  serialized_end=3131,
 )
 
 
@@ -752,8 +1083,8 @@ _DELETEDATASETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1884,
-  serialized_end=1929,
+  serialized_start=3133,
+  serialized_end=3178,
 )
 
 
@@ -777,8 +1108,8 @@ _DELETEDATASETVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1931,
-  serialized_end=1961,
+  serialized_start=3180,
+  serialized_end=3210,
 )
 
 _CREATEDATASETREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
@@ -786,13 +1117,41 @@ _CREATEDATASETREQUEST.fields_by_name['metadata'].message_type = api_dot_models_d
 _GETDATASETRESPONSE.fields_by_name['dataset'].message_type = api_dot_models_dot_v1_dot_dataset__pb2._DATASET
 _GETDATASETVERSIONSRESPONSE.fields_by_name['dataset_versions'].message_type = api_dot_models_dot_v1_dot_dataset__pb2._DATASETVERSION
 _GETDATASETOBJECTGROUPSRESPONSE.fields_by_name['object_groups'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUP
-_GETCURRENTOBJECTGROUPREVISIONSRESPONSE.fields_by_name['object_group_revisions'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUPREVISION
+_GETOBJECTGROUPSINDATERANGEREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETOBJECTGROUPSINDATERANGEREQUEST.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETOBJECTGROUPSINDATERANGERESPONSE.fields_by_name['object_groups'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUP
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST_GROUPIDSQUERY.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETQUERY.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETVERSIONQUERY.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['query_type'].enum_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_QUERYTYPE
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['stream_type'].enum_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_STREAMTYPE
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['group_ids'].message_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_GROUPIDSQUERY
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['date_range'].message_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset'].message_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETQUERY
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset_version'].message_type = _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETVERSIONQUERY
+_GETOBJECTGROUPSSTREAMLINKREQUEST_QUERYTYPE.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST_STREAMTYPE.containing_type = _GETOBJECTGROUPSSTREAMLINKREQUEST
+_GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query'].fields.append(
+  _GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['group_ids'])
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['group_ids'].containing_oneof = _GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query']
+_GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query'].fields.append(
+  _GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['date_range'])
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['date_range'].containing_oneof = _GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query']
+_GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query'].fields.append(
+  _GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset'])
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset'].containing_oneof = _GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query']
+_GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query'].fields.append(
+  _GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset_version'])
+_GETOBJECTGROUPSSTREAMLINKREQUEST.fields_by_name['dataset_version'].containing_oneof = _GETOBJECTGROUPSSTREAMLINKREQUEST.oneofs_by_name['Query']
 _UPDATEDATASETFIELDREQUEST.fields_by_name['update_request'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._UPDATEFIELDSREQUEST
 _RELEASEDATASETVERSIONREQUEST.fields_by_name['version'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._VERSION
 _RELEASEDATASETVERSIONREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
 _RELEASEDATASETVERSIONREQUEST.fields_by_name['metadata'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._METADATA
 _GETDATASETVERSIONRESPONSE.fields_by_name['dataset_version'].message_type = api_dot_models_dot_v1_dot_dataset__pb2._DATASETVERSION
-_GETDATASETVERSIONREVISIONSRESPONSE.fields_by_name['object_group_revision'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUPREVISION
+_GETDATASETVERSIONOBJECTGROUPSRESPONSE.fields_by_name['object_group'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUP
 DESCRIPTOR.message_types_by_name['CreateDatasetRequest'] = _CREATEDATASETREQUEST
 DESCRIPTOR.message_types_by_name['CreateDatasetResponse'] = _CREATEDATASETRESPONSE
 DESCRIPTOR.message_types_by_name['GetDatasetRequest'] = _GETDATASETREQUEST
@@ -801,8 +1160,10 @@ DESCRIPTOR.message_types_by_name['GetDatasetVersionsRequest'] = _GETDATASETVERSI
 DESCRIPTOR.message_types_by_name['GetDatasetVersionsResponse'] = _GETDATASETVERSIONSRESPONSE
 DESCRIPTOR.message_types_by_name['GetDatasetObjectGroupsRequest'] = _GETDATASETOBJECTGROUPSREQUEST
 DESCRIPTOR.message_types_by_name['GetDatasetObjectGroupsResponse'] = _GETDATASETOBJECTGROUPSRESPONSE
-DESCRIPTOR.message_types_by_name['GetCurrentObjectGroupRevisionsRequest'] = _GETCURRENTOBJECTGROUPREVISIONSREQUEST
-DESCRIPTOR.message_types_by_name['GetCurrentObjectGroupRevisionsResponse'] = _GETCURRENTOBJECTGROUPREVISIONSRESPONSE
+DESCRIPTOR.message_types_by_name['GetObjectGroupsInDateRangeRequest'] = _GETOBJECTGROUPSINDATERANGEREQUEST
+DESCRIPTOR.message_types_by_name['GetObjectGroupsInDateRangeResponse'] = _GETOBJECTGROUPSINDATERANGERESPONSE
+DESCRIPTOR.message_types_by_name['GetObjectGroupsStreamLinkRequest'] = _GETOBJECTGROUPSSTREAMLINKREQUEST
+DESCRIPTOR.message_types_by_name['GetObjectGroupsStreamLinkResponse'] = _GETOBJECTGROUPSSTREAMLINKRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateDatasetFieldRequest'] = _UPDATEDATASETFIELDREQUEST
 DESCRIPTOR.message_types_by_name['UpdateDatasetFieldResponse'] = _UPDATEDATASETFIELDRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteDatasetRequest'] = _DELETEDATASETREQUEST
@@ -811,8 +1172,8 @@ DESCRIPTOR.message_types_by_name['ReleaseDatasetVersionRequest'] = _RELEASEDATAS
 DESCRIPTOR.message_types_by_name['ReleaseDatasetVersionResponse'] = _RELEASEDATASETVERSIONRESPONSE
 DESCRIPTOR.message_types_by_name['GetDatasetVersionRequest'] = _GETDATASETVERSIONREQUEST
 DESCRIPTOR.message_types_by_name['GetDatasetVersionResponse'] = _GETDATASETVERSIONRESPONSE
-DESCRIPTOR.message_types_by_name['GetDatasetVersionRevisionsRequest'] = _GETDATASETVERSIONREVISIONSREQUEST
-DESCRIPTOR.message_types_by_name['GetDatasetVersionRevisionsResponse'] = _GETDATASETVERSIONREVISIONSRESPONSE
+DESCRIPTOR.message_types_by_name['GetDatasetVersionObjectGroupsRequest'] = _GETDATASETVERSIONOBJECTGROUPSREQUEST
+DESCRIPTOR.message_types_by_name['GetDatasetVersionObjectGroupsResponse'] = _GETDATASETVERSIONOBJECTGROUPSRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteDatasetVersionRequest'] = _DELETEDATASETVERSIONREQUEST
 DESCRIPTOR.message_types_by_name['DeleteDatasetVersionResponse'] = _DELETEDATASETVERSIONRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -873,19 +1234,65 @@ GetDatasetObjectGroupsResponse = _reflection.GeneratedProtocolMessageType('GetDa
   })
 _sym_db.RegisterMessage(GetDatasetObjectGroupsResponse)
 
-GetCurrentObjectGroupRevisionsRequest = _reflection.GeneratedProtocolMessageType('GetCurrentObjectGroupRevisionsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETCURRENTOBJECTGROUPREVISIONSREQUEST,
+GetObjectGroupsInDateRangeRequest = _reflection.GeneratedProtocolMessageType('GetObjectGroupsInDateRangeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTGROUPSINDATERANGEREQUEST,
   '__module__' : 'api.services.v1.dataset_service_models_pb2'
-  # @@protoc_insertion_point(class_scope:api.services.v1.GetCurrentObjectGroupRevisionsRequest)
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsInDateRangeRequest)
   })
-_sym_db.RegisterMessage(GetCurrentObjectGroupRevisionsRequest)
+_sym_db.RegisterMessage(GetObjectGroupsInDateRangeRequest)
 
-GetCurrentObjectGroupRevisionsResponse = _reflection.GeneratedProtocolMessageType('GetCurrentObjectGroupRevisionsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETCURRENTOBJECTGROUPREVISIONSRESPONSE,
+GetObjectGroupsInDateRangeResponse = _reflection.GeneratedProtocolMessageType('GetObjectGroupsInDateRangeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTGROUPSINDATERANGERESPONSE,
   '__module__' : 'api.services.v1.dataset_service_models_pb2'
-  # @@protoc_insertion_point(class_scope:api.services.v1.GetCurrentObjectGroupRevisionsResponse)
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsInDateRangeResponse)
   })
-_sym_db.RegisterMessage(GetCurrentObjectGroupRevisionsResponse)
+_sym_db.RegisterMessage(GetObjectGroupsInDateRangeResponse)
+
+GetObjectGroupsStreamLinkRequest = _reflection.GeneratedProtocolMessageType('GetObjectGroupsStreamLinkRequest', (_message.Message,), {
+
+  'DateRangeQuery' : _reflection.GeneratedProtocolMessageType('DateRangeQuery', (_message.Message,), {
+    'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKREQUEST_DATERANGEQUERY,
+    '__module__' : 'api.services.v1.dataset_service_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkRequest.DateRangeQuery)
+    })
+  ,
+
+  'GroupIDsQuery' : _reflection.GeneratedProtocolMessageType('GroupIDsQuery', (_message.Message,), {
+    'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKREQUEST_GROUPIDSQUERY,
+    '__module__' : 'api.services.v1.dataset_service_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkRequest.GroupIDsQuery)
+    })
+  ,
+
+  'DatasetQuery' : _reflection.GeneratedProtocolMessageType('DatasetQuery', (_message.Message,), {
+    'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETQUERY,
+    '__module__' : 'api.services.v1.dataset_service_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetQuery)
+    })
+  ,
+
+  'DatasetVersionQuery' : _reflection.GeneratedProtocolMessageType('DatasetVersionQuery', (_message.Message,), {
+    'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKREQUEST_DATASETVERSIONQUERY,
+    '__module__' : 'api.services.v1.dataset_service_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkRequest.DatasetVersionQuery)
+    })
+  ,
+  'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKREQUEST,
+  '__module__' : 'api.services.v1.dataset_service_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkRequest)
+  })
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkRequest)
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkRequest.DateRangeQuery)
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkRequest.GroupIDsQuery)
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkRequest.DatasetQuery)
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkRequest.DatasetVersionQuery)
+
+GetObjectGroupsStreamLinkResponse = _reflection.GeneratedProtocolMessageType('GetObjectGroupsStreamLinkResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBJECTGROUPSSTREAMLINKRESPONSE,
+  '__module__' : 'api.services.v1.dataset_service_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetObjectGroupsStreamLinkResponse)
+  })
+_sym_db.RegisterMessage(GetObjectGroupsStreamLinkResponse)
 
 UpdateDatasetFieldRequest = _reflection.GeneratedProtocolMessageType('UpdateDatasetFieldRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEDATASETFIELDREQUEST,
@@ -943,19 +1350,19 @@ GetDatasetVersionResponse = _reflection.GeneratedProtocolMessageType('GetDataset
   })
 _sym_db.RegisterMessage(GetDatasetVersionResponse)
 
-GetDatasetVersionRevisionsRequest = _reflection.GeneratedProtocolMessageType('GetDatasetVersionRevisionsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETDATASETVERSIONREVISIONSREQUEST,
+GetDatasetVersionObjectGroupsRequest = _reflection.GeneratedProtocolMessageType('GetDatasetVersionObjectGroupsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETDATASETVERSIONOBJECTGROUPSREQUEST,
   '__module__' : 'api.services.v1.dataset_service_models_pb2'
-  # @@protoc_insertion_point(class_scope:api.services.v1.GetDatasetVersionRevisionsRequest)
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetDatasetVersionObjectGroupsRequest)
   })
-_sym_db.RegisterMessage(GetDatasetVersionRevisionsRequest)
+_sym_db.RegisterMessage(GetDatasetVersionObjectGroupsRequest)
 
-GetDatasetVersionRevisionsResponse = _reflection.GeneratedProtocolMessageType('GetDatasetVersionRevisionsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETDATASETVERSIONREVISIONSRESPONSE,
+GetDatasetVersionObjectGroupsResponse = _reflection.GeneratedProtocolMessageType('GetDatasetVersionObjectGroupsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETDATASETVERSIONOBJECTGROUPSRESPONSE,
   '__module__' : 'api.services.v1.dataset_service_models_pb2'
-  # @@protoc_insertion_point(class_scope:api.services.v1.GetDatasetVersionRevisionsResponse)
+  # @@protoc_insertion_point(class_scope:api.services.v1.GetDatasetVersionObjectGroupsResponse)
   })
-_sym_db.RegisterMessage(GetDatasetVersionRevisionsResponse)
+_sym_db.RegisterMessage(GetDatasetVersionObjectGroupsResponse)
 
 DeleteDatasetVersionRequest = _reflection.GeneratedProtocolMessageType('DeleteDatasetVersionRequest', (_message.Message,), {
   'DESCRIPTOR' : _DELETEDATASETVERSIONREQUEST,
