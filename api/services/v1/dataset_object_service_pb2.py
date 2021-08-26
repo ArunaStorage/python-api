@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\026DatasetObjectsServicesP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,api/services/v1/dataset_object_service.proto\x12\x0f\x61pi.services.v1\x1a\x33\x61pi/services/v1/dataset_object_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\xd4\x04\n\x15\x44\x61tasetObjectsService\x12\x91\x01\n\x11\x43reateObjectGroup\x12).api.services.v1.CreateObjectGroupRequest\x1a*.api.services.v1.CreateObjectGroupResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/objectgroup/create:\x01*\x12\x85\x01\n\x0eGetObjectGroup\x12&.api.services.v1.GetObjectGroupRequest\x1a\'.api.services.v1.GetObjectGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v1/objectgroup/get:\x01*\x12\x8f\x01\n\x12\x46inishObjectUpload\x12*.api.services.v1.FinishObjectUploadRequest\x1a+.api.services.v1.FinishObjectUploadResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v1/object/finish:\x01*\x12\x8c\x01\n\x11\x44\x65leteObjectGroup\x12).api.services.v1.DeleteObjectGroupRequest\x1a*.api.services.v1.DeleteObjectGroupResponse\" \x82\xd3\xe4\x93\x02\x1a*\x18/api/v1/objectgroup/{id}B\x84\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x16\x44\x61tasetObjectsServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n,api/services/v1/dataset_object_service.proto\x12\x0f\x61pi.services.v1\x1a\x33\x61pi/services/v1/dataset_object_service_models.proto\x1a\x1cgoogle/api/annotations.proto2\xfc\x05\n\x15\x44\x61tasetObjectsService\x12\x91\x01\n\x11\x43reateObjectGroup\x12).api.services.v1.CreateObjectGroupRequest\x1a*.api.services.v1.CreateObjectGroupResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v1/objectgroup/create:\x01*\x12\xa5\x01\n\x16\x43reateObjectGroupBatch\x12..api.services.v1.CreateObjectGroupBatchRequest\x1a/.api.services.v1.CreateObjectGroupBatchResponse\"*\x82\xd3\xe4\x93\x02$\"\x1f/api/v1/objectgroupbatch/create:\x01*\x12\x85\x01\n\x0eGetObjectGroup\x12&.api.services.v1.GetObjectGroupRequest\x1a\'.api.services.v1.GetObjectGroupResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v1/objectgroup/get:\x01*\x12\x8f\x01\n\x12\x46inishObjectUpload\x12*.api.services.v1.FinishObjectUploadRequest\x1a+.api.services.v1.FinishObjectUploadResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v1/object/finish:\x01*\x12\x8c\x01\n\x11\x44\x65leteObjectGroup\x12).api.services.v1.DeleteObjectGroupRequest\x1a*.api.services.v1.DeleteObjectGroupResponse\" \x82\xd3\xe4\x93\x02\x1a*\x18/api/v1/objectgroup/{id}B\x84\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x16\x44\x61tasetObjectsServicesP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -40,7 +40,7 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=149,
-  serialized_end=745,
+  serialized_end=913,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateObjectGroup',
@@ -53,9 +53,19 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='CreateObjectGroupBatch',
+    full_name='api.services.v1.DatasetObjectsService.CreateObjectGroupBatch',
+    index=1,
+    containing_service=None,
+    input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._CREATEOBJECTGROUPBATCHREQUEST,
+    output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._CREATEOBJECTGROUPBATCHRESPONSE,
+    serialized_options=b'\202\323\344\223\002$\"\037/api/v1/objectgroupbatch/create:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetObjectGroup',
     full_name='api.services.v1.DatasetObjectsService.GetObjectGroup',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._GETOBJECTGROUPRESPONSE,
@@ -65,7 +75,7 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='FinishObjectUpload',
     full_name='api.services.v1.DatasetObjectsService.FinishObjectUpload',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._FINISHOBJECTUPLOADREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._FINISHOBJECTUPLOADRESPONSE,
@@ -75,7 +85,7 @@ _DATASETOBJECTSSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteObjectGroup',
     full_name='api.services.v1.DatasetObjectsService.DeleteObjectGroup',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPREQUEST,
     output_type=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2._DELETEOBJECTGROUPRESPONSE,

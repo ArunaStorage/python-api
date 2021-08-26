@@ -19,6 +19,11 @@ class DatasetObjectsServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupResponse.FromString,
                 )
+        self.CreateObjectGroupBatch = channel.unary_unary(
+                '/api.services.v1.DatasetObjectsService/CreateObjectGroupBatch',
+                request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchResponse.FromString,
+                )
         self.GetObjectGroup = channel.unary_unary(
                 '/api.services.v1.DatasetObjectsService/GetObjectGroup',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.SerializeToString,
@@ -42,6 +47,12 @@ class DatasetObjectsServiceServicer(object):
     def CreateObjectGroup(self, request, context):
         """CreateObjectGroup Creates a new object group
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateObjectGroupBatch(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -73,6 +84,11 @@ def add_DatasetObjectsServiceServicer_to_server(servicer, server):
                     servicer.CreateObjectGroup,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupResponse.SerializeToString,
+            ),
+            'CreateObjectGroupBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateObjectGroupBatch,
+                    request_deserializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchResponse.SerializeToString,
             ),
             'GetObjectGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectGroup,
@@ -113,6 +129,23 @@ class DatasetObjectsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/CreateObjectGroup',
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupRequest.SerializeToString,
             api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateObjectGroupBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetObjectsService/CreateObjectGroupBatch',
+            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectGroupBatchResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
