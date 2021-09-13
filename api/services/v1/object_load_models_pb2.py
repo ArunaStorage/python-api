@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from api.models.v1 import object_models_pb2 as api_dot_models_dot_v1_dot_object__models__pb2
 
 
@@ -20,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\027ObjectLoadServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(api/services/v1/object_load_models.proto\x12\x0f\x61pi.services.v1\x1a!api/models/v1/object_models.proto\"\"\n\x10\x43reateUploadLink\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\")\n\x17\x43reateUploadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\";\n\x18\x43reateUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\"+\n\x19\x43reateDownloadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"A\n\x1a\x43reateDownloadLinkResponse\x12#\n\rdownload_link\x18\x01 \x01(\tR\x0c\x64ownloadLink\"-\n\x1bStartMultipartUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"M\n\x1cStartMultipartUploadResponse\x12-\n\x06object\x18\x01 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"p\n\x1eGetMultipartUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\x12-\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"]\n\x1dGetMultipartUploadLinkRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\x04R\x08objectId\x12\x1f\n\x0bupload_part\x18\x02 \x01(\x03R\nuploadPart\"t\n\x1e\x43ompleteMultipartUploadRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\x04R\x08objectId\x12\x35\n\x05parts\x18\x02 \x03(\x0b\x32\x1f.api.services.v1.CompletedPartsR\x05parts\"!\n\x1f\x43ompleteMultipartUploadResponse\"8\n\x0e\x43ompletedParts\x12\x12\n\x04\x65tag\x18\x01 \x01(\tR\x04\x65tag\x12\x12\n\x04part\x18\x02 \x01(\x03R\x04partB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ObjectLoadServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n(api/services/v1/object_load_models.proto\x12\x0f\x61pi.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!api/models/v1/object_models.proto\"\"\n\x10\x43reateUploadLink\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\")\n\x17\x43reateUploadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\";\n\x18\x43reateUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\"+\n\x19\x43reateDownloadLinkRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"p\n\x1a\x43reateDownloadLinkResponse\x12#\n\rdownload_link\x18\x01 \x01(\tR\x0c\x64ownloadLink\x12-\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"h\n\x1e\x43reateDownloadLinkBatchRequest\x12\x46\n\x08requests\x18\x01 \x03(\x0b\x32*.api.services.v1.CreateDownloadLinkRequestR\x08requests\"d\n\x1f\x43reateDownloadLinkBatchResponse\x12\x41\n\x05links\x18\x01 \x03(\x0b\x32+.api.services.v1.CreateDownloadLinkResponseR\x05links\"-\n\x1bStartMultipartUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"M\n\x1cStartMultipartUploadResponse\x12-\n\x06object\x18\x01 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"p\n\x1eGetMultipartUploadLinkResponse\x12\x1f\n\x0bupload_link\x18\x01 \x01(\tR\nuploadLink\x12-\n\x06object\x18\x02 \x01(\x0b\x32\x15.api.models.v1.ObjectR\x06object\"]\n\x1dGetMultipartUploadLinkRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\x04R\x08objectId\x12\x1f\n\x0bupload_part\x18\x02 \x01(\x03R\nuploadPart\"t\n\x1e\x43ompleteMultipartUploadRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\x04R\x08objectId\x12\x35\n\x05parts\x18\x02 \x03(\x0b\x32\x1f.api.services.v1.CompletedPartsR\x05parts\"!\n\x1f\x43ompleteMultipartUploadResponse\"8\n\x0e\x43ompletedParts\x12\x12\n\x04\x65tag\x18\x01 \x01(\tR\x04\x65tag\x12\x12\n\x04part\x18\x02 \x01(\x03R\x04part\"\xfd\x04\n\x1f\x43reateDownloadLinkStreamRequest\x12Y\n\x07\x64\x61taset\x18\x01 \x01(\x0b\x32=.api.services.v1.CreateDownloadLinkStreamRequest.DatasetQueryH\x00R\x07\x64\x61taset\x12o\n\x0f\x64\x61taset_version\x18\x03 \x01(\x0b\x32\x44.api.services.v1.CreateDownloadLinkStreamRequest.DatasetVersionQueryH\x00R\x0e\x64\x61tasetVersion\x12`\n\ndate_range\x18\x04 \x01(\x0b\x32?.api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQueryH\x00R\tdateRange\x1a\x8f\x01\n\x0e\x44\x61teRangeQuery\x12\x1d\n\ndataset_id\x18\x03 \x01(\x04R\tdatasetId\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\x1a-\n\x0c\x44\x61tasetQuery\x12\x1d\n\ndataset_id\x18\x01 \x01(\x04R\tdatasetId\x1a\x62\n\x13\x44\x61tasetVersionQuery\x12\x1d\n\ndataset_id\x18\x01 \x01(\x04R\tdatasetId\x12,\n\x12\x64\x61taset_version_id\x18\x02 \x01(\x04R\x10\x64\x61tasetVersionIdB\x07\n\x05query\"X\n CreateDownloadLinkStreamResponse\x12\x34\n\x05links\x18\x01 \x01(\x0b\x32\x1e.api.services.v1.LinksResponseR\x05links\"\xa3\x01\n\rLinksResponse\x12?\n\robject_groups\x18\x01 \x03(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0cobjectGroups\x12Q\n\x12object_group_links\x18\x02 \x03(\x0b\x32#.api.services.v1.InnerLinksResponseR\x10objectGroupLinks\"7\n\x12InnerLinksResponse\x12!\n\x0cobject_links\x18\x01 \x03(\tR\x0bobjectLinksB\x85\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x17ObjectLoadServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
-  dependencies=[api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
 
 
@@ -54,8 +55,8 @@ _CREATEUPLOADLINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=96,
-  serialized_end=130,
+  serialized_start=129,
+  serialized_end=163,
 )
 
 
@@ -86,8 +87,8 @@ _CREATEUPLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=173,
+  serialized_start=165,
+  serialized_end=206,
 )
 
 
@@ -118,8 +119,8 @@ _CREATEUPLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=175,
-  serialized_end=234,
+  serialized_start=208,
+  serialized_end=267,
 )
 
 
@@ -150,8 +151,8 @@ _CREATEDOWNLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=236,
-  serialized_end=279,
+  serialized_start=269,
+  serialized_end=312,
 )
 
 
@@ -170,6 +171,13 @@ _CREATEDOWNLOADLINKRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='downloadLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object', full_name='api.services.v1.CreateDownloadLinkResponse.object', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='object', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -182,8 +190,72 @@ _CREATEDOWNLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=281,
-  serialized_end=346,
+  serialized_start=314,
+  serialized_end=426,
+)
+
+
+_CREATEDOWNLOADLINKBATCHREQUEST = _descriptor.Descriptor(
+  name='CreateDownloadLinkBatchRequest',
+  full_name='api.services.v1.CreateDownloadLinkBatchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='requests', full_name='api.services.v1.CreateDownloadLinkBatchRequest.requests', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='requests', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=428,
+  serialized_end=532,
+)
+
+
+_CREATEDOWNLOADLINKBATCHRESPONSE = _descriptor.Descriptor(
+  name='CreateDownloadLinkBatchResponse',
+  full_name='api.services.v1.CreateDownloadLinkBatchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='links', full_name='api.services.v1.CreateDownloadLinkBatchResponse.links', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='links', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=534,
+  serialized_end=634,
 )
 
 
@@ -214,8 +286,8 @@ _STARTMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=348,
-  serialized_end=393,
+  serialized_start=636,
+  serialized_end=681,
 )
 
 
@@ -246,8 +318,8 @@ _STARTMULTIPARTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=395,
-  serialized_end=472,
+  serialized_start=683,
+  serialized_end=760,
 )
 
 
@@ -285,8 +357,8 @@ _GETMULTIPARTUPLOADLINKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=474,
-  serialized_end=586,
+  serialized_start=762,
+  serialized_end=874,
 )
 
 
@@ -324,8 +396,8 @@ _GETMULTIPARTUPLOADLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=588,
-  serialized_end=681,
+  serialized_start=876,
+  serialized_end=969,
 )
 
 
@@ -363,8 +435,8 @@ _COMPLETEMULTIPARTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=683,
-  serialized_end=799,
+  serialized_start=971,
+  serialized_end=1087,
 )
 
 
@@ -388,8 +460,8 @@ _COMPLETEMULTIPARTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=801,
-  serialized_end=834,
+  serialized_start=1089,
+  serialized_end=1122,
 )
 
 
@@ -427,18 +499,311 @@ _COMPLETEDPARTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=836,
-  serialized_end=892,
+  serialized_start=1124,
+  serialized_end=1180,
 )
 
+
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY = _descriptor.Descriptor(
+  name='DateRangeQuery',
+  full_name='api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQuery.dataset_id', index=0,
+      number=3, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQuery.start', index=1,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='start', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQuery.end', index=2,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='end', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1521,
+  serialized_end=1664,
+)
+
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATASETQUERY = _descriptor.Descriptor(
+  name='DatasetQuery',
+  full_name='api.services.v1.CreateDownloadLinkStreamRequest.DatasetQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DatasetQuery.dataset_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1666,
+  serialized_end=1711,
+)
+
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATASETVERSIONQUERY = _descriptor.Descriptor(
+  name='DatasetVersionQuery',
+  full_name='api.services.v1.CreateDownloadLinkStreamRequest.DatasetVersionQuery',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset_id', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DatasetVersionQuery.dataset_id', index=0,
+      number=1, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset_version_id', full_name='api.services.v1.CreateDownloadLinkStreamRequest.DatasetVersionQuery.dataset_version_id', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetVersionId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1713,
+  serialized_end=1811,
+)
+
+_CREATEDOWNLOADLINKSTREAMREQUEST = _descriptor.Descriptor(
+  name='CreateDownloadLinkStreamRequest',
+  full_name='api.services.v1.CreateDownloadLinkStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dataset', full_name='api.services.v1.CreateDownloadLinkStreamRequest.dataset', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='dataset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset_version', full_name='api.services.v1.CreateDownloadLinkStreamRequest.dataset_version', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='datasetVersion', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='date_range', full_name='api.services.v1.CreateDownloadLinkStreamRequest.date_range', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='dateRange', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY, _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETQUERY, _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETVERSIONQUERY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='query', full_name='api.services.v1.CreateDownloadLinkStreamRequest.query',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1183,
+  serialized_end=1820,
+)
+
+
+_CREATEDOWNLOADLINKSTREAMRESPONSE = _descriptor.Descriptor(
+  name='CreateDownloadLinkStreamResponse',
+  full_name='api.services.v1.CreateDownloadLinkStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='links', full_name='api.services.v1.CreateDownloadLinkStreamResponse.links', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='links', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1822,
+  serialized_end=1910,
+)
+
+
+_LINKSRESPONSE = _descriptor.Descriptor(
+  name='LinksResponse',
+  full_name='api.services.v1.LinksResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_groups', full_name='api.services.v1.LinksResponse.object_groups', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='objectGroups', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object_group_links', full_name='api.services.v1.LinksResponse.object_group_links', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='objectGroupLinks', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1913,
+  serialized_end=2076,
+)
+
+
+_INNERLINKSRESPONSE = _descriptor.Descriptor(
+  name='InnerLinksResponse',
+  full_name='api.services.v1.InnerLinksResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_links', full_name='api.services.v1.InnerLinksResponse.object_links', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='objectLinks', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2078,
+  serialized_end=2133,
+)
+
+_CREATEDOWNLOADLINKRESPONSE.fields_by_name['object'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECT
+_CREATEDOWNLOADLINKBATCHREQUEST.fields_by_name['requests'].message_type = _CREATEDOWNLOADLINKREQUEST
+_CREATEDOWNLOADLINKBATCHRESPONSE.fields_by_name['links'].message_type = _CREATEDOWNLOADLINKRESPONSE
 _STARTMULTIPARTUPLOADRESPONSE.fields_by_name['object'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECT
 _GETMULTIPARTUPLOADLINKRESPONSE.fields_by_name['object'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECT
 _COMPLETEMULTIPARTUPLOADREQUEST.fields_by_name['parts'].message_type = _COMPLETEDPARTS
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY.containing_type = _CREATEDOWNLOADLINKSTREAMREQUEST
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATASETQUERY.containing_type = _CREATEDOWNLOADLINKSTREAMREQUEST
+_CREATEDOWNLOADLINKSTREAMREQUEST_DATASETVERSIONQUERY.containing_type = _CREATEDOWNLOADLINKSTREAMREQUEST
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset'].message_type = _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETQUERY
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset_version'].message_type = _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETVERSIONQUERY
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['date_range'].message_type = _CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY
+_CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query'].fields.append(
+  _CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset'])
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset'].containing_oneof = _CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query']
+_CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query'].fields.append(
+  _CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset_version'])
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['dataset_version'].containing_oneof = _CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query']
+_CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query'].fields.append(
+  _CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['date_range'])
+_CREATEDOWNLOADLINKSTREAMREQUEST.fields_by_name['date_range'].containing_oneof = _CREATEDOWNLOADLINKSTREAMREQUEST.oneofs_by_name['query']
+_CREATEDOWNLOADLINKSTREAMRESPONSE.fields_by_name['links'].message_type = _LINKSRESPONSE
+_LINKSRESPONSE.fields_by_name['object_groups'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUP
+_LINKSRESPONSE.fields_by_name['object_group_links'].message_type = _INNERLINKSRESPONSE
 DESCRIPTOR.message_types_by_name['CreateUploadLink'] = _CREATEUPLOADLINK
 DESCRIPTOR.message_types_by_name['CreateUploadLinkRequest'] = _CREATEUPLOADLINKREQUEST
 DESCRIPTOR.message_types_by_name['CreateUploadLinkResponse'] = _CREATEUPLOADLINKRESPONSE
 DESCRIPTOR.message_types_by_name['CreateDownloadLinkRequest'] = _CREATEDOWNLOADLINKREQUEST
 DESCRIPTOR.message_types_by_name['CreateDownloadLinkResponse'] = _CREATEDOWNLOADLINKRESPONSE
+DESCRIPTOR.message_types_by_name['CreateDownloadLinkBatchRequest'] = _CREATEDOWNLOADLINKBATCHREQUEST
+DESCRIPTOR.message_types_by_name['CreateDownloadLinkBatchResponse'] = _CREATEDOWNLOADLINKBATCHRESPONSE
 DESCRIPTOR.message_types_by_name['StartMultipartUploadRequest'] = _STARTMULTIPARTUPLOADREQUEST
 DESCRIPTOR.message_types_by_name['StartMultipartUploadResponse'] = _STARTMULTIPARTUPLOADRESPONSE
 DESCRIPTOR.message_types_by_name['GetMultipartUploadLinkResponse'] = _GETMULTIPARTUPLOADLINKRESPONSE
@@ -446,6 +811,10 @@ DESCRIPTOR.message_types_by_name['GetMultipartUploadLinkRequest'] = _GETMULTIPAR
 DESCRIPTOR.message_types_by_name['CompleteMultipartUploadRequest'] = _COMPLETEMULTIPARTUPLOADREQUEST
 DESCRIPTOR.message_types_by_name['CompleteMultipartUploadResponse'] = _COMPLETEMULTIPARTUPLOADRESPONSE
 DESCRIPTOR.message_types_by_name['CompletedParts'] = _COMPLETEDPARTS
+DESCRIPTOR.message_types_by_name['CreateDownloadLinkStreamRequest'] = _CREATEDOWNLOADLINKSTREAMREQUEST
+DESCRIPTOR.message_types_by_name['CreateDownloadLinkStreamResponse'] = _CREATEDOWNLOADLINKSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['LinksResponse'] = _LINKSRESPONSE
+DESCRIPTOR.message_types_by_name['InnerLinksResponse'] = _INNERLINKSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateUploadLink = _reflection.GeneratedProtocolMessageType('CreateUploadLink', (_message.Message,), {
@@ -482,6 +851,20 @@ CreateDownloadLinkResponse = _reflection.GeneratedProtocolMessageType('CreateDow
   # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkResponse)
   })
 _sym_db.RegisterMessage(CreateDownloadLinkResponse)
+
+CreateDownloadLinkBatchRequest = _reflection.GeneratedProtocolMessageType('CreateDownloadLinkBatchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEDOWNLOADLINKBATCHREQUEST,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkBatchRequest)
+  })
+_sym_db.RegisterMessage(CreateDownloadLinkBatchRequest)
+
+CreateDownloadLinkBatchResponse = _reflection.GeneratedProtocolMessageType('CreateDownloadLinkBatchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEDOWNLOADLINKBATCHRESPONSE,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkBatchResponse)
+  })
+_sym_db.RegisterMessage(CreateDownloadLinkBatchResponse)
 
 StartMultipartUploadRequest = _reflection.GeneratedProtocolMessageType('StartMultipartUploadRequest', (_message.Message,), {
   'DESCRIPTOR' : _STARTMULTIPARTUPLOADREQUEST,
@@ -531,6 +914,58 @@ CompletedParts = _reflection.GeneratedProtocolMessageType('CompletedParts', (_me
   # @@protoc_insertion_point(class_scope:api.services.v1.CompletedParts)
   })
 _sym_db.RegisterMessage(CompletedParts)
+
+CreateDownloadLinkStreamRequest = _reflection.GeneratedProtocolMessageType('CreateDownloadLinkStreamRequest', (_message.Message,), {
+
+  'DateRangeQuery' : _reflection.GeneratedProtocolMessageType('DateRangeQuery', (_message.Message,), {
+    'DESCRIPTOR' : _CREATEDOWNLOADLINKSTREAMREQUEST_DATERANGEQUERY,
+    '__module__' : 'api.services.v1.object_load_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkStreamRequest.DateRangeQuery)
+    })
+  ,
+
+  'DatasetQuery' : _reflection.GeneratedProtocolMessageType('DatasetQuery', (_message.Message,), {
+    'DESCRIPTOR' : _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETQUERY,
+    '__module__' : 'api.services.v1.object_load_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkStreamRequest.DatasetQuery)
+    })
+  ,
+
+  'DatasetVersionQuery' : _reflection.GeneratedProtocolMessageType('DatasetVersionQuery', (_message.Message,), {
+    'DESCRIPTOR' : _CREATEDOWNLOADLINKSTREAMREQUEST_DATASETVERSIONQUERY,
+    '__module__' : 'api.services.v1.object_load_models_pb2'
+    # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkStreamRequest.DatasetVersionQuery)
+    })
+  ,
+  'DESCRIPTOR' : _CREATEDOWNLOADLINKSTREAMREQUEST,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkStreamRequest)
+  })
+_sym_db.RegisterMessage(CreateDownloadLinkStreamRequest)
+_sym_db.RegisterMessage(CreateDownloadLinkStreamRequest.DateRangeQuery)
+_sym_db.RegisterMessage(CreateDownloadLinkStreamRequest.DatasetQuery)
+_sym_db.RegisterMessage(CreateDownloadLinkStreamRequest.DatasetVersionQuery)
+
+CreateDownloadLinkStreamResponse = _reflection.GeneratedProtocolMessageType('CreateDownloadLinkStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEDOWNLOADLINKSTREAMRESPONSE,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.CreateDownloadLinkStreamResponse)
+  })
+_sym_db.RegisterMessage(CreateDownloadLinkStreamResponse)
+
+LinksResponse = _reflection.GeneratedProtocolMessageType('LinksResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LINKSRESPONSE,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.LinksResponse)
+  })
+_sym_db.RegisterMessage(LinksResponse)
+
+InnerLinksResponse = _reflection.GeneratedProtocolMessageType('InnerLinksResponse', (_message.Message,), {
+  'DESCRIPTOR' : _INNERLINKSRESPONSE,
+  '__module__' : 'api.services.v1.object_load_models_pb2'
+  # @@protoc_insertion_point(class_scope:api.services.v1.InnerLinksResponse)
+  })
+_sym_db.RegisterMessage(InnerLinksResponse)
 
 
 DESCRIPTOR._options = None

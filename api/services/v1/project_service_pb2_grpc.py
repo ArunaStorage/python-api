@@ -105,7 +105,8 @@ class ProjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetAPIToken(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns all API token for a specific user, based on the provided oauth2 token
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

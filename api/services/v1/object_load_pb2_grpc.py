@@ -24,6 +24,16 @@ class ObjectLoadServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkResponse.FromString,
                 )
+        self.CreateDownloadLinkBatch = channel.unary_unary(
+                '/api.services.v1.ObjectLoadService/CreateDownloadLinkBatch',
+                request_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchResponse.FromString,
+                )
+        self.CreateDownloadLinkStream = channel.unary_stream(
+                '/api.services.v1.ObjectLoadService/CreateDownloadLinkStream',
+                request_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamRequest.SerializeToString,
+                response_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamResponse.FromString,
+                )
         self.StartMultipartUpload = channel.unary_unary(
                 '/api.services.v1.ObjectLoadService/StartMultipartUpload',
                 request_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.StartMultipartUploadRequest.SerializeToString,
@@ -51,6 +61,18 @@ class ObjectLoadServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateDownloadLink(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateDownloadLinkBatch(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateDownloadLinkStream(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -86,6 +108,16 @@ def add_ObjectLoadServiceServicer_to_server(servicer, server):
                     servicer.CreateDownloadLink,
                     request_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkResponse.SerializeToString,
+            ),
+            'CreateDownloadLinkBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateDownloadLinkBatch,
+                    request_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchResponse.SerializeToString,
+            ),
+            'CreateDownloadLinkStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.CreateDownloadLinkStream,
+                    request_deserializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamRequest.FromString,
+                    response_serializer=api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamResponse.SerializeToString,
             ),
             'StartMultipartUpload': grpc.unary_unary_rpc_method_handler(
                     servicer.StartMultipartUpload,
@@ -143,6 +175,40 @@ class ObjectLoadService(object):
         return grpc.experimental.unary_unary(request, target, '/api.services.v1.ObjectLoadService/CreateDownloadLink',
             api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkRequest.SerializeToString,
             api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateDownloadLinkBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.ObjectLoadService/CreateDownloadLinkBatch',
+            api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkBatchResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateDownloadLinkStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.services.v1.ObjectLoadService/CreateDownloadLinkStream',
+            api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamRequest.SerializeToString,
+            api_dot_services_dot_v1_dot_object__load__models__pb2.CreateDownloadLinkStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

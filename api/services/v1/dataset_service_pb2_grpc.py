@@ -38,8 +38,8 @@ class DatasetServiceStub(object):
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsResponse.FromString,
                 )
-        self.GetObjectGroupsStream = channel.unary_unary(
-                '/api.services.v1.DatasetService/GetObjectGroupsStream',
+        self.GetObjectGroupsStreamLink = channel.unary_unary(
+                '/api.services.v1.DatasetService/GetObjectGroupsStreamLink',
                 request_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.SerializeToString,
                 response_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.FromString,
                 )
@@ -109,13 +109,16 @@ class DatasetServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetDatasetObjectGroups(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Lists all object groups of a dataset
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetObjectGroupsStream(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+    def GetObjectGroupsStreamLink(self, request, context):
+        """Returns a signed link that can be used to download all objects from the specified request
+        The link is signed using hmac and the resulting data can be shared without exposing any secrets
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -191,8 +194,8 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectGroupsResponse.SerializeToString,
             ),
-            'GetObjectGroupsStream': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetObjectGroupsStream,
+            'GetObjectGroupsStreamLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectGroupsStreamLink,
                     request_deserializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.FromString,
                     response_serializer=api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.SerializeToString,
             ),
@@ -314,7 +317,7 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetObjectGroupsStream(request,
+    def GetObjectGroupsStreamLink(request,
             target,
             options=(),
             channel_credentials=None,
@@ -324,7 +327,7 @@ class DatasetService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetObjectGroupsStream',
+        return grpc.experimental.unary_unary(request, target, '/api.services.v1.DatasetService/GetObjectGroupsStreamLink',
             api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkRequest.SerializeToString,
             api_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsStreamLinkResponse.FromString,
             options, channel_credentials,

@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\033DatasetObjectsServiceModelsP\001Z2github.com/ScienceObjectsDB/go-api/api/services/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3api/services/v1/dataset_object_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\xfc\x02\n\x18\x43reateObjectGroupRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\ndataset_id\x18\x03 \x01(\x04R\tdatasetId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12>\n\x07objects\x18\x06 \x03(\x0b\x32$.api.services.v1.CreateObjectRequestR\x07objects\x12\x38\n\tgenerated\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tgenerated\x12.\n\x13include_object_link\x18\x08 \x01(\x08R\x11includeObjectLink\"\x96\x01\n\x1d\x43reateObjectGroupBatchRequest\x12\x45\n\x08requests\x18\x01 \x03(\x0b\x32).api.services.v1.CreateObjectGroupRequestR\x08requests\x12.\n\x13include_object_link\x18\x02 \x01(\x08R\x11includeObjectLink\"j\n\x1e\x43reateObjectGroupBatchResponse\x12H\n\tresponses\x18\x01 \x03(\x0b\x32*.api.services.v1.CreateObjectGroupResponseR\tresponses\"\x89\x02\n\x19\x43reateObjectGroupResponse\x12&\n\x0fobject_group_id\x18\x01 \x01(\x04R\robjectGroupId\x12Y\n\x0cobject_links\x18\x02 \x03(\x0b\x32\x36.api.services.v1.CreateObjectGroupResponse.ObjectLinksR\x0bobjectLinks\x12*\n\x11object_group_name\x18\x03 \x01(\tR\x0fobjectGroupName\x1a=\n\x0bObjectLinks\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x12\n\x04link\x18\x02 \x01(\tR\x04link\"\xba\x02\n\x13\x43reateObjectRequest\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x02 \x01(\tR\x08\x66iletype\x12,\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x1f\n\x0b\x63ontent_len\x18\x05 \x01(\x03R\ncontentLen\x12-\n\x06origin\x18\x06 \x01(\x0b\x32\x15.api.models.v1.OriginR\x06origin\x12\x38\n\tgenerated\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tgenerated\"\'\n\x15GetObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"W\n\x16GetObjectGroupResponse\x12=\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\"+\n\x19\x46inishObjectUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1c\n\x1a\x46inishObjectUploadResponse\"*\n\x18\x44\x65leteObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1b\n\x19\x44\x65leteObjectGroupResponseB\x89\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
+  serialized_pb=b'\n3api/services/v1/dataset_object_service_models.proto\x12\x0f\x61pi.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!api/models/v1/common_models.proto\x1a!api/models/v1/object_models.proto\"\x90\x03\n\x18\x43reateObjectGroupRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\ndataset_id\x18\x03 \x01(\x04R\tdatasetId\x12,\n\x06labels\x18\x04 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x05 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12>\n\x07objects\x18\x06 \x03(\x0b\x32$.api.services.v1.CreateObjectRequestR\x07objects\x12.\n\x13include_object_link\x18\x08 \x01(\x08R\x11includeObjectLink\x12\x38\n\tgenerated\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tgenerated\x12\x12\n\x04uuid\x18\x0b \x01(\tR\x04uuid\"\x96\x01\n\x1d\x43reateObjectGroupBatchRequest\x12\x45\n\x08requests\x18\x01 \x03(\x0b\x32).api.services.v1.CreateObjectGroupRequestR\x08requests\x12.\n\x13include_object_link\x18\x02 \x01(\x08R\x11includeObjectLink\"j\n\x1e\x43reateObjectGroupBatchResponse\x12H\n\tresponses\x18\x01 \x03(\x0b\x32*.api.services.v1.CreateObjectGroupResponseR\tresponses\"\x9d\x02\n\x19\x43reateObjectGroupResponse\x12&\n\x0fobject_group_id\x18\x01 \x01(\x04R\robjectGroupId\x12Y\n\x0cobject_links\x18\x02 \x03(\x0b\x32\x36.api.services.v1.CreateObjectGroupResponse.ObjectLinksR\x0bobjectLinks\x12*\n\x11object_group_name\x18\x03 \x01(\tR\x0fobjectGroupName\x12\x12\n\x04uuid\x18\x04 \x01(\tR\x04uuid\x1a=\n\x0bObjectLinks\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x12\n\x04link\x18\x02 \x01(\tR\x04link\"\x80\x02\n\x13\x43reateObjectRequest\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x02 \x01(\tR\x08\x66iletype\x12,\n\x06labels\x18\x03 \x03(\x0b\x32\x14.api.models.v1.LabelR\x06labels\x12\x33\n\x08metadata\x18\x04 \x03(\x0b\x32\x17.api.models.v1.MetadataR\x08metadata\x12\x1f\n\x0b\x63ontent_len\x18\x05 \x01(\x03R\ncontentLen\x12-\n\x06origin\x18\x06 \x01(\x0b\x32\x15.api.models.v1.OriginR\x06origin\"\'\n\x15GetObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"W\n\x16GetObjectGroupResponse\x12=\n\x0cobject_group\x18\x01 \x01(\x0b\x32\x1a.api.models.v1.ObjectGroupR\x0bobjectGroup\"+\n\x19\x46inishObjectUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1c\n\x1a\x46inishObjectUploadResponse\"*\n\x18\x44\x65leteObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\x04R\x02id\"\x1b\n\x19\x44\x65leteObjectGroupResponseB\x89\x01\n4com.github.ScienceObjectsDB.java_api.api.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01Z2github.com/ScienceObjectsDB/go-api/api/services/v1b\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_common__models__pb2.DESCRIPTOR,api_dot_models_dot_v1_dot_object__models__pb2.DESCRIPTOR,])
 
@@ -80,19 +80,26 @@ _CREATEOBJECTGROUPREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='objects', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='generated', full_name='api.services.v1.CreateObjectGroupRequest.generated', index=6,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='generated', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='include_object_link', full_name='api.services.v1.CreateObjectGroupRequest.include_object_link', index=7,
+      name='include_object_link', full_name='api.services.v1.CreateObjectGroupRequest.include_object_link', index=6,
       number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='includeObjectLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='generated', full_name='api.services.v1.CreateObjectGroupRequest.generated', index=7,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='generated', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='api.services.v1.CreateObjectGroupRequest.uuid', index=8,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='uuid', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -106,7 +113,7 @@ _CREATEOBJECTGROUPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=176,
-  serialized_end=556,
+  serialized_end=576,
 )
 
 
@@ -144,8 +151,8 @@ _CREATEOBJECTGROUPBATCHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=709,
+  serialized_start=579,
+  serialized_end=729,
 )
 
 
@@ -176,8 +183,8 @@ _CREATEOBJECTGROUPBATCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=711,
-  serialized_end=817,
+  serialized_start=731,
+  serialized_end=837,
 )
 
 
@@ -215,8 +222,8 @@ _CREATEOBJECTGROUPRESPONSE_OBJECTLINKS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1024,
-  serialized_end=1085,
+  serialized_start=1064,
+  serialized_end=1125,
 )
 
 _CREATEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
@@ -248,6 +255,13 @@ _CREATEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='objectGroupName', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='api.services.v1.CreateObjectGroupResponse.uuid', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='uuid', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -260,8 +274,8 @@ _CREATEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=820,
-  serialized_end=1085,
+  serialized_start=840,
+  serialized_end=1125,
 )
 
 
@@ -315,13 +329,6 @@ _CREATEOBJECTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='origin', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='generated', full_name='api.services.v1.CreateObjectRequest.generated', index=6,
-      number=7, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='generated', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -334,8 +341,8 @@ _CREATEOBJECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1088,
-  serialized_end=1402,
+  serialized_start=1128,
+  serialized_end=1384,
 )
 
 
@@ -366,8 +373,8 @@ _GETOBJECTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1404,
-  serialized_end=1443,
+  serialized_start=1386,
+  serialized_end=1425,
 )
 
 
@@ -398,8 +405,8 @@ _GETOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1445,
-  serialized_end=1532,
+  serialized_start=1427,
+  serialized_end=1514,
 )
 
 
@@ -430,8 +437,8 @@ _FINISHOBJECTUPLOADREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1534,
-  serialized_end=1577,
+  serialized_start=1516,
+  serialized_end=1559,
 )
 
 
@@ -455,8 +462,8 @@ _FINISHOBJECTUPLOADRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1579,
-  serialized_end=1607,
+  serialized_start=1561,
+  serialized_end=1589,
 )
 
 
@@ -487,8 +494,8 @@ _DELETEOBJECTGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1609,
-  serialized_end=1651,
+  serialized_start=1591,
+  serialized_end=1633,
 )
 
 
@@ -512,8 +519,8 @@ _DELETEOBJECTGROUPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1653,
-  serialized_end=1680,
+  serialized_start=1635,
+  serialized_end=1662,
 )
 
 _CREATEOBJECTGROUPREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
@@ -527,7 +534,6 @@ _CREATEOBJECTGROUPRESPONSE.fields_by_name['object_links'].message_type = _CREATE
 _CREATEOBJECTREQUEST.fields_by_name['labels'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._LABEL
 _CREATEOBJECTREQUEST.fields_by_name['metadata'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._METADATA
 _CREATEOBJECTREQUEST.fields_by_name['origin'].message_type = api_dot_models_dot_v1_dot_common__models__pb2._ORIGIN
-_CREATEOBJECTREQUEST.fields_by_name['generated'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETOBJECTGROUPRESPONSE.fields_by_name['object_group'].message_type = api_dot_models_dot_v1_dot_object__models__pb2._OBJECTGROUP
 DESCRIPTOR.message_types_by_name['CreateObjectGroupRequest'] = _CREATEOBJECTGROUPREQUEST
 DESCRIPTOR.message_types_by_name['CreateObjectGroupBatchRequest'] = _CREATEOBJECTGROUPBATCHREQUEST
