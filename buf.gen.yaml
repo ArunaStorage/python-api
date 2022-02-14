@@ -1,7 +1,4 @@
-version: v1beta1
+version: v1
 plugins:
-  - name: python
-    out: .
-  - name: python-grpc
-    path: grpc_python_plugin
+  - remote: buf.build/grpc/plugins/python:v1.43.2-1
     out: .
