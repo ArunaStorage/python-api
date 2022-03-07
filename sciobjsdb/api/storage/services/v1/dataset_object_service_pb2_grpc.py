@@ -34,6 +34,11 @@ class DatasetObjectsServiceStub(object):
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadResponse.FromString,
                 )
+        self.FinishObjectGroupUpload = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectGroupUpload',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.FromString,
+                )
         self.DeleteObjectGroup = channel.unary_unary(
                 '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/DeleteObjectGroup',
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.SerializeToString,
@@ -75,6 +80,15 @@ class DatasetObjectsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def FinishObjectGroupUpload(self, request, context):
+        """Finishes the upload process for an objectgroup
+        This will change the status of the objectgroup to "available"
+        Experimental, might change this to FinishObjectGroupUpload
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteObjectGroup(self, request, context):
         """Deletes the given object group
         This will also delete all associated objects both as metadata objects and the actual objects in the object storage
@@ -105,6 +119,11 @@ def add_DatasetObjectsServiceServicer_to_server(servicer, server):
                     servicer.FinishObjectUpload,
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadResponse.SerializeToString,
+            ),
+            'FinishObjectGroupUpload': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishObjectGroupUpload,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.SerializeToString,
             ),
             'DeleteObjectGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteObjectGroup,
@@ -186,6 +205,23 @@ class DatasetObjectsService(object):
         return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectUpload',
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadRequest.SerializeToString,
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FinishObjectGroupUpload(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectGroupUpload',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
