@@ -72,14 +72,14 @@ class ProjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AddUserToProject(self, request, context):
-        """AddUserToProject Adds a new user to a given project
+        """AddUserToProject Adds a new user to a given project by its id
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateAPIToken(self, request, context):
-        """Creates an API token to authenticate 
+        """CreateAPIToken Creates an API token to authenticate 
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -100,7 +100,8 @@ class ProjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetProject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """GetProject Returns the specified project
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -121,7 +122,8 @@ class ProjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteAPIToken(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """DeleteAPITokenRequest Deletes the specified API Token
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

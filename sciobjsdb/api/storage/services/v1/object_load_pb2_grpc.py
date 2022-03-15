@@ -100,13 +100,16 @@ class ObjectLoadServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetMultipartUploadLink(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Returns a part of an multipart upload.
+        Each but the last part needs to be bigger than 5MB in order to use this functionality
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CompleteMultipartUpload(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """CompleteMultipartUploadRequest Finishes a multipart upload after all parts have been uploaded
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
