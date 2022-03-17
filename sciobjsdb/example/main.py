@@ -43,8 +43,8 @@ object_load_client = ObjectLoadServiceStub(channel)
 
 
 #Set project id and API token obtained from the website
-project_id = "3aff6938-f319-4512-bab9-420b5f0f59f3"
-api_token =  b'zVGRlnR68qBvK7EPo2/fo2WDHDg4iXQkB8Pd1zl3E7wf4hKhjVjAQRu/Ov10'
+project_id = "projectid"
+api_token =  b'apitoken'
 
 #Create the metadata for authentication that needs to be issued with each call
 #Please mind the trailing comma
