@@ -16,7 +16,7 @@ from sciobjsdb.api.storage.models.v1 import common_models_pb2 as sciobjsdb_dot_a
 from sciobjsdb.api.storage.models.v1 import object_models_pb2 as sciobjsdb_dot_api_dot_storage_dot_models_dot_v1_dot_object__models__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEsciobjsdb/api/storage/services/v1/dataset_object_service_models.proto\x12!sciobjsdb.api.storage.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x33sciobjsdb/api/storage/models/v1/common_models.proto\x1a\x33sciobjsdb/api/storage/models/v1/object_models.proto\"\xc6\x03\n\x18\x43reateObjectGroupRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\ndataset_id\x18\x03 \x01(\tR\tdatasetId\x12>\n\x06labels\x18\x04 \x03(\x0b\x32&.sciobjsdb.api.storage.models.v1.LabelR\x06labels\x12\x45\n\x08metadata\x18\x05 \x03(\x0b\x32).sciobjsdb.api.storage.models.v1.MetadataR\x08metadata\x12P\n\x07objects\x18\x06 \x03(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.CreateObjectRequestR\x07objects\x12.\n\x13include_object_link\x18\x08 \x01(\x08R\x11includeObjectLink\x12\x38\n\tgenerated\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tgenerated\x12\x12\n\x04uuid\x18\x0b \x01(\tR\x04uuid\"\xa8\x01\n\x1d\x43reateObjectGroupBatchRequest\x12W\n\x08requests\x18\x01 \x03(\x0b\x32;.sciobjsdb.api.storage.services.v1.CreateObjectGroupRequestR\x08requests\x12.\n\x13include_object_link\x18\x02 \x01(\x08R\x11includeObjectLink\"|\n\x1e\x43reateObjectGroupBatchResponse\x12Z\n\tresponses\x18\x01 \x03(\x0b\x32<.sciobjsdb.api.storage.services.v1.CreateObjectGroupResponseR\tresponses\"\xe2\x02\n\x19\x43reateObjectGroupResponse\x12&\n\x0fobject_group_id\x18\x01 \x01(\tR\robjectGroupId\x12k\n\x0cobject_links\x18\x02 \x03(\x0b\x32H.sciobjsdb.api.storage.services.v1.CreateObjectGroupResponse.ObjectLinksR\x0bobjectLinks\x12*\n\x11object_group_name\x18\x03 \x01(\tR\x0fobjectGroupName\x12\x12\n\x04uuid\x18\x04 \x01(\tR\x04uuid\x1ap\n\x0bObjectLinks\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x12\n\x04link\x18\x02 \x01(\tR\x04link\x12\x1b\n\tobject_id\x18\x03 \x01(\tR\x08objectId\x12\x14\n\x05index\x18\x04 \x01(\x03R\x05index\"\xb6\x02\n\x13\x43reateObjectRequest\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x02 \x01(\tR\x08\x66iletype\x12>\n\x06labels\x18\x03 \x03(\x0b\x32&.sciobjsdb.api.storage.models.v1.LabelR\x06labels\x12\x45\n\x08metadata\x18\x04 \x03(\x0b\x32).sciobjsdb.api.storage.models.v1.MetadataR\x08metadata\x12\x1f\n\x0b\x63ontent_len\x18\x05 \x01(\x03R\ncontentLen\x12?\n\x06origin\x18\x06 \x01(\x0b\x32\'.sciobjsdb.api.storage.models.v1.OriginR\x06origin\"\'\n\x15GetObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"i\n\x16GetObjectGroupResponse\x12O\n\x0cobject_group\x18\x01 \x01(\x0b\x32,.sciobjsdb.api.storage.models.v1.ObjectGroupR\x0bobjectGroup\"+\n\x19\x46inishObjectUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1c\n\x1a\x46inishObjectUploadResponse\"0\n\x1e\x46inishObjectGroupUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"!\n\x1f\x46inishObjectGroupUploadResponse\"*\n\x18\x44\x65leteObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1b\n\x19\x44\x65leteObjectGroupResponseB\xad\x01\nFcom.github.ScienceObjectsDB.java_api.sciobjsdb.api.storage.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01ZDgithub.com/ScienceObjectsDB/go-api/sciobjsdb/api/storage/services/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEsciobjsdb/api/storage/services/v1/dataset_object_service_models.proto\x12!sciobjsdb.api.storage.services.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x33sciobjsdb/api/storage/models/v1/common_models.proto\x1a\x33sciobjsdb/api/storage/models/v1/object_models.proto\"\xf5\x04\n\x18\x43reateObjectGroupRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1d\n\ndataset_id\x18\x03 \x01(\tR\tdatasetId\x12>\n\x06labels\x18\x04 \x03(\x0b\x32&.sciobjsdb.api.storage.models.v1.LabelR\x06labels\x12M\n\x0b\x61nnotations\x18\x05 \x03(\x0b\x32+.sciobjsdb.api.storage.models.v1.AnnotationR\x0b\x61nnotations\x12P\n\x07objects\x18\x06 \x03(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.CreateObjectRequestR\x07objects\x12\x61\n\x10metadata_objects\x18\x07 \x03(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.CreateObjectRequestR\x0fmetadataObjects\x12.\n\x13include_object_link\x18\x08 \x01(\x08R\x11includeObjectLink\x12\x38\n\tgenerated\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tgenerated\x12\x12\n\x04uuid\x18\x0b \x01(\tR\x04uuid\x12\x42\n\x07subpath\x18\x0c \x01(\x0b\x32(.sciobjsdb.api.storage.models.v1.SubpathR\x07subpath\"\xa8\x01\n\x1d\x43reateObjectGroupBatchRequest\x12W\n\x08requests\x18\x01 \x03(\x0b\x32;.sciobjsdb.api.storage.services.v1.CreateObjectGroupRequestR\x08requests\x12.\n\x13include_object_link\x18\x02 \x01(\x08R\x11includeObjectLink\"|\n\x1e\x43reateObjectGroupBatchResponse\x12Z\n\tresponses\x18\x01 \x03(\x0b\x32<.sciobjsdb.api.storage.services.v1.CreateObjectGroupResponseR\tresponses\"\x99\x04\n\x19\x43reateObjectGroupResponse\x12&\n\x0fobject_group_id\x18\x01 \x01(\tR\robjectGroupId\x12k\n\x0cobject_links\x18\x02 \x03(\x0b\x32H.sciobjsdb.api.storage.services.v1.CreateObjectGroupResponse.ObjectLinksR\x0bobjectLinks\x12|\n\x15metadata_object_links\x18\x03 \x03(\x0b\x32H.sciobjsdb.api.storage.services.v1.CreateObjectGroupResponse.ObjectLinksR\x13metadataObjectLinks\x12*\n\x11object_group_name\x18\x04 \x01(\tR\x0fobjectGroupName\x12\x12\n\x04uuid\x18\x05 \x01(\tR\x04uuid\x12\x37\n\x18object_group_revision_id\x18\x06 \x01(\tR\x15objectGroupRevisionId\x1ap\n\x0bObjectLinks\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x12\n\x04link\x18\x02 \x01(\tR\x04link\x12\x1b\n\tobject_id\x18\x03 \x01(\tR\x08objectId\x12\x14\n\x05index\x18\x04 \x01(\x03R\x05index\"\x82\x03\n\x13\x43reateObjectRequest\x12\x1a\n\x08\x66ilename\x18\x01 \x01(\tR\x08\x66ilename\x12\x1a\n\x08\x66iletype\x18\x02 \x01(\tR\x08\x66iletype\x12>\n\x06labels\x18\x03 \x03(\x0b\x32&.sciobjsdb.api.storage.models.v1.LabelR\x06labels\x12M\n\x0b\x61nnotations\x18\x04 \x03(\x0b\x32+.sciobjsdb.api.storage.models.v1.AnnotationR\x0b\x61nnotations\x12\x1f\n\x0b\x63ontent_len\x18\x05 \x01(\x03R\ncontentLen\x12?\n\x06origin\x18\x06 \x01(\x0b\x32\'.sciobjsdb.api.storage.models.v1.OriginR\x06origin\x12\x42\n\x07subpath\x18\x0c \x01(\x0b\x32(.sciobjsdb.api.storage.models.v1.SubpathR\x07subpath\"\xa7\x02\n\x15GetObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12v\n\npagination\x18\x02 \x01(\x0b\x32V.sciobjsdb.api.storage.services.v1.GetObjectGroupRequest.ObjectGroupRevisionPaginationR\npagination\x1a\x85\x01\n\x1dObjectGroupRevisionPagination\x12\x32\n\x15start_revision_number\x18\x01 \x01(\x03R\x13startRevisionNumber\x12\x30\n\x14last_revision_number\x18\x02 \x01(\x03R\x12lastRevisionNumber\"\xd5\x01\n\x16GetObjectGroupResponse\x12O\n\x0cobject_group\x18\x01 \x01(\x0b\x32,.sciobjsdb.api.storage.models.v1.ObjectGroupR\x0bobjectGroup\x12j\n\x16object_group_revisions\x18\x02 \x03(\x0b\x32\x34.sciobjsdb.api.storage.models.v1.ObjectGroupRevisionR\x14objectGroupRevisions\"/\n\x1dGetObjectGroupRevisionRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x8a\x01\n\x1eGetObjectGroupRevisionResponse\x12h\n\x15object_group_revision\x18\x01 \x01(\x0b\x32\x34.sciobjsdb.api.storage.models.v1.ObjectGroupRevisionR\x13objectGroupRevision\"\xa3\x02\n\x18UpdateObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12,\n\x12parent_revision_id\x18\x02 \x01(\tR\x10parentRevisionId\x12_\n\x0eupdate_objects\x18\x03 \x01(\x0b\x32\x38.sciobjsdb.api.storage.services.v1.UpdateObjectsRequestsR\rupdateObjects\x12h\n\x13update_meta_objects\x18\x04 \x01(\x0b\x32\x38.sciobjsdb.api.storage.services.v1.UpdateObjectsRequestsR\x11updateMetaObjects\"\xf4\x01\n\x15UpdateObjectsRequests\x12W\n\x0b\x61\x64\x64_objects\x18\x01 \x03(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.CreateObjectRequestR\naddObjects\x12[\n\rupdate_object\x18\x02 \x03(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.UpdateObjectRequestR\x0cupdateObject\x12%\n\x0e\x64\x65lete_objects\x18\x03 \x03(\tR\rdeleteObjects\"\x97\x01\n\x13UpdateObjectRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12_\n\x0eupdated_object\x18\x02 \x01(\x0b\x32\x36.sciobjsdb.api.storage.services.v1.CreateObjectRequestH\x00R\rupdatedObjectB\x0f\n\rupdate_object\"\x1b\n\x19UpdateObjectGroupResponse\"+\n\x19\x46inishObjectUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1c\n\x1a\x46inishObjectUploadResponse\"8\n&FinishObjectGroupRevisionUploadRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\")\n\'FinishObjectGroupRevisionUploadResponse\"*\n\x18\x44\x65leteObjectGroupRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"\x1b\n\x19\x44\x65leteObjectGroupResponseB\xad\x01\nFcom.github.ScienceObjectsDB.java_api.sciobjsdb.api.storage.services.v1B\x1b\x44\x61tasetObjectsServiceModelsP\x01ZDgithub.com/ScienceObjectsDB/go-api/sciobjsdb/api/storage/services/v1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'sciobjsdb.api.storage.services.v1.dataset_object_service_models_pb2', globals())
@@ -25,31 +25,45 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\nFcom.github.ScienceObjectsDB.java_api.sciobjsdb.api.storage.services.v1B\033DatasetObjectsServiceModelsP\001ZDgithub.com/ScienceObjectsDB/go-api/sciobjsdb/api/storage/services/v1'
   _CREATEOBJECTGROUPREQUEST._serialized_start=248
-  _CREATEOBJECTGROUPREQUEST._serialized_end=702
-  _CREATEOBJECTGROUPBATCHREQUEST._serialized_start=705
-  _CREATEOBJECTGROUPBATCHREQUEST._serialized_end=873
-  _CREATEOBJECTGROUPBATCHRESPONSE._serialized_start=875
-  _CREATEOBJECTGROUPBATCHRESPONSE._serialized_end=999
-  _CREATEOBJECTGROUPRESPONSE._serialized_start=1002
-  _CREATEOBJECTGROUPRESPONSE._serialized_end=1356
-  _CREATEOBJECTGROUPRESPONSE_OBJECTLINKS._serialized_start=1244
-  _CREATEOBJECTGROUPRESPONSE_OBJECTLINKS._serialized_end=1356
-  _CREATEOBJECTREQUEST._serialized_start=1359
-  _CREATEOBJECTREQUEST._serialized_end=1669
-  _GETOBJECTGROUPREQUEST._serialized_start=1671
-  _GETOBJECTGROUPREQUEST._serialized_end=1710
-  _GETOBJECTGROUPRESPONSE._serialized_start=1712
-  _GETOBJECTGROUPRESPONSE._serialized_end=1817
-  _FINISHOBJECTUPLOADREQUEST._serialized_start=1819
-  _FINISHOBJECTUPLOADREQUEST._serialized_end=1862
-  _FINISHOBJECTUPLOADRESPONSE._serialized_start=1864
-  _FINISHOBJECTUPLOADRESPONSE._serialized_end=1892
-  _FINISHOBJECTGROUPUPLOADREQUEST._serialized_start=1894
-  _FINISHOBJECTGROUPUPLOADREQUEST._serialized_end=1942
-  _FINISHOBJECTGROUPUPLOADRESPONSE._serialized_start=1944
-  _FINISHOBJECTGROUPUPLOADRESPONSE._serialized_end=1977
-  _DELETEOBJECTGROUPREQUEST._serialized_start=1979
-  _DELETEOBJECTGROUPREQUEST._serialized_end=2021
-  _DELETEOBJECTGROUPRESPONSE._serialized_start=2023
-  _DELETEOBJECTGROUPRESPONSE._serialized_end=2050
+  _CREATEOBJECTGROUPREQUEST._serialized_end=877
+  _CREATEOBJECTGROUPBATCHREQUEST._serialized_start=880
+  _CREATEOBJECTGROUPBATCHREQUEST._serialized_end=1048
+  _CREATEOBJECTGROUPBATCHRESPONSE._serialized_start=1050
+  _CREATEOBJECTGROUPBATCHRESPONSE._serialized_end=1174
+  _CREATEOBJECTGROUPRESPONSE._serialized_start=1177
+  _CREATEOBJECTGROUPRESPONSE._serialized_end=1714
+  _CREATEOBJECTGROUPRESPONSE_OBJECTLINKS._serialized_start=1602
+  _CREATEOBJECTGROUPRESPONSE_OBJECTLINKS._serialized_end=1714
+  _CREATEOBJECTREQUEST._serialized_start=1717
+  _CREATEOBJECTREQUEST._serialized_end=2103
+  _GETOBJECTGROUPREQUEST._serialized_start=2106
+  _GETOBJECTGROUPREQUEST._serialized_end=2401
+  _GETOBJECTGROUPREQUEST_OBJECTGROUPREVISIONPAGINATION._serialized_start=2268
+  _GETOBJECTGROUPREQUEST_OBJECTGROUPREVISIONPAGINATION._serialized_end=2401
+  _GETOBJECTGROUPRESPONSE._serialized_start=2404
+  _GETOBJECTGROUPRESPONSE._serialized_end=2617
+  _GETOBJECTGROUPREVISIONREQUEST._serialized_start=2619
+  _GETOBJECTGROUPREVISIONREQUEST._serialized_end=2666
+  _GETOBJECTGROUPREVISIONRESPONSE._serialized_start=2669
+  _GETOBJECTGROUPREVISIONRESPONSE._serialized_end=2807
+  _UPDATEOBJECTGROUPREQUEST._serialized_start=2810
+  _UPDATEOBJECTGROUPREQUEST._serialized_end=3101
+  _UPDATEOBJECTSREQUESTS._serialized_start=3104
+  _UPDATEOBJECTSREQUESTS._serialized_end=3348
+  _UPDATEOBJECTREQUEST._serialized_start=3351
+  _UPDATEOBJECTREQUEST._serialized_end=3502
+  _UPDATEOBJECTGROUPRESPONSE._serialized_start=3504
+  _UPDATEOBJECTGROUPRESPONSE._serialized_end=3531
+  _FINISHOBJECTUPLOADREQUEST._serialized_start=3533
+  _FINISHOBJECTUPLOADREQUEST._serialized_end=3576
+  _FINISHOBJECTUPLOADRESPONSE._serialized_start=3578
+  _FINISHOBJECTUPLOADRESPONSE._serialized_end=3606
+  _FINISHOBJECTGROUPREVISIONUPLOADREQUEST._serialized_start=3608
+  _FINISHOBJECTGROUPREVISIONUPLOADREQUEST._serialized_end=3664
+  _FINISHOBJECTGROUPREVISIONUPLOADRESPONSE._serialized_start=3666
+  _FINISHOBJECTGROUPREVISIONUPLOADRESPONSE._serialized_end=3707
+  _DELETEOBJECTGROUPREQUEST._serialized_start=3709
+  _DELETEOBJECTGROUPREQUEST._serialized_end=3751
+  _DELETEOBJECTGROUPRESPONSE._serialized_start=3753
+  _DELETEOBJECTGROUPRESPONSE._serialized_end=3780
 # @@protoc_insertion_point(module_scope)

@@ -2,6 +2,7 @@ from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from sciobjsdb.api.storage.models.v1 import dataset_pb2 as _dataset_pb2
 from sciobjsdb.api.storage.models.v1 import common_models_pb2 as _common_models_pb2
 from sciobjsdb.api.storage.models.v1 import object_models_pb2 as _object_models_pb2
+from sciobjsdb.api.storage.services.v1 import dataset_object_service_models_pb2 as _dataset_object_service_models_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -11,18 +12,20 @@ from typing import ClassVar, Iterable, Mapping, Optional, Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateDatasetRequest(_message.Message):
-    __slots__ = ["description", "labels", "metadata", "name", "project_id"]
+    __slots__ = ["annotations", "description", "labels", "metadata_objects", "name", "project_id"]
+    ANNOTATIONS_FIELD_NUMBER: ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: ClassVar[int]
     LABELS_FIELD_NUMBER: ClassVar[int]
-    METADATA_FIELD_NUMBER: ClassVar[int]
+    METADATA_OBJECTS_FIELD_NUMBER: ClassVar[int]
     NAME_FIELD_NUMBER: ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: ClassVar[int]
+    annotations: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Annotation]
     description: str
     labels: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Label]
-    metadata: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Metadata]
+    metadata_objects: _containers.RepeatedCompositeFieldContainer[_dataset_object_service_models_pb2.CreateObjectRequest]
     name: str
     project_id: str
-    def __init__(self, name: Optional[str] = ..., description: Optional[str] = ..., project_id: Optional[str] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., metadata: Optional[Iterable[Union[_common_models_pb2.Metadata, Mapping]]] = ...) -> None: ...
+    def __init__(self, name: Optional[str] = ..., description: Optional[str] = ..., project_id: Optional[str] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., annotations: Optional[Iterable[Union[_common_models_pb2.Annotation, Mapping]]] = ..., metadata_objects: Optional[Iterable[Union[_dataset_object_service_models_pb2.CreateObjectRequest, Mapping]]] = ...) -> None: ...
 
 class CreateDatasetResponse(_message.Message):
     __slots__ = ["id"]
@@ -85,10 +88,10 @@ class GetDatasetVersionObjectGroupsRequest(_message.Message):
     def __init__(self, id: Optional[str] = ..., page_request: Optional[Union[_common_models_pb2.PageRequest, Mapping]] = ...) -> None: ...
 
 class GetDatasetVersionObjectGroupsResponse(_message.Message):
-    __slots__ = ["object_group"]
-    OBJECT_GROUP_FIELD_NUMBER: ClassVar[int]
-    object_group: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroup]
-    def __init__(self, object_group: Optional[Iterable[Union[_object_models_pb2.ObjectGroup, Mapping]]] = ...) -> None: ...
+    __slots__ = ["object_group_revisions"]
+    OBJECT_GROUP_REVISIONS_FIELD_NUMBER: ClassVar[int]
+    object_group_revisions: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroupRevision]
+    def __init__(self, object_group_revisions: Optional[Iterable[Union[_object_models_pb2.ObjectGroupRevision, Mapping]]] = ...) -> None: ...
 
 class GetDatasetVersionRequest(_message.Message):
     __slots__ = ["id"]
@@ -114,7 +117,7 @@ class GetDatasetVersionsResponse(_message.Message):
     dataset_versions: _containers.RepeatedCompositeFieldContainer[_dataset_pb2.DatasetVersion]
     def __init__(self, dataset_versions: Optional[Iterable[Union[_dataset_pb2.DatasetVersion, Mapping]]] = ...) -> None: ...
 
-class GetObjectGroupsInDateRangeRequest(_message.Message):
+class GetObjectGroupRevisionsInDateRangeRequest(_message.Message):
     __slots__ = ["end", "id", "start"]
     END_FIELD_NUMBER: ClassVar[int]
     ID_FIELD_NUMBER: ClassVar[int]
@@ -124,11 +127,11 @@ class GetObjectGroupsInDateRangeRequest(_message.Message):
     start: _timestamp_pb2.Timestamp
     def __init__(self, id: Optional[str] = ..., start: Optional[Union[_timestamp_pb2.Timestamp, Mapping]] = ..., end: Optional[Union[_timestamp_pb2.Timestamp, Mapping]] = ...) -> None: ...
 
-class GetObjectGroupsInDateRangeResponse(_message.Message):
-    __slots__ = ["object_groups"]
-    OBJECT_GROUPS_FIELD_NUMBER: ClassVar[int]
-    object_groups: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroup]
-    def __init__(self, object_groups: Optional[Iterable[Union[_object_models_pb2.ObjectGroup, Mapping]]] = ...) -> None: ...
+class GetObjectGroupRevisionsInDateRangeResponse(_message.Message):
+    __slots__ = ["object_group_revisions"]
+    OBJECT_GROUP_REVISIONS_FIELD_NUMBER: ClassVar[int]
+    object_group_revisions: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroupRevision]
+    def __init__(self, object_group_revisions: Optional[Iterable[Union[_object_models_pb2.ObjectGroupRevision, Mapping]]] = ...) -> None: ...
 
 class GetObjectGroupsStreamLinkRequest(_message.Message):
     __slots__ = ["dataset", "dataset_version", "date_range", "expiry", "group_ids", "stream_type"]
@@ -187,22 +190,22 @@ class GetObjectGroupsStreamLinkResponse(_message.Message):
     def __init__(self, url: Optional[str] = ...) -> None: ...
 
 class ReleaseDatasetVersionRequest(_message.Message):
-    __slots__ = ["dataset_id", "description", "labels", "metadata", "name", "object_group_ids", "version"]
+    __slots__ = ["annotations", "dataset_id", "description", "labels", "name", "object_group_revision_ids", "version"]
+    ANNOTATIONS_FIELD_NUMBER: ClassVar[int]
     DATASET_ID_FIELD_NUMBER: ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: ClassVar[int]
     LABELS_FIELD_NUMBER: ClassVar[int]
-    METADATA_FIELD_NUMBER: ClassVar[int]
     NAME_FIELD_NUMBER: ClassVar[int]
-    OBJECT_GROUP_IDS_FIELD_NUMBER: ClassVar[int]
+    OBJECT_GROUP_REVISION_IDS_FIELD_NUMBER: ClassVar[int]
     VERSION_FIELD_NUMBER: ClassVar[int]
+    annotations: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Annotation]
     dataset_id: str
     description: str
     labels: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Label]
-    metadata: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Metadata]
     name: str
-    object_group_ids: _containers.RepeatedScalarFieldContainer[str]
+    object_group_revision_ids: _containers.RepeatedScalarFieldContainer[str]
     version: _common_models_pb2.Version
-    def __init__(self, name: Optional[str] = ..., dataset_id: Optional[str] = ..., version: Optional[Union[_common_models_pb2.Version, Mapping]] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., metadata: Optional[Iterable[Union[_common_models_pb2.Metadata, Mapping]]] = ..., object_group_ids: Optional[Iterable[str]] = ..., description: Optional[str] = ...) -> None: ...
+    def __init__(self, name: Optional[str] = ..., dataset_id: Optional[str] = ..., version: Optional[Union[_common_models_pb2.Version, Mapping]] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., annotations: Optional[Iterable[Union[_common_models_pb2.Annotation, Mapping]]] = ..., object_group_revision_ids: Optional[Iterable[str]] = ..., description: Optional[str] = ...) -> None: ...
 
 class ReleaseDatasetVersionResponse(_message.Message):
     __slots__ = ["id"]

@@ -19,6 +19,7 @@ STATUS_ARCHIVED: Status
 STATUS_AVAILABLE: Status
 STATUS_DELETING: Status
 STATUS_INITIATING: Status
+STATUS_STAGING: Status
 STATUS_UNSPECIFIED: Status
 STATUS_UPDATING: Status
 
@@ -33,6 +34,14 @@ class APIToken(_message.Message):
     rights: _containers.RepeatedScalarFieldContainer[Right]
     token: str
     def __init__(self, id: Optional[str] = ..., token: Optional[str] = ..., rights: Optional[Iterable[Union[Right, str]]] = ..., project_id: Optional[str] = ...) -> None: ...
+
+class Annotation(_message.Message):
+    __slots__ = ["key", "value"]
+    KEY_FIELD_NUMBER: ClassVar[int]
+    VALUE_FIELD_NUMBER: ClassVar[int]
+    key: str
+    value: str
+    def __init__(self, key: Optional[str] = ..., value: Optional[str] = ...) -> None: ...
 
 class Empty(_message.Message):
     __slots__ = []
@@ -52,18 +61,6 @@ class Index(_message.Message):
     start_byte: int
     def __init__(self, start_byte: Optional[int] = ..., end_byte: Optional[int] = ...) -> None: ...
 
-class IndexedObjectLocation(_message.Message):
-    __slots__ = ["bucket", "index", "key", "url"]
-    BUCKET_FIELD_NUMBER: ClassVar[int]
-    INDEX_FIELD_NUMBER: ClassVar[int]
-    KEY_FIELD_NUMBER: ClassVar[int]
-    URL_FIELD_NUMBER: ClassVar[int]
-    bucket: str
-    index: Index
-    key: str
-    url: str
-    def __init__(self, bucket: Optional[str] = ..., key: Optional[str] = ..., url: Optional[str] = ..., index: Optional[Union[Index, Mapping]] = ...) -> None: ...
-
 class Label(_message.Message):
     __slots__ = ["key", "value"]
     KEY_FIELD_NUMBER: ClassVar[int]
@@ -73,34 +70,26 @@ class Label(_message.Message):
     def __init__(self, key: Optional[str] = ..., value: Optional[str] = ...) -> None: ...
 
 class Location(_message.Message):
-    __slots__ = ["object_index_location", "object_location"]
-    OBJECT_INDEX_LOCATION_FIELD_NUMBER: ClassVar[int]
+    __slots__ = ["object_location"]
     OBJECT_LOCATION_FIELD_NUMBER: ClassVar[int]
-    object_index_location: IndexedObjectLocation
     object_location: ObjectLocation
-    def __init__(self, object_location: Optional[Union[ObjectLocation, Mapping]] = ..., object_index_location: Optional[Union[IndexedObjectLocation, Mapping]] = ...) -> None: ...
-
-class Metadata(_message.Message):
-    __slots__ = ["key", "labels", "metadata", "simple_schema"]
-    KEY_FIELD_NUMBER: ClassVar[int]
-    LABELS_FIELD_NUMBER: ClassVar[int]
-    METADATA_FIELD_NUMBER: ClassVar[int]
-    SIMPLE_SCHEMA_FIELD_NUMBER: ClassVar[int]
-    key: str
-    labels: _containers.RepeatedCompositeFieldContainer[Label]
-    metadata: bytes
-    simple_schema: str
-    def __init__(self, key: Optional[str] = ..., labels: Optional[Iterable[Union[Label, Mapping]]] = ..., metadata: Optional[bytes] = ..., simple_schema: Optional[str] = ...) -> None: ...
+    def __init__(self, object_location: Optional[Union[ObjectLocation, Mapping]] = ...) -> None: ...
 
 class ObjectLocation(_message.Message):
-    __slots__ = ["bucket", "key", "url"]
+    __slots__ = ["bucket", "id", "key", "status", "upload_id", "url"]
     BUCKET_FIELD_NUMBER: ClassVar[int]
+    ID_FIELD_NUMBER: ClassVar[int]
     KEY_FIELD_NUMBER: ClassVar[int]
+    STATUS_FIELD_NUMBER: ClassVar[int]
+    UPLOAD_ID_FIELD_NUMBER: ClassVar[int]
     URL_FIELD_NUMBER: ClassVar[int]
     bucket: str
+    id: str
     key: str
+    status: Status
+    upload_id: str
     url: str
-    def __init__(self, bucket: Optional[str] = ..., key: Optional[str] = ..., url: Optional[str] = ...) -> None: ...
+    def __init__(self, id: Optional[str] = ..., bucket: Optional[str] = ..., key: Optional[str] = ..., url: Optional[str] = ..., status: Optional[Union[Status, str]] = ..., upload_id: Optional[str] = ...) -> None: ...
 
 class Origin(_message.Message):
     __slots__ = ["link", "object_location", "origin_type"]

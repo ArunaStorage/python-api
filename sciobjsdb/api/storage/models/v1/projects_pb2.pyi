@@ -7,26 +7,26 @@ from typing import ClassVar, Iterable, Mapping, Optional, Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Project(_message.Message):
-    __slots__ = ["bucket", "description", "id", "labels", "metadata", "name", "stats", "status", "users"]
+    __slots__ = ["annotations", "bucket", "description", "id", "labels", "name", "stats", "status", "users"]
+    ANNOTATIONS_FIELD_NUMBER: ClassVar[int]
     BUCKET_FIELD_NUMBER: ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: ClassVar[int]
     ID_FIELD_NUMBER: ClassVar[int]
     LABELS_FIELD_NUMBER: ClassVar[int]
-    METADATA_FIELD_NUMBER: ClassVar[int]
     NAME_FIELD_NUMBER: ClassVar[int]
     STATS_FIELD_NUMBER: ClassVar[int]
     STATUS_FIELD_NUMBER: ClassVar[int]
     USERS_FIELD_NUMBER: ClassVar[int]
+    annotations: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Annotation]
     bucket: str
     description: str
     id: str
     labels: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Label]
-    metadata: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Metadata]
     name: str
     stats: ProjectStats
     status: _common_models_pb2.Status
     users: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.User]
-    def __init__(self, id: Optional[str] = ..., name: Optional[str] = ..., description: Optional[str] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., metadata: Optional[Iterable[Union[_common_models_pb2.Metadata, Mapping]]] = ..., users: Optional[Iterable[Union[_common_models_pb2.User, Mapping]]] = ..., bucket: Optional[str] = ..., status: Optional[Union[_common_models_pb2.Status, str]] = ..., stats: Optional[Union[ProjectStats, Mapping]] = ...) -> None: ...
+    def __init__(self, id: Optional[str] = ..., name: Optional[str] = ..., description: Optional[str] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., annotations: Optional[Iterable[Union[_common_models_pb2.Annotation, Mapping]]] = ..., users: Optional[Iterable[Union[_common_models_pb2.User, Mapping]]] = ..., bucket: Optional[str] = ..., status: Optional[Union[_common_models_pb2.Status, str]] = ..., stats: Optional[Union[ProjectStats, Mapping]] = ...) -> None: ...
 
 class ProjectStats(_message.Message):
     __slots__ = ["acc_size", "avg_object_size", "object_count", "object_group_count", "user_count"]

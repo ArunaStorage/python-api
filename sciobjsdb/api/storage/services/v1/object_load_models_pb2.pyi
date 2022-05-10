@@ -140,12 +140,12 @@ class InnerLinksResponse(_message.Message):
     def __init__(self, object_links: Optional[Iterable[str]] = ...) -> None: ...
 
 class LinksResponse(_message.Message):
-    __slots__ = ["object_group_links", "object_groups"]
-    OBJECT_GROUPS_FIELD_NUMBER: ClassVar[int]
-    OBJECT_GROUP_LINKS_FIELD_NUMBER: ClassVar[int]
-    object_group_links: _containers.RepeatedCompositeFieldContainer[InnerLinksResponse]
-    object_groups: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroup]
-    def __init__(self, object_groups: Optional[Iterable[Union[_object_models_pb2.ObjectGroup, Mapping]]] = ..., object_group_links: Optional[Iterable[Union[InnerLinksResponse, Mapping]]] = ...) -> None: ...
+    __slots__ = ["object_group_revision_links", "object_group_revisions"]
+    OBJECT_GROUP_REVISIONS_FIELD_NUMBER: ClassVar[int]
+    OBJECT_GROUP_REVISION_LINKS_FIELD_NUMBER: ClassVar[int]
+    object_group_revision_links: _containers.RepeatedCompositeFieldContainer[InnerLinksResponse]
+    object_group_revisions: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroupRevision]
+    def __init__(self, object_group_revisions: Optional[Iterable[Union[_object_models_pb2.ObjectGroupRevision, Mapping]]] = ..., object_group_revision_links: Optional[Iterable[Union[InnerLinksResponse, Mapping]]] = ...) -> None: ...
 
 class StartMultipartUploadRequest(_message.Message):
     __slots__ = ["id"]

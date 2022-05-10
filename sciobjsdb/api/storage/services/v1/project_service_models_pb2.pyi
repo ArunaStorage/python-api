@@ -35,16 +35,16 @@ class CreateAPITokenResponse(_message.Message):
     def __init__(self, token: Optional[Union[_common_models_pb2.APIToken, Mapping]] = ...) -> None: ...
 
 class CreateProjectRequest(_message.Message):
-    __slots__ = ["description", "labels", "metadata", "name"]
+    __slots__ = ["annotations", "description", "labels", "name"]
+    ANNOTATIONS_FIELD_NUMBER: ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: ClassVar[int]
     LABELS_FIELD_NUMBER: ClassVar[int]
-    METADATA_FIELD_NUMBER: ClassVar[int]
     NAME_FIELD_NUMBER: ClassVar[int]
+    annotations: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Annotation]
     description: str
     labels: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Label]
-    metadata: _containers.RepeatedCompositeFieldContainer[_common_models_pb2.Metadata]
     name: str
-    def __init__(self, name: Optional[str] = ..., description: Optional[str] = ..., metadata: Optional[Iterable[Union[_common_models_pb2.Metadata, Mapping]]] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ...) -> None: ...
+    def __init__(self, name: Optional[str] = ..., description: Optional[str] = ..., labels: Optional[Iterable[Union[_common_models_pb2.Label, Mapping]]] = ..., annotations: Optional[Iterable[Union[_common_models_pb2.Annotation, Mapping]]] = ...) -> None: ...
 
 class CreateProjectResponse(_message.Message):
     __slots__ = ["id"]
