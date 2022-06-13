@@ -28,6 +28,11 @@ class DatasetServiceStub(object):
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetResponse.FromString,
                 )
+        self.GetDatasetObjects = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetService/GetDatasetObjects',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsResponse.FromString,
+                )
         self.GetDatasetVersions = channel.unary_unary(
                 '/sciobjsdb.api.storage.services.v1.DatasetService/GetDatasetVersions',
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionsRequest.SerializeToString,
@@ -53,10 +58,10 @@ class DatasetServiceStub(object):
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetResponse.FromString,
                 )
-        self.GetObjectGroupsInDateRange = channel.unary_unary(
-                '/sciobjsdb.api.storage.services.v1.DatasetService/GetObjectGroupsInDateRange',
-                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.SerializeToString,
-                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.FromString,
+        self.GetObjectGroupRevisionsInDateRange = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetService/GetObjectGroupRevisionsInDateRange',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeResponse.FromString,
                 )
         self.ReleaseDatasetVersion = channel.unary_unary(
                 '/sciobjsdb.api.storage.services.v1.DatasetService/ReleaseDatasetVersion',
@@ -101,6 +106,12 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetDatasetObjects(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetDatasetVersions(self, request, context):
         """Lists Versions of a dataset
         """
@@ -138,7 +149,7 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetObjectGroupsInDateRange(self, request, context):
+    def GetObjectGroupRevisionsInDateRange(self, request, context):
         """Returns all object groups that were created within a specific date range
         The date range is not the date when the data was created in the system but
         byte the externally date that indicates the actual creation of the data
@@ -189,6 +200,11 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetResponse.SerializeToString,
             ),
+            'GetDatasetObjects': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDatasetObjects,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsResponse.SerializeToString,
+            ),
             'GetDatasetVersions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDatasetVersions,
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetVersionsRequest.FromString,
@@ -214,10 +230,10 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.DeleteDatasetResponse.SerializeToString,
             ),
-            'GetObjectGroupsInDateRange': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetObjectGroupsInDateRange,
-                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.FromString,
-                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.SerializeToString,
+            'GetObjectGroupRevisionsInDateRange': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectGroupRevisionsInDateRange,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeResponse.SerializeToString,
             ),
             'ReleaseDatasetVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.ReleaseDatasetVersion,
@@ -284,6 +300,23 @@ class DatasetService(object):
         return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetService/GetDataset',
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetRequest.SerializeToString,
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDatasetObjects(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetService/GetDatasetObjects',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetDatasetObjectsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -373,7 +406,7 @@ class DatasetService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetObjectGroupsInDateRange(request,
+    def GetObjectGroupRevisionsInDateRange(request,
             target,
             options=(),
             channel_credentials=None,
@@ -383,9 +416,9 @@ class DatasetService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetService/GetObjectGroupsInDateRange',
-            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeRequest.SerializeToString,
-            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupsInDateRangeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetService/GetObjectGroupRevisionsInDateRange',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__service__models__pb2.GetObjectGroupRevisionsInDateRangeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

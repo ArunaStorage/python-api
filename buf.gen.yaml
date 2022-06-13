@@ -1,5 +1,7 @@
 version: v1
 plugins:
+  - remote: buf.build/grpc/plugins/python:v1.46.3-1
+    out: .
   - remote: buf.build/protocolbuffers/plugins/python:v3.20.1-1
     out: .
     opt:
