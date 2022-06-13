@@ -8,7 +8,7 @@ setup(name='ScienceObjectsDBClient',
       author='Marius Dieckmann',
       packages=['sciobjsdb'],
     install_requires=[
-          'grpc',
+          'grpcio',
           'requests'
       ],
      )
