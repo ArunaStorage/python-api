@@ -69,6 +69,12 @@ class Label(_message.Message):
     value: str
     def __init__(self, key: Optional[str] = ..., value: Optional[str] = ...) -> None: ...
 
+class LabelFilter(_message.Message):
+    __slots__ = ["labels"]
+    LABELS_FIELD_NUMBER: ClassVar[int]
+    labels: _containers.RepeatedCompositeFieldContainer[Label]
+    def __init__(self, labels: Optional[Iterable[Union[Label, Mapping]]] = ...) -> None: ...
+
 class Location(_message.Message):
     __slots__ = ["object_location"]
     OBJECT_LOCATION_FIELD_NUMBER: ClassVar[int]

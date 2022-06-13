@@ -54,18 +54,36 @@ class DeleteDatasetVersionResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetDatasetObjectGroupsRequest(_message.Message):
-    __slots__ = ["id", "page_request"]
+    __slots__ = ["id", "label_filter", "page_request"]
     ID_FIELD_NUMBER: ClassVar[int]
+    LABEL_FILTER_FIELD_NUMBER: ClassVar[int]
     PAGE_REQUEST_FIELD_NUMBER: ClassVar[int]
     id: str
+    label_filter: _common_models_pb2.Label
     page_request: _common_models_pb2.PageRequest
-    def __init__(self, id: Optional[str] = ..., page_request: Optional[Union[_common_models_pb2.PageRequest, Mapping]] = ...) -> None: ...
+    def __init__(self, id: Optional[str] = ..., page_request: Optional[Union[_common_models_pb2.PageRequest, Mapping]] = ..., label_filter: Optional[Union[_common_models_pb2.Label, Mapping]] = ...) -> None: ...
 
 class GetDatasetObjectGroupsResponse(_message.Message):
     __slots__ = ["object_groups"]
     OBJECT_GROUPS_FIELD_NUMBER: ClassVar[int]
     object_groups: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.ObjectGroup]
     def __init__(self, object_groups: Optional[Iterable[Union[_object_models_pb2.ObjectGroup, Mapping]]] = ...) -> None: ...
+
+class GetDatasetObjectsRequest(_message.Message):
+    __slots__ = ["id", "label_filter", "page_request"]
+    ID_FIELD_NUMBER: ClassVar[int]
+    LABEL_FILTER_FIELD_NUMBER: ClassVar[int]
+    PAGE_REQUEST_FIELD_NUMBER: ClassVar[int]
+    id: str
+    label_filter: _common_models_pb2.LabelFilter
+    page_request: _common_models_pb2.PageRequest
+    def __init__(self, id: Optional[str] = ..., page_request: Optional[Union[_common_models_pb2.PageRequest, Mapping]] = ..., label_filter: Optional[Union[_common_models_pb2.LabelFilter, Mapping]] = ...) -> None: ...
+
+class GetDatasetObjectsResponse(_message.Message):
+    __slots__ = ["objects"]
+    OBJECTS_FIELD_NUMBER: ClassVar[int]
+    objects: _containers.RepeatedCompositeFieldContainer[_object_models_pb2.Object]
+    def __init__(self, objects: Optional[Iterable[Union[_object_models_pb2.Object, Mapping]]] = ...) -> None: ...
 
 class GetDatasetRequest(_message.Message):
     __slots__ = ["id"]
