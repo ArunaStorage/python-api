@@ -29,20 +29,30 @@ class DatasetObjectsServiceStub(object):
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupResponse.FromString,
                 )
+        self.GetObjectGroupRevision = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/GetObjectGroupRevision',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.FromString,
+                )
+        self.UpdateObjectGroup = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/UpdateObjectGroup',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupResponse.FromString,
+                )
         self.FinishObjectUpload = channel.unary_unary(
                 '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectUpload',
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadResponse.FromString,
                 )
-        self.FinishObjectGroupUpload = channel.unary_unary(
-                '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectGroupUpload',
-                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.SerializeToString,
-                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.FromString,
-                )
         self.DeleteObjectGroup = channel.unary_unary(
                 '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/DeleteObjectGroup',
                 request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.SerializeToString,
                 response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.FromString,
+                )
+        self.CreateObject = channel.unary_unary(
+                '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/CreateObject',
+                request_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectRequest.SerializeToString,
+                response_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectResponse.FromString,
                 )
 
 
@@ -65,7 +75,21 @@ class DatasetObjectsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetObjectGroup(self, request, context):
-        """Returns the object group with the given ID
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectGroupRevision(self, request, context):
+        """Returns the object group revision with the given id
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateObjectGroup(self, request, context):
+        """Updates an ObjectGroup
+        Adds an existing ObjectGroupRevision as a new revision to the objectgroup
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -74,16 +98,6 @@ class DatasetObjectsServiceServicer(object):
     def FinishObjectUpload(self, request, context):
         """Finishes the upload process for an object
         This will change the status of the objects to "available"
-        Experimental, might change this to FinishObjectGroupUpload
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def FinishObjectGroupUpload(self, request, context):
-        """Finishes the upload process for an objectgroup
-        This will change the status of the objectgroup to "available"
-        Experimental, might change this to FinishObjectGroupUpload
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -93,6 +107,12 @@ class DatasetObjectsServiceServicer(object):
         """Deletes the given object group
         This will also delete all associated objects both as metadata objects and the actual objects in the object storage
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -115,20 +135,30 @@ def add_DatasetObjectsServiceServicer_to_server(servicer, server):
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupResponse.SerializeToString,
             ),
+            'GetObjectGroupRevision': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectGroupRevision,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.SerializeToString,
+            ),
+            'UpdateObjectGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateObjectGroup,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupResponse.SerializeToString,
+            ),
             'FinishObjectUpload': grpc.unary_unary_rpc_method_handler(
                     servicer.FinishObjectUpload,
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectUploadResponse.SerializeToString,
             ),
-            'FinishObjectGroupUpload': grpc.unary_unary_rpc_method_handler(
-                    servicer.FinishObjectGroupUpload,
-                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.FromString,
-                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.SerializeToString,
-            ),
             'DeleteObjectGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteObjectGroup,
                     request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.FromString,
                     response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.SerializeToString,
+            ),
+            'CreateObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateObject,
+                    request_deserializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectRequest.FromString,
+                    response_serializer=sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -192,6 +222,40 @@ class DatasetObjectsService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetObjectGroupRevision(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/GetObjectGroupRevision',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.GetObjectGroupRevisionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateObjectGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/UpdateObjectGroup',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.UpdateObjectGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def FinishObjectUpload(request,
             target,
             options=(),
@@ -209,23 +273,6 @@ class DatasetObjectsService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def FinishObjectGroupUpload(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/FinishObjectGroupUpload',
-            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadRequest.SerializeToString,
-            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.FinishObjectGroupUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def DeleteObjectGroup(request,
             target,
             options=(),
@@ -239,5 +286,22 @@ class DatasetObjectsService(object):
         return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/DeleteObjectGroup',
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupRequest.SerializeToString,
             sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.DeleteObjectGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/sciobjsdb.api.storage.services.v1.DatasetObjectsService/CreateObject',
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectRequest.SerializeToString,
+            sciobjsdb_dot_api_dot_storage_dot_services_dot_v1_dot_dataset__object__service__models__pb2.CreateObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
