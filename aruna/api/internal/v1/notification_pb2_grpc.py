@@ -5,8 +5,11 @@ import grpc
 from aruna.api.internal.v1 import notification_pb2 as aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2
 
 
-class InternalEventServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+class InternalEventEmitterServiceStub(object):
+    """Service hosted by the notification service application
+    the API server emits events to the notification service
+    Server --> Notification System
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -14,42 +17,48 @@ class InternalEventServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.RegisterEvent = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalEventService/RegisterEvent',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventResponse.FromString,
+        self.EmitEvent = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalEventEmitterService/EmitEvent',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventResponse.FromString,
                 )
 
 
-class InternalEventServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+class InternalEventEmitterServiceServicer(object):
+    """Service hosted by the notification service application
+    the API server emits events to the notification service
+    Server --> Notification System
+    """
 
-    def RegisterEvent(self, request, context):
+    def EmitEvent(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_InternalEventServiceServicer_to_server(servicer, server):
+def add_InternalEventEmitterServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'RegisterEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.RegisterEvent,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventResponse.SerializeToString,
+            'EmitEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.EmitEvent,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'aruna.api.internal.v1.InternalEventService', rpc_method_handlers)
+            'aruna.api.internal.v1.InternalEventEmitterService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class InternalEventService(object):
-    """Missing associated documentation comment in .proto file."""
+class InternalEventEmitterService(object):
+    """Service hosted by the notification service application
+    the API server emits events to the notification service
+    Server --> Notification System
+    """
 
     @staticmethod
-    def RegisterEvent(request,
+    def EmitEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +68,177 @@ class InternalEventService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventService/RegisterEvent',
-            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.RegisterEventResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventEmitterService/EmitEvent',
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.EmitEventResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class InternalEventServiceStub(object):
+    """Service that allows the notification service to issue requests
+    to the server application 
+    Notification System --> Server
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.CreateStreamGroup = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalEventService/CreateStreamGroup',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupResponse.FromString,
+                )
+        self.GetStreamGroup = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalEventService/GetStreamGroup',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupResponse.FromString,
+                )
+        self.DeleteStreamGroup = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalEventService/DeleteStreamGroup',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupResponse.FromString,
+                )
+        self.GetSharedRevision = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalEventService/GetSharedRevision',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionResponse.FromString,
+                )
+
+
+class InternalEventServiceServicer(object):
+    """Service that allows the notification service to issue requests
+    to the server application 
+    Notification System --> Server
+    """
+
+    def CreateStreamGroup(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetStreamGroup(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteStreamGroup(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSharedRevision(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_InternalEventServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'CreateStreamGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateStreamGroup,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupResponse.SerializeToString,
+            ),
+            'GetStreamGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetStreamGroup,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupResponse.SerializeToString,
+            ),
+            'DeleteStreamGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStreamGroup,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupResponse.SerializeToString,
+            ),
+            'GetSharedRevision': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSharedRevision,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'aruna.api.internal.v1.InternalEventService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class InternalEventService(object):
+    """Service that allows the notification service to issue requests
+    to the server application 
+    Notification System --> Server
+    """
+
+    @staticmethod
+    def CreateStreamGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventService/CreateStreamGroup',
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.CreateStreamGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetStreamGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventService/GetStreamGroup',
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetStreamGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteStreamGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventService/DeleteStreamGroup',
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.DeleteStreamGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSharedRevision(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalEventService/GetSharedRevision',
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_notification__pb2.GetSharedRevisionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
