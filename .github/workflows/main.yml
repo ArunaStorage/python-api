@@ -1,0 +1,65 @@
+name: generate_lint_release_build_publish
+on: repository_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v3
+        with:
+          python-version: "3.10"
+          submodules: recursive
+      - name: Git Submodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --init --recursive
+          git submodule update --remote --recursive
+      - name: Setup buf
+        uses: bufbuild/buf-setup-action@v1
+      - name: Lint protofiles with buf
+        uses: bufbuild/buf-lint-action@v1
+      - name: Generate buf files
+        run: buf generate
+      - name: Update version in setup.py
+        run: | 
+          sed -i -e 's/version=.*/version="${{ github.event.client_payload.version }}",/' ./setup.py
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Update to version to ${{ github.event.client_payload.version }}" -a
+          git tag -a v${{ github.event.client_payload.version }} -m "Published new version: ${{ github.event.client_payload.version }}, see API for detailed changelog."
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+          force: true
+      - name: Try delete (old) release if exists
+        run: gh release delete v${{ github.event.client_payload.version }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create release
+        run: gh release create v${{ github.event.client_payload.version }} --title "v${{ github.event.client_payload.version }}" --notes "${{ github.event.client_payload.message }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install pypa/build
+        run: >-
+          python -m
+          pip install
+          build
+          --user
+      - name: Build a binary wheel and a source tarball
+        run: >-
+          python -m
+          build
+          --sdist
+          --wheel
+          --outdir dist/
+          .
+      - name: Publish distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
