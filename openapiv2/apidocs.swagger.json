@@ -1,0 +1,4250 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Aruna Object Storage (AOS) REST API",
+    "version": "0.5.0-beta.3"
+  },
+  "tags": [
+    {
+      "name": "ProjectService"
+    },
+    {
+      "name": "UpdateNotificationService"
+    },
+    {
+      "name": "CollectionService"
+    },
+    {
+      "name": "EndpointService"
+    },
+    {
+      "name": "ObjectService"
+    },
+    {
+      "name": "ObjectGroupService"
+    },
+    {
+      "name": "UserService"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/auth/register": {
+      "post": {
+        "summary": "RegisterUser",
+        "description": "This request should be called when a new user logs in for the first time",
+        "operationId": "UserService_RegisterUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RegisterUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RegisterUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/auth/token": {
+      "post": {
+        "summary": "CreateAPIToken",
+        "description": "Creates an API token to authenticate",
+        "operationId": "UserService_CreateAPIToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateAPITokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateAPITokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/auth/token/{tokenId}": {
+      "get": {
+        "summary": "GetAPIToken",
+        "description": "Returns one API token by id",
+        "operationId": "UserService_GetAPIToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAPITokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tokenId",
+            "description": "The token id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteAPIToken",
+        "description": "Deletes the specified API Token",
+        "operationId": "UserService_DeleteAPIToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteAPITokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tokenId",
+            "description": "The token_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/auth/tokens": {
+      "get": {
+        "summary": "GetAPITokens",
+        "description": "Returns a list of API tokens for a specific user",
+        "operationId": "UserService_GetAPITokens",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAPITokensResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "UserService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteAPITokens",
+        "description": "Deletes the specified API Token",
+        "operationId": "UserService_DeleteAPITokens",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteAPITokensResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "This request invalidates all tokens of a specific user\nusually the user_id is specified via the provided oidc or aruna token\nThis user_id can be used by admins to invalidate all tokens of a specific\nuser",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/collection": {
+      "post": {
+        "summary": "CreateNewCollection",
+        "description": "creates a new Collection",
+        "operationId": "CollectionService_CreateNewCollection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateNewCollectionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateNewCollectionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}": {
+      "get": {
+        "summary": "GetCollectionByID",
+        "description": "Queries a specific Collection by ID\nThe result can be one_of:\nCollectionOverview -\u003e default\nCollectionWithID\nCollection (full)\nThis can be modified with the optional OutputFormat parameter",
+        "operationId": "CollectionService_GetCollectionByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetCollectionByIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Requested id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteCollection",
+        "description": "This request deletes the collection.\nIf with_version is true, it deletes the collection and all its versions.\nIf cascade is true, all objects that are owned by the collection will also\ndeleted. This should be avoided",
+        "operationId": "CollectionService_DeleteCollection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteCollectionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "string",
+                  "title": "Project id"
+                },
+                "force": {
+                  "type": "boolean",
+                  "title": "Force delete"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      },
+      "put": {
+        "summary": "UpdateCollection",
+        "description": "Updates the current collection\nThis will update the collection in place if it is unversioned / latest\nA versioned (pinned) collection requires a new semantic version after the\nupdate This can be used to pin a collection to a specific version similar\nto the PinCollectionVersion request",
+        "operationId": "CollectionService_UpdateCollection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateCollectionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Old collection_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "projectId": {
+                  "type": "string",
+                  "title": "Project id"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "New name"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "New description"
+                },
+                "labels": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "New list of labels"
+                },
+                "hooks": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "New list of hooks"
+                },
+                "labelOntology": {
+                  "$ref": "#/definitions/v1LabelOntology"
+                },
+                "dataclass": {
+                  "$ref": "#/definitions/v1DataClass"
+                },
+                "version": {
+                  "$ref": "#/definitions/v1Version"
+                }
+              },
+              "title": "This updates the collection\nUpdating a pinned collection will require a new version to be created"
+            }
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/group": {
+      "get": {
+        "summary": "GetObjectGroups",
+        "description": "This is a request that returns a (paginated) list of\nObjectGroups that contain a specific set of labels.",
+        "operationId": "ObjectGroupService_GetObjectGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectGroupsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "labelIdFilter.labels.andOrOr",
+            "description": "True if and, if empty or false or",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelIdFilter.labels.keysOnly",
+            "description": "Should only the keys be considered ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelIdFilter.ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      },
+      "post": {
+        "summary": "CreateObjectGroup",
+        "description": "This creates a new ObjectGroup in the collection",
+        "operationId": "ObjectGroupService_CreateObjectGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateObjectGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection Id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "ObjectGroup name"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description for group"
+                },
+                "objectIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "This is the reference to the Objects that should be added to the group"
+                },
+                "metaObjectIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "This is a reference to the Objects that are associated with \"meta\" data\nabout corresponding objects in the group"
+                },
+                "labels": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "List of label key-value pairs"
+                },
+                "hooks": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "List of hooks key-value pairs"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/group/{groupId}": {
+      "get": {
+        "summary": "GetObjectGroupById",
+        "description": "This gets a specific ObjectGroup by ID\nBy default the latest revision is always returned, older revisions need to\nbe specified separately",
+        "operationId": "ObjectGroupService_GetObjectGroupById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectGroupByIdResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupId",
+            "description": "Object group id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteObjectGroup",
+        "description": "This is a request that deletes a specified ObjectGroup\nThis does not delete the associated Objects",
+        "operationId": "ObjectGroupService_DeleteObjectGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteObjectGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupId",
+            "description": "Objectgroup id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      },
+      "post": {
+        "summary": "UpdateObjectGroup",
+        "description": "This creates an updated ObjectGroup\nObjectGroups are immutable\nUpdating an ObjectGroup will create a new Revision of the ObjectGroup",
+        "operationId": "ObjectGroupService_UpdateObjectGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateObjectGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupId",
+            "description": "Old group id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "New name"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "New description"
+                },
+                "objectIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "This is the reference to the Objects that should be added to the group"
+                },
+                "metaObjectIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "This is a reference to the Objects that are associated with \"meta\" data\nabout corresponding objects in the group"
+                },
+                "labels": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "List of label key-value pairs"
+                },
+                "hooks": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "List of hooks key-value pairs"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/group/{groupId}/history": {
+      "get": {
+        "summary": "GetObjectGroupHistory",
+        "description": "This requests a full history with all objectgroups\nthat are part of this objectgroups history",
+        "operationId": "ObjectGroupService_GetObjectGroupHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectGroupHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupId",
+            "description": "Objectgroup id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/group/{groupId}/objects": {
+      "get": {
+        "summary": "GetObjectGroupObjects",
+        "description": "Requests a list of paginated objects associated with this\nspecific objectgroup",
+        "operationId": "ObjectGroupService_GetObjectGroupObjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectGroupObjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "groupId",
+            "description": "Objectgroup id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "metaOnly",
+            "description": "Include meta objects only",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object": {
+      "post": {
+        "summary": "InitializeNewObject",
+        "description": "This initializes a new object\nInitializing an object will put it in a staging area.\nStaged objects will get a separate staging id and need to be finished\nbefore they can be used.",
+        "operationId": "ObjectService_InitializeNewObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1InitializeNewObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id of the collection to which the object will be added.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "object": {
+                  "$ref": "#/definitions/v1StageObject"
+                },
+                "preferredEndpointId": {
+                  "type": "string",
+                  "title": "(optional) Used to specify a preferred endpoint by id\nthis can be used to specify which endpoint this object should use\nonly needed if it is not the default endpoint for the current server\ninstance"
+                },
+                "multipart": {
+                  "type": "boolean",
+                  "title": "Should the object be uploaded via multipart?"
+                },
+                "isSpecification": {
+                  "type": "boolean",
+                  "title": "Is specification ?\nShould this object contain a specification for the collection ?"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}": {
+      "get": {
+        "summary": "GetObjectByID",
+        "description": "gets a specific Object by ID that is associated to the\ncurrent collection By default only the latest revision of an object will be\nreturned Specify a revision_number to select an older revision With the\noptional with_url boolean a download link can automatically be requested",
+        "operationId": "ObjectService_GetObjectByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectByIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection Id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object Id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "withUrl",
+            "description": "With URL: Include URL in response ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      },
+      "delete": {
+        "summary": "DeleteObject",
+        "description": "Deletes the object with the complete revision history.\nThis should be avoided if possible.\nThis method allows the owner to cascade the deletion of all objects that\nwere cloned from this object.\n-\u003e GDPR compliant procedure.",
+        "operationId": "ObjectService_DeleteObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "ObjectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "withRevisions": {
+                  "type": "boolean",
+                  "title": "Delete including revisions"
+                },
+                "force": {
+                  "type": "boolean",
+                  "title": "Force delete including revisions"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/add_labels": {
+      "patch": {
+        "summary": "AddLabelToObject",
+        "description": "This is a specific request to add a new label\nto an existing object, in contrast to UpdateObject\nthis will not create a new object in the staging area\nInstead it will directly add the specified label(s) to the object",
+        "operationId": "ObjectService_AddLabelToObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddLabelToObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "labelsToAdd": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "List of labels that should be added to the list of labels"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/clone": {
+      "post": {
+        "summary": "CloneObject",
+        "description": "This method clones an object and creates a copy in the same collection.\nThis copy has a new id and revision and will not receive any updates from\nthe original object.",
+        "operationId": "ObjectService_CloneObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CloneObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "From CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "ObjectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "targetCollectionId": {
+                  "type": "string",
+                  "title": "Target CollectionID"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/download": {
+      "get": {
+        "summary": "GetDownloadUrl",
+        "description": "This method will return a url that can be used to download a file from S3.",
+        "operationId": "ObjectService_GetDownloadURL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetDownloadURLResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/endpoints": {
+      "get": {
+        "summary": "GetObjectEndpoints",
+        "description": "This returns a list of endpoints\nOne endpoint will be the \"default\" endpoint",
+        "operationId": "ObjectService_GetObjectEndpoints",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectEndpointsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/groups": {
+      "get": {
+        "summary": "GetObjectGroupsFromObject",
+        "description": "This gets all ObjectGroups associated to a specific\nObject Objects can be part of multiple ObjectGroups at once",
+        "operationId": "ObjectGroupService_GetObjectGroupsFromObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectGroupsFromObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "ObjectGroupService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/latest": {
+      "get": {
+        "summary": "GetLatestObjectRevision",
+        "description": "This returns the latest revision of a specific object\nThe returned `latest` object will have a different id if the current\nobject is not the latest revision",
+        "operationId": "ObjectService_GetLatestObjectRevision",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetLatestObjectRevisionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/reference/{targetCollectionId}": {
+      "post": {
+        "summary": "CreateObjectReference",
+        "description": "Creates a new reference of this object in another collection",
+        "operationId": "ObjectService_CreateObjectReference",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateObjectReferenceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "OwnerCollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "ObjectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "targetCollectionId",
+            "description": "BorrowerCollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "writeable": {
+                  "type": "boolean",
+                  "title": "Should the other collection have permissions to edit the ressource"
+                },
+                "autoUpdate": {
+                  "type": "boolean",
+                  "title": "Should the borrowed ressource be automatically updated ?"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/references": {
+      "get": {
+        "summary": "GetReferences",
+        "description": "Get a list of references for this object (optional) including all revisions",
+        "operationId": "ObjectService_GetReferences",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetReferencesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "withRevisions",
+            "description": "Should all revisions be included?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/revisions": {
+      "get": {
+        "summary": "GetObjectRevisions",
+        "description": "This returns the full list of revisions of a specified object\nWith the optional with_url boolean a download link can automatically be\nrequested for each Object This is by default a paginated request",
+        "operationId": "ObjectService_GetObjectRevisions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectRevisionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "withUrl",
+            "description": "Should the response include download urls ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/set_hooks": {
+      "patch": {
+        "summary": "SetHooksOfObject",
+        "description": "This is a specific request to update the complete list\nof hooks for a specific object. This will not update the object\nand create a new id, instead it will overwrite all hooks of the existing\nobject.",
+        "operationId": "ObjectService_SetHooksOfObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SetHooksOfObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Object id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hooks": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1KeyValue"
+                  },
+                  "title": "This will overwrite all existing hooks\nCan be empty to remove all hooks"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/staging/{uploadId}/finish": {
+      "patch": {
+        "summary": "FinishObjectStaging",
+        "description": "This method completes the staging of an object.",
+        "operationId": "ObjectService_FinishObjectStaging",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FinishObjectStagingResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "ObjectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uploadId",
+            "description": "Always the S3 upload_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hash": {
+                  "$ref": "#/definitions/v1Hash"
+                },
+                "noUpload": {
+                  "type": "boolean",
+                  "title": "If the staging object had no uploads\nUse this argument to skip the finish upload request"
+                },
+                "completedParts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/v1CompletedParts"
+                  },
+                  "title": "If the upload was multipart, this is the list of parts that were uploaded.\nShould be empty if the upload was not multipart.\n(optional)"
+                },
+                "autoUpdate": {
+                  "type": "boolean",
+                  "title": "Should the object be auto-updated in the collection?\ndefault: false"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/staging/{uploadId}/upload": {
+      "get": {
+        "summary": "GetUploadURL",
+        "description": "This method will return a (multi-part) url that can be used to upload a\nfile to S3. Part is a optional query parameter that can be used to upload a\npart of the file / multipart upload.",
+        "operationId": "ObjectService_GetUploadURL",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUploadURLResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "ObjectId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uploadId",
+            "description": "Upload ID, a ID used to identify the upload / staging object",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "multipart",
+            "description": "Is this a multipart upload?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "partNumber",
+            "description": "(optional) if multi was initialized",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/object/{objectId}/update": {
+      "post": {
+        "summary": "UpdateObject",
+        "description": "Objects are immutable!\nUpdating an object will create a new revision for the object\nThis method will put the new revision in a staging area.\nStaged objects will get a separate staging id and need to be finished\nbefore they can be used.",
+        "operationId": "ObjectService_UpdateObject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateObjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "collection ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "description": "Existing object ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "object": {
+                  "$ref": "#/definitions/v1StageObject"
+                },
+                "reupload": {
+                  "type": "boolean",
+                  "title": "Should new data be uploaded ?"
+                },
+                "preferredEndpointId": {
+                  "type": "string",
+                  "title": "If this is an reupload a preferred endpoint\ncan be specified by id"
+                },
+                "multiPart": {
+                  "type": "boolean",
+                  "title": "Should a multipart upload be used?"
+                },
+                "isSpecification": {
+                  "type": "boolean",
+                  "title": "Is specification ?\nShould this object contain a specification for the collection ?"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/objects": {
+      "get": {
+        "summary": "GetObjects",
+        "description": "GetObjects returns a (paginated) list of objects in a specific collection\nBy default only the latest revisions of all objects will be shown\nThis behaviour can be changed with the include_history flag\nWith the optional with_url boolean a download link can automatically be\nrequested for each Object This request contains a LabelOrIDQuery message,\nthis is either a list of request ObjectIDs or a query filtered by Labels",
+        "operationId": "ObjectService_GetObjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Collection id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "labelIdFilter.labels.andOrOr",
+            "description": "True if and, if empty or false or",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelIdFilter.labels.keysOnly",
+            "description": "Should only the keys be considered ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelIdFilter.ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "withUrl",
+            "description": "With URL: Include URL in response ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "includeHistory",
+            "description": "Should this request consider older revisions of Objects ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/objects/batch": {
+      "get": {
+        "summary": "GetDownloadLinksBatch",
+        "description": "This method can be used to get download urls for multiple objects.\nThe order of the returned urls will be the same as the order of the object\nids in the request.",
+        "operationId": "ObjectService_GetDownloadLinksBatch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetDownloadLinksBatchResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objects",
+            "description": "ObjectIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/objects/stream": {
+      "post": {
+        "summary": "CreateDownloadLinksStream",
+        "description": "Creates a stream of objects and presigned links based on the provided query\nThis can be used retrieve a large number of Objects as a stream that would\notherwise cause issues with the connection",
+        "operationId": "ObjectService_CreateDownloadLinksStream",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "$ref": "#/definitions/v1CreateDownloadLinksStreamResponse"
+                },
+                "error": {
+                  "$ref": "#/definitions/googlerpcStatus"
+                }
+              },
+              "title": "Stream result of v1CreateDownloadLinksStreamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "CollectionID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "objects": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "ObjectIds"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/pin": {
+      "post": {
+        "summary": "PinCollectionVersion",
+        "description": "This pins the current status of the version to a\nspecific version. Effectively creating a copy of the collection with a\nstable version All objects will be pinned to an explicit revision number\nPinned collections can not be updated in place",
+        "operationId": "CollectionService_PinCollectionVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1PinCollectionVersionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "description": "Old collection_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "$ref": "#/definitions/v1Version"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      }
+    },
+    "/v1/collections/{projectId}": {
+      "get": {
+        "summary": "GetCollections",
+        "description": "queries multiple collections by ID or by LabelFilter\nThis returns by default a paginated result with 20 entries.\nMust specify a project_id as context",
+        "operationId": "CollectionService_GetCollections",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetCollectionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "Project id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "labelOrIdFilter.labels.andOrOr",
+            "description": "True if and, if empty or false or",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelOrIdFilter.labels.keysOnly",
+            "description": "Should only the keys be considered ?",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "labelOrIdFilter.ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "pageRequest.lastUuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageRequest.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "CollectionService"
+        ]
+      }
+    },
+    "/v1/endpoint": {
+      "get": {
+        "summary": "GetEndpoint",
+        "description": "Gets an specific endpoint by ID or Name",
+        "operationId": "EndpointService_GetEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "endpointName",
+            "description": "The name of the endpoint",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endpointId",
+            "description": "Id of the endpoint",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EndpointService"
+        ]
+      },
+      "post": {
+        "summary": "AddEndpoint",
+        "description": "Registers a new Endpoint (Aruna DataProxy) to the server\nNeeds admin permissions",
+        "operationId": "EndpointService_AddEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AddEndpointRequest"
+            }
+          }
+        ],
+        "tags": [
+          "EndpointService"
+        ]
+      }
+    },
+    "/v1/endpoint/default": {
+      "get": {
+        "summary": "GetDefaultEndpoint",
+        "description": "This request returns the default endpoint for the current aruna_server\nIt may produce different results depending on the used server",
+        "operationId": "EndpointService_GetDefaultEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetDefaultEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "EndpointService"
+        ]
+      }
+    },
+    "/v1/endpoint/{endpointId}": {
+      "delete": {
+        "summary": "DeleteEndpoint",
+        "description": "Deletes a specific endpoint by id\nThis needs admin permissions",
+        "operationId": "EndpointService_DeleteEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteEndpointResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "endpointId",
+            "description": "Endpoint_id to delete",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "EndpointService"
+        ]
+      }
+    },
+    "/v1/endpoints": {
+      "get": {
+        "summary": "GetEndpoints",
+        "description": "Gets all available endpoints",
+        "operationId": "EndpointService_GetEndpoints",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetEndpointsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "EndpointService"
+        ]
+      }
+    },
+    "/v1/project": {
+      "post": {
+        "summary": "CreateProject",
+        "description": "Creates a new project all users and collections are bundled in a project.",
+        "operationId": "ProjectService_CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/project/{projectId}": {
+      "get": {
+        "summary": "GetProject",
+        "description": "Requests a project by id",
+        "operationId": "ProjectService_GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "The id of the project to get",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      },
+      "delete": {
+        "summary": "DestroyProject",
+        "description": "Destroys the project and all its associated data. Must be empty\n(cannot contain any collections).",
+        "operationId": "ProjectService_DestroyProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DestroyProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "The id of the project to destroy",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      },
+      "put": {
+        "summary": "UpdateProject",
+        "description": "Updates the project. All (meta) data will be overwritten.",
+        "operationId": "ProjectService_UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "Project id to update",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Updated name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "description": "Update description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/project/{projectId}/add_user": {
+      "post": {
+        "summary": "AddUserToProject",
+        "description": "Adds a new user to a given project by its id",
+        "operationId": "ProjectService_AddUserToProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AddUserToProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "The id of the project to add the user to",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userPermission": {
+                  "$ref": "#/definitions/v1ProjectPermission"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/project/{projectId}/edit_user": {
+      "patch": {
+        "summary": "EditUserPermissionsForProject",
+        "description": "Modifies the user_permission of a specific user for the project.",
+        "operationId": "ProjectService_EditUserPermissionsForProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1EditUserPermissionsForProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "Project id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userPermission": {
+                  "$ref": "#/definitions/v1ProjectPermission"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/project/{projectId}/get_user": {
+      "get": {
+        "summary": "GetUserPermissionsForProject",
+        "description": "Get the user_permission of a specific user for the project.",
+        "operationId": "ProjectService_GetUserPermissionsForProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserPermissionsForProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "Project id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "description": "User id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/project/{projectId}/remove_user": {
+      "delete": {
+        "summary": "RemoveUserFromProject",
+        "description": "Removes a specified user from the project.",
+        "operationId": "ProjectService_RemoveUserFromProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RemoveUserFromProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectId",
+            "description": "Project id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "description": "User that should be removed",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/projects": {
+      "get": {
+        "summary": "GetProject",
+        "description": "Admin request to get all projects",
+        "operationId": "ProjectService_GetProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/v1/user": {
+      "get": {
+        "summary": "GetUserRequest",
+        "description": "This is a request that returns the user information of the\ncurrent user or if invoked by an admin from another user",
+        "operationId": "UserService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "Optional user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/user/display_name": {
+      "patch": {
+        "summary": "UpdateUserDisplayName",
+        "description": "Updates the Displayname for the user (Personal only)",
+        "operationId": "UserService_UpdateUserDisplayName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserDisplayNameResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateUserDisplayNameRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/user/not_activated": {
+      "get": {
+        "summary": "GetNotActivatedUsers",
+        "description": "Get all not activated users (Admin only)",
+        "operationId": "UserService_GetNotActivatedUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetNotActivatedUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/user/{userId}/activate": {
+      "patch": {
+        "summary": "ActivateUser",
+        "description": "This activates a specific user (Admin request)",
+        "operationId": "UserService_ActivateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ActivateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "User to activate",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/v1/user/{userId}/projects": {
+      "get": {
+        "summary": "GetUserProjects",
+        "description": "Gets all project_ids a user is member of",
+        "operationId": "UserService_GetUserProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetUserProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "User id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "internalv1Location": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1LocationType"
+        },
+        "bucket": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string",
+          "description": "for local file."
+        }
+      },
+      "description": "Locations is the path to the requested data."
+    },
+    "modelsv1Status": {
+      "type": "string",
+      "enum": [
+        "STATUS_UNSPECIFIED",
+        "STATUS_INITIALIZING",
+        "STATUS_AVAILABLE",
+        "STATUS_UNAVAILABLE",
+        "STATUS_ERROR",
+        "STATUS_TRASH"
+      ],
+      "default": "STATUS_UNSPECIFIED",
+      "title": "An arbitrary status for Objects"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "v1ActivateUserResponse": {
+      "type": "object"
+    },
+    "v1AddEndpointRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Endpoint name"
+        },
+        "epType": {
+          "$ref": "#/definitions/v1EndpointType"
+        },
+        "proxyHostname": {
+          "type": "string",
+          "title": "Public hostname of the proxy"
+        },
+        "internalHostname": {
+          "type": "string",
+          "title": "Internal hostname for the proxy"
+        },
+        "documentationPath": {
+          "type": "string",
+          "title": "(optional) URL to a offsite documentation"
+        },
+        "isPublic": {
+          "type": "boolean",
+          "title": "Is this endpoint public"
+        }
+      }
+    },
+    "v1AddEndpointResponse": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "$ref": "#/definitions/v1Endpoint"
+        }
+      }
+    },
+    "v1AddLabelToObjectResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        }
+      }
+    },
+    "v1AddUserToProjectResponse": {
+      "type": "object"
+    },
+    "v1AuthorizeResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean",
+          "title": "Ok -\u003e Authorization granted, empty or not ok -\u003e dismiss"
+        }
+      }
+    },
+    "v1CloneObjectResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        }
+      }
+    },
+    "v1CollectionOverview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "labelOntology": {
+          "$ref": "#/definitions/v1LabelOntology"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "semanticVersion": {
+          "$ref": "#/definitions/v1Version"
+        },
+        "latest": {
+          "type": "boolean"
+        },
+        "stats": {
+          "$ref": "#/definitions/v1CollectionStats"
+        },
+        "isPublic": {
+          "type": "boolean"
+        }
+      },
+      "title": "This is a representation of the Collection without the recursive nature of\nobjectreferences"
+    },
+    "v1CollectionOverviews": {
+      "type": "object",
+      "properties": {
+        "collectionOverviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CollectionOverview"
+          }
+        }
+      },
+      "title": "Multiple CollectionOverviews"
+    },
+    "v1CollectionStats": {
+      "type": "object",
+      "properties": {
+        "objectStats": {
+          "$ref": "#/definitions/v1Stats"
+        },
+        "objectGroupCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Stats for a collection"
+    },
+    "v1CompletedParts": {
+      "type": "object",
+      "properties": {
+        "etag": {
+          "type": "string",
+          "title": "Multipart identifier"
+        },
+        "part": {
+          "type": "string",
+          "format": "int64",
+          "title": "Part number"
+        }
+      }
+    },
+    "v1CreateAPITokenRequest": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "title": "Project id"
+        },
+        "collectionId": {
+          "type": "string",
+          "title": "Collection id"
+        },
+        "name": {
+          "type": "string",
+          "title": "Token name"
+        },
+        "expiresAt": {
+          "$ref": "#/definitions/v1ExpiresAt"
+        },
+        "permission": {
+          "$ref": "#/definitions/v1Permission"
+        }
+      }
+    },
+    "v1CreateAPITokenResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/v1Token"
+        },
+        "tokenSecret": {
+          "type": "string",
+          "title": "This is the actual secret token\nAttention, this can not be recreated and needs to be stored securely\nNew tokens will always contain a new secret"
+        }
+      }
+    },
+    "v1CreateBucketResponse": {
+      "type": "object"
+    },
+    "v1CreateDownloadLinksStreamResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/v1URL"
+        }
+      }
+    },
+    "v1CreateEventStreamingGroupResponse": {
+      "type": "object",
+      "properties": {
+        "streamGroupId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateNewCollectionRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Collection name"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        },
+        "projectId": {
+          "type": "string",
+          "title": "Project id"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          },
+          "title": "List of associated labels"
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          },
+          "title": "List of associated hooks"
+        },
+        "labelOntology": {
+          "$ref": "#/definitions/v1LabelOntology"
+        },
+        "dataclass": {
+          "$ref": "#/definitions/v1DataClass"
+        }
+      }
+    },
+    "v1CreateNewCollectionResponse": {
+      "type": "object",
+      "properties": {
+        "collectionId": {
+          "type": "string",
+          "title": "The new collection_id"
+        }
+      }
+    },
+    "v1CreateObjectGroupResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroup": {
+          "$ref": "#/definitions/v1ObjectGroupOverview"
+        }
+      }
+    },
+    "v1CreateObjectReferenceResponse": {
+      "type": "object"
+    },
+    "v1CreatePresignedDownloadResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The presigned URL to download the file to."
+        }
+      }
+    },
+    "v1CreatePresignedUploadUrlResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The presigned URL to upload the file to."
+        }
+      }
+    },
+    "v1CreateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Project name"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description for the project"
+        }
+      }
+    },
+    "v1CreateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "title": "The freshly created project_id"
+        }
+      }
+    },
+    "v1DataClass": {
+      "type": "string",
+      "enum": [
+        "DATA_CLASS_UNSPECIFIED",
+        "DATA_CLASS_PUBLIC",
+        "DATA_CLASS_PRIVATE",
+        "DATA_CLASS_CONFIDENTIAL",
+        "DATA_CLASS_PROTECTED"
+      ],
+      "default": "DATA_CLASS_UNSPECIFIED",
+      "title": "Dataclass defines the confidentiality of the object"
+    },
+    "v1DeleteAPITokenResponse": {
+      "type": "object"
+    },
+    "v1DeleteAPITokensResponse": {
+      "type": "object"
+    },
+    "v1DeleteCollectionResponse": {
+      "type": "object"
+    },
+    "v1DeleteEndpointResponse": {
+      "type": "object"
+    },
+    "v1DeleteEventStreamingGroupResponse": {
+      "type": "object"
+    },
+    "v1DeleteObjectGroupResponse": {
+      "type": "object"
+    },
+    "v1DeleteObjectResponse": {
+      "type": "object"
+    },
+    "v1DestroyProjectResponse": {
+      "type": "object"
+    },
+    "v1EditUserPermissionsForProjectResponse": {
+      "type": "object"
+    },
+    "v1Endpoint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "epType": {
+          "$ref": "#/definitions/v1EndpointType"
+        },
+        "name": {
+          "type": "string"
+        },
+        "proxyHostname": {
+          "type": "string"
+        },
+        "internalHostname": {
+          "type": "string"
+        },
+        "documentationPath": {
+          "type": "string"
+        },
+        "isPublic": {
+          "type": "boolean"
+        },
+        "isDefault": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1EndpointType": {
+      "type": "string",
+      "enum": [
+        "ENDPOINT_TYPE_UNSPECIFIED",
+        "ENDPOINT_TYPE_S3",
+        "ENDPOINT_TYPE_FILE"
+      ],
+      "default": "ENDPOINT_TYPE_UNSPECIFIED"
+    },
+    "v1EventNotificationMessage": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "$ref": "#/definitions/v1ResourceType"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "updatedType": {
+          "$ref": "#/definitions/v1EventType"
+        }
+      }
+    },
+    "v1EventType": {
+      "type": "string",
+      "enum": [
+        "EVENT_TYPE_UNSPECIFIED",
+        "EVENT_TYPE_CREATED",
+        "EVENT_TYPE_AVAILABLE",
+        "EVENT_TYPE_UPDATED",
+        "EVENT_TYPE_METADATA_UPDATED",
+        "EVENT_TYPE_DELETED"
+      ],
+      "default": "EVENT_TYPE_UNSPECIFIED"
+    },
+    "v1ExpiresAt": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Expiry time"
+        }
+      }
+    },
+    "v1FinishObjectStagingResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        }
+      }
+    },
+    "v1FinishPresignedUploadResponse": {
+      "type": "object",
+      "properties": {
+        "ok": {
+          "type": "boolean",
+          "description": "If the upload finished successfully."
+        }
+      }
+    },
+    "v1GetAPITokenResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/v1Token"
+        }
+      }
+    },
+    "v1GetAPITokensResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Token"
+          },
+          "title": "List of API tokens with redacted actual token"
+        }
+      }
+    },
+    "v1GetCollectionByIDResponse": {
+      "type": "object",
+      "properties": {
+        "collection": {
+          "$ref": "#/definitions/v1CollectionOverview"
+        }
+      }
+    },
+    "v1GetCollectionsResponse": {
+      "type": "object",
+      "properties": {
+        "collections": {
+          "$ref": "#/definitions/v1CollectionOverviews"
+        }
+      }
+    },
+    "v1GetDefaultEndpointResponse": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "$ref": "#/definitions/v1Endpoint"
+        }
+      }
+    },
+    "v1GetDownloadLinksBatchResponse": {
+      "type": "object",
+      "properties": {
+        "urls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1URL"
+          },
+          "title": "List of URLs"
+        }
+      }
+    },
+    "v1GetDownloadURLResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/v1URL"
+        }
+      }
+    },
+    "v1GetEndpointResponse": {
+      "type": "object",
+      "properties": {
+        "endpoint": {
+          "$ref": "#/definitions/v1Endpoint"
+        }
+      }
+    },
+    "v1GetEndpointsResponse": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Endpoint"
+          },
+          "title": "List of endpoints"
+        }
+      }
+    },
+    "v1GetLatestObjectRevisionResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        }
+      }
+    },
+    "v1GetNotActivatedUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1User"
+          },
+          "title": "List of users that are not yet activated"
+        }
+      }
+    },
+    "v1GetObjectByIDResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1ObjectWithURL"
+        }
+      }
+    },
+    "v1GetObjectEndpointsResponse": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Endpoint"
+          },
+          "title": "List of endpoints"
+        }
+      }
+    },
+    "v1GetObjectGroupByIdResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroup": {
+          "$ref": "#/definitions/v1ObjectGroupOverview"
+        }
+      }
+    },
+    "v1GetObjectGroupHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroups": {
+          "$ref": "#/definitions/v1ObjectGroupOverviews"
+        }
+      }
+    },
+    "v1GetObjectGroupObjectsResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroupObjects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ObjectGroupObject"
+          },
+          "title": "List of associated object group objects"
+        }
+      }
+    },
+    "v1GetObjectGroupsFromObjectResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroups": {
+          "$ref": "#/definitions/v1ObjectGroupOverviews"
+        }
+      }
+    },
+    "v1GetObjectGroupsResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroups": {
+          "$ref": "#/definitions/v1ObjectGroupOverviews"
+        }
+      }
+    },
+    "v1GetObjectRevisionsResponse": {
+      "type": "object",
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ObjectWithURL"
+          },
+          "title": "List of objects with (optional) URLs"
+        }
+      }
+    },
+    "v1GetObjectsResponse": {
+      "type": "object",
+      "properties": {
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ObjectWithURL"
+          },
+          "title": "A List of objects with (optional) associated URLs"
+        }
+      }
+    },
+    "v1GetProjectResponse": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "$ref": "#/definitions/v1ProjectOverview"
+        }
+      }
+    },
+    "v1GetProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProjectOverview"
+          },
+          "title": "Overview of the projects"
+        }
+      }
+    },
+    "v1GetReferencesResponse": {
+      "type": "object",
+      "properties": {
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ObjectReference"
+          },
+          "title": "List of object references"
+        }
+      }
+    },
+    "v1GetUploadURLResponse": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/v1URL"
+        }
+      }
+    },
+    "v1GetUserPermissionsForProjectResponse": {
+      "type": "object",
+      "properties": {
+        "userPermission": {
+          "$ref": "#/definitions/v1ProjectPermissionDisplayName"
+        }
+      }
+    },
+    "v1GetUserProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1UserProject"
+          },
+          "title": "List of associated projects"
+        }
+      }
+    },
+    "v1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        },
+        "projectPermissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProjectPermission"
+          },
+          "title": "User permissions per project"
+        }
+      }
+    },
+    "v1Hash": {
+      "type": "object",
+      "properties": {
+        "alg": {
+          "$ref": "#/definitions/v1Hashalgorithm"
+        },
+        "hash": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Hashalgorithm": {
+      "type": "string",
+      "enum": [
+        "HASHALGORITHM_UNSPECIFIED",
+        "HASHALGORITHM_MD5",
+        "HASHALGORITHM_SHA1",
+        "HASHALGORITHM_SHA256",
+        "HASHALGORITHM_SHA512",
+        "HASHALGORITHM_MURMUR3A32",
+        "HASHALGORITHM_XXHASH32"
+      ],
+      "default": "HASHALGORITHM_UNSPECIFIED"
+    },
+    "v1InitPresignedUploadResponse": {
+      "type": "object",
+      "properties": {
+        "uploadId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1InitializeNewObjectResponse": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "title": "ObjectId"
+        },
+        "uploadId": {
+          "type": "string",
+          "title": "Upload ID, a ID used to identify the upload / staging object"
+        },
+        "collectionId": {
+          "type": "string",
+          "title": "CollectionID"
+        }
+      }
+    },
+    "v1KeyValue": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "A key value pair for hooks and labels"
+    },
+    "v1LabelFilter": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "andOrOr": {
+          "type": "boolean",
+          "title": "True if and, if empty or false or"
+        },
+        "keysOnly": {
+          "type": "boolean",
+          "title": "Should only the keys be considered ?"
+        }
+      },
+      "description": "LabelFilter is used to filter resources by labels.\nThe labels are specified as a map of key-value pairs."
+    },
+    "v1LabelOntology": {
+      "type": "object",
+      "properties": {
+        "requiredLabelKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "These are the keys for labels that are required for the collection\nAdding an Object without these keys will result in an error\nDefaults to empty string if not specified"
+        }
+      }
+    },
+    "v1LabelOrIDQuery": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "$ref": "#/definitions/v1LabelFilter"
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "This is a combined query for either a list of resource IDs or filtered by\nLabel Can be expanded in the future to allow for more complex queries"
+    },
+    "v1LocationType": {
+      "type": "string",
+      "enum": [
+        "LOCATION_TYPE_UNSPECIFIED",
+        "LOCATION_TYPE_S3",
+        "LOCATION_TYPE_FILE"
+      ],
+      "default": "LOCATION_TYPE_UNSPECIFIED",
+      "description": "Enum to support multiple target Locations."
+    },
+    "v1NotficationStreamAck": {
+      "type": "object",
+      "properties": {
+        "ackChunkId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1NotificationStreamInit": {
+      "type": "object",
+      "properties": {
+        "streamGroupId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1NotificationStreamResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/v1EventNotificationMessage"
+        },
+        "sequence": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1Object": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contentLen": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/modelsv1Status"
+        },
+        "origin": {
+          "$ref": "#/definitions/v1Origin"
+        },
+        "dataClass": {
+          "$ref": "#/definitions/v1DataClass"
+        },
+        "hash": {
+          "$ref": "#/definitions/v1Hash"
+        },
+        "revNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "source": {
+          "$ref": "#/definitions/v1Source"
+        },
+        "latest": {
+          "type": "boolean"
+        },
+        "autoUpdate": {
+          "type": "boolean",
+          "title": "This is a collection specific attribute\nMust be false if collection is immutable"
+        }
+      }
+    },
+    "v1ObjectGroupObject": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        },
+        "isMetadata": {
+          "type": "boolean",
+          "title": "Is this objet a meta object"
+        }
+      },
+      "title": "Objectgroup objects are a combination of \"object\" and the boolean is_metadata\nflag Returned as single list to allow for more precise queries"
+    },
+    "v1ObjectGroupOverview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          }
+        },
+        "stats": {
+          "$ref": "#/definitions/v1ObjectGroupStats"
+        },
+        "revNumber": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "This is a representation of the ObjectGroup without the recursive nature of\nobject references"
+    },
+    "v1ObjectGroupOverviews": {
+      "type": "object",
+      "properties": {
+        "objectGroupOverviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ObjectGroupOverview"
+          }
+        }
+      },
+      "title": "Multiple ObjectGroupOverviews"
+    },
+    "v1ObjectGroupStats": {
+      "type": "object",
+      "properties": {
+        "objectStats": {
+          "$ref": "#/definitions/v1Stats"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "Stats for an object group"
+    },
+    "v1ObjectReference": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "title": "Object id"
+        },
+        "collectionId": {
+          "type": "string",
+          "title": "Collection id"
+        },
+        "revisionNumber": {
+          "type": "string",
+          "format": "int64",
+          "title": "Specific revision number"
+        },
+        "isWriteable": {
+          "type": "boolean",
+          "title": "Is the writeable?"
+        }
+      }
+    },
+    "v1ObjectWithURL": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        },
+        "url": {
+          "type": "string",
+          "title": "This is a associated download URL\nWill be empty if request does not contain the associated with_url flag"
+        }
+      }
+    },
+    "v1Origin": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1OriginType"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "Origin of the object -\u003e To be GDPA compliant"
+    },
+    "v1OriginType": {
+      "type": "string",
+      "enum": [
+        "ORIGIN_TYPE_UNSPECIFIED",
+        "ORIGIN_TYPE_USER",
+        "ORIGIN_TYPE_OBJCLONE"
+      ],
+      "default": "ORIGIN_TYPE_UNSPECIFIED",
+      "title": "Specifies the Origin of the object"
+    },
+    "v1PageRequest": {
+      "type": "object",
+      "properties": {
+        "lastUuid": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "description": "This file contains parameters for queries that return a list of resources.\nThe results are paginated.\nThe page request specifies the page size and last_id.\nIf page_size is not specified, it defaults to 20.\nIf page_size is -1, it returns all objects."
+    },
+    "v1PartETag": {
+      "type": "object",
+      "properties": {
+        "partNumber": {
+          "type": "string",
+          "format": "int64"
+        },
+        "etag": {
+          "type": "string"
+        }
+      },
+      "description": "Etag / Part combination to finish a presigned multipart upload."
+    },
+    "v1Permission": {
+      "type": "string",
+      "enum": [
+        "PERMISSION_UNSPECIFIED",
+        "PERMISSION_NONE",
+        "PERMISSION_READ",
+        "PERMISSION_APPEND",
+        "PERMISSION_MODIFY",
+        "PERMISSION_ADMIN"
+      ],
+      "default": "PERMISSION_UNSPECIFIED",
+      "title": "- PERMISSION_READ: project but have no default permissions\n - PERMISSION_ADMIN: that owns the object / Create new collections"
+    },
+    "v1PinCollectionVersionResponse": {
+      "type": "object",
+      "properties": {
+        "collection": {
+          "$ref": "#/definitions/v1CollectionOverview"
+        }
+      }
+    },
+    "v1ProjectOverview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "collectionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "v1ProjectPermission": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "projectId": {
+          "type": "string"
+        },
+        "permission": {
+          "$ref": "#/definitions/v1Permission"
+        }
+      }
+    },
+    "v1ProjectPermissionDisplayName": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "projectId": {
+          "type": "string"
+        },
+        "permission": {
+          "$ref": "#/definitions/v1Permission"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1Range": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "int64"
+        },
+        "end": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ReadStreamGroupMessagesResponse": {
+      "type": "object",
+      "properties": {
+        "notification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1NotificationStreamResponse"
+          }
+        },
+        "ackChunkId": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RegisterEventResponse": {
+      "type": "object"
+    },
+    "v1RegisterUserRequest": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "title": "Optional user_displayname"
+        }
+      }
+    },
+    "v1RegisterUserResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "title": "Created user id"
+        }
+      }
+    },
+    "v1RemoveUserFromProjectResponse": {
+      "type": "object"
+    },
+    "v1ResourceAction": {
+      "type": "string",
+      "enum": [
+        "RESOURCE_ACTION_UNSPECIFIED",
+        "RESOURCE_ACTION_CREATE",
+        "RESOURCE_ACTION_APPEND",
+        "RESOURCE_ACTION_UPDATE",
+        "RESOURCE_ACTION_READ",
+        "RESOURCE_ACTION_DELETE"
+      ],
+      "default": "RESOURCE_ACTION_UNSPECIFIED",
+      "title": "Used for the internal associated services to validate permissions\nActions are similar to HTTP verbs"
+    },
+    "v1ResourceType": {
+      "type": "string",
+      "enum": [
+        "RESOURCE_TYPE_UNSPECIFIED",
+        "RESOURCE_TYPE_PROJECT",
+        "RESOURCE_TYPE_COLLECTION",
+        "RESOURCE_TYPE_OBJECT_GROUP",
+        "RESOURCE_TYPE_OBJECT",
+        "RESOURCE_TYPE_ALL"
+      ],
+      "default": "RESOURCE_TYPE_UNSPECIFIED",
+      "title": "An resourcetype used to identify generic authorizations"
+    },
+    "v1SetHooksOfObjectResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        }
+      }
+    },
+    "v1Source": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "title": "This is a URL / DOI"
+        },
+        "sourceType": {
+          "$ref": "#/definitions/v1SourceType"
+        }
+      }
+    },
+    "v1SourceType": {
+      "type": "string",
+      "enum": [
+        "SOURCE_TYPE_UNSPECIFIED",
+        "SOURCE_TYPE_URL",
+        "SOURCE_TYPE_DOI"
+      ],
+      "default": "SOURCE_TYPE_UNSPECIFIED"
+    },
+    "v1StageObject": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "title": "Filename"
+        },
+        "description": {
+          "type": "string",
+          "title": "File description"
+        },
+        "collectionId": {
+          "type": "string",
+          "title": "Collection Id"
+        },
+        "contentLen": {
+          "type": "string",
+          "format": "int64",
+          "title": "Content length"
+        },
+        "source": {
+          "$ref": "#/definitions/v1Source"
+        },
+        "dataclass": {
+          "$ref": "#/definitions/v1DataClass"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          },
+          "title": "List of label key-values"
+        },
+        "hooks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1KeyValue"
+          },
+          "title": "List of hook key-values"
+        }
+      }
+    },
+    "v1Stats": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "accSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "Stats for a set of objects"
+    },
+    "v1StreamAll": {
+      "type": "object"
+    },
+    "v1StreamFromDate": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1StreamFromSequence": {
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1Token": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tokenType": {
+          "$ref": "#/definitions/v1TokenType"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "collectionId": {
+          "type": "string"
+        },
+        "projectId": {
+          "type": "string"
+        },
+        "permission": {
+          "$ref": "#/definitions/v1Permission"
+        }
+      }
+    },
+    "v1TokenType": {
+      "type": "string",
+      "enum": [
+        "TOKEN_TYPE_UNSPECIFIED",
+        "TOKEN_TYPE_PERSONAL",
+        "TOKEN_TYPE_SCOPED"
+      ],
+      "default": "TOKEN_TYPE_UNSPECIFIED"
+    },
+    "v1URL": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "URL response"
+        }
+      }
+    },
+    "v1UpdateCollectionResponse": {
+      "type": "object",
+      "properties": {
+        "collection": {
+          "$ref": "#/definitions/v1CollectionOverview"
+        }
+      }
+    },
+    "v1UpdateObjectGroupResponse": {
+      "type": "object",
+      "properties": {
+        "objectGroup": {
+          "$ref": "#/definitions/v1ObjectGroupOverview"
+        }
+      }
+    },
+    "v1UpdateObjectResponse": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "title": "ObjectId"
+        },
+        "stagingId": {
+          "type": "string",
+          "description": "Staging ID, a generic ID when multipart is not enabled, otherwise the\nmultipart upload ID."
+        },
+        "collectionId": {
+          "type": "string",
+          "title": "CollectionID"
+        }
+      }
+    },
+    "v1UpdateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "$ref": "#/definitions/v1ProjectOverview"
+        }
+      }
+    },
+    "v1UpdateUserDisplayNameRequest": {
+      "type": "object",
+      "properties": {
+        "newDisplayName": {
+          "type": "string",
+          "title": "New display name"
+        }
+      }
+    },
+    "v1UpdateUserDisplayNameResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Internal Aruna UserID"
+        },
+        "externalId": {
+          "type": "string",
+          "title": "Oidc subject ID"
+        },
+        "displayName": {
+          "type": "string",
+          "title": "(optional) User display_name"
+        },
+        "active": {
+          "type": "boolean",
+          "title": "Is the user activated"
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "title": "Is the user admin ?"
+        }
+      }
+    },
+    "v1UserProject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Project id"
+        },
+        "name": {
+          "type": "string",
+          "title": "Project name"
+        },
+        "description": {
+          "type": "string",
+          "title": "Project description"
+        }
+      }
+    },
+    "v1Version": {
+      "type": "object",
+      "properties": {
+        "major": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minor": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "patch": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Semver version -\u003e Alpha Beta release are not supported -\u003e Use \"latest\" for\nmutable collections that are in development"
+    }
+  },
+  "securityDefinitions": {
+    "AccessKeyAuth": {
+      "type": "apiKey",
+      "description": "Authentication token, prefixed by Bearer: Bearer \u003ctoken\u003e",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "AccessKeyAuth": []
+    }
+  ]
+}
