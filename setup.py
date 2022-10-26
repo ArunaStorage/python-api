@@ -26,7 +26,7 @@ setup(
                   'aruna.api.storage.models.v1': ['*.pyi'],
                   'aruna.api.storage.services.v1': ['*.pyi']},
     install_requires=[
-        'protobuf<=3.20.0',
+        'protobuf==3.20.3',
         'grpcio',
         'grpc-gateway-protoc-gen-openapiv2',
         'google-api-python-client'
