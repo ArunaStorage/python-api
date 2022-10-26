@@ -67,6 +67,11 @@ class ObjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectResponse.FromString,
                 )
+        self.DeleteObjects = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/DeleteObjects',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsResponse.FromString,
+                )
         self.GetObjectByID = channel.unary_unary(
                 '/aruna.api.storage.services.v1.ObjectService/GetObjectByID',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectByIDRequest.SerializeToString,
@@ -215,10 +220,15 @@ class ObjectServiceServicer(object):
         """DeleteObject 
 
         Deletes the object with the complete revision history.
-        This should be avoided if possible.
-        This method allows the owner to cascade the deletion of all objects that
-        were cloned from this object.
-        -> GDPR compliant procedure.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteObjects(self, request, context):
+        """DeleteObjects
+
+        Deletes multiple objects at once.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -367,6 +377,11 @@ def add_ObjectServiceServicer_to_server(servicer, server):
                     servicer.DeleteObject,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectResponse.SerializeToString,
+            ),
+            'DeleteObjects': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteObjects,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsResponse.SerializeToString,
             ),
             'GetObjectByID': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectByID,
@@ -588,6 +603,23 @@ class ObjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/DeleteObject',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteObjects(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/DeleteObjects',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.DeleteObjectsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

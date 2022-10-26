@@ -96,6 +96,22 @@ class DeleteObjectResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class DeleteObjectsRequest(_message.Message):
+    __slots__ = ["collection_id", "force", "object_ids", "with_revisions"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    FORCE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_IDS_FIELD_NUMBER: _ClassVar[int]
+    WITH_REVISIONS_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    force: bool
+    object_ids: _containers.RepeatedScalarFieldContainer[str]
+    with_revisions: bool
+    def __init__(self, object_ids: _Optional[_Iterable[str]] = ..., collection_id: _Optional[str] = ..., with_revisions: bool = ..., force: bool = ...) -> None: ...
+
+class DeleteObjectsResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class FinishObjectStagingRequest(_message.Message):
     __slots__ = ["auto_update", "collection_id", "completed_parts", "hash", "no_upload", "object_id", "upload_id"]
     AUTO_UPDATE_FIELD_NUMBER: _ClassVar[int]
