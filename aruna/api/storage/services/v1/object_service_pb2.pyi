@@ -227,18 +227,16 @@ class GetObjectRevisionsResponse(_message.Message):
     def __init__(self, objects: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ...) -> None: ...
 
 class GetObjectsRequest(_message.Message):
-    __slots__ = ["collection_id", "include_history", "label_id_filter", "page_request", "with_url"]
+    __slots__ = ["collection_id", "label_id_filter", "page_request", "with_url"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
-    INCLUDE_HISTORY_FIELD_NUMBER: _ClassVar[int]
     LABEL_ID_FILTER_FIELD_NUMBER: _ClassVar[int]
     PAGE_REQUEST_FIELD_NUMBER: _ClassVar[int]
     WITH_URL_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
-    include_history: bool
     label_id_filter: _query_pb2.LabelOrIDQuery
     page_request: _query_pb2.PageRequest
     with_url: bool
-    def __init__(self, collection_id: _Optional[str] = ..., page_request: _Optional[_Union[_query_pb2.PageRequest, _Mapping]] = ..., label_id_filter: _Optional[_Union[_query_pb2.LabelOrIDQuery, _Mapping]] = ..., with_url: bool = ..., include_history: bool = ...) -> None: ...
+    def __init__(self, collection_id: _Optional[str] = ..., page_request: _Optional[_Union[_query_pb2.PageRequest, _Mapping]] = ..., label_id_filter: _Optional[_Union[_query_pb2.LabelOrIDQuery, _Mapping]] = ..., with_url: bool = ...) -> None: ...
 
 class GetObjectsResponse(_message.Message):
     __slots__ = ["objects"]
