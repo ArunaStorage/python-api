@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class AddLabelToObjectRequest(_message.Message):
+class AddLabelsToObjectRequest(_message.Message):
     __slots__ = ["collection_id", "labels_to_add", "object_id"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     LABELS_TO_ADD_FIELD_NUMBER: _ClassVar[int]
@@ -18,7 +18,7 @@ class AddLabelToObjectRequest(_message.Message):
     object_id: str
     def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., labels_to_add: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
 
-class AddLabelToObjectResponse(_message.Message):
+class AddLabelsToObjectResponse(_message.Message):
     __slots__ = ["object"]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
     object: _models_pb2.Object
@@ -367,8 +367,9 @@ class URL(_message.Message):
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
 class UpdateObjectRequest(_message.Message):
-    __slots__ = ["collection_id", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
+    __slots__ = ["collection_id", "force", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    FORCE_FIELD_NUMBER: _ClassVar[int]
     IS_SPECIFICATION_FIELD_NUMBER: _ClassVar[int]
     MULTI_PART_FIELD_NUMBER: _ClassVar[int]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
@@ -376,13 +377,14 @@ class UpdateObjectRequest(_message.Message):
     PREFERRED_ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
     REUPLOAD_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
+    force: bool
     is_specification: bool
     multi_part: bool
     object: StageObject
     object_id: str
     preferred_endpoint_id: str
     reupload: bool
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ..., force: bool = ...) -> None: ...
 
 class UpdateObjectResponse(_message.Message):
     __slots__ = ["collection_id", "object_id", "staging_id"]

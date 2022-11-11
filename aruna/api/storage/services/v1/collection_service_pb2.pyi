@@ -33,14 +33,12 @@ class CreateNewCollectionResponse(_message.Message):
     def __init__(self, collection_id: _Optional[str] = ...) -> None: ...
 
 class DeleteCollectionRequest(_message.Message):
-    __slots__ = ["collection_id", "force", "project_id"]
+    __slots__ = ["collection_id", "force"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     FORCE_FIELD_NUMBER: _ClassVar[int]
-    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     force: bool
-    project_id: str
-    def __init__(self, collection_id: _Optional[str] = ..., project_id: _Optional[str] = ..., force: bool = ...) -> None: ...
+    def __init__(self, collection_id: _Optional[str] = ..., force: bool = ...) -> None: ...
 
 class DeleteCollectionResponse(_message.Message):
     __slots__ = []
@@ -89,7 +87,7 @@ class PinCollectionVersionResponse(_message.Message):
     def __init__(self, collection: _Optional[_Union[_models_pb2.CollectionOverview, _Mapping]] = ...) -> None: ...
 
 class UpdateCollectionRequest(_message.Message):
-    __slots__ = ["collection_id", "dataclass", "description", "hooks", "label_ontology", "labels", "name", "project_id", "version"]
+    __slots__ = ["collection_id", "dataclass", "description", "hooks", "label_ontology", "labels", "name", "version"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     DATACLASS_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -97,7 +95,6 @@ class UpdateCollectionRequest(_message.Message):
     LABELS_FIELD_NUMBER: _ClassVar[int]
     LABEL_ONTOLOGY_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     VERSION_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     dataclass: _models_pb2.DataClass
@@ -106,9 +103,8 @@ class UpdateCollectionRequest(_message.Message):
     label_ontology: _models_pb2.LabelOntology
     labels: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
     name: str
-    project_id: str
     version: _models_pb2.Version
-    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., labels: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., label_ontology: _Optional[_Union[_models_pb2.LabelOntology, _Mapping]] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., version: _Optional[_Union[_models_pb2.Version, _Mapping]] = ...) -> None: ...
+    def __init__(self, collection_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., labels: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., label_ontology: _Optional[_Union[_models_pb2.LabelOntology, _Mapping]] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., version: _Optional[_Union[_models_pb2.Version, _Mapping]] = ...) -> None: ...
 
 class UpdateCollectionResponse(_message.Message):
     __slots__ = ["collection"]

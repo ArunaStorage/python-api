@@ -97,10 +97,10 @@ class ObjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectEndpointsRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectEndpointsResponse.FromString,
                 )
-        self.AddLabelToObject = channel.unary_unary(
-                '/aruna.api.storage.services.v1.ObjectService/AddLabelToObject',
-                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectResponse.FromString,
+        self.AddLabelsToObject = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/AddLabelsToObject',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectResponse.FromString,
                 )
         self.SetHooksOfObject = channel.unary_unary(
                 '/aruna.api.storage.services.v1.ObjectService/SetHooksOfObject',
@@ -292,10 +292,10 @@ class ObjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AddLabelToObject(self, request, context):
-        """AddLabelToObject 
+    def AddLabelsToObject(self, request, context):
+        """AddLabelsToObject 
 
-        This is a specific request to add a new label
+        This is a specific request to add new label(s)
         to an existing object, in contrast to UpdateObject
         this will not create a new object in the staging area
         Instead it will directly add the specified label(s) to the object
@@ -408,10 +408,10 @@ def add_ObjectServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectEndpointsRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectEndpointsResponse.SerializeToString,
             ),
-            'AddLabelToObject': grpc.unary_unary_rpc_method_handler(
-                    servicer.AddLabelToObject,
-                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectResponse.SerializeToString,
+            'AddLabelsToObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddLabelsToObject,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectResponse.SerializeToString,
             ),
             'SetHooksOfObject': grpc.unary_unary_rpc_method_handler(
                     servicer.SetHooksOfObject,
@@ -709,7 +709,7 @@ class ObjectService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddLabelToObject(request,
+    def AddLabelsToObject(request,
             target,
             options=(),
             channel_credentials=None,
@@ -719,9 +719,9 @@ class ObjectService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/AddLabelToObject',
-            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectRequest.SerializeToString,
-            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelToObjectResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/AddLabelsToObject',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.AddLabelsToObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -8,6 +8,22 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class AddLabelsToObjectGroupRequest(_message.Message):
+    __slots__ = ["collection_id", "group_id", "labels_to_add"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    LABELS_TO_ADD_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    group_id: str
+    labels_to_add: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
+    def __init__(self, collection_id: _Optional[str] = ..., group_id: _Optional[str] = ..., labels_to_add: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
+
+class AddLabelsToObjectGroupResponse(_message.Message):
+    __slots__ = ["object_group"]
+    OBJECT_GROUP_FIELD_NUMBER: _ClassVar[int]
+    object_group: _models_pb2.ObjectGroupOverview
+    def __init__(self, object_group: _Optional[_Union[_models_pb2.ObjectGroupOverview, _Mapping]] = ...) -> None: ...
+
 class CreateObjectGroupRequest(_message.Message):
     __slots__ = ["collection_id", "description", "hooks", "labels", "meta_object_ids", "name", "object_ids"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]

@@ -57,6 +57,11 @@ class ObjectGroupServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupResponse.FromString,
                 )
+        self.AddLabelsToObjectGroup = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectGroupService/AddLabelsToObjectGroup',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupResponse.FromString,
+                )
 
 
 class ObjectGroupServiceServicer(object):
@@ -146,6 +151,18 @@ class ObjectGroupServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddLabelsToObjectGroup(self, request, context):
+        """AddLabelsToObjectGroup 
+
+        This is a specific request to add new label(s)
+        to an existing object_group, in contrast to UpdateObjectGroup
+        this will not create a new revision for the specific object_group
+        Instead it will directly add the specified label(s) to the object_group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ObjectGroupServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -188,6 +205,11 @@ def add_ObjectGroupServiceServicer_to_server(servicer, server):
                     servicer.DeleteObjectGroup,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupResponse.SerializeToString,
+            ),
+            'AddLabelsToObjectGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddLabelsToObjectGroup,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -335,5 +357,22 @@ class ObjectGroupService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectGroupService/DeleteObjectGroup',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.DeleteObjectGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddLabelsToObjectGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectGroupService/AddLabelsToObjectGroup',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_objectgroup__service__pb2.AddLabelsToObjectGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
