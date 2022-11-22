@@ -1,4 +1,5 @@
 from aruna.api.storage.models.v1 import models_pb2 as _models_pb2
+from google.api import visibility_pb2 as _visibility_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -30,14 +31,12 @@ class ComponentVersion(_message.Message):
     def __init__(self, component_name: _Optional[str] = ..., location_version: _Optional[_Iterable[_Union[LocationVersion, _Mapping]]] = ...) -> None: ...
 
 class GetResourceHierarchyRequest(_message.Message):
-    __slots__ = ["project_id", "resource_id", "resource_type"]
-    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["resource_id", "resource_type"]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
-    project_id: str
     resource_id: str
     resource_type: _models_pb2.ResourceType
-    def __init__(self, project_id: _Optional[str] = ..., resource_id: _Optional[str] = ..., resource_type: _Optional[_Union[_models_pb2.ResourceType, str]] = ...) -> None: ...
+    def __init__(self, resource_id: _Optional[str] = ..., resource_type: _Optional[_Union[_models_pb2.ResourceType, str]] = ...) -> None: ...
 
 class GetResourceHierarchyResponse(_message.Message):
     __slots__ = ["hierarchies"]

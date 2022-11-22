@@ -85,6 +85,8 @@ class UserServiceServicer(object):
     def RegisterUser(self, request, context):
         """RegisterUser
 
+        Status: STABLE
+
         This request should be called when a new user logs in for the first time
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -93,6 +95,8 @@ class UserServiceServicer(object):
 
     def ActivateUser(self, request, context):
         """ActivateUser 
+
+        Status: STABLE
 
         This activates a specific user (Admin request)
         """
@@ -103,6 +107,8 @@ class UserServiceServicer(object):
     def CreateAPIToken(self, request, context):
         """CreateAPIToken
 
+        Status: STABLE
+
         Creates an API token to authenticate
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -111,6 +117,8 @@ class UserServiceServicer(object):
 
     def GetAPIToken(self, request, context):
         """GetAPIToken
+
+        Status: STABLE
 
         Returns one API token by id
         """
@@ -121,6 +129,8 @@ class UserServiceServicer(object):
     def GetAPITokens(self, request, context):
         """GetAPITokens
 
+        Status: STABLE
+
         Returns a list of API tokens for a specific user
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -129,6 +139,8 @@ class UserServiceServicer(object):
 
     def DeleteAPIToken(self, request, context):
         """DeleteAPIToken
+
+        Status: STABLE
 
         Deletes the specified API Token
         """
@@ -139,6 +151,8 @@ class UserServiceServicer(object):
     def DeleteAPITokens(self, request, context):
         """DeleteAPITokens
 
+        Status: STABLE
+
         Deletes the specified API Token
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -147,6 +161,8 @@ class UserServiceServicer(object):
 
     def GetUser(self, request, context):
         """GetUserRequest
+
+        Status: STABLE
 
         This is a request that returns the user information of the
         current user or if invoked by an admin from another user
@@ -158,6 +174,8 @@ class UserServiceServicer(object):
     def UpdateUserDisplayName(self, request, context):
         """UpdateUserDisplayName
 
+        Status: STABLE
+
         Updates the Displayname for the user (Personal only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -167,6 +185,8 @@ class UserServiceServicer(object):
     def GetUserProjects(self, request, context):
         """GetUserProjects
 
+        Status: STABLE
+
         Gets all project_ids a user is member of
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -175,6 +195,8 @@ class UserServiceServicer(object):
 
     def GetNotActivatedUsers(self, request, context):
         """GetNotActivatedUsers
+
+        Status: STABLE
 
         Get all not activated users (Admin only)
         """

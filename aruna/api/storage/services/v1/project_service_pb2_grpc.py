@@ -73,6 +73,8 @@ class ProjectServiceServicer(object):
     def CreateProject(self, request, context):
         """CreateProject
 
+        Status: STABLE
+
         Creates a new project all users and collections are bundled in a project.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -81,6 +83,8 @@ class ProjectServiceServicer(object):
 
     def AddUserToProject(self, request, context):
         """AddUserToProject
+
+        Status: STABLE
 
         Adds a new user to a given project by its id
         """
@@ -91,6 +95,8 @@ class ProjectServiceServicer(object):
     def GetProject(self, request, context):
         """GetProject
 
+        Status: STABLE
+
         Requests a project by id
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -98,7 +104,9 @@ class ProjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetProjects(self, request, context):
-        """GetProject
+        """GetProjects
+
+        Status: STABLE
 
         Admin request to get all projects
         """
@@ -108,6 +116,8 @@ class ProjectServiceServicer(object):
 
     def DestroyProject(self, request, context):
         """DestroyProject
+
+        Status: STABLE
 
         Destroys the project and all its associated data. Must be empty
         (cannot contain any collections).
@@ -119,6 +129,8 @@ class ProjectServiceServicer(object):
     def UpdateProject(self, request, context):
         """UpdateProject
 
+        Status: STABLE
+
         Updates the project. All (meta) data will be overwritten.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -127,6 +139,8 @@ class ProjectServiceServicer(object):
 
     def RemoveUserFromProject(self, request, context):
         """RemoveUserFromProject
+
+        Status: STABLE
 
         Removes a specified user from the project.
         """
@@ -137,6 +151,8 @@ class ProjectServiceServicer(object):
     def GetUserPermissionsForProject(self, request, context):
         """GetUserPermissionsForProject
 
+        Status: STABLE
+
         Get the user_permission of a specific user for the project.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -145,6 +161,8 @@ class ProjectServiceServicer(object):
 
     def EditUserPermissionsForProject(self, request, context):
         """EditUserPermissionsForProject
+
+        Status: STABLE
 
         Modifies the user_permission of a specific user for the project.
         """

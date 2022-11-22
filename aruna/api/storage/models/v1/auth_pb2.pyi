@@ -49,14 +49,16 @@ class ProjectOverview(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., collection_ids: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ProjectPermission(_message.Message):
-    __slots__ = ["permission", "project_id", "user_id"]
+    __slots__ = ["permission", "project_id", "service_account", "user_id"]
     PERMISSION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     permission: Permission
     project_id: str
+    service_account: bool
     user_id: str
-    def __init__(self, user_id: _Optional[str] = ..., project_id: _Optional[str] = ..., permission: _Optional[_Union[Permission, str]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., project_id: _Optional[str] = ..., permission: _Optional[_Union[Permission, str]] = ..., service_account: bool = ...) -> None: ...
 
 class ProjectPermissionDisplayName(_message.Message):
     __slots__ = ["display_name", "permission", "project_id", "user_id"]

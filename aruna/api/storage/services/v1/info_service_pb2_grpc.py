@@ -123,6 +123,8 @@ class StorageInfoServiceServicer(object):
     def GetStorageVersion(self, request, context):
         """GetStorageVersion
 
+        Status: ALPHA
+
         A request to get the current version of the server application
         String representation and https://semver.org/
         """
@@ -132,6 +134,8 @@ class StorageInfoServiceServicer(object):
 
     def GetStorageStatus(self, request, context):
         """GetStorageStatus
+
+        Status: ALPHA
 
         A request to get the current status of the storage components by location(s)
         """

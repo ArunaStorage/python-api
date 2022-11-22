@@ -53,6 +53,8 @@ class EndpointServiceServicer(object):
     def AddEndpoint(self, request, context):
         """AddEndpoint
 
+        Status: BETA
+
         Registers a new Endpoint (Aruna DataProxy) to the server
         Needs admin permissions
         """
@@ -63,6 +65,8 @@ class EndpointServiceServicer(object):
     def GetEndpoint(self, request, context):
         """GetEndpoint
 
+        Status: BETA
+
         Gets an specific endpoint by ID or Name
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -71,6 +75,8 @@ class EndpointServiceServicer(object):
 
     def GetEndpoints(self, request, context):
         """GetEndpoints
+
+        Status: BETA
 
         Gets all available endpoints
         """
@@ -81,6 +87,8 @@ class EndpointServiceServicer(object):
     def DeleteEndpoint(self, request, context):
         """DeleteEndpoint
 
+        Status: BETA
+
         Deletes a specific endpoint by id
         This needs admin permissions
         """
@@ -90,6 +98,8 @@ class EndpointServiceServicer(object):
 
     def GetDefaultEndpoint(self, request, context):
         """GetDefaultEndpoint
+
+        Status: BETA
 
         This request returns the default endpoint for the current aruna_server
         It may produce different results depending on the used server

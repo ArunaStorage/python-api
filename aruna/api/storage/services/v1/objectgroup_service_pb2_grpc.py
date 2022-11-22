@@ -73,6 +73,8 @@ class ObjectGroupServiceServicer(object):
     def CreateObjectGroup(self, request, context):
         """CreateObjectGroup
 
+        Status: STABLE
+
         This creates a new ObjectGroup in the collection
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -81,6 +83,8 @@ class ObjectGroupServiceServicer(object):
 
     def UpdateObjectGroup(self, request, context):
         """UpdateObjectGroup
+
+        Status: STABLE
 
         This creates an updated ObjectGroup
         ObjectGroups are immutable
@@ -93,6 +97,8 @@ class ObjectGroupServiceServicer(object):
     def GetObjectGroupById(self, request, context):
         """GetObjectGroupById
 
+        Status: STABLE
+
         This gets a specific ObjectGroup by ID
         By default the latest revision is always returned, older revisions need to
         be specified separately
@@ -104,6 +110,8 @@ class ObjectGroupServiceServicer(object):
     def GetObjectGroupsFromObject(self, request, context):
         """GetObjectGroupsFromObject
 
+        Status: STABLE
+
         This gets all ObjectGroups associated to a specific
         Object Objects can be part of multiple ObjectGroups at once
         """
@@ -113,6 +121,8 @@ class ObjectGroupServiceServicer(object):
 
     def GetObjectGroups(self, request, context):
         """GetObjectGroups
+
+        Status: STABLE
 
         This is a request that returns a (paginated) list of
         ObjectGroups that contain a specific set of labels.
@@ -124,6 +134,8 @@ class ObjectGroupServiceServicer(object):
     def GetObjectGroupHistory(self, request, context):
         """GetObjectGroupHistory
 
+        Status: BETA
+
         This requests a full history with all objectgroups
         that are part of this objectgroups history
         """
@@ -133,6 +145,8 @@ class ObjectGroupServiceServicer(object):
 
     def GetObjectGroupObjects(self, request, context):
         """GetObjectGroupObjects
+
+        Status: STABLE
 
         Requests a list of paginated objects associated with this
         specific objectgroup
@@ -144,6 +158,8 @@ class ObjectGroupServiceServicer(object):
     def DeleteObjectGroup(self, request, context):
         """DeleteObjectGroup
 
+        Status: STABLE
+
         This is a request that deletes a specified ObjectGroup
         This does not delete the associated Objects
         """
@@ -153,6 +169,8 @@ class ObjectGroupServiceServicer(object):
 
     def AddLabelsToObjectGroup(self, request, context):
         """AddLabelsToObjectGroup 
+
+        Status: STABLE
 
         This is a specific request to add new label(s)
         to an existing object_group, in contrast to UpdateObjectGroup

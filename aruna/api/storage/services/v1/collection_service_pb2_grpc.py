@@ -58,6 +58,8 @@ class CollectionServiceServicer(object):
     def CreateNewCollection(self, request, context):
         """CreateNewCollection
 
+        Status: STABLE
+
         creates a new Collection
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -66,6 +68,8 @@ class CollectionServiceServicer(object):
 
     def GetCollectionByID(self, request, context):
         """GetCollectionByID
+
+        Status: STABLE
 
         Queries a specific Collection by ID
         The result can be one_of:
@@ -81,6 +85,8 @@ class CollectionServiceServicer(object):
     def GetCollections(self, request, context):
         """GetCollections
 
+        Status: STABLE
+
         queries multiple collections by ID or by LabelFilter
         This returns by default a paginated result with 20 entries.
         Must specify a project_id as context
@@ -91,6 +97,8 @@ class CollectionServiceServicer(object):
 
     def UpdateCollection(self, request, context):
         """UpdateCollection
+
+        Status: STABLE
 
         Updates the current collection
         This will update the collection in place if it is unversioned / latest
@@ -105,6 +113,8 @@ class CollectionServiceServicer(object):
     def PinCollectionVersion(self, request, context):
         """PinCollectionVersion
 
+        Status: STABLE
+
         This pins the current status of the version to a
         specific version. Effectively creating a copy of the collection with a
         stable version All objects will be pinned to an explicit revision number
@@ -116,6 +126,8 @@ class CollectionServiceServicer(object):
 
     def DeleteCollection(self, request, context):
         """DeleteCollection
+
+        Status: STABLE
 
         This request deletes the collection.
         If with_version is true, it deletes the collection and all its versions.

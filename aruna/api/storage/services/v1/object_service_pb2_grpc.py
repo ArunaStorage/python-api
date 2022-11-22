@@ -123,6 +123,8 @@ class ObjectServiceServicer(object):
     def InitializeNewObject(self, request, context):
         """InitializeNewObject
 
+        Status: STABLE
+
         This initializes a new object
         Initializing an object will put it in a staging area.
         Staged objects will get a separate staging id and need to be finished
@@ -135,6 +137,8 @@ class ObjectServiceServicer(object):
     def GetUploadURL(self, request, context):
         """GetUploadURL
 
+        Status: STABLE
+
         This method will return a (multi-part) url that can be used to upload a
         file to S3. Part is a optional query parameter that can be used to upload a
         part of the file / multipart upload.
@@ -146,6 +150,8 @@ class ObjectServiceServicer(object):
     def GetDownloadURL(self, request, context):
         """GetDownloadUrl
 
+        Status: STABLE
+
         This method will return a url that can be used to download a file from S3.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -154,6 +160,8 @@ class ObjectServiceServicer(object):
 
     def GetDownloadLinksBatch(self, request, context):
         """GetDownloadLinksBatch
+
+        Status: BETA
 
         This method can be used to get download urls for multiple objects.
         The order of the returned urls will be the same as the order of the object
@@ -166,6 +174,8 @@ class ObjectServiceServicer(object):
     def CreateDownloadLinksStream(self, request, context):
         """CreateDownloadLinksStream
 
+        Status: BETA
+
         Creates a stream of objects and presigned links based on the provided query
         This can be used retrieve a large number of Objects as a stream that would
         otherwise cause issues with the connection
@@ -177,6 +187,8 @@ class ObjectServiceServicer(object):
     def FinishObjectStaging(self, request, context):
         """FinishObjectStaging
 
+        Status: STABLE
+
         This method completes the staging of an object.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -185,6 +197,8 @@ class ObjectServiceServicer(object):
 
     def UpdateObject(self, request, context):
         """UpdateObject
+
+        Status: STABLE
 
         Objects are immutable!
         Updating an object will create a new revision for the object
@@ -199,6 +213,8 @@ class ObjectServiceServicer(object):
     def CreateObjectReference(self, request, context):
         """CreateObjectReference
 
+        Status: STABLE
+
         Creates a new reference of this object in another collection
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -207,6 +223,8 @@ class ObjectServiceServicer(object):
 
     def CloneObject(self, request, context):
         """CloneObject 
+
+        Status: STABLE
 
         This method clones an object and creates a copy in the same collection.
         This copy has a new id and revision and will not receive any updates from
@@ -219,6 +237,8 @@ class ObjectServiceServicer(object):
     def DeleteObject(self, request, context):
         """DeleteObject 
 
+        Status: STABLE
+
         Deletes the object with the complete revision history.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -228,6 +248,8 @@ class ObjectServiceServicer(object):
     def DeleteObjects(self, request, context):
         """DeleteObjects
 
+        Status: STABLE
+
         Deletes multiple objects at once.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -236,6 +258,8 @@ class ObjectServiceServicer(object):
 
     def GetObjectByID(self, request, context):
         """GetObjectByID 
+
+        Status: STABLE
 
         gets a specific Object by ID that is associated to the
         current collection By default only the latest revision of an object will be
@@ -248,6 +272,8 @@ class ObjectServiceServicer(object):
 
     def GetObjects(self, request, context):
         """GetObjects
+
+        Status: STABLE
 
         GetObjects returns a (paginated) list of objects in a specific collection
         By default only the latest revisions of all objects will be shown
@@ -263,6 +289,8 @@ class ObjectServiceServicer(object):
     def GetObjectRevisions(self, request, context):
         """GetObjectRevisions
 
+        Status: STABLE
+
         This returns the full list of revisions of a specified object
         With the optional with_url boolean a download link can automatically be
         requested for each Object This is by default a paginated request
@@ -273,6 +301,8 @@ class ObjectServiceServicer(object):
 
     def GetLatestObjectRevision(self, request, context):
         """GetLatestObjectRevision
+
+        Status: STABLE
 
         This returns the latest revision of a specific object
         The returned `latest` object will have a different id if the current
@@ -285,6 +315,8 @@ class ObjectServiceServicer(object):
     def GetObjectEndpoints(self, request, context):
         """GetObjectEndpoints
 
+        Status: BETA
+
         This returns a list of endpoints
         One endpoint will be the "default" endpoint
         """
@@ -294,6 +326,8 @@ class ObjectServiceServicer(object):
 
     def AddLabelsToObject(self, request, context):
         """AddLabelsToObject 
+
+        Status: STABLE
 
         This is a specific request to add new label(s)
         to an existing object, in contrast to UpdateObject
@@ -307,6 +341,8 @@ class ObjectServiceServicer(object):
     def SetHooksOfObject(self, request, context):
         """SetHooksOfObject
 
+        Status: BETA
+
         This is a specific request to update the complete list
         of hooks for a specific object. This will not update the object
         and create a new id, instead it will overwrite all hooks of the existing
@@ -318,6 +354,8 @@ class ObjectServiceServicer(object):
 
     def GetReferences(self, request, context):
         """GetReferences
+
+        Status: STABLE
 
         Get a list of references for this object (optional) including all revisions
         """
