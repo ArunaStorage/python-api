@@ -112,6 +112,31 @@ class ObjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesResponse.FromString,
                 )
+        self.GetObjectPath = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/GetObjectPath',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathResponse.FromString,
+                )
+        self.GetObjectPaths = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/GetObjectPaths',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsResponse.FromString,
+                )
+        self.CreateObjectPath = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/CreateObjectPath',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathResponse.FromString,
+                )
+        self.SetObjectPathVisibility = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/SetObjectPathVisibility',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityResponse.FromString,
+                )
+        self.GetObjectsByPath = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/GetObjectsByPath',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathResponse.FromString,
+                )
 
 
 class ObjectServiceServicer(object):
@@ -363,6 +388,66 @@ class ObjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetObjectPath(self, request, context):
+        """GetObjectPath
+
+        Status: BETA
+
+        Get all object_paths for this object in a specific collection
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectPaths(self, request, context):
+        """GetObjectPaths
+
+        Status: BETA
+
+        Get all object_paths for a specific collection
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateObjectPath(self, request, context):
+        """CreateObjectPath
+
+        Status: BETA
+
+        Create collection_specific object_paths for an object
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetObjectPathVisibility(self, request, context):
+        """SetObjectPathVisibility
+
+        Status: BETA
+
+        Updates the visibility setting for an object_path (hide/unhide)
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectsByPath(self, request, context):
+        """GetObjectsByPath
+
+        Status: BETA
+
+        Gets a specific object by object_path
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ObjectServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -460,6 +545,31 @@ def add_ObjectServiceServicer_to_server(servicer, server):
                     servicer.GetReferences,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesResponse.SerializeToString,
+            ),
+            'GetObjectPath': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectPath,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathResponse.SerializeToString,
+            ),
+            'GetObjectPaths': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectPaths,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsResponse.SerializeToString,
+            ),
+            'CreateObjectPath': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateObjectPath,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathResponse.SerializeToString,
+            ),
+            'SetObjectPathVisibility': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetObjectPathVisibility,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityResponse.SerializeToString,
+            ),
+            'GetObjectsByPath': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectsByPath,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -794,5 +904,90 @@ class ObjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetReferences',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetReferencesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectPath(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetObjectPath',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectPaths(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetObjectPaths',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectPathsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateObjectPath(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/CreateObjectPath',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.CreateObjectPathResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetObjectPathVisibility(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/SetObjectPathVisibility',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.SetObjectPathVisibilityResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectsByPath(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetObjectsByPath',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsByPathResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

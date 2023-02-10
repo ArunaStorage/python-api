@@ -62,19 +62,37 @@ class CreateDownloadLinksStreamResponse(_message.Message):
     url: URL
     def __init__(self, url: _Optional[_Union[URL, _Mapping]] = ...) -> None: ...
 
+class CreateObjectPathRequest(_message.Message):
+    __slots__ = ["collection_id", "object_id", "sub_path"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    SUB_PATH_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    object_id: str
+    sub_path: str
+    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., sub_path: _Optional[str] = ...) -> None: ...
+
+class CreateObjectPathResponse(_message.Message):
+    __slots__ = ["path"]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    path: Path
+    def __init__(self, path: _Optional[_Union[Path, _Mapping]] = ...) -> None: ...
+
 class CreateObjectReferenceRequest(_message.Message):
-    __slots__ = ["auto_update", "collection_id", "object_id", "target_collection_id", "writeable"]
+    __slots__ = ["auto_update", "collection_id", "object_id", "sub_path", "target_collection_id", "writeable"]
     AUTO_UPDATE_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    SUB_PATH_FIELD_NUMBER: _ClassVar[int]
     TARGET_COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     WRITEABLE_FIELD_NUMBER: _ClassVar[int]
     auto_update: bool
     collection_id: str
     object_id: str
+    sub_path: str
     target_collection_id: str
     writeable: bool
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., target_collection_id: _Optional[str] = ..., writeable: bool = ..., auto_update: bool = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., target_collection_id: _Optional[str] = ..., writeable: bool = ..., auto_update: bool = ..., sub_path: _Optional[str] = ...) -> None: ...
 
 class CreateObjectReferenceResponse(_message.Message):
     __slots__ = []
@@ -165,18 +183,20 @@ class GetDownloadURLResponse(_message.Message):
     def __init__(self, url: _Optional[_Union[URL, _Mapping]] = ...) -> None: ...
 
 class GetLatestObjectRevisionRequest(_message.Message):
-    __slots__ = ["collection_id", "object_id"]
+    __slots__ = ["collection_id", "object_id", "with_url"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    WITH_URL_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     object_id: str
-    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ...) -> None: ...
+    with_url: bool
+    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., with_url: bool = ...) -> None: ...
 
 class GetLatestObjectRevisionResponse(_message.Message):
     __slots__ = ["object"]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
-    object: _models_pb2.Object
-    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
+    object: ObjectWithURL
+    def __init__(self, object: _Optional[_Union[ObjectWithURL, _Mapping]] = ...) -> None: ...
 
 class GetObjectByIDRequest(_message.Message):
     __slots__ = ["collection_id", "object_id", "with_url"]
@@ -208,6 +228,36 @@ class GetObjectEndpointsResponse(_message.Message):
     endpoints: _containers.RepeatedCompositeFieldContainer[_models_pb2.Endpoint]
     def __init__(self, endpoints: _Optional[_Iterable[_Union[_models_pb2.Endpoint, _Mapping]]] = ...) -> None: ...
 
+class GetObjectPathRequest(_message.Message):
+    __slots__ = ["collection_id", "include_inactive", "object_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    include_inactive: bool
+    object_id: str
+    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., include_inactive: bool = ...) -> None: ...
+
+class GetObjectPathResponse(_message.Message):
+    __slots__ = ["object_paths"]
+    OBJECT_PATHS_FIELD_NUMBER: _ClassVar[int]
+    object_paths: _containers.RepeatedCompositeFieldContainer[Path]
+    def __init__(self, object_paths: _Optional[_Iterable[_Union[Path, _Mapping]]] = ...) -> None: ...
+
+class GetObjectPathsRequest(_message.Message):
+    __slots__ = ["collection_id", "include_inactive"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    include_inactive: bool
+    def __init__(self, collection_id: _Optional[str] = ..., include_inactive: bool = ...) -> None: ...
+
+class GetObjectPathsResponse(_message.Message):
+    __slots__ = ["object_paths"]
+    OBJECT_PATHS_FIELD_NUMBER: _ClassVar[int]
+    object_paths: _containers.RepeatedCompositeFieldContainer[Path]
+    def __init__(self, object_paths: _Optional[_Iterable[_Union[Path, _Mapping]]] = ...) -> None: ...
+
 class GetObjectRevisionsRequest(_message.Message):
     __slots__ = ["collection_id", "object_id", "page_request", "with_url"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -225,6 +275,22 @@ class GetObjectRevisionsResponse(_message.Message):
     OBJECTS_FIELD_NUMBER: _ClassVar[int]
     objects: _containers.RepeatedCompositeFieldContainer[ObjectWithURL]
     def __init__(self, objects: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ...) -> None: ...
+
+class GetObjectsByPathRequest(_message.Message):
+    __slots__ = ["collection_id", "path", "with_revisions"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    WITH_REVISIONS_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    path: str
+    with_revisions: bool
+    def __init__(self, collection_id: _Optional[str] = ..., path: _Optional[str] = ..., with_revisions: bool = ...) -> None: ...
+
+class GetObjectsByPathResponse(_message.Message):
+    __slots__ = ["object"]
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    object: _containers.RepeatedCompositeFieldContainer[_models_pb2.Object]
+    def __init__(self, object: _Optional[_Iterable[_Union[_models_pb2.Object, _Mapping]]] = ...) -> None: ...
 
 class GetObjectsRequest(_message.Message):
     __slots__ = ["collection_id", "label_id_filter", "page_request", "with_url"]
@@ -317,12 +383,22 @@ class ObjectReference(_message.Message):
     def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., revision_number: _Optional[int] = ..., is_writeable: bool = ...) -> None: ...
 
 class ObjectWithURL(_message.Message):
-    __slots__ = ["object", "url"]
+    __slots__ = ["object", "paths", "url"]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
+    PATHS_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
     object: _models_pb2.Object
+    paths: _containers.RepeatedScalarFieldContainer[str]
     url: str
-    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., url: _Optional[str] = ...) -> None: ...
+    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., url: _Optional[str] = ..., paths: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class Path(_message.Message):
+    __slots__ = ["path", "visibility"]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    VISIBILITY_FIELD_NUMBER: _ClassVar[int]
+    path: str
+    visibility: bool
+    def __init__(self, path: _Optional[str] = ..., visibility: bool = ...) -> None: ...
 
 class SetHooksOfObjectRequest(_message.Message):
     __slots__ = ["collection_id", "hooks", "object_id"]
@@ -340,25 +416,41 @@ class SetHooksOfObjectResponse(_message.Message):
     object: _models_pb2.Object
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
 
-class StageObject(_message.Message):
-    __slots__ = ["collection_id", "content_len", "dataclass", "description", "filename", "hooks", "labels", "source"]
+class SetObjectPathVisibilityRequest(_message.Message):
+    __slots__ = ["collection_id", "object_id", "path", "visibility"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    VISIBILITY_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    object_id: str
+    path: str
+    visibility: bool
+    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., path: _Optional[str] = ..., visibility: bool = ...) -> None: ...
+
+class SetObjectPathVisibilityResponse(_message.Message):
+    __slots__ = ["path"]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    path: Path
+    def __init__(self, path: _Optional[_Union[Path, _Mapping]] = ...) -> None: ...
+
+class StageObject(_message.Message):
+    __slots__ = ["content_len", "dataclass", "filename", "hooks", "labels", "source", "sub_path"]
     CONTENT_LEN_FIELD_NUMBER: _ClassVar[int]
     DATACLASS_FIELD_NUMBER: _ClassVar[int]
-    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
     HOOKS_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_NUMBER: _ClassVar[int]
-    collection_id: str
+    SUB_PATH_FIELD_NUMBER: _ClassVar[int]
     content_len: int
     dataclass: _models_pb2.DataClass
-    description: str
     filename: str
     hooks: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
     labels: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
     source: _models_pb2.Source
-    def __init__(self, filename: _Optional[str] = ..., description: _Optional[str] = ..., collection_id: _Optional[str] = ..., content_len: _Optional[int] = ..., source: _Optional[_Union[_models_pb2.Source, _Mapping]] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., labels: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
+    sub_path: str
+    def __init__(self, filename: _Optional[str] = ..., content_len: _Optional[int] = ..., source: _Optional[_Union[_models_pb2.Source, _Mapping]] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., labels: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., sub_path: _Optional[str] = ...) -> None: ...
 
 class URL(_message.Message):
     __slots__ = ["url"]
@@ -367,9 +459,10 @@ class URL(_message.Message):
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
 class UpdateObjectRequest(_message.Message):
-    __slots__ = ["collection_id", "force", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
+    __slots__ = ["collection_id", "force", "hash", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     FORCE_FIELD_NUMBER: _ClassVar[int]
+    HASH_FIELD_NUMBER: _ClassVar[int]
     IS_SPECIFICATION_FIELD_NUMBER: _ClassVar[int]
     MULTI_PART_FIELD_NUMBER: _ClassVar[int]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
@@ -378,13 +471,14 @@ class UpdateObjectRequest(_message.Message):
     REUPLOAD_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     force: bool
+    hash: _models_pb2.Hash
     is_specification: bool
     multi_part: bool
     object: StageObject
     object_id: str
     preferred_endpoint_id: str
     reupload: bool
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ..., force: bool = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ..., force: bool = ..., hash: _Optional[_Union[_models_pb2.Hash, _Mapping]] = ...) -> None: ...
 
 class UpdateObjectResponse(_message.Message):
     __slots__ = ["collection_id", "object_id", "staging_id"]
