@@ -347,18 +347,20 @@ class GetUploadURLResponse(_message.Message):
     def __init__(self, url: _Optional[_Union[URL, _Mapping]] = ...) -> None: ...
 
 class InitializeNewObjectRequest(_message.Message):
-    __slots__ = ["collection_id", "is_specification", "multipart", "object", "preferred_endpoint_id"]
+    __slots__ = ["collection_id", "hash", "is_specification", "multipart", "object", "preferred_endpoint_id"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    HASH_FIELD_NUMBER: _ClassVar[int]
     IS_SPECIFICATION_FIELD_NUMBER: _ClassVar[int]
     MULTIPART_FIELD_NUMBER: _ClassVar[int]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
     PREFERRED_ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
+    hash: _models_pb2.Hash
     is_specification: bool
     multipart: bool
     object: StageObject
     preferred_endpoint_id: str
-    def __init__(self, object: _Optional[_Union[StageObject, _Mapping]] = ..., collection_id: _Optional[str] = ..., preferred_endpoint_id: _Optional[str] = ..., multipart: bool = ..., is_specification: bool = ...) -> None: ...
+    def __init__(self, object: _Optional[_Union[StageObject, _Mapping]] = ..., collection_id: _Optional[str] = ..., preferred_endpoint_id: _Optional[str] = ..., multipart: bool = ..., is_specification: bool = ..., hash: _Optional[_Union[_models_pb2.Hash, _Mapping]] = ...) -> None: ...
 
 class InitializeNewObjectResponse(_message.Message):
     __slots__ = ["collection_id", "object_id", "upload_id"]

@@ -17,9 +17,6 @@ ENDPOINT_TYPE_UNSPECIFIED: EndpointType
 HASHALGORITHM_MD5: Hashalgorithm
 HASHALGORITHM_SHA256: Hashalgorithm
 HASHALGORITHM_UNSPECIFIED: Hashalgorithm
-ORIGIN_TYPE_OBJCLONE: OriginType
-ORIGIN_TYPE_UNSPECIFIED: OriginType
-ORIGIN_TYPE_USER: OriginType
 RESOURCE_ACTION_APPEND: ResourceAction
 RESOURCE_ACTION_CREATE: ResourceAction
 RESOURCE_ACTION_DELETE: ResourceAction
@@ -329,12 +326,10 @@ class Objects(_message.Message):
     def __init__(self, objects: _Optional[_Iterable[_Union[Object, _Mapping]]] = ...) -> None: ...
 
 class Origin(_message.Message):
-    __slots__ = ["id", "type"]
+    __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
-    TYPE_FIELD_NUMBER: _ClassVar[int]
     id: str
-    type: OriginType
-    def __init__(self, type: _Optional[_Union[OriginType, str]] = ..., id: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
 
 class Source(_message.Message):
     __slots__ = ["identifier", "source_type"]
@@ -372,9 +367,6 @@ class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
 
 class Hashalgorithm(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
-
-class OriginType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
 
 class DataClass(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
