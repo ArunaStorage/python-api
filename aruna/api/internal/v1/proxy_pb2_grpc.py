@@ -50,6 +50,16 @@ class InternalProxyServiceStub(object):
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.FromString,
                 )
+        self.DeleteObject = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyService/DeleteObject',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectResponse.FromString,
+                )
+        self.MoveObject = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyService/MoveObject',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.FromString,
+                )
 
 
 class InternalProxyServiceServicer(object):
@@ -96,6 +106,18 @@ class InternalProxyServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MoveObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_InternalProxyServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -123,6 +145,16 @@ def add_InternalProxyServiceServicer_to_server(servicer, server):
                     servicer.CreateBucket,
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.FromString,
                     response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.SerializeToString,
+            ),
+            'DeleteObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteObject,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectResponse.SerializeToString,
+            ),
+            'MoveObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.MoveObject,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -227,5 +259,139 @@ class InternalProxyService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/CreateBucket',
             aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.SerializeToString,
             aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/DeleteObject',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MoveObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/MoveObject',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class InternalProxyNotifierServiceStub(object):
+    """This service enables a "return" channel for dataproxy to aruna server communication
+    Mainly used to notify the backend of validation / move events after the upload of new files
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.FinalizeObject = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/FinalizeObject',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectResponse.FromString,
+                )
+        self.GetEncryptionKey = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/GetEncryptionKey',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
+                )
+
+
+class InternalProxyNotifierServiceServicer(object):
+    """This service enables a "return" channel for dataproxy to aruna server communication
+    Mainly used to notify the backend of validation / move events after the upload of new files
+    """
+
+    def FinalizeObject(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEncryptionKey(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_InternalProxyNotifierServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'FinalizeObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinalizeObject,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectResponse.SerializeToString,
+            ),
+            'GetEncryptionKey': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEncryptionKey,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'aruna.api.internal.v1.InternalProxyNotifierService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class InternalProxyNotifierService(object):
+    """This service enables a "return" channel for dataproxy to aruna server communication
+    Mainly used to notify the backend of validation / move events after the upload of new files
+    """
+
+    @staticmethod
+    def FinalizeObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/FinalizeObject',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEncryptionKey(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetEncryptionKey',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

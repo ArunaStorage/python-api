@@ -49,12 +49,14 @@ class CreateObjectGroupResponse(_message.Message):
     def __init__(self, object_group: _Optional[_Union[_models_pb2.ObjectGroupOverview, _Mapping]] = ...) -> None: ...
 
 class DeleteObjectGroupRequest(_message.Message):
-    __slots__ = ["collection_id", "group_id"]
+    __slots__ = ["collection_id", "group_id", "with_revisions"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    WITH_REVISIONS_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     group_id: str
-    def __init__(self, group_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
+    with_revisions: bool
+    def __init__(self, group_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., with_revisions: bool = ...) -> None: ...
 
 class DeleteObjectGroupResponse(_message.Message):
     __slots__ = []

@@ -15,7 +15,7 @@ from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 from aruna.api.storage.models.v1 import models_pb2 as aruna_dot_api_dot_storage_dot_models_dot_v1_dot_models__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%aruna/api/internal/v1/authorize.proto\x12\x15\x61runa.api.internal.v1\x1a\x1bgoogle/api/visibility.proto\x1a(aruna/api/storage/models/v1/models.proto\"f\n\rAuthorization\x12\x1c\n\tsecretkey\x18\x01 \x01(\tR\tsecretkey\x12\x1c\n\taccesskey\x18\x02 \x01(\tR\taccesskey\x12\x19\n\x08is_token\x18\x03 \x01(\x08R\x07isToken\"\xd0\x01\n\x10\x41uthorizeRequest\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\x12T\n\x0fresource_action\x18\x03 \x01(\x0e\x32+.aruna.api.storage.models.v1.ResourceActionR\x0eresourceAction\"#\n\x11\x41uthorizeResponse\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok2\x8e\x01\n\x18InternalAuthorizeService\x12`\n\tAuthorize\x12\'.aruna.api.internal.v1.AuthorizeRequest\x1a(.aruna.api.internal.v1.AuthorizeResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%aruna/api/internal/v1/authorize.proto\x12\x15\x61runa.api.internal.v1\x1a\x1bgoogle/api/visibility.proto\x1a(aruna/api/storage/models/v1/models.proto\"f\n\rAuthorization\x12\x1c\n\tsecretkey\x18\x01 \x01(\tR\tsecretkey\x12\x1c\n\taccesskey\x18\x02 \x01(\tR\taccesskey\x12\x19\n\x08is_token\x18\x03 \x01(\x08R\x07isToken\"W\n\nIdentifier\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x35\n\x06idtype\x18\x02 \x01(\x0e\x32\x1d.aruna.api.internal.v1.IdTypeR\x06idtype\"\xbe\x02\n\x10\x41uthorizeRequest\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x41\n\nidentifier\x18\x02 \x01(\x0b\x32!.aruna.api.internal.v1.IdentifierR\nidentifier\x12T\n\x0fresource_action\x18\x03 \x01(\x0e\x32+.aruna.api.storage.models.v1.ResourceActionR\x0eresourceAction\x12J\n\rauthorization\x18\x04 \x01(\x0b\x32$.aruna.api.internal.v1.AuthorizationR\rauthorization\"#\n\x11\x41uthorizeResponse\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok*E\n\x06IdType\x12\x17\n\x13ID_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cID_TYPE_UUID\x10\x01\x12\x10\n\x0cID_TYPE_PATH\x10\x02\x32\x8e\x01\n\x18InternalAuthorizeService\x12`\n\tAuthorize\x12\'.aruna.api.internal.v1.AuthorizeRequest\x1a(.aruna.api.internal.v1.AuthorizeResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aruna.api.internal.v1.authorize_pb2', globals())
@@ -25,12 +25,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1'
   _INTERNALAUTHORIZESERVICE._options = None
   _INTERNALAUTHORIZESERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
+  _IDTYPE._serialized_start=686
+  _IDTYPE._serialized_end=755
   _AUTHORIZATION._serialized_start=135
   _AUTHORIZATION._serialized_end=237
-  _AUTHORIZEREQUEST._serialized_start=240
-  _AUTHORIZEREQUEST._serialized_end=448
-  _AUTHORIZERESPONSE._serialized_start=450
-  _AUTHORIZERESPONSE._serialized_end=485
-  _INTERNALAUTHORIZESERVICE._serialized_start=488
-  _INTERNALAUTHORIZESERVICE._serialized_end=630
+  _IDENTIFIER._serialized_start=239
+  _IDENTIFIER._serialized_end=326
+  _AUTHORIZEREQUEST._serialized_start=329
+  _AUTHORIZEREQUEST._serialized_end=647
+  _AUTHORIZERESPONSE._serialized_start=649
+  _AUTHORIZERESPONSE._serialized_end=684
+  _INTERNALAUTHORIZESERVICE._serialized_start=758
+  _INTERNALAUTHORIZESERVICE._serialized_end=900
 # @@protoc_insertion_point(module_scope)

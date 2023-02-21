@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Aruna Object Storage (AOS) REST API",
-    "version": "1.0.0-rc.3"
+    "version": "1.0.0-rc.5"
   },
   "tags": [
     {
@@ -559,6 +559,13 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "withRevisions",
+            "description": "with revisions",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -1005,7 +1012,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1DeleteObjectResponse"
+              "$ref": "#/definitions/storageservicesv1DeleteObjectResponse"
             }
           },
           "default": {
@@ -1438,63 +1445,6 @@
         ]
       }
     },
-    "/v1/collection/{collectionId}/object/{objectId}/path/{path}/visibility": {
-      "patch": {
-        "summary": "SetObjectPathVisibility",
-        "description": "Status: BETA\n\nUpdates the visibility setting for an object_path (hide/unhide)\n!! Paths are collection specific !!",
-        "operationId": "ObjectService_SetObjectPathVisibility",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1SetObjectPathVisibilityResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "collectionId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "objectId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "path",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "visibility": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        ],
-        "tags": [
-          "ObjectService"
-        ]
-      }
-    },
     "/v1/collection/{collectionId}/object/{objectId}/reference/{targetCollectionId}": {
       "post": {
         "summary": "CreateObjectReference",
@@ -1553,7 +1503,7 @@
                 },
                 "subPath": {
                   "type": "string",
-                  "title": "(collection specific) sub_path for file\ndoes not include file-, collection- or projectname\nfinal schema: /\u003cprojectname\u003e/\u003ccollectionname\u003e/\u003cpath\u003e/\u003cfilename\u003e"
+                  "title": "(collection specific) sub_path for file\ndoes not include file-, collection- or projectname\nfinal schema: /\u003cprojectname\u003e/\u003ccollectionname\u003e/\u003cversion\u003e/\u003cpath\u003e/\u003cfilename\u003e"
                 }
               }
             }
@@ -2214,6 +2164,57 @@
             "in": "query",
             "required": false,
             "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/collection/{collectionId}/path/{path}/visibility": {
+      "patch": {
+        "summary": "SetObjectPathVisibility",
+        "description": "Status: BETA\n\nUpdates the visibility setting for an object_path (hide/unhide)\n!! Paths are collection specific !!",
+        "operationId": "ObjectService_SetObjectPathVisibility",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SetObjectPathVisibilityResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "collectionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "visibility": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         ],
         "tags": [
@@ -3082,6 +3083,9 @@
     }
   },
   "definitions": {
+    "apiinternalv1DeleteObjectResponse": {
+      "type": "object"
+    },
     "googlerpcStatus": {
       "type": "object",
       "properties": {
@@ -3137,6 +3141,9 @@
       ],
       "default": "STATUS_UNSPECIFIED",
       "title": "An arbitrary status for Objects"
+    },
+    "storageservicesv1DeleteObjectResponse": {
+      "type": "object"
     },
     "storageservicesv1Status": {
       "type": "string",
@@ -3207,6 +3214,23 @@
     },
     "v1AddUserToProjectResponse": {
       "type": "object"
+    },
+    "v1Authorization": {
+      "type": "object",
+      "properties": {
+        "secretkey": {
+          "type": "string",
+          "title": "Should include the APItoken"
+        },
+        "accesskey": {
+          "type": "string",
+          "title": "Can be empty for now"
+        },
+        "isToken": {
+          "type": "boolean",
+          "title": "If the secret is an APIToken (or S3-style access / secretkey)"
+        }
+      }
     },
     "v1AuthorizeResponse": {
       "type": "object",
@@ -3561,9 +3585,6 @@
     "v1DeleteObjectGroupResponse": {
       "type": "object"
     },
-    "v1DeleteObjectResponse": {
-      "type": "object"
-    },
     "v1DeleteObjectsResponse": {
       "type": "object"
     },
@@ -3671,6 +3692,9 @@
         }
       }
     },
+    "v1FinalizeObjectResponse": {
+      "type": "object"
+    },
     "v1FinishObjectStagingResponse": {
       "type": "object",
       "properties": {
@@ -3749,6 +3773,14 @@
       "properties": {
         "url": {
           "$ref": "#/definitions/v1URL"
+        }
+      }
+    },
+    "v1GetEncryptionKeyResponse": {
+      "type": "object",
+      "properties": {
+        "encryptionKey": {
+          "type": "string"
         }
       }
     },
@@ -4116,6 +4148,26 @@
         }
       }
     },
+    "v1IdType": {
+      "type": "string",
+      "enum": [
+        "ID_TYPE_UNSPECIFIED",
+        "ID_TYPE_UUID",
+        "ID_TYPE_PATH"
+      ],
+      "default": "ID_TYPE_UNSPECIFIED"
+    },
+    "v1Identifier": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "idtype": {
+          "$ref": "#/definitions/v1IdType"
+        }
+      }
+    },
     "v1InitPresignedUploadResponse": {
       "type": "object",
       "properties": {
@@ -4233,6 +4285,9 @@
           "$ref": "#/definitions/v1SemanticVersion"
         }
       }
+    },
+    "v1MoveObjectResponse": {
+      "type": "object"
     },
     "v1NotficationStreamAck": {
       "type": "object",

@@ -419,16 +419,14 @@ class SetHooksOfObjectResponse(_message.Message):
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
 
 class SetObjectPathVisibilityRequest(_message.Message):
-    __slots__ = ["collection_id", "object_id", "path", "visibility"]
+    __slots__ = ["collection_id", "path", "visibility"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
-    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
     VISIBILITY_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
-    object_id: str
     path: str
     visibility: bool
-    def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ..., path: _Optional[str] = ..., visibility: bool = ...) -> None: ...
+    def __init__(self, collection_id: _Optional[str] = ..., path: _Optional[str] = ..., visibility: bool = ...) -> None: ...
 
 class SetObjectPathVisibilityResponse(_message.Message):
     __slots__ = ["path"]
