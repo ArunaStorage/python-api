@@ -25,40 +25,20 @@ class InternalProxyServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.InitPresignedUpload = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/InitPresignedUpload',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadResponse.FromString,
+        self.InitMultipartUpload = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyService/InitMultipartUpload',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadResponse.FromString,
                 )
-        self.CreatePresignedUploadUrl = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/CreatePresignedUploadUrl',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlResponse.FromString,
-                )
-        self.FinishPresignedUpload = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/FinishPresignedUpload',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadResponse.FromString,
-                )
-        self.CreatePresignedDownload = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/CreatePresignedDownload',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadResponse.FromString,
-                )
-        self.CreateBucket = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/CreateBucket',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.FromString,
+        self.FinishMultipartUpload = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyService/FinishMultipartUpload',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadResponse.FromString,
                 )
         self.DeleteObject = channel.unary_unary(
                 '/aruna.api.internal.v1.InternalProxyService/DeleteObject',
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectResponse.FromString,
-                )
-        self.MoveObject = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyService/MoveObject',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.FromString,
                 )
 
 
@@ -76,31 +56,13 @@ class InternalProxyServiceServicer(object):
 
     """
 
-    def InitPresignedUpload(self, request, context):
+    def InitMultipartUpload(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreatePresignedUploadUrl(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def FinishPresignedUpload(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreatePresignedDownload(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateBucket(self, request, context):
+    def FinishMultipartUpload(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -112,49 +74,23 @@ class InternalProxyServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def MoveObject(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_InternalProxyServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'InitPresignedUpload': grpc.unary_unary_rpc_method_handler(
-                    servicer.InitPresignedUpload,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadResponse.SerializeToString,
+            'InitMultipartUpload': grpc.unary_unary_rpc_method_handler(
+                    servicer.InitMultipartUpload,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadResponse.SerializeToString,
             ),
-            'CreatePresignedUploadUrl': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreatePresignedUploadUrl,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlResponse.SerializeToString,
-            ),
-            'FinishPresignedUpload': grpc.unary_unary_rpc_method_handler(
-                    servicer.FinishPresignedUpload,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadResponse.SerializeToString,
-            ),
-            'CreatePresignedDownload': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreatePresignedDownload,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadResponse.SerializeToString,
-            ),
-            'CreateBucket': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateBucket,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.SerializeToString,
+            'FinishMultipartUpload': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishMultipartUpload,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadResponse.SerializeToString,
             ),
             'DeleteObject': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteObject,
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectRequest.FromString,
                     response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.DeleteObjectResponse.SerializeToString,
-            ),
-            'MoveObject': grpc.unary_unary_rpc_method_handler(
-                    servicer.MoveObject,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -178,7 +114,7 @@ class InternalProxyService(object):
     """
 
     @staticmethod
-    def InitPresignedUpload(request,
+    def InitMultipartUpload(request,
             target,
             options=(),
             channel_credentials=None,
@@ -188,14 +124,14 @@ class InternalProxyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/InitPresignedUpload',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitPresignedUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/InitMultipartUpload',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.InitMultipartUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreatePresignedUploadUrl(request,
+    def FinishMultipartUpload(request,
             target,
             options=(),
             channel_credentials=None,
@@ -205,60 +141,9 @@ class InternalProxyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/CreatePresignedUploadUrl',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedUploadUrlResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def FinishPresignedUpload(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/FinishPresignedUpload',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishPresignedUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreatePresignedDownload(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/CreatePresignedDownload',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreatePresignedDownloadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateBucket(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/CreateBucket',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.CreateBucketResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/FinishMultipartUpload',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinishMultipartUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -279,23 +164,6 @@ class InternalProxyService(object):
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
-    @staticmethod
-    def MoveObject(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyService/MoveObject',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.MoveObjectResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
 
 class InternalProxyNotifierServiceStub(object):
     """This service enables a "return" channel for dataproxy to aruna server communication
@@ -308,6 +176,11 @@ class InternalProxyNotifierServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.GetOrCreateObjectByPath = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/GetOrCreateObjectByPath',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathResponse.FromString,
+                )
         self.FinalizeObject = channel.unary_unary(
                 '/aruna.api.internal.v1.InternalProxyNotifierService/FinalizeObject',
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.SerializeToString,
@@ -318,12 +191,28 @@ class InternalProxyNotifierServiceStub(object):
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
                 )
+        self.GetObjectLocation = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/GetObjectLocation',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationResponse.FromString,
+                )
+        self.GetCollectionByBucket = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/GetCollectionByBucket',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketResponse.FromString,
+                )
 
 
 class InternalProxyNotifierServiceServicer(object):
     """This service enables a "return" channel for dataproxy to aruna server communication
     Mainly used to notify the backend of validation / move events after the upload of new files
     """
+
+    def GetOrCreateObjectByPath(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def FinalizeObject(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -337,9 +226,26 @@ class InternalProxyNotifierServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetObjectLocation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCollectionByBucket(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_InternalProxyNotifierServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'GetOrCreateObjectByPath': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrCreateObjectByPath,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathResponse.SerializeToString,
+            ),
             'FinalizeObject': grpc.unary_unary_rpc_method_handler(
                     servicer.FinalizeObject,
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.FromString,
@@ -349,6 +255,16 @@ def add_InternalProxyNotifierServiceServicer_to_server(servicer, server):
                     servicer.GetEncryptionKey,
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.FromString,
                     response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.SerializeToString,
+            ),
+            'GetObjectLocation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectLocation,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationResponse.SerializeToString,
+            ),
+            'GetCollectionByBucket': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCollectionByBucket,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -361,6 +277,23 @@ class InternalProxyNotifierService(object):
     """This service enables a "return" channel for dataproxy to aruna server communication
     Mainly used to notify the backend of validation / move events after the upload of new files
     """
+
+    @staticmethod
+    def GetOrCreateObjectByPath(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetOrCreateObjectByPath',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateObjectByPathResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def FinalizeObject(request,
@@ -393,5 +326,39 @@ class InternalProxyNotifierService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetEncryptionKey',
             aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
             aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectLocation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetObjectLocation',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetObjectLocationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCollectionByBucket(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetCollectionByBucket',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetCollectionByBucketResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

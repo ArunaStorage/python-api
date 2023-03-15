@@ -11,14 +11,12 @@ ID_TYPE_UNSPECIFIED: IdType
 ID_TYPE_UUID: IdType
 
 class Authorization(_message.Message):
-    __slots__ = ["accesskey", "is_token", "secretkey"]
+    __slots__ = ["accesskey", "secretkey"]
     ACCESSKEY_FIELD_NUMBER: _ClassVar[int]
-    IS_TOKEN_FIELD_NUMBER: _ClassVar[int]
     SECRETKEY_FIELD_NUMBER: _ClassVar[int]
     accesskey: str
-    is_token: bool
     secretkey: str
-    def __init__(self, secretkey: _Optional[str] = ..., accesskey: _Optional[str] = ..., is_token: bool = ...) -> None: ...
+    def __init__(self, secretkey: _Optional[str] = ..., accesskey: _Optional[str] = ...) -> None: ...
 
 class AuthorizeRequest(_message.Message):
     __slots__ = ["authorization", "identifier", "resource", "resource_action"]
@@ -37,6 +35,18 @@ class AuthorizeResponse(_message.Message):
     OK_FIELD_NUMBER: _ClassVar[int]
     ok: bool
     def __init__(self, ok: bool = ...) -> None: ...
+
+class GetSecretRequest(_message.Message):
+    __slots__ = ["accesskey"]
+    ACCESSKEY_FIELD_NUMBER: _ClassVar[int]
+    accesskey: str
+    def __init__(self, accesskey: _Optional[str] = ...) -> None: ...
+
+class GetSecretResponse(_message.Message):
+    __slots__ = ["authorization"]
+    AUTHORIZATION_FIELD_NUMBER: _ClassVar[int]
+    authorization: Authorization
+    def __init__(self, authorization: _Optional[_Union[Authorization, _Mapping]] = ...) -> None: ...
 
 class Identifier(_message.Message):
     __slots__ = ["idtype", "name"]

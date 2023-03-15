@@ -12,11 +12,11 @@ _sym_db = _symbol_database.Default()
 
 
 from aruna.api.storage.models.v1 import models_pb2 as aruna_dot_api_dot_storage_dot_models_dot_v1_dot_models__pb2
-from aruna.api.internal.v1 import authorize_pb2 as aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2
+from aruna.api.storage.services.v1 import object_service_pb2 as aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2
 from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!aruna/api/internal/v1/proxy.proto\x12\x15\x61runa.api.internal.v1\x1a(aruna/api/storage/models/v1/models.proto\x1a%aruna/api/internal/v1/authorize.proto\x1a\x1bgoogle/api/visibility.proto\"o\n\x08Location\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32#.aruna.api.internal.v1.LocationTypeR\x04type\x12\x16\n\x06\x62ucket\x18\x02 \x01(\tR\x06\x62ucket\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\"?\n\x08PartETag\x12\x1f\n\x0bpart_number\x18\x01 \x01(\x03R\npartNumber\x12\x12\n\x04\x65tag\x18\x02 \x01(\tR\x04\x65tag\"w\n\x1aInitPresignedUploadRequest\x12;\n\x08location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\x12\x1c\n\tmultipart\x18\x02 \x01(\x08R\tmultipart\":\n\x1bInitPresignedUploadResponse\x12\x1b\n\tupload_id\x18\x01 \x01(\tR\x08uploadId\"\xba\x01\n\x1f\x43reatePresignedUploadUrlRequest\x12;\n\x08location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\x12\x1b\n\tupload_id\x18\x02 \x01(\tR\x08uploadId\x12\x1f\n\x0bpart_number\x18\x03 \x01(\x03R\npartNumber\x12\x1c\n\tmultipart\x18\x04 \x01(\x08R\tmultipart\"4\n CreatePresignedUploadUrlResponse\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\"\xc3\x01\n\x1c\x46inishPresignedUploadRequest\x12\x1b\n\tupload_id\x18\x01 \x01(\tR\x08uploadId\x12>\n\npart_etags\x18\x02 \x03(\x0b\x32\x1f.aruna.api.internal.v1.PartETagR\tpartEtags\x12\x16\n\x06\x62ucket\x18\x03 \x01(\tR\x06\x62ucket\x12\x10\n\x03key\x18\x04 \x01(\tR\x03key\x12\x1c\n\tmultipart\x18\x05 \x01(\x08R\tmultipart\"/\n\x1d\x46inishPresignedUploadResponse\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\"/\n\x05Range\x12\x14\n\x05start\x18\x01 \x01(\x03R\x05start\x12\x10\n\x03\x65nd\x18\x02 \x01(\x03R\x03\x65nd\"\xca\x01\n\x1e\x43reatePresignedDownloadRequest\x12;\n\x08location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\x12\x1b\n\tis_public\x18\x02 \x01(\x08R\x08isPublic\x12\x32\n\x05range\x18\x03 \x01(\x0b\x32\x1c.aruna.api.internal.v1.RangeR\x05range\x12\x1a\n\x08\x66ilename\x18\x04 \x01(\tR\x08\x66ilename\"3\n\x1f\x43reatePresignedDownloadResponse\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\"6\n\x13\x43reateBucketRequest\x12\x1f\n\x0b\x62ucket_name\x18\x01 \x01(\tR\nbucketName\"\x16\n\x14\x43reateBucketResponse\"R\n\x13\x44\x65leteObjectRequest\x12;\n\x08location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\"\x16\n\x14\x44\x65leteObjectResponse\"y\n\x11MoveObjectRequest\x12\x33\n\x04\x66rom\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x04\x66rom\x12/\n\x02to\x18\x02 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x02to\"\x14\n\x12MoveObjectResponse\"\xe4\x01\n\x15\x46inalizeObjectRequest\x12H\n\x0f\x62\x65\x66ore_location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x0e\x62\x65\x66oreLocation\x12\x46\n\x0e\x66inal_location\x18\x02 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\rfinalLocation\x12\x39\n\x06hashes\x18\x03 \x03(\x0b\x32!.aruna.api.storage.models.v1.HashR\x06hashes\"\x18\n\x16\x46inalizeObjectResponse\"\\\n\x17GetEncryptionKeyRequest\x12\x41\n\nidentifier\x18\x01 \x01(\x0b\x32!.aruna.api.internal.v1.IdentifierR\nidentifier\"A\n\x18GetEncryptionKeyResponse\x12%\n\x0e\x65ncryption_key\x18\x01 \x01(\tR\rencryptionKey*[\n\x0cLocationType\x12\x1d\n\x19LOCATION_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10LOCATION_TYPE_S3\x10\x01\x12\x16\n\x12LOCATION_TYPE_FILE\x10\x02\x32\x87\x07\n\x14InternalProxyService\x12~\n\x13InitPresignedUpload\x12\x31.aruna.api.internal.v1.InitPresignedUploadRequest\x1a\x32.aruna.api.internal.v1.InitPresignedUploadResponse\"\x00\x12\x8d\x01\n\x18\x43reatePresignedUploadUrl\x12\x36.aruna.api.internal.v1.CreatePresignedUploadUrlRequest\x1a\x37.aruna.api.internal.v1.CreatePresignedUploadUrlResponse\"\x00\x12\x84\x01\n\x15\x46inishPresignedUpload\x12\x33.aruna.api.internal.v1.FinishPresignedUploadRequest\x1a\x34.aruna.api.internal.v1.FinishPresignedUploadResponse\"\x00\x12\x8a\x01\n\x17\x43reatePresignedDownload\x12\x35.aruna.api.internal.v1.CreatePresignedDownloadRequest\x1a\x36.aruna.api.internal.v1.CreatePresignedDownloadResponse\"\x00\x12i\n\x0c\x43reateBucket\x12*.aruna.api.internal.v1.CreateBucketRequest\x1a+.aruna.api.internal.v1.CreateBucketResponse\"\x00\x12i\n\x0c\x44\x65leteObject\x12*.aruna.api.internal.v1.DeleteObjectRequest\x1a+.aruna.api.internal.v1.DeleteObjectResponse\"\x00\x12\x63\n\nMoveObject\x12(.aruna.api.internal.v1.MoveObjectRequest\x1a).aruna.api.internal.v1.MoveObjectResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL2\x98\x02\n\x1cInternalProxyNotifierService\x12o\n\x0e\x46inalizeObject\x12,.aruna.api.internal.v1.FinalizeObjectRequest\x1a-.aruna.api.internal.v1.FinalizeObjectResponse\"\x00\x12u\n\x10GetEncryptionKey\x12..aruna.api.internal.v1.GetEncryptionKeyRequest\x1a/.aruna.api.internal.v1.GetEncryptionKeyResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!aruna/api/internal/v1/proxy.proto\x12\x15\x61runa.api.internal.v1\x1a(aruna/api/storage/models/v1/models.proto\x1a\x32\x61runa/api/storage/services/v1/object_service.proto\x1a\x1bgoogle/api/visibility.proto\"\xff\x01\n\x08Location\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32#.aruna.api.internal.v1.LocationTypeR\x04type\x12\x16\n\x06\x62ucket\x18\x02 \x01(\tR\x06\x62ucket\x12\x12\n\x04path\x18\x03 \x01(\tR\x04path\x12\x1f\n\x0b\x65ndpoint_id\x18\x04 \x01(\tR\nendpointId\x12#\n\ris_compressed\x18\x05 \x01(\x08R\x0cisCompressed\x12!\n\x0cis_encrypted\x18\x06 \x01(\x08R\x0bisEncrypted\x12%\n\x0e\x65ncryption_key\x18\x07 \x01(\tR\rencryptionKey\"?\n\x08PartETag\x12\x1f\n\x0bpart_number\x18\x01 \x01(\x03R\npartNumber\x12\x12\n\x04\x65tag\x18\x02 \x01(\tR\x04\x65tag\"0\n\x1aInitMultipartUploadRequest\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\":\n\x1bInitMultipartUploadResponse\x12\x1b\n\tupload_id\x18\x01 \x01(\tR\x08uploadId\"\x8f\x01\n\x1c\x46inishMultipartUploadRequest\x12\x1b\n\tupload_id\x18\x01 \x01(\tR\x08uploadId\x12\x12\n\x04path\x18\x02 \x01(\tR\x04path\x12>\n\npart_etags\x18\x03 \x03(\x0b\x32\x1f.aruna.api.internal.v1.PartETagR\tpartEtags\"\x1f\n\x1d\x46inishMultipartUploadResponse\"R\n\x13\x44\x65leteObjectRequest\x12;\n\x08location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\"\x16\n\x14\x44\x65leteObjectResponse\"\xd1\x01\n\x15\x46inalizeObjectRequest\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12#\n\rcollection_id\x18\x02 \x01(\tR\x0c\x63ollectionId\x12;\n\x08location\x18\x03 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\x12\x39\n\x06hashes\x18\x04 \x03(\x0b\x32!.aruna.api.storage.models.v1.HashR\x06hashes\"\x18\n\x16\x46inalizeObjectResponse\"b\n\x17GetEncryptionKeyRequest\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x12\n\x04hash\x18\x02 \x01(\tR\x04hash\x12\x1f\n\x0b\x65ndpoint_id\x18\x03 \x01(\tR\nendpointId\"A\n\x18GetEncryptionKeyResponse\x12%\n\x0e\x65ncryption_key\x18\x01 \x01(\tR\rencryptionKey\"\x97\x01\n\x1eGetOrCreateObjectByPathRequest\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x1d\n\naccess_key\x18\x02 \x01(\tR\taccessKey\x12\x42\n\x06object\x18\x03 \x01(\x0b\x32*.aruna.api.storage.services.v1.StageObjectR\x06object\"\xe4\x01\n\x1fGetOrCreateObjectByPathResponse\x12\x1b\n\tobject_id\x18\x01 \x01(\tR\x08objectId\x12#\n\rcollection_id\x18\x02 \x01(\tR\x0c\x63ollectionId\x12\x44\n\tdataclass\x18\x03 \x01(\x0e\x32&.aruna.api.storage.models.v1.DataClassR\tdataclass\x12\x39\n\x06hashes\x18\x04 \x03(\x0b\x32!.aruna.api.storage.models.v1.HashR\x06hashes\"\x8f\x01\n\x18GetObjectLocationRequest\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x1f\n\x0brevision_id\x18\x02 \x01(\tR\nrevisionId\x12\x1d\n\naccess_key\x18\x03 \x01(\tR\taccessKey\x12\x1f\n\x0b\x65ndpoint_id\x18\x04 \x01(\tR\nendpointId\"\x95\x01\n\x19GetObjectLocationResponse\x12;\n\x06object\x18\x01 \x01(\x0b\x32#.aruna.api.storage.models.v1.ObjectR\x06object\x12;\n\x08location\x18\x02 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x08location\"U\n\x1cGetCollectionByBucketRequest\x12\x16\n\x06\x62ucket\x18\x01 \x01(\tR\x06\x62ucket\x12\x1d\n\naccess_key\x18\x02 \x01(\tR\taccessKey\"c\n\x1dGetCollectionByBucketResponse\x12\x1d\n\nproject_id\x18\x01 \x01(\tR\tprojectId\x12#\n\rcollection_id\x18\x02 \x01(\tR\x0c\x63ollectionId*[\n\x0cLocationType\x12\x1d\n\x19LOCATION_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10LOCATION_TYPE_S3\x10\x01\x12\x16\n\x12LOCATION_TYPE_FILE\x10\x02\x32\x9a\x03\n\x14InternalProxyService\x12~\n\x13InitMultipartUpload\x12\x31.aruna.api.internal.v1.InitMultipartUploadRequest\x1a\x32.aruna.api.internal.v1.InitMultipartUploadResponse\"\x00\x12\x84\x01\n\x15\x46inishMultipartUpload\x12\x33.aruna.api.internal.v1.FinishMultipartUploadRequest\x1a\x34.aruna.api.internal.v1.FinishMultipartUploadResponse\"\x00\x12i\n\x0c\x44\x65leteObject\x12*.aruna.api.internal.v1.DeleteObjectRequest\x1a+.aruna.api.internal.v1.DeleteObjectResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL2\xa6\x05\n\x1cInternalProxyNotifierService\x12\x8a\x01\n\x17GetOrCreateObjectByPath\x12\x35.aruna.api.internal.v1.GetOrCreateObjectByPathRequest\x1a\x36.aruna.api.internal.v1.GetOrCreateObjectByPathResponse\"\x00\x12o\n\x0e\x46inalizeObject\x12,.aruna.api.internal.v1.FinalizeObjectRequest\x1a-.aruna.api.internal.v1.FinalizeObjectResponse\"\x00\x12u\n\x10GetEncryptionKey\x12..aruna.api.internal.v1.GetEncryptionKeyRequest\x1a/.aruna.api.internal.v1.GetEncryptionKeyResponse\"\x00\x12x\n\x11GetObjectLocation\x12/.aruna.api.internal.v1.GetObjectLocationRequest\x1a\x30.aruna.api.internal.v1.GetObjectLocationResponse\"\x00\x12\x84\x01\n\x15GetCollectionByBucket\x12\x33.aruna.api.internal.v1.GetCollectionByBucketRequest\x1a\x34.aruna.api.internal.v1.GetCollectionByBucketResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aruna.api.internal.v1.proxy_pb2', globals())
@@ -28,52 +28,46 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INTERNALPROXYSERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
   _INTERNALPROXYNOTIFIERSERVICE._options = None
   _INTERNALPROXYNOTIFIERSERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
-  _LOCATIONTYPE._serialized_start=2077
-  _LOCATIONTYPE._serialized_end=2168
-  _LOCATION._serialized_start=170
-  _LOCATION._serialized_end=281
-  _PARTETAG._serialized_start=283
-  _PARTETAG._serialized_end=346
-  _INITPRESIGNEDUPLOADREQUEST._serialized_start=348
-  _INITPRESIGNEDUPLOADREQUEST._serialized_end=467
-  _INITPRESIGNEDUPLOADRESPONSE._serialized_start=469
-  _INITPRESIGNEDUPLOADRESPONSE._serialized_end=527
-  _CREATEPRESIGNEDUPLOADURLREQUEST._serialized_start=530
-  _CREATEPRESIGNEDUPLOADURLREQUEST._serialized_end=716
-  _CREATEPRESIGNEDUPLOADURLRESPONSE._serialized_start=718
-  _CREATEPRESIGNEDUPLOADURLRESPONSE._serialized_end=770
-  _FINISHPRESIGNEDUPLOADREQUEST._serialized_start=773
-  _FINISHPRESIGNEDUPLOADREQUEST._serialized_end=968
-  _FINISHPRESIGNEDUPLOADRESPONSE._serialized_start=970
-  _FINISHPRESIGNEDUPLOADRESPONSE._serialized_end=1017
-  _RANGE._serialized_start=1019
-  _RANGE._serialized_end=1066
-  _CREATEPRESIGNEDDOWNLOADREQUEST._serialized_start=1069
-  _CREATEPRESIGNEDDOWNLOADREQUEST._serialized_end=1271
-  _CREATEPRESIGNEDDOWNLOADRESPONSE._serialized_start=1273
-  _CREATEPRESIGNEDDOWNLOADRESPONSE._serialized_end=1324
-  _CREATEBUCKETREQUEST._serialized_start=1326
-  _CREATEBUCKETREQUEST._serialized_end=1380
-  _CREATEBUCKETRESPONSE._serialized_start=1382
-  _CREATEBUCKETRESPONSE._serialized_end=1404
-  _DELETEOBJECTREQUEST._serialized_start=1406
-  _DELETEOBJECTREQUEST._serialized_end=1488
-  _DELETEOBJECTRESPONSE._serialized_start=1490
-  _DELETEOBJECTRESPONSE._serialized_end=1512
-  _MOVEOBJECTREQUEST._serialized_start=1514
-  _MOVEOBJECTREQUEST._serialized_end=1635
-  _MOVEOBJECTRESPONSE._serialized_start=1637
-  _MOVEOBJECTRESPONSE._serialized_end=1657
-  _FINALIZEOBJECTREQUEST._serialized_start=1660
-  _FINALIZEOBJECTREQUEST._serialized_end=1888
-  _FINALIZEOBJECTRESPONSE._serialized_start=1890
-  _FINALIZEOBJECTRESPONSE._serialized_end=1914
-  _GETENCRYPTIONKEYREQUEST._serialized_start=1916
-  _GETENCRYPTIONKEYREQUEST._serialized_end=2008
-  _GETENCRYPTIONKEYRESPONSE._serialized_start=2010
-  _GETENCRYPTIONKEYRESPONSE._serialized_end=2075
-  _INTERNALPROXYSERVICE._serialized_start=2171
-  _INTERNALPROXYSERVICE._serialized_end=3074
-  _INTERNALPROXYNOTIFIERSERVICE._serialized_start=3077
-  _INTERNALPROXYNOTIFIERSERVICE._serialized_end=3357
+  _LOCATIONTYPE._serialized_start=2179
+  _LOCATIONTYPE._serialized_end=2270
+  _LOCATION._serialized_start=184
+  _LOCATION._serialized_end=439
+  _PARTETAG._serialized_start=441
+  _PARTETAG._serialized_end=504
+  _INITMULTIPARTUPLOADREQUEST._serialized_start=506
+  _INITMULTIPARTUPLOADREQUEST._serialized_end=554
+  _INITMULTIPARTUPLOADRESPONSE._serialized_start=556
+  _INITMULTIPARTUPLOADRESPONSE._serialized_end=614
+  _FINISHMULTIPARTUPLOADREQUEST._serialized_start=617
+  _FINISHMULTIPARTUPLOADREQUEST._serialized_end=760
+  _FINISHMULTIPARTUPLOADRESPONSE._serialized_start=762
+  _FINISHMULTIPARTUPLOADRESPONSE._serialized_end=793
+  _DELETEOBJECTREQUEST._serialized_start=795
+  _DELETEOBJECTREQUEST._serialized_end=877
+  _DELETEOBJECTRESPONSE._serialized_start=879
+  _DELETEOBJECTRESPONSE._serialized_end=901
+  _FINALIZEOBJECTREQUEST._serialized_start=904
+  _FINALIZEOBJECTREQUEST._serialized_end=1113
+  _FINALIZEOBJECTRESPONSE._serialized_start=1115
+  _FINALIZEOBJECTRESPONSE._serialized_end=1139
+  _GETENCRYPTIONKEYREQUEST._serialized_start=1141
+  _GETENCRYPTIONKEYREQUEST._serialized_end=1239
+  _GETENCRYPTIONKEYRESPONSE._serialized_start=1241
+  _GETENCRYPTIONKEYRESPONSE._serialized_end=1306
+  _GETORCREATEOBJECTBYPATHREQUEST._serialized_start=1309
+  _GETORCREATEOBJECTBYPATHREQUEST._serialized_end=1460
+  _GETORCREATEOBJECTBYPATHRESPONSE._serialized_start=1463
+  _GETORCREATEOBJECTBYPATHRESPONSE._serialized_end=1691
+  _GETOBJECTLOCATIONREQUEST._serialized_start=1694
+  _GETOBJECTLOCATIONREQUEST._serialized_end=1837
+  _GETOBJECTLOCATIONRESPONSE._serialized_start=1840
+  _GETOBJECTLOCATIONRESPONSE._serialized_end=1989
+  _GETCOLLECTIONBYBUCKETREQUEST._serialized_start=1991
+  _GETCOLLECTIONBYBUCKETREQUEST._serialized_end=2076
+  _GETCOLLECTIONBYBUCKETRESPONSE._serialized_start=2078
+  _GETCOLLECTIONBYBUCKETRESPONSE._serialized_end=2177
+  _INTERNALPROXYSERVICE._serialized_start=2273
+  _INTERNALPROXYSERVICE._serialized_end=2683
+  _INTERNALPROXYNOTIFIERSERVICE._serialized_start=2686
+  _INTERNALPROXYNOTIFIERSERVICE._serialized_end=3364
 # @@protoc_insertion_point(module_scope)

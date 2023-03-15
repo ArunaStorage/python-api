@@ -8,6 +8,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class CollectionResource(_message.Message):
+    __slots__ = ["collection_id", "project_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    project_id: str
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
+
 class CreateStreamGroupRequest(_message.Message):
     __slots__ = ["event_type", "notify_on_sub_resource", "resource_id", "resource_type", "token"]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -41,20 +49,32 @@ class DeleteStreamGroupResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class EmitEventRequest(_message.Message):
-    __slots__ = ["event_resource", "event_type", "relations", "resource_id"]
+    __slots__ = ["event_resource", "event_type", "resource_id", "resources"]
     EVENT_RESOURCE_FIELD_NUMBER: _ClassVar[int]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
-    RELATIONS_FIELD_NUMBER: _ClassVar[int]
+    RESOURCES_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     event_resource: _models_pb2.ResourceType
     event_type: _notification_service_pb2.EventType
-    relations: _containers.RepeatedCompositeFieldContainer[Relation]
     resource_id: str
-    def __init__(self, event_resource: _Optional[_Union[_models_pb2.ResourceType, str]] = ..., resource_id: _Optional[str] = ..., event_type: _Optional[_Union[_notification_service_pb2.EventType, str]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ...) -> None: ...
+    resources: _containers.RepeatedCompositeFieldContainer[EmittedResource]
+    def __init__(self, event_resource: _Optional[_Union[_models_pb2.ResourceType, str]] = ..., resource_id: _Optional[str] = ..., event_type: _Optional[_Union[_notification_service_pb2.EventType, str]] = ..., resources: _Optional[_Iterable[_Union[EmittedResource, _Mapping]]] = ...) -> None: ...
 
 class EmitEventResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class EmittedResource(_message.Message):
+    __slots__ = ["collection", "object", "object_group", "project"]
+    COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_GROUP_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_FIELD_NUMBER: _ClassVar[int]
+    collection: CollectionResource
+    object: ObjectResource
+    object_group: ObjectGroupResource
+    project: ProjectResource
+    def __init__(self, project: _Optional[_Union[ProjectResource, _Mapping]] = ..., collection: _Optional[_Union[CollectionResource, _Mapping]] = ..., object: _Optional[_Union[ObjectResource, _Mapping]] = ..., object_group: _Optional[_Union[ObjectGroupResource, _Mapping]] = ...) -> None: ...
 
 class GetSharedRevisionRequest(_message.Message):
     __slots__ = ["resource_id", "resource_type"]
@@ -84,25 +104,35 @@ class GetStreamGroupResponse(_message.Message):
     stream_group: StreamGroup
     def __init__(self, stream_group: _Optional[_Union[StreamGroup, _Mapping]] = ...) -> None: ...
 
-class ObjectGroupRelation(_message.Message):
-    __slots__ = ["object_group_ids", "shared_object_group_id"]
-    OBJECT_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+class ObjectGroupResource(_message.Message):
+    __slots__ = ["collection_id", "object_group_id", "project_id", "shared_object_group_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     SHARED_OBJECT_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
-    object_group_ids: _containers.RepeatedScalarFieldContainer[str]
+    collection_id: str
+    object_group_id: str
+    project_id: str
     shared_object_group_id: str
-    def __init__(self, shared_object_group_id: _Optional[str] = ..., object_group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., shared_object_group_id: _Optional[str] = ..., object_group_id: _Optional[str] = ...) -> None: ...
 
-class Relation(_message.Message):
-    __slots__ = ["collection", "object_groups", "project", "shared_object"]
-    COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    OBJECT_GROUPS_FIELD_NUMBER: _ClassVar[int]
-    PROJECT_FIELD_NUMBER: _ClassVar[int]
-    SHARED_OBJECT_FIELD_NUMBER: _ClassVar[int]
-    collection: str
-    object_groups: _containers.RepeatedCompositeFieldContainer[ObjectGroupRelation]
-    project: str
-    shared_object: str
-    def __init__(self, shared_object: _Optional[str] = ..., object_groups: _Optional[_Iterable[_Union[ObjectGroupRelation, _Mapping]]] = ..., collection: _Optional[str] = ..., project: _Optional[str] = ...) -> None: ...
+class ObjectResource(_message.Message):
+    __slots__ = ["collection_id", "object_id", "project_id", "shared_object_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    SHARED_OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    object_id: str
+    project_id: str
+    shared_object_id: str
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., shared_object_id: _Optional[str] = ..., object_id: _Optional[str] = ...) -> None: ...
+
+class ProjectResource(_message.Message):
+    __slots__ = ["project_id"]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    def __init__(self, project_id: _Optional[str] = ...) -> None: ...
 
 class StreamGroup(_message.Message):
     __slots__ = ["event_type", "id", "notify_on_sub_resource", "resource_id", "resource_type"]

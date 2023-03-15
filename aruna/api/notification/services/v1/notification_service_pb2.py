@@ -16,7 +16,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from aruna.api.storage.models.v1 import models_pb2 as aruna_dot_api_dot_storage_dot_models_dot_v1_dot_models__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n=aruna/api/notification/services/v1/notification_service.proto\x12\"aruna.api.notification.services.v1\x1a\x1bgoogle/api/visibility.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a(aruna/api/storage/models/v1/models.proto\"\x8e\x04\n CreateEventStreamingGroupRequest\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\x12/\n\x13include_subresource\x18\x03 \x01(\x08R\x12includeSubresource\x12N\n\nstream_all\x18\x04 \x01(\x0b\x32-.aruna.api.notification.services.v1.StreamAllH\x00R\tstreamAll\x12^\n\x10stream_from_date\x18\x05 \x01(\x0b\x32\x32.aruna.api.notification.services.v1.StreamFromDateH\x00R\x0estreamFromDate\x12j\n\x14stream_from_sequence\x18\x06 \x01(\x0b\x32\x36.aruna.api.notification.services.v1.StreamFromSequenceH\x00R\x12streamFromSequence\x12&\n\x0fstream_group_id\x18\x07 \x01(\tR\rstreamGroupIdB\r\n\x0bstream_type\"K\n!CreateEventStreamingGroupResponse\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\"\xe7\x01\n\x1eReadStreamGroupMessagesRequest\x12P\n\x04init\x18\x01 \x01(\x0b\x32:.aruna.api.notification.services.v1.NotificationStreamInitH\x00R\x04init\x12L\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x38.aruna.api.notification.services.v1.NotficationStreamAckH\x00R\x03\x61\x63k\x12\x14\n\x05\x63lose\x18\x03 \x01(\x08R\x05\x63loseB\x0f\n\rstream_action\"J\n DeleteEventStreamingGroupRequest\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\"#\n!DeleteEventStreamingGroupResponse\"@\n\x16NotificationStreamInit\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\"8\n\x14NotficationStreamAck\x12 \n\x0c\x61\x63k_chunk_id\x18\x01 \x03(\tR\nackChunkId\"\xa7\x01\n\x1fReadStreamGroupMessagesResponse\x12\x62\n\x0cnotification\x18\x01 \x03(\x0b\x32>.aruna.api.notification.services.v1.NotificationStreamResponseR\x0cnotification\x12 \n\x0c\x61\x63k_chunk_id\x18\x02 \x01(\tR\nackChunkId\"0\n\x12StreamFromSequence\x12\x1a\n\x08sequence\x18\x01 \x01(\x04R\x08sequence\"J\n\x0eStreamFromDate\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"\x0b\n\tStreamAll\"\xca\x01\n\x1aNotificationStreamResponse\x12V\n\x07message\x18\x01 \x01(\x0b\x32<.aruna.api.notification.services.v1.EventNotificationMessageR\x07message\x12\x1a\n\x08sequence\x18\x02 \x01(\x04R\x08sequence\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"\xd4\x01\n\x18\x45ventNotificationMessage\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\x12P\n\x0cupdated_type\x18\x03 \x01(\x0e\x32-.aruna.api.notification.services.v1.EventTypeR\x0bupdatedType*\xbe\x01\n\tEventType\x12\x1a\n\x16\x45VENT_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x45VENT_TYPE_CREATED\x10\x01\x12\x18\n\x14\x45VENT_TYPE_AVAILABLE\x10\x02\x12\x16\n\x12\x45VENT_TYPE_UPDATED\x10\x03\x12\x1f\n\x1b\x45VENT_TYPE_METADATA_UPDATED\x10\x04\x12\x16\n\x12\x45VENT_TYPE_DELETED\x10\x05\x12\x12\n\x0e\x45VENT_TYPE_ALL\x10\x06\x32\xb4\x04\n\x19UpdateNotificationService\x12\xaa\x01\n\x19\x43reateEventStreamingGroup\x12\x44.aruna.api.notification.services.v1.CreateEventStreamingGroupRequest\x1a\x45.aruna.api.notification.services.v1.CreateEventStreamingGroupResponse\"\x00\x12\xaa\x01\n\x19\x44\x65leteEventStreamingGroup\x12\x44.aruna.api.notification.services.v1.DeleteEventStreamingGroupRequest\x1a\x45.aruna.api.notification.services.v1.DeleteEventStreamingGroupResponse\"\x00\x12\xa8\x01\n\x17ReadStreamGroupMessages\x12\x42.aruna.api.notification.services.v1.ReadStreamGroupMessagesRequest\x1a\x43.aruna.api.notification.services.v1.ReadStreamGroupMessagesResponse\"\x00(\x01\x30\x01\x1a\x12\xfa\xd2\xe4\x93\x02\x0c\x12\nUNFINISHEDB\x9c\x01\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v1B\x1aUpdateNotificationServicesP\x01Z<github.com/ArunaStorage/go-api/aruna/api/storage/services/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n=aruna/api/notification/services/v1/notification_service.proto\x12\"aruna.api.notification.services.v1\x1a\x1bgoogle/api/visibility.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a(aruna/api/storage/models/v1/models.proto\"\xc6\x04\n CreateEventStreamingGroupRequest\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\x12/\n\x13include_subresource\x18\x03 \x01(\x08R\x12includeSubresource\x12N\n\nstream_all\x18\x04 \x01(\x0b\x32-.aruna.api.notification.services.v1.StreamAllH\x00R\tstreamAll\x12^\n\x10stream_from_date\x18\x05 \x01(\x0b\x32\x32.aruna.api.notification.services.v1.StreamFromDateH\x00R\x0estreamFromDate\x12j\n\x14stream_from_sequence\x18\x06 \x01(\x0b\x32\x36.aruna.api.notification.services.v1.StreamFromSequenceH\x00R\x12streamFromSequence\x12^\n\thierarchy\x18\x07 \x01(\x0b\x32@.aruna.api.notification.services.v1.EventStreamingGroupHierarchyR\thierarchyB\r\n\x0bstream_type\"\xa7\x01\n\x1c\x45ventStreamingGroupHierarchy\x12\x1d\n\nproject_id\x18\x01 \x01(\tR\tprojectId\x12#\n\rcollection_id\x18\x02 \x01(\tR\x0c\x63ollectionId\x12\x1b\n\tobject_id\x18\x03 \x01(\tR\x08objectId\x12&\n\x0fobject_group_id\x18\x04 \x01(\tR\robjectGroupId\"K\n!CreateEventStreamingGroupResponse\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\"d\n\x1bGetEventMessageBatchRequest\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\x12\x1d\n\nbatch_size\x18\x02 \x01(\rR\tbatchSize\"x\n\x1cGetEventMessageBatchResponse\x12X\n\x08messages\x18\x01 \x03(\x0b\x32<.aruna.api.notification.services.v1.EventNotificationMessageR\x08messages\"j\n!GetEventMessageBatchStreamRequest\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\x12\x1d\n\nbatch_size\x18\x02 \x01(\rR\tbatchSize\"~\n\"GetEventMessageBatchStreamResponse\x12X\n\x08messages\x18\x01 \x03(\x0b\x32<.aruna.api.notification.services.v1.EventNotificationMessageR\x08messages\"e\n\x1e\x41\x63knowledgeMessageBatchRequest\x12\x43\n\x07replies\x18\x01 \x03(\x0b\x32).aruna.api.notification.services.v1.ReplyR\x07replies\"!\n\x1f\x41\x63knowledgeMessageBatchResponse\"J\n DeleteEventStreamingGroupRequest\x12&\n\x0fstream_group_id\x18\x01 \x01(\tR\rstreamGroupId\"#\n!DeleteEventStreamingGroupResponse\"0\n\x12StreamFromSequence\x12\x1a\n\x08sequence\x18\x01 \x01(\x04R\x08sequence\"J\n\x0eStreamFromDate\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\"\x0b\n\tStreamAll\"\x95\x02\n\x18\x45ventNotificationMessage\x12\x45\n\x08resource\x18\x01 \x01(\x0e\x32).aruna.api.storage.models.v1.ResourceTypeR\x08resource\x12\x1f\n\x0bresource_id\x18\x02 \x01(\tR\nresourceId\x12P\n\x0cupdated_type\x18\x03 \x01(\x0e\x32-.aruna.api.notification.services.v1.EventTypeR\x0bupdatedType\x12?\n\x05reply\x18\x04 \x01(\x0b\x32).aruna.api.notification.services.v1.ReplyR\x05reply\"E\n\x05Reply\x12\x14\n\x05reply\x18\x01 \x01(\tR\x05reply\x12\x12\n\x04salt\x18\x02 \x01(\tR\x04salt\x12\x12\n\x04hmac\x18\x03 \x01(\tR\x04hmac*\xbe\x01\n\tEventType\x12\x1a\n\x16\x45VENT_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x45VENT_TYPE_CREATED\x10\x01\x12\x18\n\x14\x45VENT_TYPE_AVAILABLE\x10\x02\x12\x16\n\x12\x45VENT_TYPE_UPDATED\x10\x03\x12\x1f\n\x1b\x45VENT_TYPE_METADATA_UPDATED\x10\x04\x12\x16\n\x12\x45VENT_TYPE_DELETED\x10\x05\x12\x12\n\x0e\x45VENT_TYPE_ALL\x10\x06\x32\xff\x06\n\x18\x45ventNotificationService\x12\xaa\x01\n\x19\x43reateEventStreamingGroup\x12\x44.aruna.api.notification.services.v1.CreateEventStreamingGroupRequest\x1a\x45.aruna.api.notification.services.v1.CreateEventStreamingGroupResponse\"\x00\x12\x9b\x01\n\x14GetEventMessageBatch\x12?.aruna.api.notification.services.v1.GetEventMessageBatchRequest\x1a@.aruna.api.notification.services.v1.GetEventMessageBatchResponse\"\x00\x12\xaf\x01\n\x1aGetEventMessageBatchStream\x12\x45.aruna.api.notification.services.v1.GetEventMessageBatchStreamRequest\x1a\x46.aruna.api.notification.services.v1.GetEventMessageBatchStreamResponse\"\x00\x30\x01\x12\xa4\x01\n\x17\x41\x63knowledgeMessageBatch\x12\x42.aruna.api.notification.services.v1.AcknowledgeMessageBatchRequest\x1a\x43.aruna.api.notification.services.v1.AcknowledgeMessageBatchResponse\"\x00\x12\xaa\x01\n\x19\x44\x65leteEventStreamingGroup\x12\x44.aruna.api.notification.services.v1.DeleteEventStreamingGroupRequest\x1a\x45.aruna.api.notification.services.v1.DeleteEventStreamingGroupResponse\"\x00\x1a\x12\xfa\xd2\xe4\x93\x02\x0c\x12\nUNFINISHEDB\x9c\x01\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v1B\x1aUpdateNotificationServicesP\x01Z<github.com/ArunaStorage/go-api/aruna/api/storage/services/v1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aruna.api.notification.services.v1.notification_service_pb2', globals())
@@ -24,36 +24,42 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v1B\032UpdateNotificationServicesP\001Z<github.com/ArunaStorage/go-api/aruna/api/storage/services/v1'
-  _UPDATENOTIFICATIONSERVICE._options = None
-  _UPDATENOTIFICATIONSERVICE._serialized_options = b'\372\322\344\223\002\014\022\nUNFINISHED'
-  _EVENTTYPE._serialized_start=2012
-  _EVENTTYPE._serialized_end=2202
+  _EVENTNOTIFICATIONSERVICE._options = None
+  _EVENTNOTIFICATIONSERVICE._serialized_options = b'\372\322\344\223\002\014\022\nUNFINISHED'
+  _EVENTTYPE._serialized_start=2239
+  _EVENTTYPE._serialized_end=2429
   _CREATEEVENTSTREAMINGGROUPREQUEST._serialized_start=206
-  _CREATEEVENTSTREAMINGGROUPREQUEST._serialized_end=732
-  _CREATEEVENTSTREAMINGGROUPRESPONSE._serialized_start=734
-  _CREATEEVENTSTREAMINGGROUPRESPONSE._serialized_end=809
-  _READSTREAMGROUPMESSAGESREQUEST._serialized_start=812
-  _READSTREAMGROUPMESSAGESREQUEST._serialized_end=1043
-  _DELETEEVENTSTREAMINGGROUPREQUEST._serialized_start=1045
-  _DELETEEVENTSTREAMINGGROUPREQUEST._serialized_end=1119
-  _DELETEEVENTSTREAMINGGROUPRESPONSE._serialized_start=1121
-  _DELETEEVENTSTREAMINGGROUPRESPONSE._serialized_end=1156
-  _NOTIFICATIONSTREAMINIT._serialized_start=1158
-  _NOTIFICATIONSTREAMINIT._serialized_end=1222
-  _NOTFICATIONSTREAMACK._serialized_start=1224
-  _NOTFICATIONSTREAMACK._serialized_end=1280
-  _READSTREAMGROUPMESSAGESRESPONSE._serialized_start=1283
-  _READSTREAMGROUPMESSAGESRESPONSE._serialized_end=1450
-  _STREAMFROMSEQUENCE._serialized_start=1452
-  _STREAMFROMSEQUENCE._serialized_end=1500
-  _STREAMFROMDATE._serialized_start=1502
-  _STREAMFROMDATE._serialized_end=1576
-  _STREAMALL._serialized_start=1578
-  _STREAMALL._serialized_end=1589
-  _NOTIFICATIONSTREAMRESPONSE._serialized_start=1592
-  _NOTIFICATIONSTREAMRESPONSE._serialized_end=1794
-  _EVENTNOTIFICATIONMESSAGE._serialized_start=1797
-  _EVENTNOTIFICATIONMESSAGE._serialized_end=2009
-  _UPDATENOTIFICATIONSERVICE._serialized_start=2205
-  _UPDATENOTIFICATIONSERVICE._serialized_end=2769
+  _CREATEEVENTSTREAMINGGROUPREQUEST._serialized_end=788
+  _EVENTSTREAMINGGROUPHIERARCHY._serialized_start=791
+  _EVENTSTREAMINGGROUPHIERARCHY._serialized_end=958
+  _CREATEEVENTSTREAMINGGROUPRESPONSE._serialized_start=960
+  _CREATEEVENTSTREAMINGGROUPRESPONSE._serialized_end=1035
+  _GETEVENTMESSAGEBATCHREQUEST._serialized_start=1037
+  _GETEVENTMESSAGEBATCHREQUEST._serialized_end=1137
+  _GETEVENTMESSAGEBATCHRESPONSE._serialized_start=1139
+  _GETEVENTMESSAGEBATCHRESPONSE._serialized_end=1259
+  _GETEVENTMESSAGEBATCHSTREAMREQUEST._serialized_start=1261
+  _GETEVENTMESSAGEBATCHSTREAMREQUEST._serialized_end=1367
+  _GETEVENTMESSAGEBATCHSTREAMRESPONSE._serialized_start=1369
+  _GETEVENTMESSAGEBATCHSTREAMRESPONSE._serialized_end=1495
+  _ACKNOWLEDGEMESSAGEBATCHREQUEST._serialized_start=1497
+  _ACKNOWLEDGEMESSAGEBATCHREQUEST._serialized_end=1598
+  _ACKNOWLEDGEMESSAGEBATCHRESPONSE._serialized_start=1600
+  _ACKNOWLEDGEMESSAGEBATCHRESPONSE._serialized_end=1633
+  _DELETEEVENTSTREAMINGGROUPREQUEST._serialized_start=1635
+  _DELETEEVENTSTREAMINGGROUPREQUEST._serialized_end=1709
+  _DELETEEVENTSTREAMINGGROUPRESPONSE._serialized_start=1711
+  _DELETEEVENTSTREAMINGGROUPRESPONSE._serialized_end=1746
+  _STREAMFROMSEQUENCE._serialized_start=1748
+  _STREAMFROMSEQUENCE._serialized_end=1796
+  _STREAMFROMDATE._serialized_start=1798
+  _STREAMFROMDATE._serialized_end=1872
+  _STREAMALL._serialized_start=1874
+  _STREAMALL._serialized_end=1885
+  _EVENTNOTIFICATIONMESSAGE._serialized_start=1888
+  _EVENTNOTIFICATIONMESSAGE._serialized_end=2165
+  _REPLY._serialized_start=2167
+  _REPLY._serialized_end=2236
+  _EVENTNOTIFICATIONSERVICE._serialized_start=2432
+  _EVENTNOTIFICATIONSERVICE._serialized_end=3327
 # @@protoc_insertion_point(module_scope)

@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Aruna-Python-API',
-    version="1.0.0-rc.5",
+    version="1.0.0-rc.7",
     description='Aruna Object Storage Python API builds',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',

@@ -19,12 +19,23 @@ class InternalAuthorizeServiceStub(object):
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeResponse.FromString,
                 )
+        self.GetSecret = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalAuthorizeService/GetSecret',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretResponse.FromString,
+                )
 
 
 class InternalAuthorizeServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Authorize(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSecret(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +48,11 @@ def add_InternalAuthorizeServiceServicer_to_server(servicer, server):
                     servicer.Authorize,
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeRequest.FromString,
                     response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeResponse.SerializeToString,
+            ),
+            'GetSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSecret,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +78,22 @@ class InternalAuthorizeService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalAuthorizeService/Authorize',
             aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeRequest.SerializeToString,
             aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.AuthorizeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalAuthorizeService/GetSecret',
+            aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_authorize__pb2.GetSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

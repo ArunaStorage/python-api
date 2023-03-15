@@ -33,12 +33,16 @@ class CreateAPITokenRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., name: _Optional[str] = ..., expires_at: _Optional[_Union[ExpiresAt, _Mapping]] = ..., permission: _Optional[_Union[_auth_pb2.Permission, str]] = ...) -> None: ...
 
 class CreateAPITokenResponse(_message.Message):
-    __slots__ = ["token", "token_secret"]
+    __slots__ = ["s3_access_key", "s3_secret_key", "token", "token_secret"]
+    S3_ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    S3_SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     TOKEN_SECRET_FIELD_NUMBER: _ClassVar[int]
+    s3_access_key: str
+    s3_secret_key: str
     token: _auth_pb2.Token
     token_secret: str
-    def __init__(self, token: _Optional[_Union[_auth_pb2.Token, _Mapping]] = ..., token_secret: _Optional[str] = ...) -> None: ...
+    def __init__(self, token: _Optional[_Union[_auth_pb2.Token, _Mapping]] = ..., token_secret: _Optional[str] = ..., s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ...) -> None: ...
 
 class DeleteAPITokenRequest(_message.Message):
     __slots__ = ["token_id"]

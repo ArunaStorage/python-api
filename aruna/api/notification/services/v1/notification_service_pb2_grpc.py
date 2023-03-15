@@ -5,10 +5,10 @@ import grpc
 from aruna.api.notification.services.v1 import notification_service_pb2 as aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2
 
 
-class UpdateNotificationServiceStub(object):
-    """UpdateNotificationService
+class EventNotificationServiceStub(object):
+    """EventNotificationService
 
-    A service to update streaminggroups in nats.io
+    A service to receive events in the AOS storage
     """
 
     def __init__(self, channel):
@@ -18,32 +18,74 @@ class UpdateNotificationServiceStub(object):
             channel: A grpc.Channel.
         """
         self.CreateEventStreamingGroup = channel.unary_unary(
-                '/aruna.api.notification.services.v1.UpdateNotificationService/CreateEventStreamingGroup',
+                '/aruna.api.notification.services.v1.EventNotificationService/CreateEventStreamingGroup',
                 request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupResponse.FromString,
                 )
+        self.GetEventMessageBatch = channel.unary_unary(
+                '/aruna.api.notification.services.v1.EventNotificationService/GetEventMessageBatch',
+                request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchResponse.FromString,
+                )
+        self.GetEventMessageBatchStream = channel.unary_stream(
+                '/aruna.api.notification.services.v1.EventNotificationService/GetEventMessageBatchStream',
+                request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamResponse.FromString,
+                )
+        self.AcknowledgeMessageBatch = channel.unary_unary(
+                '/aruna.api.notification.services.v1.EventNotificationService/AcknowledgeMessageBatch',
+                request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchResponse.FromString,
+                )
         self.DeleteEventStreamingGroup = channel.unary_unary(
-                '/aruna.api.notification.services.v1.UpdateNotificationService/DeleteEventStreamingGroup',
+                '/aruna.api.notification.services.v1.EventNotificationService/DeleteEventStreamingGroup',
                 request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupResponse.FromString,
                 )
-        self.ReadStreamGroupMessages = channel.stream_stream(
-                '/aruna.api.notification.services.v1.UpdateNotificationService/ReadStreamGroupMessages',
-                request_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesResponse.FromString,
-                )
 
 
-class UpdateNotificationServiceServicer(object):
-    """UpdateNotificationService
+class EventNotificationServiceServicer(object):
+    """EventNotificationService
 
-    A service to update streaminggroups in nats.io
+    A service to receive events in the AOS storage
     """
 
     def CreateEventStreamingGroup(self, request, context):
         """CreateEventStreamingGroup
 
         Creates a new EventStreamingGroup
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEventMessageBatch(self, request, context):
+        """GetEventMessageBatch
+
+        Reads a set of messages from a given stream group
+        Each message contains a separate acknowledgement message that is protected by a salt and an hmac for verification
+        The message can be send directly through the AcknowledgeMessageBatch call to acknowledge the message
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEventMessageBatchStream(self, request, context):
+        """GetEventMessageBatch
+
+        Reads a set of messages from a given stream group
+        Each message contains a separate acknowledgement message that is protected by a salt and an hmac for verification
+        The message can be send directly through the AcknowledgeMessageBatch call to acknowledge the message
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AcknowledgeMessageBatch(self, request, context):
+        """AcknowledgeMessageBatch
+
+        List of messages to acknowledge
+        Each reply is protected by a salt and and hmac that verifies the message
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -58,44 +100,45 @@ class UpdateNotificationServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ReadStreamGroupMessages(self, request_iterator, context):
-        """ReadStreamGroupMessages
 
-        Reads a stream of messages for a specific StreamGroup
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-
-def add_UpdateNotificationServiceServicer_to_server(servicer, server):
+def add_EventNotificationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateEventStreamingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateEventStreamingGroup,
                     request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupRequest.FromString,
                     response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupResponse.SerializeToString,
             ),
+            'GetEventMessageBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventMessageBatch,
+                    request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchResponse.SerializeToString,
+            ),
+            'GetEventMessageBatchStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetEventMessageBatchStream,
+                    request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamResponse.SerializeToString,
+            ),
+            'AcknowledgeMessageBatch': grpc.unary_unary_rpc_method_handler(
+                    servicer.AcknowledgeMessageBatch,
+                    request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchResponse.SerializeToString,
+            ),
             'DeleteEventStreamingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteEventStreamingGroup,
                     request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupRequest.FromString,
                     response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupResponse.SerializeToString,
             ),
-            'ReadStreamGroupMessages': grpc.stream_stream_rpc_method_handler(
-                    servicer.ReadStreamGroupMessages,
-                    request_deserializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesResponse.SerializeToString,
-            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'aruna.api.notification.services.v1.UpdateNotificationService', rpc_method_handlers)
+            'aruna.api.notification.services.v1.EventNotificationService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class UpdateNotificationService(object):
-    """UpdateNotificationService
+class EventNotificationService(object):
+    """EventNotificationService
 
-    A service to update streaminggroups in nats.io
+    A service to receive events in the AOS storage
     """
 
     @staticmethod
@@ -109,9 +152,60 @@ class UpdateNotificationService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.UpdateNotificationService/CreateEventStreamingGroup',
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.EventNotificationService/CreateEventStreamingGroup',
             aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupRequest.SerializeToString,
             aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.CreateEventStreamingGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEventMessageBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.EventNotificationService/GetEventMessageBatch',
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchRequest.SerializeToString,
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEventMessageBatchStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/aruna.api.notification.services.v1.EventNotificationService/GetEventMessageBatchStream',
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamRequest.SerializeToString,
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.GetEventMessageBatchStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AcknowledgeMessageBatch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.EventNotificationService/AcknowledgeMessageBatch',
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchRequest.SerializeToString,
+            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.AcknowledgeMessageBatchResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -126,25 +220,8 @@ class UpdateNotificationService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.UpdateNotificationService/DeleteEventStreamingGroup',
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.notification.services.v1.EventNotificationService/DeleteEventStreamingGroup',
             aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupRequest.SerializeToString,
             aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.DeleteEventStreamingGroupResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ReadStreamGroupMessages(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/aruna.api.notification.services.v1.UpdateNotificationService/ReadStreamGroupMessages',
-            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesRequest.SerializeToString,
-            aruna_dot_api_dot_notification_dot_services_dot_v1_dot_notification__service__pb2.ReadStreamGroupMessagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

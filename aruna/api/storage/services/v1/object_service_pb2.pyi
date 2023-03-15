@@ -277,14 +277,12 @@ class GetObjectRevisionsResponse(_message.Message):
     def __init__(self, objects: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ...) -> None: ...
 
 class GetObjectsByPathRequest(_message.Message):
-    __slots__ = ["collection_id", "path", "with_revisions"]
-    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["path", "with_revisions"]
     PATH_FIELD_NUMBER: _ClassVar[int]
     WITH_REVISIONS_FIELD_NUMBER: _ClassVar[int]
-    collection_id: str
     path: str
     with_revisions: bool
-    def __init__(self, collection_id: _Optional[str] = ..., path: _Optional[str] = ..., with_revisions: bool = ...) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., with_revisions: bool = ...) -> None: ...
 
 class GetObjectsByPathResponse(_message.Message):
     __slots__ = ["object"]
@@ -309,6 +307,20 @@ class GetObjectsResponse(_message.Message):
     OBJECTS_FIELD_NUMBER: _ClassVar[int]
     objects: _containers.RepeatedCompositeFieldContainer[ObjectWithURL]
     def __init__(self, objects: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ...) -> None: ...
+
+class GetProjectCollectionIdsByPathRequest(_message.Message):
+    __slots__ = ["path"]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    path: str
+    def __init__(self, path: _Optional[str] = ...) -> None: ...
+
+class GetProjectCollectionIdsByPathResponse(_message.Message):
+    __slots__ = ["collection_id", "project_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    project_id: str
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
 
 class GetReferencesRequest(_message.Message):
     __slots__ = ["collection_id", "object_id", "with_revisions"]

@@ -200,13 +200,13 @@ class LabelOntology(_message.Message):
     def __init__(self, required_label_keys: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Object(_message.Message):
-    __slots__ = ["auto_update", "content_len", "created", "data_class", "filename", "hash", "hooks", "id", "labels", "latest", "origin", "rev_number", "source", "status"]
+    __slots__ = ["auto_update", "content_len", "created", "data_class", "filename", "hashes", "hooks", "id", "labels", "latest", "origin", "rev_number", "source", "status"]
     AUTO_UPDATE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_LEN_FIELD_NUMBER: _ClassVar[int]
     CREATED_FIELD_NUMBER: _ClassVar[int]
     DATA_CLASS_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
-    HASH_FIELD_NUMBER: _ClassVar[int]
+    HASHES_FIELD_NUMBER: _ClassVar[int]
     HOOKS_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -220,7 +220,7 @@ class Object(_message.Message):
     created: _timestamp_pb2.Timestamp
     data_class: DataClass
     filename: str
-    hash: Hash
+    hashes: _containers.RepeatedCompositeFieldContainer[Hash]
     hooks: _containers.RepeatedCompositeFieldContainer[KeyValue]
     id: str
     labels: _containers.RepeatedCompositeFieldContainer[KeyValue]
@@ -229,7 +229,7 @@ class Object(_message.Message):
     rev_number: int
     source: Source
     status: Status
-    def __init__(self, id: _Optional[str] = ..., filename: _Optional[str] = ..., labels: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., content_len: _Optional[int] = ..., status: _Optional[_Union[Status, str]] = ..., origin: _Optional[_Union[Origin, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., hash: _Optional[_Union[Hash, _Mapping]] = ..., rev_number: _Optional[int] = ..., source: _Optional[_Union[Source, _Mapping]] = ..., latest: bool = ..., auto_update: bool = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., filename: _Optional[str] = ..., labels: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., content_len: _Optional[int] = ..., status: _Optional[_Union[Status, str]] = ..., origin: _Optional[_Union[Origin, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., hashes: _Optional[_Iterable[_Union[Hash, _Mapping]]] = ..., rev_number: _Optional[int] = ..., source: _Optional[_Union[Source, _Mapping]] = ..., latest: bool = ..., auto_update: bool = ...) -> None: ...
 
 class ObjectGroup(_message.Message):
     __slots__ = ["description", "hooks", "id", "labels", "meta_objects", "name", "objects", "rev_number", "stats"]

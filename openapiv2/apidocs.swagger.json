@@ -2,11 +2,14 @@
   "swagger": "2.0",
   "info": {
     "title": "Aruna Object Storage (AOS) REST API",
-    "version": "1.0.0-rc.5"
+    "version": "1.0.0-rc.7"
   },
   "tags": [
     {
       "name": "ProjectService"
+    },
+    {
+      "name": "ObjectService"
     },
     {
       "name": "CollectionService"
@@ -16,9 +19,6 @@
     },
     {
       "name": "StorageInfoService"
-    },
-    {
-      "name": "ObjectService"
     },
     {
       "name": "ObjectGroupService"
@@ -2127,50 +2127,6 @@
         ]
       }
     },
-    "/v1/collection/{collectionId}/path/{path}": {
-      "get": {
-        "summary": "GetObjectsByPath",
-        "description": "Status: BETA\n\nGets a specific object by object_path\n!! Paths are collection specific !!",
-        "operationId": "ObjectService_GetObjectsByPath",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetObjectsByPathResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/googlerpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "collectionId",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "path",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "withRevisions",
-            "in": "query",
-            "required": false,
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "ObjectService"
-        ]
-      }
-    },
     "/v1/collection/{collectionId}/path/{path}/visibility": {
       "patch": {
         "summary": "SetObjectPathVisibility",
@@ -2201,7 +2157,8 @@
             "name": "path",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": ".+"
           },
           {
             "name": "body",
@@ -2574,6 +2531,78 @@
         },
         "tags": [
           "StorageInfoService"
+        ]
+      }
+    },
+    "/v1/path/collection/{path}": {
+      "get": {
+        "summary": "GetObjectsByPath",
+        "description": "Status: BETA\n\nGets a specific object by object_path\n!! Paths are collection specific !!",
+        "operationId": "ObjectService_GetProjectCollectionIdsByPath",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetProjectCollectionIdsByPathResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "pattern": ".+"
+          }
+        ],
+        "tags": [
+          "ObjectService"
+        ]
+      }
+    },
+    "/v1/path/object/{path}": {
+      "get": {
+        "summary": "GetObjectsByPath",
+        "description": "Status: BETA\n\nGets a specific object by object_path\n!! Paths are collection specific !!",
+        "operationId": "ObjectService_GetObjectsByPath",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetObjectsByPathResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "pattern": ".+"
+          },
+          {
+            "name": "withRevisions",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "ObjectService"
         ]
       }
     },
@@ -3116,6 +3145,18 @@
         "path": {
           "type": "string",
           "description": "for local file."
+        },
+        "endpointId": {
+          "type": "string"
+        },
+        "isCompressed": {
+          "type": "boolean"
+        },
+        "isEncrypted": {
+          "type": "boolean"
+        },
+        "encryptionKey": {
+          "type": "string"
         }
       },
       "description": "Locations is the path to the requested data."
@@ -3157,6 +3198,9 @@
       "default": "STATUS_UNSPECIFIED",
       "title": "- STATUS_UNSPECIFIED: Status of a specific component at a specific location"
     },
+    "v1AcknowledgeMessageBatchResponse": {
+      "type": "object"
+    },
     "v1ActivateUserResponse": {
       "type": "object"
     },
@@ -3185,6 +3229,10 @@
         "isPublic": {
           "type": "boolean",
           "title": "Is this endpoint public"
+        },
+        "pubkey": {
+          "type": "string",
+          "title": "(optional) ED25519 Pubkey -\u003e Pubkey to validate endpoint authenticated tokens"
         }
       }
     },
@@ -3193,6 +3241,10 @@
       "properties": {
         "endpoint": {
           "$ref": "#/definitions/v1Endpoint"
+        },
+        "pubkeySerial": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },
@@ -3224,11 +3276,7 @@
         },
         "accesskey": {
           "type": "string",
-          "title": "Can be empty for now"
-        },
-        "isToken": {
-          "type": "boolean",
-          "title": "If the secret is an APIToken (or S3-style access / secretkey)"
+          "title": "Is the API-Token ID"
         }
       }
     },
@@ -3306,6 +3354,17 @@
         }
       },
       "title": "Multiple CollectionOverviews"
+    },
+    "v1CollectionResource": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        }
+      }
     },
     "v1CollectionStats": {
       "type": "object",
@@ -3400,11 +3459,16 @@
         "tokenSecret": {
           "type": "string",
           "title": "This is the actual secret token\nAttention, this can not be recreated and needs to be stored securely\nNew tokens will always contain a new secret"
+        },
+        "s3AccessKey": {
+          "type": "string",
+          "title": "S3 Access Key"
+        },
+        "s3SecretKey": {
+          "type": "string",
+          "title": "S3 Secret Key"
         }
       }
-    },
-    "v1CreateBucketResponse": {
-      "type": "object"
     },
     "v1CreateDownloadLinksStreamResponse": {
       "type": "object",
@@ -3486,24 +3550,6 @@
     },
     "v1CreateObjectReferenceResponse": {
       "type": "object"
-    },
-    "v1CreatePresignedDownloadResponse": {
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "description": "The presigned URL to download the file to."
-        }
-      }
-    },
-    "v1CreatePresignedUploadUrlResponse": {
-      "type": "object",
-      "properties": {
-        "url": {
-          "type": "string",
-          "description": "The presigned URL to upload the file to."
-        }
-      }
     },
     "v1CreateProjectRequest": {
       "type": "object",
@@ -3617,6 +3663,23 @@
     "v1EmitEventResponse": {
       "type": "object"
     },
+    "v1EmittedResource": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "$ref": "#/definitions/v1ProjectResource"
+        },
+        "collection": {
+          "$ref": "#/definitions/v1CollectionResource"
+        },
+        "object": {
+          "$ref": "#/definitions/v1ObjectResource"
+        },
+        "objectGroup": {
+          "$ref": "#/definitions/v1ObjectGroupResource"
+        }
+      }
+    },
     "v1Endpoint": {
       "type": "object",
       "properties": {
@@ -3666,6 +3729,26 @@
         },
         "updatedType": {
           "$ref": "#/definitions/v1EventType"
+        },
+        "reply": {
+          "$ref": "#/definitions/v1Reply"
+        }
+      }
+    },
+    "v1EventStreamingGroupHierarchy": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "objectGroupId": {
+          "type": "string"
         }
       }
     },
@@ -3695,20 +3778,14 @@
     "v1FinalizeObjectResponse": {
       "type": "object"
     },
+    "v1FinishMultipartUploadResponse": {
+      "type": "object"
+    },
     "v1FinishObjectStagingResponse": {
       "type": "object",
       "properties": {
         "object": {
           "$ref": "#/definitions/v1Object"
-        }
-      }
-    },
-    "v1FinishPresignedUploadResponse": {
-      "type": "object",
-      "properties": {
-        "ok": {
-          "type": "boolean",
-          "description": "If the upload finished successfully."
         }
       }
     },
@@ -3729,6 +3806,17 @@
             "$ref": "#/definitions/v1Token"
           },
           "title": "List of API tokens with redacted actual token"
+        }
+      }
+    },
+    "v1GetCollectionByBucketResponse": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
         }
       }
     },
@@ -3801,6 +3889,28 @@
             "$ref": "#/definitions/v1Endpoint"
           },
           "title": "List of endpoints"
+        }
+      }
+    },
+    "v1GetEventMessageBatchResponse": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1EventNotificationMessage"
+          }
+        }
+      }
+    },
+    "v1GetEventMessageBatchStreamResponse": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1EventNotificationMessage"
+          }
         }
       }
     },
@@ -3888,6 +3998,17 @@
         }
       }
     },
+    "v1GetObjectLocationResponse": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "$ref": "#/definitions/v1Object"
+        },
+        "location": {
+          "$ref": "#/definitions/internalv1Location"
+        }
+      }
+    },
     "v1GetObjectPathResponse": {
       "type": "object",
       "properties": {
@@ -3945,6 +4066,37 @@
         }
       }
     },
+    "v1GetOrCreateObjectByPathResponse": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        },
+        "dataclass": {
+          "$ref": "#/definitions/v1DataClass"
+        },
+        "hashes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Hash"
+          }
+        }
+      }
+    },
+    "v1GetProjectCollectionIdsByPathResponse": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        }
+      }
+    },
     "v1GetProjectResponse": {
       "type": "object",
       "properties": {
@@ -3986,6 +4138,14 @@
             "$ref": "#/definitions/v1Hierarchy"
           },
           "title": "Returns a list of hierarchies\nfor collections n will be 1 \nfor objects this might contain more than one hierarchy\nstarting with the object_id but different collections / objectgroups"
+        }
+      }
+    },
+    "v1GetSecretResponse": {
+      "type": "object",
+      "properties": {
+        "authorization": {
+          "$ref": "#/definitions/v1Authorization"
         }
       }
     },
@@ -4168,7 +4328,7 @@
         }
       }
     },
-    "v1InitPresignedUploadResponse": {
+    "v1InitMultipartUploadResponse": {
       "type": "object",
       "properties": {
         "uploadId": {
@@ -4286,44 +4446,6 @@
         }
       }
     },
-    "v1MoveObjectResponse": {
-      "type": "object"
-    },
-    "v1NotficationStreamAck": {
-      "type": "object",
-      "properties": {
-        "ackChunkId": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "v1NotificationStreamInit": {
-      "type": "object",
-      "properties": {
-        "streamGroupId": {
-          "type": "string"
-        }
-      }
-    },
-    "v1NotificationStreamResponse": {
-      "type": "object",
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/v1EventNotificationMessage"
-        },
-        "sequence": {
-          "type": "string",
-          "format": "uint64"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
     "v1Object": {
       "type": "object",
       "properties": {
@@ -4362,8 +4484,11 @@
         "dataClass": {
           "$ref": "#/definitions/v1DataClass"
         },
-        "hash": {
-          "$ref": "#/definitions/v1Hash"
+        "hashes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Hash"
+          }
         },
         "revNumber": {
           "type": "string",
@@ -4440,17 +4565,20 @@
       },
       "title": "Multiple ObjectGroupOverviews"
     },
-    "v1ObjectGroupRelation": {
+    "v1ObjectGroupResource": {
       "type": "object",
       "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        },
         "sharedObjectGroupId": {
           "type": "string"
         },
-        "objectGroupIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "objectGroupId": {
+          "type": "string"
         }
       }
     },
@@ -4486,6 +4614,23 @@
         "isWriteable": {
           "type": "boolean",
           "title": "Is the writeable?"
+        }
+      }
+    },
+    "v1ObjectResource": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        },
+        "sharedObjectId": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
         }
       }
     },
@@ -4636,29 +4781,10 @@
         }
       }
     },
-    "v1Range": {
+    "v1ProjectResource": {
       "type": "object",
       "properties": {
-        "start": {
-          "type": "string",
-          "format": "int64"
-        },
-        "end": {
-          "type": "string",
-          "format": "int64"
-        }
-      }
-    },
-    "v1ReadStreamGroupMessagesResponse": {
-      "type": "object",
-      "properties": {
-        "notification": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1NotificationStreamResponse"
-          }
-        },
-        "ackChunkId": {
+        "projectId": {
           "type": "string"
         }
       }
@@ -4681,32 +4807,22 @@
         }
       }
     },
-    "v1Relation": {
-      "type": "object",
-      "properties": {
-        "sharedObject": {
-          "type": "string",
-          "title": "The shared revision id of an object"
-        },
-        "objectGroups": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/v1ObjectGroupRelation"
-          },
-          "title": "The associated objectgroup(s)"
-        },
-        "collection": {
-          "type": "string",
-          "title": "Collection ID"
-        },
-        "project": {
-          "type": "string",
-          "title": "Project ID"
-        }
-      }
-    },
     "v1RemoveUserFromProjectResponse": {
       "type": "object"
+    },
+    "v1Reply": {
+      "type": "object",
+      "properties": {
+        "reply": {
+          "type": "string"
+        },
+        "salt": {
+          "type": "string"
+        },
+        "hmac": {
+          "type": "string"
+        }
+      }
     },
     "v1ResourceAction": {
       "type": "string",

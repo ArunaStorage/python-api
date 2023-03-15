@@ -8,26 +8,30 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AddEndpointRequest(_message.Message):
-    __slots__ = ["documentation_path", "ep_type", "internal_hostname", "is_public", "name", "proxy_hostname"]
+    __slots__ = ["documentation_path", "ep_type", "internal_hostname", "is_public", "name", "proxy_hostname", "pubkey"]
     DOCUMENTATION_PATH_FIELD_NUMBER: _ClassVar[int]
     EP_TYPE_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
     IS_PUBLIC_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROXY_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
+    PUBKEY_FIELD_NUMBER: _ClassVar[int]
     documentation_path: str
     ep_type: _models_pb2.EndpointType
     internal_hostname: str
     is_public: bool
     name: str
     proxy_hostname: str
-    def __init__(self, name: _Optional[str] = ..., ep_type: _Optional[_Union[_models_pb2.EndpointType, str]] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ...) -> None: ...
+    pubkey: str
+    def __init__(self, name: _Optional[str] = ..., ep_type: _Optional[_Union[_models_pb2.EndpointType, str]] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., pubkey: _Optional[str] = ...) -> None: ...
 
 class AddEndpointResponse(_message.Message):
-    __slots__ = ["endpoint"]
+    __slots__ = ["endpoint", "pubkey_serial"]
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
+    PUBKEY_SERIAL_FIELD_NUMBER: _ClassVar[int]
     endpoint: _models_pb2.Endpoint
-    def __init__(self, endpoint: _Optional[_Union[_models_pb2.Endpoint, _Mapping]] = ...) -> None: ...
+    pubkey_serial: int
+    def __init__(self, endpoint: _Optional[_Union[_models_pb2.Endpoint, _Mapping]] = ..., pubkey_serial: _Optional[int] = ...) -> None: ...
 
 class DeleteEndpointRequest(_message.Message):
     __slots__ = ["endpoint_id"]
