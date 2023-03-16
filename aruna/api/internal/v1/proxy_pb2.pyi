@@ -68,22 +68,6 @@ class GetCollectionByBucketResponse(_message.Message):
     project_id: str
     def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
 
-class GetEncryptionKeyRequest(_message.Message):
-    __slots__ = ["endpoint_id", "hash", "path"]
-    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
-    HASH_FIELD_NUMBER: _ClassVar[int]
-    PATH_FIELD_NUMBER: _ClassVar[int]
-    endpoint_id: str
-    hash: str
-    path: str
-    def __init__(self, path: _Optional[str] = ..., hash: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
-
-class GetEncryptionKeyResponse(_message.Message):
-    __slots__ = ["encryption_key"]
-    ENCRYPTION_KEY_FIELD_NUMBER: _ClassVar[int]
-    encryption_key: str
-    def __init__(self, encryption_key: _Optional[str] = ...) -> None: ...
-
 class GetObjectLocationRequest(_message.Message):
     __slots__ = ["access_key", "endpoint_id", "path", "revision_id"]
     ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -103,6 +87,24 @@ class GetObjectLocationResponse(_message.Message):
     location: Location
     object: _models_pb2.Object
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., location: _Optional[_Union[Location, _Mapping]] = ...) -> None: ...
+
+class GetOrCreateEncryptionKeyRequest(_message.Message):
+    __slots__ = ["endpoint_id", "hash", "path"]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    HASH_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    hash: str
+    path: str
+    def __init__(self, path: _Optional[str] = ..., hash: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+
+class GetOrCreateEncryptionKeyResponse(_message.Message):
+    __slots__ = ["created", "encryption_key"]
+    CREATED_FIELD_NUMBER: _ClassVar[int]
+    ENCRYPTION_KEY_FIELD_NUMBER: _ClassVar[int]
+    created: bool
+    encryption_key: str
+    def __init__(self, encryption_key: _Optional[str] = ..., created: bool = ...) -> None: ...
 
 class GetOrCreateObjectByPathRequest(_message.Message):
     __slots__ = ["access_key", "object", "path"]

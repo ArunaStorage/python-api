@@ -186,10 +186,10 @@ class InternalProxyNotifierServiceStub(object):
                 request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectResponse.FromString,
                 )
-        self.GetEncryptionKey = channel.unary_unary(
-                '/aruna.api.internal.v1.InternalProxyNotifierService/GetEncryptionKey',
-                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
+        self.GetOrCreateEncryptionKey = channel.unary_unary(
+                '/aruna.api.internal.v1.InternalProxyNotifierService/GetOrCreateEncryptionKey',
+                request_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyResponse.FromString,
                 )
         self.GetObjectLocation = channel.unary_unary(
                 '/aruna.api.internal.v1.InternalProxyNotifierService/GetObjectLocation',
@@ -220,7 +220,7 @@ class InternalProxyNotifierServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEncryptionKey(self, request, context):
+    def GetOrCreateEncryptionKey(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -251,10 +251,10 @@ def add_InternalProxyNotifierServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectRequest.FromString,
                     response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.FinalizeObjectResponse.SerializeToString,
             ),
-            'GetEncryptionKey': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEncryptionKey,
-                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.SerializeToString,
+            'GetOrCreateEncryptionKey': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrCreateEncryptionKey,
+                    request_deserializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyResponse.SerializeToString,
             ),
             'GetObjectLocation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectLocation,
@@ -313,7 +313,7 @@ class InternalProxyNotifierService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEncryptionKey(request,
+    def GetOrCreateEncryptionKey(request,
             target,
             options=(),
             channel_credentials=None,
@@ -323,9 +323,9 @@ class InternalProxyNotifierService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetEncryptionKey',
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyRequest.SerializeToString,
-            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetEncryptionKeyResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.internal.v1.InternalProxyNotifierService/GetOrCreateEncryptionKey',
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyRequest.SerializeToString,
+            aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2.GetOrCreateEncryptionKeyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

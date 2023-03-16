@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Aruna Object Storage (AOS) REST API",
-    "version": "1.0.0-rc.7"
+    "version": "1.0.0-rc.8"
   },
   "tags": [
     {
@@ -3864,14 +3864,6 @@
         }
       }
     },
-    "v1GetEncryptionKeyResponse": {
-      "type": "object",
-      "properties": {
-        "encryptionKey": {
-          "type": "string"
-        }
-      }
-    },
     "v1GetEndpointResponse": {
       "type": "object",
       "properties": {
@@ -4063,6 +4055,17 @@
             "$ref": "#/definitions/v1ObjectWithURL"
           },
           "title": "A List of objects with (optional) associated URLs"
+        }
+      }
+    },
+    "v1GetOrCreateEncryptionKeyResponse": {
+      "type": "object",
+      "properties": {
+        "encryptionKey": {
+          "type": "string"
+        },
+        "created": {
+          "type": "boolean"
         }
       }
     },
