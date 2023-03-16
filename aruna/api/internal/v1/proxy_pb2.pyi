@@ -109,14 +109,16 @@ class GetOrCreateEncryptionKeyResponse(_message.Message):
     def __init__(self, encryption_key: _Optional[str] = ..., created: bool = ...) -> None: ...
 
 class GetOrCreateObjectByPathRequest(_message.Message):
-    __slots__ = ["access_key", "object", "path"]
+    __slots__ = ["access_key", "get_only", "object", "path"]
     ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    GET_ONLY_FIELD_NUMBER: _ClassVar[int]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
     access_key: str
+    get_only: bool
     object: _object_service_pb2.StageObject
     path: str
-    def __init__(self, path: _Optional[str] = ..., access_key: _Optional[str] = ..., object: _Optional[_Union[_object_service_pb2.StageObject, _Mapping]] = ...) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., access_key: _Optional[str] = ..., object: _Optional[_Union[_object_service_pb2.StageObject, _Mapping]] = ..., get_only: bool = ...) -> None: ...
 
 class GetOrCreateObjectByPathResponse(_message.Message):
     __slots__ = ["collection_id", "created", "dataclass", "hashes", "object_id", "revision_number"]
