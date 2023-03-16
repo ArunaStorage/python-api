@@ -23,16 +23,18 @@ class DeleteObjectResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class FinalizeObjectRequest(_message.Message):
-    __slots__ = ["collection_id", "hashes", "location", "object_id"]
+    __slots__ = ["collection_id", "content_length", "hashes", "location", "object_id"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_LENGTH_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
+    content_length: int
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
     location: Location
     object_id: str
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., location: _Optional[_Union[Location, _Mapping]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., location: _Optional[_Union[Location, _Mapping]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., content_length: _Optional[int] = ...) -> None: ...
 
 class FinalizeObjectResponse(_message.Message):
     __slots__ = []
@@ -117,16 +119,20 @@ class GetOrCreateObjectByPathRequest(_message.Message):
     def __init__(self, path: _Optional[str] = ..., access_key: _Optional[str] = ..., object: _Optional[_Union[_object_service_pb2.StageObject, _Mapping]] = ...) -> None: ...
 
 class GetOrCreateObjectByPathResponse(_message.Message):
-    __slots__ = ["collection_id", "dataclass", "hashes", "object_id"]
+    __slots__ = ["collection_id", "created", "dataclass", "hashes", "object_id", "revision_number"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    CREATED_FIELD_NUMBER: _ClassVar[int]
     DATACLASS_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    REVISION_NUMBER_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
+    created: bool
     dataclass: _models_pb2.DataClass
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
     object_id: str
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ...) -> None: ...
+    revision_number: int
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., revision_number: _Optional[int] = ..., created: bool = ...) -> None: ...
 
 class InitMultipartUploadRequest(_message.Message):
     __slots__ = ["path"]
