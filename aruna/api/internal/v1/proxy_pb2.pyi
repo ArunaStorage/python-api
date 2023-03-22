@@ -41,14 +41,18 @@ class FinalizeObjectResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class FinishMultipartUploadRequest(_message.Message):
-    __slots__ = ["part_etags", "path", "upload_id"]
+    __slots__ = ["collection_id", "object_id", "part_etags", "path", "upload_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     PART_ETAGS_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
     UPLOAD_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    object_id: str
     part_etags: _containers.RepeatedCompositeFieldContainer[PartETag]
     path: str
     upload_id: str
-    def __init__(self, upload_id: _Optional[str] = ..., path: _Optional[str] = ..., part_etags: _Optional[_Iterable[_Union[PartETag, _Mapping]]] = ...) -> None: ...
+    def __init__(self, upload_id: _Optional[str] = ..., path: _Optional[str] = ..., object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., part_etags: _Optional[_Iterable[_Union[PartETag, _Mapping]]] = ...) -> None: ...
 
 class FinishMultipartUploadResponse(_message.Message):
     __slots__ = []
@@ -137,10 +141,14 @@ class GetOrCreateObjectByPathResponse(_message.Message):
     def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataclass: _Optional[_Union[_models_pb2.DataClass, str]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., revision_number: _Optional[int] = ..., created: bool = ...) -> None: ...
 
 class InitMultipartUploadRequest(_message.Message):
-    __slots__ = ["path"]
+    __slots__ = ["collection_id", "object_id", "path"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     PATH_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    object_id: str
     path: str
-    def __init__(self, path: _Optional[str] = ...) -> None: ...
+    def __init__(self, path: _Optional[str] = ..., object_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
 
 class InitMultipartUploadResponse(_message.Message):
     __slots__ = ["upload_id"]
