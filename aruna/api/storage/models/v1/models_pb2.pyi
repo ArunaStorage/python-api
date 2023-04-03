@@ -11,6 +11,12 @@ DATA_CLASS_PROTECTED: DataClass
 DATA_CLASS_PUBLIC: DataClass
 DATA_CLASS_UNSPECIFIED: DataClass
 DESCRIPTOR: _descriptor.FileDescriptor
+ENDPOINT_STATUS_AVAILABLE: EndpointStatus
+ENDPOINT_STATUS_DEGRADED: EndpointStatus
+ENDPOINT_STATUS_INITIALIZING: EndpointStatus
+ENDPOINT_STATUS_MAINTENANCE: EndpointStatus
+ENDPOINT_STATUS_UNAVAILABLE: EndpointStatus
+ENDPOINT_STATUS_UNSPECIFIED: EndpointStatus
 ENDPOINT_TYPE_FILE: EndpointType
 ENDPOINT_TYPE_S3: EndpointType
 ENDPOINT_TYPE_UNSPECIFIED: EndpointType
@@ -34,6 +40,7 @@ SOURCE_TYPE_UNSPECIFIED: SourceType
 SOURCE_TYPE_URL: SourceType
 STATUS_AVAILABLE: Status
 STATUS_ERROR: Status
+STATUS_FINALIZING: Status
 STATUS_INITIALIZING: Status
 STATUS_TRASH: Status
 STATUS_UNAVAILABLE: Status
@@ -158,7 +165,7 @@ class Collections(_message.Message):
     def __init__(self, collections: _Optional[_Iterable[_Union[Collection, _Mapping]]] = ...) -> None: ...
 
 class Endpoint(_message.Message):
-    __slots__ = ["documentation_path", "ep_type", "id", "internal_hostname", "is_default", "is_public", "name", "proxy_hostname"]
+    __slots__ = ["documentation_path", "ep_type", "id", "internal_hostname", "is_default", "is_public", "name", "proxy_hostname", "status"]
     DOCUMENTATION_PATH_FIELD_NUMBER: _ClassVar[int]
     EP_TYPE_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -167,6 +174,7 @@ class Endpoint(_message.Message):
     IS_PUBLIC_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROXY_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
     documentation_path: str
     ep_type: EndpointType
     id: str
@@ -175,7 +183,8 @@ class Endpoint(_message.Message):
     is_public: bool
     name: str
     proxy_hostname: str
-    def __init__(self, id: _Optional[str] = ..., ep_type: _Optional[_Union[EndpointType, str]] = ..., name: _Optional[str] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., is_default: bool = ...) -> None: ...
+    status: EndpointStatus
+    def __init__(self, id: _Optional[str] = ..., ep_type: _Optional[_Union[EndpointType, str]] = ..., name: _Optional[str] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., is_default: bool = ..., status: _Optional[_Union[EndpointStatus, str]] = ...) -> None: ...
 
 class Hash(_message.Message):
     __slots__ = ["alg", "hash"]
@@ -364,6 +373,9 @@ class ResourceAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
 
 class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+
+class EndpointStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
 
 class Hashalgorithm(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):

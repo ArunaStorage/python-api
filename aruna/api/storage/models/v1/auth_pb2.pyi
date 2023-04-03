@@ -73,38 +73,44 @@ class ProjectPermissionDisplayName(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., project_id: _Optional[str] = ..., permission: _Optional[_Union[Permission, str]] = ..., display_name: _Optional[str] = ...) -> None: ...
 
 class Token(_message.Message):
-    __slots__ = ["collection_id", "created_at", "expires_at", "id", "name", "permission", "project_id", "token_type"]
+    __slots__ = ["collection_id", "created_at", "expires_at", "id", "is_session", "name", "permission", "project_id", "token_type", "used_at"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
+    IS_SESSION_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     TOKEN_TYPE_FIELD_NUMBER: _ClassVar[int]
+    USED_AT_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     created_at: _timestamp_pb2.Timestamp
     expires_at: _timestamp_pb2.Timestamp
     id: str
+    is_session: bool
     name: str
     permission: Permission
     project_id: str
     token_type: TokenType
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., token_type: _Optional[_Union[TokenType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., collection_id: _Optional[str] = ..., project_id: _Optional[str] = ..., permission: _Optional[_Union[Permission, str]] = ...) -> None: ...
+    used_at: _timestamp_pb2.Timestamp
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., token_type: _Optional[_Union[TokenType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., collection_id: _Optional[str] = ..., project_id: _Optional[str] = ..., permission: _Optional[_Union[Permission, str]] = ..., is_session: bool = ..., used_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class User(_message.Message):
-    __slots__ = ["active", "display_name", "external_id", "id", "is_admin"]
+    __slots__ = ["active", "display_name", "external_id", "id", "is_admin", "is_service_account"]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     IS_ADMIN_FIELD_NUMBER: _ClassVar[int]
+    IS_SERVICE_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
     active: bool
     display_name: str
     external_id: str
     id: str
     is_admin: bool
-    def __init__(self, id: _Optional[str] = ..., external_id: _Optional[str] = ..., display_name: _Optional[str] = ..., active: bool = ..., is_admin: bool = ...) -> None: ...
+    is_service_account: bool
+    def __init__(self, id: _Optional[str] = ..., external_id: _Optional[str] = ..., display_name: _Optional[str] = ..., active: bool = ..., is_admin: bool = ..., is_service_account: bool = ...) -> None: ...
 
 class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []

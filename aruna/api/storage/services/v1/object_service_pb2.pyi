@@ -471,9 +471,8 @@ class URL(_message.Message):
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
 class UpdateObjectRequest(_message.Message):
-    __slots__ = ["collection_id", "force", "hash", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
+    __slots__ = ["collection_id", "hash", "is_specification", "multi_part", "object", "object_id", "preferred_endpoint_id", "reupload"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
-    FORCE_FIELD_NUMBER: _ClassVar[int]
     HASH_FIELD_NUMBER: _ClassVar[int]
     IS_SPECIFICATION_FIELD_NUMBER: _ClassVar[int]
     MULTI_PART_FIELD_NUMBER: _ClassVar[int]
@@ -482,7 +481,6 @@ class UpdateObjectRequest(_message.Message):
     PREFERRED_ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
     REUPLOAD_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
-    force: bool
     hash: _models_pb2.Hash
     is_specification: bool
     multi_part: bool
@@ -490,7 +488,7 @@ class UpdateObjectRequest(_message.Message):
     object_id: str
     preferred_endpoint_id: str
     reupload: bool
-    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ..., force: bool = ..., hash: _Optional[_Union[_models_pb2.Hash, _Mapping]] = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., object: _Optional[_Union[StageObject, _Mapping]] = ..., reupload: bool = ..., preferred_endpoint_id: _Optional[str] = ..., multi_part: bool = ..., is_specification: bool = ..., hash: _Optional[_Union[_models_pb2.Hash, _Mapping]] = ...) -> None: ...
 
 class UpdateObjectResponse(_message.Message):
     __slots__ = ["collection_id", "object_id", "staging_id"]
