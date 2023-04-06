@@ -23,6 +23,11 @@ class UserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserResponse.FromString,
                 )
+        self.DeactivateUser = channel.unary_unary(
+                '/aruna.api.storage.services.v1.UserService/DeactivateUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserResponse.FromString,
+                )
         self.ActivateUser = channel.unary_unary(
                 '/aruna.api.storage.services.v1.UserService/ActivateUser',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.ActivateUserRequest.SerializeToString,
@@ -73,6 +78,11 @@ class UserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersResponse.FromString,
                 )
+        self.GetAllUsers = channel.unary_unary(
+                '/aruna.api.storage.services.v1.UserService/GetAllUsers',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersResponse.FromString,
+                )
 
 
 class UserServiceServicer(object):
@@ -88,6 +98,17 @@ class UserServiceServicer(object):
         Status: STABLE
 
         This request should be called when a new user logs in for the first time
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeactivateUser(self, request, context):
+        """DeActivateUser 
+
+        Status: ALPHA
+
+        This deactivates a specific user (Admin request)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -204,6 +225,17 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllUsers(self, request, context):
+        """GetAllUsers
+
+        Status: ALPHA
+
+        Get all users inkluding permissions (Admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -211,6 +243,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.RegisterUser,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserResponse.SerializeToString,
+            ),
+            'DeactivateUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeactivateUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserResponse.SerializeToString,
             ),
             'ActivateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.ActivateUser,
@@ -262,6 +299,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersResponse.SerializeToString,
             ),
+            'GetAllUsers': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllUsers,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'aruna.api.storage.services.v1.UserService', rpc_method_handlers)
@@ -290,6 +332,23 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/RegisterUser',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.RegisterUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeactivateUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/DeactivateUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.DeactivateUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -460,5 +519,22 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/GetNotActivatedUsers',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetNotActivatedUsersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllUsers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/GetAllUsers',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetAllUsersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

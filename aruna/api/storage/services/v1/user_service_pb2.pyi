@@ -9,28 +9,32 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ActivateUserRequest(_message.Message):
-    __slots__ = ["user_id"]
+    __slots__ = ["project_perms", "user_id"]
+    PROJECT_PERMS_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
+    project_perms: _auth_pb2.ProjectPermission
     user_id: str
-    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., project_perms: _Optional[_Union[_auth_pb2.ProjectPermission, _Mapping]] = ...) -> None: ...
 
 class ActivateUserResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
 class CreateAPITokenRequest(_message.Message):
-    __slots__ = ["collection_id", "expires_at", "name", "permission", "project_id"]
+    __slots__ = ["collection_id", "expires_at", "is_session", "name", "permission", "project_id"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    IS_SESSION_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     expires_at: ExpiresAt
+    is_session: bool
     name: str
     permission: _auth_pb2.Permission
     project_id: str
-    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., name: _Optional[str] = ..., expires_at: _Optional[_Union[ExpiresAt, _Mapping]] = ..., permission: _Optional[_Union[_auth_pb2.Permission, str]] = ...) -> None: ...
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., name: _Optional[str] = ..., expires_at: _Optional[_Union[ExpiresAt, _Mapping]] = ..., permission: _Optional[_Union[_auth_pb2.Permission, str]] = ..., is_session: bool = ...) -> None: ...
 
 class CreateAPITokenResponse(_message.Message):
     __slots__ = ["s3_access_key", "s3_secret_key", "token", "token_secret"]
@@ -43,6 +47,16 @@ class CreateAPITokenResponse(_message.Message):
     token: _auth_pb2.Token
     token_secret: str
     def __init__(self, token: _Optional[_Union[_auth_pb2.Token, _Mapping]] = ..., token_secret: _Optional[str] = ..., s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ...) -> None: ...
+
+class DeactivateUserRequest(_message.Message):
+    __slots__ = ["user_id"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class DeactivateUserResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class DeleteAPITokenRequest(_message.Message):
     __slots__ = ["token_id"]
@@ -92,6 +106,18 @@ class GetAPITokensResponse(_message.Message):
     token: _containers.RepeatedCompositeFieldContainer[_auth_pb2.Token]
     def __init__(self, token: _Optional[_Iterable[_Union[_auth_pb2.Token, _Mapping]]] = ...) -> None: ...
 
+class GetAllUsersRequest(_message.Message):
+    __slots__ = ["include_permissions"]
+    INCLUDE_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    include_permissions: bool
+    def __init__(self, include_permissions: bool = ...) -> None: ...
+
+class GetAllUsersResponse(_message.Message):
+    __slots__ = ["user_with_perms"]
+    USER_WITH_PERMS_FIELD_NUMBER: _ClassVar[int]
+    user_with_perms: _containers.RepeatedCompositeFieldContainer[UserWithPerms]
+    def __init__(self, user_with_perms: _Optional[_Iterable[_Union[UserWithPerms, _Mapping]]] = ...) -> None: ...
+
 class GetNotActivatedUsersRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
@@ -129,10 +155,14 @@ class GetUserResponse(_message.Message):
     def __init__(self, user: _Optional[_Union[_auth_pb2.User, _Mapping]] = ..., project_permissions: _Optional[_Iterable[_Union[_auth_pb2.ProjectPermission, _Mapping]]] = ...) -> None: ...
 
 class RegisterUserRequest(_message.Message):
-    __slots__ = ["display_name"]
+    __slots__ = ["display_name", "email", "project"]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_FIELD_NUMBER: _ClassVar[int]
     display_name: str
-    def __init__(self, display_name: _Optional[str] = ...) -> None: ...
+    email: str
+    project: str
+    def __init__(self, display_name: _Optional[str] = ..., email: _Optional[str] = ..., project: _Optional[str] = ...) -> None: ...
 
 class RegisterUserResponse(_message.Message):
     __slots__ = ["user_id"]
@@ -161,3 +191,11 @@ class UserProject(_message.Message):
     id: str
     name: str
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class UserWithPerms(_message.Message):
+    __slots__ = ["project_perms", "user"]
+    PROJECT_PERMS_FIELD_NUMBER: _ClassVar[int]
+    USER_FIELD_NUMBER: _ClassVar[int]
+    project_perms: _containers.RepeatedCompositeFieldContainer[_auth_pb2.ProjectPermission]
+    user: _auth_pb2.User
+    def __init__(self, user: _Optional[_Union[_auth_pb2.User, _Mapping]] = ..., project_perms: _Optional[_Iterable[_Union[_auth_pb2.ProjectPermission, _Mapping]]] = ...) -> None: ...
