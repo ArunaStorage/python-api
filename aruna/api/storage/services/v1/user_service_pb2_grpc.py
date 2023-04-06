@@ -68,6 +68,11 @@ class UserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameResponse.FromString,
                 )
+        self.UpdateUserEmail = channel.unary_unary(
+                '/aruna.api.storage.services.v1.UserService/UpdateUserEmail',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailResponse.FromString,
+                )
         self.GetUserProjects = channel.unary_unary(
                 '/aruna.api.storage.services.v1.UserService/GetUserProjects',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.GetUserProjectsRequest.SerializeToString,
@@ -203,6 +208,17 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateUserEmail(self, request, context):
+        """UpdateUserDisplayName
+
+        Status: ALPHA
+
+        Updates the email for the user (Personal only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetUserProjects(self, request, context):
         """GetUserProjects
 
@@ -288,6 +304,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.UpdateUserDisplayName,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameResponse.SerializeToString,
+            ),
+            'UpdateUserEmail': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserEmail,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailResponse.SerializeToString,
             ),
             'GetUserProjects': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserProjects,
@@ -485,6 +506,23 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/UpdateUserDisplayName',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserDisplayNameResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateUserEmail(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.UserService/UpdateUserEmail',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_user__service__pb2.UpdateUserEmailResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

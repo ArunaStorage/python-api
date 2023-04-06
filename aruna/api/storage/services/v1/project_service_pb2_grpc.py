@@ -57,6 +57,11 @@ class ProjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectResponse.FromString,
                 )
+        self.GetAllUserPermissionsForProject = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ProjectService/GetAllUserPermissionsForProject',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectResponse.FromString,
+                )
         self.EditUserPermissionsForProject = channel.unary_unary(
                 '/aruna.api.storage.services.v1.ProjectService/EditUserPermissionsForProject',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.EditUserPermissionsForProjectRequest.SerializeToString,
@@ -159,6 +164,17 @@ class ProjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAllUserPermissionsForProject(self, request, context):
+        """GetAllUserPermissionsForProject
+
+        Status: ALPHA
+
+        Get the user_permission of a specific user for the project.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def EditUserPermissionsForProject(self, request, context):
         """EditUserPermissionsForProject
 
@@ -212,6 +228,11 @@ def add_ProjectServiceServicer_to_server(servicer, server):
                     servicer.GetUserPermissionsForProject,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectResponse.SerializeToString,
+            ),
+            'GetAllUserPermissionsForProject': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllUserPermissionsForProject,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectResponse.SerializeToString,
             ),
             'EditUserPermissionsForProject': grpc.unary_unary_rpc_method_handler(
                     servicer.EditUserPermissionsForProject,
@@ -364,6 +385,23 @@ class ProjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ProjectService/GetUserPermissionsForProject',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetUserPermissionsForProjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllUserPermissionsForProject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ProjectService/GetAllUserPermissionsForProject',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_project__service__pb2.GetAllUserPermissionsForProjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

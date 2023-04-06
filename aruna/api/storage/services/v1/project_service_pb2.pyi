@@ -56,6 +56,18 @@ class EditUserPermissionsForProjectResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class GetAllUserPermissionsForProjectRequest(_message.Message):
+    __slots__ = ["project_id"]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    def __init__(self, project_id: _Optional[str] = ...) -> None: ...
+
+class GetAllUserPermissionsForProjectResponse(_message.Message):
+    __slots__ = ["users"]
+    USERS_FIELD_NUMBER: _ClassVar[int]
+    users: _containers.RepeatedCompositeFieldContainer[UserWithProjectPermissions]
+    def __init__(self, users: _Optional[_Iterable[_Union[UserWithProjectPermissions, _Mapping]]] = ...) -> None: ...
+
 class GetProjectRequest(_message.Message):
     __slots__ = ["project_id"]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -119,3 +131,11 @@ class UpdateProjectResponse(_message.Message):
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _auth_pb2.ProjectOverview
     def __init__(self, project: _Optional[_Union[_auth_pb2.ProjectOverview, _Mapping]] = ...) -> None: ...
+
+class UserWithProjectPermissions(_message.Message):
+    __slots__ = ["user", "user_permissions"]
+    USER_FIELD_NUMBER: _ClassVar[int]
+    USER_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    user: _auth_pb2.User
+    user_permissions: _auth_pb2.ProjectPermission
+    def __init__(self, user: _Optional[_Union[_auth_pb2.User, _Mapping]] = ..., user_permissions: _Optional[_Union[_auth_pb2.ProjectPermission, _Mapping]] = ...) -> None: ...

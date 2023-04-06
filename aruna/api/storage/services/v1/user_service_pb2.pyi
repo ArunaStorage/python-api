@@ -182,6 +182,20 @@ class UpdateUserDisplayNameResponse(_message.Message):
     user: _auth_pb2.User
     def __init__(self, user: _Optional[_Union[_auth_pb2.User, _Mapping]] = ...) -> None: ...
 
+class UpdateUserEmailRequest(_message.Message):
+    __slots__ = ["new_email", "user_id"]
+    NEW_EMAIL_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    new_email: str
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ..., new_email: _Optional[str] = ...) -> None: ...
+
+class UpdateUserEmailResponse(_message.Message):
+    __slots__ = ["user"]
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _auth_pb2.User
+    def __init__(self, user: _Optional[_Union[_auth_pb2.User, _Mapping]] = ...) -> None: ...
+
 class UserProject(_message.Message):
     __slots__ = ["description", "id", "name"]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
