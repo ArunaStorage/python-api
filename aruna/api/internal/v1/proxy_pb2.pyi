@@ -12,6 +12,16 @@ LOCATION_TYPE_FILE: LocationType
 LOCATION_TYPE_S3: LocationType
 LOCATION_TYPE_UNSPECIFIED: LocationType
 
+class CORSConfig(_message.Message):
+    __slots__ = ["allowed_headers", "allowed_methods", "allowed_origins"]
+    ALLOWED_HEADERS_FIELD_NUMBER: _ClassVar[int]
+    ALLOWED_METHODS_FIELD_NUMBER: _ClassVar[int]
+    ALLOWED_ORIGINS_FIELD_NUMBER: _ClassVar[int]
+    allowed_headers: _containers.RepeatedScalarFieldContainer[str]
+    allowed_methods: _containers.RepeatedScalarFieldContainer[str]
+    allowed_origins: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, allowed_methods: _Optional[_Iterable[str]] = ..., allowed_origins: _Optional[_Iterable[str]] = ..., allowed_headers: _Optional[_Iterable[str]] = ...) -> None: ...
+
 class DeleteObjectRequest(_message.Message):
     __slots__ = ["location"]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
@@ -87,12 +97,14 @@ class GetObjectLocationRequest(_message.Message):
     def __init__(self, path: _Optional[str] = ..., revision_id: _Optional[str] = ..., access_key: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
 
 class GetObjectLocationResponse(_message.Message):
-    __slots__ = ["location", "object"]
+    __slots__ = ["cors_configurations", "location", "object"]
+    CORS_CONFIGURATIONS_FIELD_NUMBER: _ClassVar[int]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
     OBJECT_FIELD_NUMBER: _ClassVar[int]
+    cors_configurations: _containers.RepeatedCompositeFieldContainer[CORSConfig]
     location: Location
     object: _models_pb2.Object
-    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., location: _Optional[_Union[Location, _Mapping]] = ...) -> None: ...
+    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., location: _Optional[_Union[Location, _Mapping]] = ..., cors_configurations: _Optional[_Iterable[_Union[CORSConfig, _Mapping]]] = ...) -> None: ...
 
 class GetOrCreateEncryptionKeyRequest(_message.Message):
     __slots__ = ["endpoint_id", "hash", "path"]

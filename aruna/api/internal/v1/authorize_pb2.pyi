@@ -48,6 +48,18 @@ class GetSecretResponse(_message.Message):
     authorization: Authorization
     def __init__(self, authorization: _Optional[_Union[Authorization, _Mapping]] = ...) -> None: ...
 
+class GetTokenFromSecretRequest(_message.Message):
+    __slots__ = ["authorization"]
+    AUTHORIZATION_FIELD_NUMBER: _ClassVar[int]
+    authorization: Authorization
+    def __init__(self, authorization: _Optional[_Union[Authorization, _Mapping]] = ...) -> None: ...
+
+class GetTokenFromSecretResponse(_message.Message):
+    __slots__ = ["token"]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    token: str
+    def __init__(self, token: _Optional[str] = ...) -> None: ...
+
 class Identifier(_message.Message):
     __slots__ = ["idtype", "name"]
     IDTYPE_FIELD_NUMBER: _ClassVar[int]

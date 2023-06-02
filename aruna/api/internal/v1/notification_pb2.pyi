@@ -17,18 +17,20 @@ class CollectionResource(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
 
 class CreateStreamGroupRequest(_message.Message):
-    __slots__ = ["event_type", "notify_on_sub_resource", "resource_id", "resource_type", "token"]
+    __slots__ = ["event_type", "notify_on_sub_resource", "resource_id", "resource_type", "subject", "token"]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     NOTIFY_ON_SUB_RESOURCE_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SUBJECT_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     event_type: _notification_service_pb2.EventType
     notify_on_sub_resource: bool
     resource_id: str
     resource_type: _models_pb2.ResourceType
+    subject: str
     token: str
-    def __init__(self, token: _Optional[str] = ..., event_type: _Optional[_Union[_notification_service_pb2.EventType, str]] = ..., resource_type: _Optional[_Union[_models_pb2.ResourceType, str]] = ..., resource_id: _Optional[str] = ..., notify_on_sub_resource: bool = ...) -> None: ...
+    def __init__(self, token: _Optional[str] = ..., event_type: _Optional[_Union[_notification_service_pb2.EventType, str]] = ..., resource_type: _Optional[_Union[_models_pb2.ResourceType, str]] = ..., resource_id: _Optional[str] = ..., notify_on_sub_resource: bool = ..., subject: _Optional[str] = ...) -> None: ...
 
 class CreateStreamGroupResponse(_message.Message):
     __slots__ = ["stream_group"]
