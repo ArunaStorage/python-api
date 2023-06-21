@@ -40,6 +40,12 @@ class CloneObjectResponse(_message.Message):
     object: _models_pb2.Object
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
 
+class CommonPrefix(_message.Message):
+    __slots__ = ["prefix"]
+    PREFIX_FIELD_NUMBER: _ClassVar[int]
+    prefix: str
+    def __init__(self, prefix: _Optional[str] = ...) -> None: ...
+
 class CompletedParts(_message.Message):
     __slots__ = ["etag", "part"]
     ETAG_FIELD_NUMBER: _ClassVar[int]
@@ -275,6 +281,40 @@ class GetObjectRevisionsResponse(_message.Message):
     OBJECTS_FIELD_NUMBER: _ClassVar[int]
     objects: _containers.RepeatedCompositeFieldContainer[ObjectWithURL]
     def __init__(self, objects: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ...) -> None: ...
+
+class GetObjectsAsListV2Request(_message.Message):
+    __slots__ = ["bucket", "continuation_token", "delimiter", "max_keys", "prefix", "start_after"]
+    BUCKET_FIELD_NUMBER: _ClassVar[int]
+    CONTINUATION_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    DELIMITER_FIELD_NUMBER: _ClassVar[int]
+    MAX_KEYS_FIELD_NUMBER: _ClassVar[int]
+    PREFIX_FIELD_NUMBER: _ClassVar[int]
+    START_AFTER_FIELD_NUMBER: _ClassVar[int]
+    bucket: str
+    continuation_token: str
+    delimiter: str
+    max_keys: int
+    prefix: str
+    start_after: str
+    def __init__(self, bucket: _Optional[str] = ..., continuation_token: _Optional[str] = ..., delimiter: _Optional[str] = ..., max_keys: _Optional[int] = ..., prefix: _Optional[str] = ..., start_after: _Optional[str] = ...) -> None: ...
+
+class GetObjectsAsListV2Response(_message.Message):
+    __slots__ = ["contents", "is_truncated", "key_count", "max_keys", "name", "next_continuation_token", "prefixes"]
+    CONTENTS_FIELD_NUMBER: _ClassVar[int]
+    IS_TRUNCATED_FIELD_NUMBER: _ClassVar[int]
+    KEY_COUNT_FIELD_NUMBER: _ClassVar[int]
+    MAX_KEYS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    NEXT_CONTINUATION_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    PREFIXES_FIELD_NUMBER: _ClassVar[int]
+    contents: _containers.RepeatedCompositeFieldContainer[_models_pb2.Object]
+    is_truncated: bool
+    key_count: int
+    max_keys: int
+    name: str
+    next_continuation_token: str
+    prefixes: _containers.RepeatedCompositeFieldContainer[CommonPrefix]
+    def __init__(self, name: _Optional[str] = ..., is_truncated: bool = ..., max_keys: _Optional[int] = ..., key_count: _Optional[int] = ..., contents: _Optional[_Iterable[_Union[_models_pb2.Object, _Mapping]]] = ..., prefixes: _Optional[_Iterable[_Union[CommonPrefix, _Mapping]]] = ..., next_continuation_token: _Optional[str] = ...) -> None: ...
 
 class GetObjectsByPathRequest(_message.Message):
     __slots__ = ["path", "with_revisions"]

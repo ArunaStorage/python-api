@@ -285,3 +285,192 @@ class CollectionService(object):
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class WorkspaceServiceStub(object):
+    """WorkspaceService
+
+    Service to manage "special" anonymous collections / workspaces 
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.CreateWorkspace = channel.unary_unary(
+                '/aruna.api.storage.services.v1.WorkspaceService/CreateWorkspace',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceResponse.FromString,
+                )
+        self.DeleteWorkspace = channel.unary_unary(
+                '/aruna.api.storage.services.v1.WorkspaceService/DeleteWorkspace',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceResponse.FromString,
+                )
+        self.ClaimWorkspace = channel.unary_unary(
+                '/aruna.api.storage.services.v1.WorkspaceService/ClaimWorkspace',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceResponse.FromString,
+                )
+        self.MoveWorkspaceData = channel.unary_unary(
+                '/aruna.api.storage.services.v1.WorkspaceService/MoveWorkspaceData',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataResponse.FromString,
+                )
+
+
+class WorkspaceServiceServicer(object):
+    """WorkspaceService
+
+    Service to manage "special" anonymous collections / workspaces 
+    """
+
+    def CreateWorkspace(self, request, context):
+        """CreateWorkspace
+
+        Status: ALPHA
+
+        A new request to create a personal anonymous workspace
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteWorkspace(self, request, context):
+        """DeleteWorkspace
+
+        Status: ALPHA
+
+        Delete a workspace
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ClaimWorkspace(self, request, context):
+        """DeleteWorkspace
+
+        Status: ALPHA
+
+        Claims an anonymous workspace, and transfers the owner to a regular user account.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def MoveWorkspaceData(self, request, context):
+        """MoveWorkspaceData
+
+        Status: ALPHA
+
+        Claims an anonymous workspace
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WorkspaceServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'CreateWorkspace': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateWorkspace,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceResponse.SerializeToString,
+            ),
+            'DeleteWorkspace': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteWorkspace,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceResponse.SerializeToString,
+            ),
+            'ClaimWorkspace': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClaimWorkspace,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceResponse.SerializeToString,
+            ),
+            'MoveWorkspaceData': grpc.unary_unary_rpc_method_handler(
+                    servicer.MoveWorkspaceData,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'aruna.api.storage.services.v1.WorkspaceService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class WorkspaceService(object):
+    """WorkspaceService
+
+    Service to manage "special" anonymous collections / workspaces 
+    """
+
+    @staticmethod
+    def CreateWorkspace(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.WorkspaceService/CreateWorkspace',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.CreateWorkspaceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteWorkspace(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.WorkspaceService/DeleteWorkspace',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteWorkspaceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ClaimWorkspace(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.WorkspaceService/ClaimWorkspace',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.ClaimWorkspaceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MoveWorkspaceData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.WorkspaceService/MoveWorkspaceData',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.MoveWorkspaceDataResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

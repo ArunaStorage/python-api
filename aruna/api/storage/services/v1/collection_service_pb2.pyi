@@ -8,6 +8,18 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class ClaimWorkspaceRequest(_message.Message):
+    __slots__ = ["token", "workspace_id"]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
+    token: str
+    workspace_id: str
+    def __init__(self, workspace_id: _Optional[str] = ..., token: _Optional[str] = ...) -> None: ...
+
+class ClaimWorkspaceResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class CreateNewCollectionRequest(_message.Message):
     __slots__ = ["dataclass", "description", "hooks", "label_ontology", "labels", "name", "project_id"]
     DATACLASS_FIELD_NUMBER: _ClassVar[int]
@@ -32,6 +44,24 @@ class CreateNewCollectionResponse(_message.Message):
     collection_id: str
     def __init__(self, collection_id: _Optional[str] = ...) -> None: ...
 
+class CreateWorkspaceRequest(_message.Message):
+    __slots__ = ["project_name"]
+    PROJECT_NAME_FIELD_NUMBER: _ClassVar[int]
+    project_name: str
+    def __init__(self, project_name: _Optional[str] = ...) -> None: ...
+
+class CreateWorkspaceResponse(_message.Message):
+    __slots__ = ["access_key", "secret_key", "token", "workspace_id"]
+    ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
+    access_key: str
+    secret_key: str
+    token: str
+    workspace_id: str
+    def __init__(self, workspace_id: _Optional[str] = ..., token: _Optional[str] = ..., access_key: _Optional[str] = ..., secret_key: _Optional[str] = ...) -> None: ...
+
 class DeleteCollectionRequest(_message.Message):
     __slots__ = ["collection_id", "force"]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -41,6 +71,16 @@ class DeleteCollectionRequest(_message.Message):
     def __init__(self, collection_id: _Optional[str] = ..., force: bool = ...) -> None: ...
 
 class DeleteCollectionResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class DeleteWorkspaceRequest(_message.Message):
+    __slots__ = ["workspace_id"]
+    WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
+    workspace_id: str
+    def __init__(self, workspace_id: _Optional[str] = ...) -> None: ...
+
+class DeleteWorkspaceResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
@@ -71,6 +111,18 @@ class GetCollectionsResponse(_message.Message):
     COLLECTIONS_FIELD_NUMBER: _ClassVar[int]
     collections: _models_pb2.CollectionOverviews
     def __init__(self, collections: _Optional[_Union[_models_pb2.CollectionOverviews, _Mapping]] = ...) -> None: ...
+
+class MoveWorkspaceDataRequest(_message.Message):
+    __slots__ = ["collection_id", "workspace_id"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    workspace_id: str
+    def __init__(self, workspace_id: _Optional[str] = ..., collection_id: _Optional[str] = ...) -> None: ...
+
+class MoveWorkspaceDataResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class PinCollectionVersionRequest(_message.Message):
     __slots__ = ["collection_id", "version"]

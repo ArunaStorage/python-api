@@ -142,6 +142,11 @@ class ObjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathResponse.FromString,
                 )
+        self.GetObjectsAsListV2 = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ObjectService/GetObjectsAsListV2',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Request.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Response.FromString,
+                )
 
 
 class ObjectServiceServicer(object):
@@ -454,11 +459,23 @@ class ObjectServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetProjectCollectionIdsByPath(self, request, context):
-        """GetObjectsByPath
+        """GetProjectCollectionIdsByPath
 
         Status: BETA
 
-        Gets a specific object by object_path
+        Gets a specific project and collection_id by object_path
+        !! Paths are collection specific !!
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectsAsListV2(self, request, context):
+        """GetObjectsAsListV2
+
+        Status: ALPHA
+
+        Gets a list of objects represented similar to a S3 ListObjectsV2 request
         !! Paths are collection specific !!
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -592,6 +609,11 @@ def add_ObjectServiceServicer_to_server(servicer, server):
                     servicer.GetProjectCollectionIdsByPath,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathResponse.SerializeToString,
+            ),
+            'GetObjectsAsListV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectsAsListV2,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Request.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1028,5 +1050,22 @@ class ObjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetProjectCollectionIdsByPath',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetProjectCollectionIdsByPathResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectsAsListV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ObjectService/GetObjectsAsListV2',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Request.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_object__service__pb2.GetObjectsAsListV2Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
