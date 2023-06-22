@@ -13,9 +13,11 @@ _sym_db = _symbol_database.Default()
 
 from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from aruna.api.storage.models.v1 import models_pb2 as aruna_dot_api_dot_storage_dot_models_dot_v1_dot_models__pb2
+from aruna.api.internal.v1 import proxy_pb2 as aruna_dot_api_dot_internal_dot_v1_dot_proxy__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#aruna/api/internal/v1/bundler.proto\x12\x15\x61runa.api.internal.v1\x1a\x1bgoogle/api/visibility.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"3\n\x14PrepareBundleRequest\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\"\x17\n\x15PrepareBundleResponse\"|\n\tObjectRef\x12\'\n\x0fobject_location\x18\x01 \x01(\tR\x0eobjectLocation\x12%\n\x0e\x65ncryption_key\x18\x02 \x01(\tR\rencryptionKey\x12\x1f\n\x0bobject_path\x18\x03 \x01(\tR\nobjectPath\"\xa3\x01\n\x06\x42undle\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\x12\x41\n\x0bobject_refs\x18\x02 \x03(\x0b\x32 .aruna.api.internal.v1.ObjectRefR\nobjectRefs\x12\x39\n\nexpires_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\"L\n\x13\x45nableBundleRequest\x12\x35\n\x06\x62undle\x18\x01 \x01(\x0b\x32\x1d.aruna.api.internal.v1.BundleR\x06\x62undle\"\x16\n\x14\x45nableBundleResponse\"\x13\n\x11GetBundlesRequest\"M\n\x12GetBundlesResponse\x12\x37\n\x07\x62undles\x18\x01 \x03(\x0b\x32\x1d.aruna.api.internal.v1.BundleR\x07\x62undles\"6\n\x17InvalidateBundleRequest\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\"\x1a\n\x18InvalidateBundleResponse2\xfa\x02\n\x16InternalBundlerService\x12l\n\rPrepareBundle\x12+.aruna.api.internal.v1.PrepareBundleRequest\x1a,.aruna.api.internal.v1.PrepareBundleResponse\"\x00\x12i\n\x0c\x45nableBundle\x12*.aruna.api.internal.v1.EnableBundleRequest\x1a+.aruna.api.internal.v1.EnableBundleResponse\"\x00\x12u\n\x10InvalidateBundle\x12..aruna.api.internal.v1.InvalidateBundleRequest\x1a/.aruna.api.internal.v1.InvalidateBundleResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL2\x9a\x01\n!InternalBundlerBackchannelService\x12\x63\n\nGetBundles\x12(.aruna.api.internal.v1.GetBundlesRequest\x1a).aruna.api.internal.v1.GetBundlesResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#aruna/api/internal/v1/bundler.proto\x12\x15\x61runa.api.internal.v1\x1a\x1bgoogle/api/visibility.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a(aruna/api/storage/models/v1/models.proto\x1a!aruna/api/internal/v1/proxy.proto\"3\n\x14PrepareBundleRequest\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\"\x17\n\x15PrepareBundleResponse\"\xb6\x01\n\tObjectRef\x12H\n\x0fobject_location\x18\x01 \x01(\x0b\x32\x1f.aruna.api.internal.v1.LocationR\x0eobjectLocation\x12\x44\n\x0bobject_info\x18\x02 \x01(\x0b\x32#.aruna.api.storage.models.v1.ObjectR\nobjectInfo\x12\x19\n\x08sub_path\x18\x03 \x01(\tR\x07subPath\"\xa3\x01\n\x06\x42undle\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\x12\x41\n\x0bobject_refs\x18\x02 \x03(\x0b\x32 .aruna.api.internal.v1.ObjectRefR\nobjectRefs\x12\x39\n\nexpires_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\texpiresAt\"L\n\x13\x45nableBundleRequest\x12\x35\n\x06\x62undle\x18\x01 \x01(\x0b\x32\x1d.aruna.api.internal.v1.BundleR\x06\x62undle\"\x16\n\x14\x45nableBundleResponse\"4\n\x11GetBundlesRequest\x12\x1f\n\x0b\x65ndpoint_id\x18\x01 \x01(\tR\nendpointId\"M\n\x12GetBundlesResponse\x12\x37\n\x07\x62undles\x18\x01 \x03(\x0b\x32\x1d.aruna.api.internal.v1.BundleR\x07\x62undles\"6\n\x17InvalidateBundleRequest\x12\x1b\n\tbundle_id\x18\x01 \x01(\tR\x08\x62undleId\"\x1a\n\x18InvalidateBundleResponse2\xfa\x02\n\x16InternalBundlerService\x12l\n\rPrepareBundle\x12+.aruna.api.internal.v1.PrepareBundleRequest\x1a,.aruna.api.internal.v1.PrepareBundleResponse\"\x00\x12i\n\x0c\x45nableBundle\x12*.aruna.api.internal.v1.EnableBundleRequest\x1a+.aruna.api.internal.v1.EnableBundleResponse\"\x00\x12u\n\x10InvalidateBundle\x12..aruna.api.internal.v1.InvalidateBundleRequest\x1a/.aruna.api.internal.v1.InvalidateBundleResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL2\x9a\x01\n!InternalBundlerBackchannelService\x12\x63\n\nGetBundles\x12(.aruna.api.internal.v1.GetBundlesRequest\x1a).aruna.api.internal.v1.GetBundlesResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB6Z4github.com/ArunaStorage/go-api/aruna/api/internal/v1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aruna.api.internal.v1.bundler_pb2', globals())
@@ -27,28 +29,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INTERNALBUNDLERSERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
   _INTERNALBUNDLERBACKCHANNELSERVICE._options = None
   _INTERNALBUNDLERBACKCHANNELSERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
-  _PREPAREBUNDLEREQUEST._serialized_start=124
-  _PREPAREBUNDLEREQUEST._serialized_end=175
-  _PREPAREBUNDLERESPONSE._serialized_start=177
-  _PREPAREBUNDLERESPONSE._serialized_end=200
-  _OBJECTREF._serialized_start=202
-  _OBJECTREF._serialized_end=326
-  _BUNDLE._serialized_start=329
-  _BUNDLE._serialized_end=492
-  _ENABLEBUNDLEREQUEST._serialized_start=494
-  _ENABLEBUNDLEREQUEST._serialized_end=570
-  _ENABLEBUNDLERESPONSE._serialized_start=572
-  _ENABLEBUNDLERESPONSE._serialized_end=594
-  _GETBUNDLESREQUEST._serialized_start=596
-  _GETBUNDLESREQUEST._serialized_end=615
-  _GETBUNDLESRESPONSE._serialized_start=617
-  _GETBUNDLESRESPONSE._serialized_end=694
-  _INVALIDATEBUNDLEREQUEST._serialized_start=696
-  _INVALIDATEBUNDLEREQUEST._serialized_end=750
-  _INVALIDATEBUNDLERESPONSE._serialized_start=752
-  _INVALIDATEBUNDLERESPONSE._serialized_end=778
-  _INTERNALBUNDLERSERVICE._serialized_start=781
-  _INTERNALBUNDLERSERVICE._serialized_end=1159
-  _INTERNALBUNDLERBACKCHANNELSERVICE._serialized_start=1162
-  _INTERNALBUNDLERBACKCHANNELSERVICE._serialized_end=1316
+  _PREPAREBUNDLEREQUEST._serialized_start=201
+  _PREPAREBUNDLEREQUEST._serialized_end=252
+  _PREPAREBUNDLERESPONSE._serialized_start=254
+  _PREPAREBUNDLERESPONSE._serialized_end=277
+  _OBJECTREF._serialized_start=280
+  _OBJECTREF._serialized_end=462
+  _BUNDLE._serialized_start=465
+  _BUNDLE._serialized_end=628
+  _ENABLEBUNDLEREQUEST._serialized_start=630
+  _ENABLEBUNDLEREQUEST._serialized_end=706
+  _ENABLEBUNDLERESPONSE._serialized_start=708
+  _ENABLEBUNDLERESPONSE._serialized_end=730
+  _GETBUNDLESREQUEST._serialized_start=732
+  _GETBUNDLESREQUEST._serialized_end=784
+  _GETBUNDLESRESPONSE._serialized_start=786
+  _GETBUNDLESRESPONSE._serialized_end=863
+  _INVALIDATEBUNDLEREQUEST._serialized_start=865
+  _INVALIDATEBUNDLEREQUEST._serialized_end=919
+  _INVALIDATEBUNDLERESPONSE._serialized_start=921
+  _INVALIDATEBUNDLERESPONSE._serialized_end=947
+  _INTERNALBUNDLERSERVICE._serialized_start=950
+  _INTERNALBUNDLERSERVICE._serialized_end=1328
+  _INTERNALBUNDLERBACKCHANNELSERVICE._serialized_start=1331
+  _INTERNALBUNDLERBACKCHANNELSERVICE._serialized_end=1485
 # @@protoc_insertion_point(module_scope)

@@ -47,6 +47,11 @@ class CollectionServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionResponse.FromString,
                 )
+        self.AddKeyValuesToCollection = channel.unary_unary(
+                '/aruna.api.storage.services.v1.CollectionService/AddKeyValuesToCollection',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionResponse.FromString,
+                )
 
 
 class CollectionServiceServicer(object):
@@ -138,6 +143,17 @@ class CollectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddKeyValuesToCollection(self, request, context):
+        """AddKeyValueToCollection
+
+        Status: BETA
+
+        Adds key values (labels / hooks) to a collection
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CollectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -170,6 +186,11 @@ def add_CollectionServiceServicer_to_server(servicer, server):
                     servicer.DeleteCollection,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionResponse.SerializeToString,
+            ),
+            'AddKeyValuesToCollection': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddKeyValuesToCollection,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -283,6 +304,23 @@ class CollectionService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.CollectionService/DeleteCollection',
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.DeleteCollectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddKeyValuesToCollection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.CollectionService/AddKeyValuesToCollection',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_collection__service__pb2.AddKeyValuesToCollectionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -8,6 +8,22 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class AddKeyValuesToCollectionRequest(_message.Message):
+    __slots__ = ["collection_id", "hooks", "labels"]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    HOOKS_FIELD_NUMBER: _ClassVar[int]
+    LABELS_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    hooks: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
+    labels: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
+    def __init__(self, collection_id: _Optional[str] = ..., labels: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., hooks: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
+
+class AddKeyValuesToCollectionResponse(_message.Message):
+    __slots__ = ["collection"]
+    COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    collection: _models_pb2.CollectionOverview
+    def __init__(self, collection: _Optional[_Union[_models_pb2.CollectionOverview, _Mapping]] = ...) -> None: ...
+
 class ClaimWorkspaceRequest(_message.Message):
     __slots__ = ["token", "workspace_id"]
     TOKEN_FIELD_NUMBER: _ClassVar[int]

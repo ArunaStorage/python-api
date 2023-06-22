@@ -11,6 +11,10 @@ DATA_CLASS_PROTECTED: DataClass
 DATA_CLASS_PUBLIC: DataClass
 DATA_CLASS_UNSPECIFIED: DataClass
 DESCRIPTOR: _descriptor.FileDescriptor
+ENDPOINT_HOST_TYPE_BUNDLER: EndpointHostType
+ENDPOINT_HOST_TYPE_INTERNAL: EndpointHostType
+ENDPOINT_HOST_TYPE_PROXY: EndpointHostType
+ENDPOINT_HOST_TYPE_UNSPECIFIED: EndpointHostType
 ENDPOINT_STATUS_AVAILABLE: EndpointStatus
 ENDPOINT_STATUS_DEGRADED: EndpointStatus
 ENDPOINT_STATUS_INITIALIZING: EndpointStatus
@@ -165,26 +169,40 @@ class Collections(_message.Message):
     def __init__(self, collections: _Optional[_Iterable[_Union[Collection, _Mapping]]] = ...) -> None: ...
 
 class Endpoint(_message.Message):
-    __slots__ = ["documentation_path", "ep_type", "id", "internal_hostname", "is_default", "is_public", "name", "proxy_hostname", "status"]
+    __slots__ = ["documentation_path", "ep_type", "host_configs", "id", "is_bundler", "is_default", "is_public", "name", "status"]
     DOCUMENTATION_PATH_FIELD_NUMBER: _ClassVar[int]
     EP_TYPE_FIELD_NUMBER: _ClassVar[int]
+    HOST_CONFIGS_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
-    INTERNAL_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
+    IS_BUNDLER_FIELD_NUMBER: _ClassVar[int]
     IS_DEFAULT_FIELD_NUMBER: _ClassVar[int]
     IS_PUBLIC_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    PROXY_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     documentation_path: str
     ep_type: EndpointType
+    host_configs: _containers.RepeatedCompositeFieldContainer[EndpointHostConfig]
     id: str
-    internal_hostname: str
+    is_bundler: bool
     is_default: bool
     is_public: bool
     name: str
-    proxy_hostname: str
     status: EndpointStatus
-    def __init__(self, id: _Optional[str] = ..., ep_type: _Optional[_Union[EndpointType, str]] = ..., name: _Optional[str] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., is_default: bool = ..., status: _Optional[_Union[EndpointStatus, str]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., ep_type: _Optional[_Union[EndpointType, str]] = ..., name: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., is_default: bool = ..., status: _Optional[_Union[EndpointStatus, str]] = ..., is_bundler: bool = ..., host_configs: _Optional[_Iterable[_Union[EndpointHostConfig, _Mapping]]] = ...) -> None: ...
+
+class EndpointHostConfig(_message.Message):
+    __slots__ = ["host_type", "is_primary", "public", "ssl", "url"]
+    HOST_TYPE_FIELD_NUMBER: _ClassVar[int]
+    IS_PRIMARY_FIELD_NUMBER: _ClassVar[int]
+    PUBLIC_FIELD_NUMBER: _ClassVar[int]
+    SSL_FIELD_NUMBER: _ClassVar[int]
+    URL_FIELD_NUMBER: _ClassVar[int]
+    host_type: EndpointHostType
+    is_primary: bool
+    public: bool
+    ssl: bool
+    url: str
+    def __init__(self, url: _Optional[str] = ..., is_primary: bool = ..., ssl: bool = ..., public: bool = ..., host_type: _Optional[_Union[EndpointHostType, str]] = ...) -> None: ...
 
 class Hash(_message.Message):
     __slots__ = ["alg", "hash"]
@@ -388,4 +406,7 @@ class SourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
 
 class EndpointType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+
+class EndpointHostType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []

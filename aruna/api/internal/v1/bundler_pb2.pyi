@@ -1,5 +1,7 @@
 from google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from aruna.api.storage.models.v1 import models_pb2 as _models_pb2
+from aruna.api.internal.v1 import proxy_pb2 as _proxy_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -28,8 +30,10 @@ class EnableBundleResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetBundlesRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["endpoint_id"]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
 
 class GetBundlesResponse(_message.Message):
     __slots__ = ["bundles"]
@@ -48,14 +52,14 @@ class InvalidateBundleResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class ObjectRef(_message.Message):
-    __slots__ = ["encryption_key", "object_location", "object_path"]
-    ENCRYPTION_KEY_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["object_info", "object_location", "sub_path"]
+    OBJECT_INFO_FIELD_NUMBER: _ClassVar[int]
     OBJECT_LOCATION_FIELD_NUMBER: _ClassVar[int]
-    OBJECT_PATH_FIELD_NUMBER: _ClassVar[int]
-    encryption_key: str
-    object_location: str
-    object_path: str
-    def __init__(self, object_location: _Optional[str] = ..., encryption_key: _Optional[str] = ..., object_path: _Optional[str] = ...) -> None: ...
+    SUB_PATH_FIELD_NUMBER: _ClassVar[int]
+    object_info: _models_pb2.Object
+    object_location: _proxy_pb2.Location
+    sub_path: str
+    def __init__(self, object_location: _Optional[_Union[_proxy_pb2.Location, _Mapping]] = ..., object_info: _Optional[_Union[_models_pb2.Object, _Mapping]] = ..., sub_path: _Optional[str] = ...) -> None: ...
 
 class PrepareBundleRequest(_message.Message):
     __slots__ = ["bundle_id"]

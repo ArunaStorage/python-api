@@ -8,22 +8,22 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AddEndpointRequest(_message.Message):
-    __slots__ = ["documentation_path", "ep_type", "internal_hostname", "is_public", "name", "proxy_hostname", "pubkey"]
+    __slots__ = ["documentation_path", "ep_type", "host_configs", "is_bundler", "is_public", "name", "pubkey"]
     DOCUMENTATION_PATH_FIELD_NUMBER: _ClassVar[int]
     EP_TYPE_FIELD_NUMBER: _ClassVar[int]
-    INTERNAL_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
+    HOST_CONFIGS_FIELD_NUMBER: _ClassVar[int]
+    IS_BUNDLER_FIELD_NUMBER: _ClassVar[int]
     IS_PUBLIC_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
-    PROXY_HOSTNAME_FIELD_NUMBER: _ClassVar[int]
     PUBKEY_FIELD_NUMBER: _ClassVar[int]
     documentation_path: str
     ep_type: _models_pb2.EndpointType
-    internal_hostname: str
+    host_configs: _containers.RepeatedCompositeFieldContainer[_models_pb2.EndpointHostConfig]
+    is_bundler: bool
     is_public: bool
     name: str
-    proxy_hostname: str
     pubkey: str
-    def __init__(self, name: _Optional[str] = ..., ep_type: _Optional[_Union[_models_pb2.EndpointType, str]] = ..., proxy_hostname: _Optional[str] = ..., internal_hostname: _Optional[str] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., pubkey: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., ep_type: _Optional[_Union[_models_pb2.EndpointType, str]] = ..., documentation_path: _Optional[str] = ..., is_public: bool = ..., pubkey: _Optional[str] = ..., is_bundler: bool = ..., host_configs: _Optional[_Iterable[_Union[_models_pb2.EndpointHostConfig, _Mapping]]] = ...) -> None: ...
 
 class AddEndpointResponse(_message.Message):
     __slots__ = ["endpoint", "pubkey_serial"]
