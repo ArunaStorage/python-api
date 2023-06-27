@@ -307,14 +307,14 @@ class GetObjectsAsListV2Response(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     NEXT_CONTINUATION_TOKEN_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
-    contents: _containers.RepeatedCompositeFieldContainer[_models_pb2.Object]
+    contents: _containers.RepeatedCompositeFieldContainer[ObjectWithURL]
     is_truncated: bool
     key_count: int
     max_keys: int
     name: str
     next_continuation_token: str
     prefixes: _containers.RepeatedCompositeFieldContainer[CommonPrefix]
-    def __init__(self, name: _Optional[str] = ..., is_truncated: bool = ..., max_keys: _Optional[int] = ..., key_count: _Optional[int] = ..., contents: _Optional[_Iterable[_Union[_models_pb2.Object, _Mapping]]] = ..., prefixes: _Optional[_Iterable[_Union[CommonPrefix, _Mapping]]] = ..., next_continuation_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., is_truncated: bool = ..., max_keys: _Optional[int] = ..., key_count: _Optional[int] = ..., contents: _Optional[_Iterable[_Union[ObjectWithURL, _Mapping]]] = ..., prefixes: _Optional[_Iterable[_Union[CommonPrefix, _Mapping]]] = ..., next_continuation_token: _Optional[str] = ...) -> None: ...
 
 class GetObjectsByPathRequest(_message.Message):
     __slots__ = ["path", "with_revisions"]

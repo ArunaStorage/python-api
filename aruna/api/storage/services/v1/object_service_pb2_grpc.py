@@ -475,7 +475,7 @@ class ObjectServiceServicer(object):
 
         Status: ALPHA
 
-        Gets a list of objects represented similar to a S3 ListObjectsV2 request
+        Gets a list of ObjectWithURLs represented similar to a S3 ListObjectsV2 request
         !! Paths are collection specific !!
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
