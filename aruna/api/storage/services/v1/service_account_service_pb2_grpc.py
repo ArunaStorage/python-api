@@ -29,10 +29,10 @@ class ServiceAccountServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.CreateServiceAccountTokenRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.CreateServiceAccountTokenResponse.FromString,
                 )
-        self.EditServiceAccountPermission = channel.unary_unary(
-                '/aruna.api.storage.services.v1.ServiceAccountService/EditServiceAccountPermission',
-                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionResponse.FromString,
+        self.SetServiceAccountPermission = channel.unary_unary(
+                '/aruna.api.storage.services.v1.ServiceAccountService/SetServiceAccountPermission',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.FromString,
                 )
         self.GetServiceAccountToken = channel.unary_unary(
                 '/aruna.api.storage.services.v1.ServiceAccountService/GetServiceAccountToken',
@@ -96,8 +96,8 @@ class ServiceAccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def EditServiceAccountPermission(self, request, context):
-        """EditServiceAccountPermission
+    def SetServiceAccountPermission(self, request, context):
+        """SetServiceAccountPermission
 
         Overwrites the project specific permissions for a service account
         """
@@ -175,10 +175,10 @@ def add_ServiceAccountServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.CreateServiceAccountTokenRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.CreateServiceAccountTokenResponse.SerializeToString,
             ),
-            'EditServiceAccountPermission': grpc.unary_unary_rpc_method_handler(
-                    servicer.EditServiceAccountPermission,
-                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionResponse.SerializeToString,
+            'SetServiceAccountPermission': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetServiceAccountPermission,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.SerializeToString,
             ),
             'GetServiceAccountToken': grpc.unary_unary_rpc_method_handler(
                     servicer.GetServiceAccountToken,
@@ -260,7 +260,7 @@ class ServiceAccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def EditServiceAccountPermission(request,
+    def SetServiceAccountPermission(request,
             target,
             options=(),
             channel_credentials=None,
@@ -270,9 +270,9 @@ class ServiceAccountService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ServiceAccountService/EditServiceAccountPermission',
-            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionRequest.SerializeToString,
-            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.EditServiceAccountPermissionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v1.ServiceAccountService/SetServiceAccountPermission',
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v1_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
