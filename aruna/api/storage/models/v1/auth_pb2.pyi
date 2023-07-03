@@ -21,32 +21,36 @@ TOKEN_TYPE_SCOPED: TokenType
 TOKEN_TYPE_UNSPECIFIED: TokenType
 
 class Project(_message.Message):
-    __slots__ = ["collection_ids", "description", "id", "name", "user_permissions"]
+    __slots__ = ["collection_ids", "description", "flags", "id", "name", "user_permissions"]
     COLLECTION_IDS_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    FLAGS_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     USER_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     collection_ids: _containers.RepeatedScalarFieldContainer[str]
     description: str
+    flags: int
     id: str
     name: str
     user_permissions: _containers.RepeatedCompositeFieldContainer[ProjectPermission]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., user_permissions: _Optional[_Iterable[_Union[ProjectPermission, _Mapping]]] = ..., collection_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., user_permissions: _Optional[_Iterable[_Union[ProjectPermission, _Mapping]]] = ..., collection_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., flags: _Optional[int] = ...) -> None: ...
 
 class ProjectOverview(_message.Message):
-    __slots__ = ["collection_ids", "description", "id", "name", "user_ids"]
+    __slots__ = ["collection_ids", "description", "flags", "id", "name", "user_ids"]
     COLLECTION_IDS_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    FLAGS_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
     collection_ids: _containers.RepeatedScalarFieldContainer[str]
     description: str
+    flags: int
     id: str
     name: str
     user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., collection_ids: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., collection_ids: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ..., flags: _Optional[int] = ...) -> None: ...
 
 class ProjectPermission(_message.Message):
     __slots__ = ["permission", "project_id", "service_account", "user_id"]

@@ -21,12 +21,14 @@ class AddUserToProjectResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateProjectRequest(_message.Message):
-    __slots__ = ["description", "name"]
+    __slots__ = ["description", "flag", "name"]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    FLAG_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     description: str
+    flag: int
     name: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., flag: _Optional[int] = ...) -> None: ...
 
 class CreateProjectResponse(_message.Message):
     __slots__ = ["project_id"]
@@ -117,14 +119,16 @@ class RemoveUserFromProjectResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateProjectRequest(_message.Message):
-    __slots__ = ["description", "name", "project_id"]
+    __slots__ = ["description", "flag", "name", "project_id"]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    FLAG_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     description: str
+    flag: int
     name: str
     project_id: str
-    def __init__(self, project_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, project_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., flag: _Optional[int] = ...) -> None: ...
 
 class UpdateProjectResponse(_message.Message):
     __slots__ = ["project"]
