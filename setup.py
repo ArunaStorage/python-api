@@ -31,7 +31,6 @@ setup(
     install_requires=[
         'protobuf==3.20.3',
         'grpcio',
-        'grpc-gateway-protoc-gen-openapiv2',
         'google-api-python-client'
     ],
 )
