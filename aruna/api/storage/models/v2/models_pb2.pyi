@@ -374,6 +374,18 @@ class Context(_message.Message):
     copy: Copy
     def __init__(self, s3_credentials: bool = ..., copy: _Optional[_Union[Copy, _Mapping]] = ...) -> None: ...
 
+class License(_message.Message):
+    __slots__ = ["tag", "name", "text", "url"]
+    TAG_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TEXT_FIELD_NUMBER: _ClassVar[int]
+    URL_FIELD_NUMBER: _ClassVar[int]
+    tag: str
+    name: str
+    text: str
+    url: str
+    def __init__(self, tag: _Optional[str] = ..., name: _Optional[str] = ..., text: _Optional[str] = ..., url: _Optional[str] = ...) -> None: ...
+
 class GenericResource(_message.Message):
     __slots__ = ["project", "collection", "dataset", "object"]
     PROJECT_FIELD_NUMBER: _ClassVar[int]
@@ -387,7 +399,7 @@ class GenericResource(_message.Message):
     def __init__(self, project: _Optional[_Union[Project, _Mapping]] = ..., collection: _Optional[_Union[Collection, _Mapping]] = ..., dataset: _Optional[_Union[Dataset, _Mapping]] = ..., object: _Optional[_Union[Object, _Mapping]] = ...) -> None: ...
 
 class Project(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints"]
+    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -400,6 +412,8 @@ class Project(_message.Message):
     STATUS_FIELD_NUMBER: _ClassVar[int]
     DYNAMIC_FIELD_NUMBER: _ClassVar[int]
     ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -412,10 +426,12 @@ class Project(_message.Message):
     status: Status
     dynamic: bool
     endpoints: _containers.RepeatedCompositeFieldContainer[DataEndpoint]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ...) -> None: ...
+    metadata_license_tag: str
+    default_data_license_tag: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Collection(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints"]
+    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -428,6 +444,8 @@ class Collection(_message.Message):
     STATUS_FIELD_NUMBER: _ClassVar[int]
     DYNAMIC_FIELD_NUMBER: _ClassVar[int]
     ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -440,10 +458,12 @@ class Collection(_message.Message):
     status: Status
     dynamic: bool
     endpoints: _containers.RepeatedCompositeFieldContainer[DataEndpoint]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ...) -> None: ...
+    metadata_license_tag: str
+    default_data_license_tag: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Dataset(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints"]
+    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -456,6 +476,8 @@ class Dataset(_message.Message):
     STATUS_FIELD_NUMBER: _ClassVar[int]
     DYNAMIC_FIELD_NUMBER: _ClassVar[int]
     ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -468,10 +490,12 @@ class Dataset(_message.Message):
     status: Status
     dynamic: bool
     endpoints: _containers.RepeatedCompositeFieldContainer[DataEndpoint]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ...) -> None: ...
+    metadata_license_tag: str
+    default_data_license_tag: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Object(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "content_len", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "hashes"]
+    __slots__ = ["id", "name", "description", "key_values", "relations", "content_len", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "hashes", "metadata_license_tag", "data_license_tag"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -485,6 +509,8 @@ class Object(_message.Message):
     DYNAMIC_FIELD_NUMBER: _ClassVar[int]
     ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -498,4 +524,6 @@ class Object(_message.Message):
     dynamic: bool
     endpoints: _containers.RepeatedCompositeFieldContainer[DataEndpoint]
     hashes: _containers.RepeatedCompositeFieldContainer[Hash]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., content_len: _Optional[int] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., hashes: _Optional[_Iterable[_Union[Hash, _Mapping]]] = ...) -> None: ...
+    metadata_license_tag: str
+    data_license_tag: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., content_len: _Optional[int] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., hashes: _Optional[_Iterable[_Union[Hash, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ...) -> None: ...

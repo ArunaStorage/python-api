@@ -1,6 +1,7 @@
 from aruna.api.storage.models.v2 import models_pb2 as _models_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as _annotations_pb2_1
+from google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -9,20 +10,24 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateProjectRequest(_message.Message):
-    __slots__ = ["name", "description", "key_values", "external_relations", "data_class", "preferred_endpoint"]
+    __slots__ = ["name", "description", "key_values", "relations", "data_class", "preferred_endpoint", "metadata_license_tag", "default_data_license_tag"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
-    EXTERNAL_RELATIONS_FIELD_NUMBER: _ClassVar[int]
+    RELATIONS_FIELD_NUMBER: _ClassVar[int]
     DATA_CLASS_FIELD_NUMBER: _ClassVar[int]
     PREFERRED_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     key_values: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
-    external_relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.ExternalRelation]
+    relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.Relation]
     data_class: _models_pb2.DataClass
     preferred_endpoint: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., external_relations: _Optional[_Iterable[_Union[_models_pb2.ExternalRelation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., preferred_endpoint: _Optional[str] = ...) -> None: ...
+    metadata_license_tag: str
+    default_data_license_tag: str
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., preferred_endpoint: _Optional[str] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class CreateProjectResponse(_message.Message):
     __slots__ = ["project"]
@@ -129,6 +134,22 @@ class ArchiveProjectRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ...) -> None: ...
 
 class ArchiveProjectResponse(_message.Message):
+    __slots__ = ["project"]
+    PROJECT_FIELD_NUMBER: _ClassVar[int]
+    project: _models_pb2.Project
+    def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
+
+class UpdateProjectLicensesRequest(_message.Message):
+    __slots__ = ["project_id", "metadata_license_tag", "default_data_license_tag"]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    metadata_license_tag: str
+    default_data_license_tag: str
+    def __init__(self, project_id: _Optional[str] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
+
+class UpdateProjectLicensesResponse(_message.Message):
     __slots__ = ["project"]
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project

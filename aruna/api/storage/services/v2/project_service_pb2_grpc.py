@@ -57,6 +57,11 @@ class ProjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassResponse.FromString,
                 )
+        self.UpdateProjectLicenses = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ProjectService/UpdateProjectLicenses',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesResponse.FromString,
+                )
         self.ArchiveProject = channel.unary_unary(
                 '/aruna.api.storage.services.v2.ProjectService/ArchiveProject',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectRequest.SerializeToString,
@@ -158,6 +163,17 @@ class ProjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateProjectLicenses(self, request, context):
+        """UpdateLicense
+
+        Status: BETA
+
+        Updates the project license. All (meta) data will be overwritten.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ArchiveProject(self, request, context):
         """ArchiveProjectRequest
 
@@ -211,6 +227,11 @@ def add_ProjectServiceServicer_to_server(servicer, server):
                     servicer.UpdateProjectDataClass,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassResponse.SerializeToString,
+            ),
+            'UpdateProjectLicenses': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateProjectLicenses,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesResponse.SerializeToString,
             ),
             'ArchiveProject': grpc.unary_unary_rpc_method_handler(
                     servicer.ArchiveProject,
@@ -363,6 +384,23 @@ class ProjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ProjectService/UpdateProjectDataClass',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectDataClassResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateProjectLicenses(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ProjectService/UpdateProjectLicenses',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectLicensesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -62,6 +62,11 @@ class DatasetServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetResponse.FromString,
                 )
+        self.UpdateDatasetLicenses = channel.unary_unary(
+                '/aruna.api.storage.services.v2.DatasetService/UpdateDatasetLicenses',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesResponse.FromString,
+                )
 
 
 class DatasetServiceServicer(object):
@@ -169,6 +174,17 @@ class DatasetServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateDatasetLicenses(self, request, context):
+        """UpdateLicenses
+
+        Status: BETA
+
+        Updates the dataset metadata license and/or default data license.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DatasetServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -216,6 +232,11 @@ def add_DatasetServiceServicer_to_server(servicer, server):
                     servicer.SnapshotDataset,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetResponse.SerializeToString,
+            ),
+            'UpdateDatasetLicenses': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateDatasetLicenses,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -380,5 +401,22 @@ class DatasetService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.DatasetService/SnapshotDataset',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.SnapshotDatasetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateDatasetLicenses(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.DatasetService/UpdateDatasetLicenses',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_dataset__service__pb2.UpdateDatasetLicensesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

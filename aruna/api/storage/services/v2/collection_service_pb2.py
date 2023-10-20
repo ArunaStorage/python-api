@@ -13,16 +13,19 @@ _sym_db = _symbol_database.Default()
 
 from aruna.api.storage.models.v2 import models_pb2 as aruna_dot_api_dot_storage_dot_models_dot_v2_dot_models__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6aruna/api/storage/services/v2/collection_service.proto\x12\x1d\x61runa.api.storage.services.v2\x1a(aruna/api/storage/models/v2/models.proto\x1a\x1cgoogle/api/annotations.proto\"\xe5\x02\n\x17\x43reateCollectionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x44\n\nkey_values\x18\x03 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\tkeyValues\x12\\\n\x12\x65xternal_relations\x18\x04 \x03(\x0b\x32-.aruna.api.storage.models.v2.ExternalRelationR\x11\x65xternalRelations\x12\x45\n\ndata_class\x18\x05 \x01(\x0e\x32&.aruna.api.storage.models.v2.DataClassR\tdataClass\x12\x1f\n\nproject_id\x18\x06 \x01(\tH\x00R\tprojectIdB\x08\n\x06parent\"c\n\x18\x43reateCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\";\n\x14GetCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"`\n\x15GetCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\">\n\x15GetCollectionsRequest\x12%\n\x0e\x63ollection_ids\x18\x01 \x03(\tR\rcollectionIds\"c\n\x16GetCollectionsResponse\x12I\n\x0b\x63ollections\x18\x01 \x03(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\x0b\x63ollections\">\n\x17\x44\x65leteCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"\x1a\n\x18\x44\x65leteCollectionResponse\"V\n\x1bUpdateCollectionNameRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"g\n\x1cUpdateCollectionNameResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"k\n\"UpdateCollectionDescriptionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"n\n#UpdateCollectionDescriptionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"\xe7\x01\n UpdateCollectionKeyValuesRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12K\n\x0e\x61\x64\x64_key_values\x18\x02 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\x0c\x61\x64\x64KeyValues\x12Q\n\x11remove_key_values\x18\x03 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\x0fremoveKeyValues\"l\n!UpdateCollectionKeyValuesResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"\x8e\x01\n UpdateCollectionDataClassRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12\x45\n\ndata_class\x18\x02 \x01(\x0e\x32&.aruna.api.storage.models.v2.DataClassR\tdataClass\"l\n!UpdateCollectionDataClassResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"@\n\x19SnapshotCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"e\n\x1aSnapshotCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection2\xae\r\n\x11\x43ollectionService\x12\x9e\x01\n\x10\x43reateCollection\x12\x36.aruna.api.storage.services.v2.CreateCollectionRequest\x1a\x37.aruna.api.storage.services.v2.CreateCollectionResponse\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/v2/collection:\x01*\x12\xa2\x01\n\rGetCollection\x12\x33.aruna.api.storage.services.v2.GetCollectionRequest\x1a\x34.aruna.api.storage.services.v2.GetCollectionResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v2/collection/{collection_id}\x12\x96\x01\n\x0eGetCollections\x12\x34.aruna.api.storage.services.v2.GetCollectionsRequest\x1a\x35.aruna.api.storage.services.v2.GetCollectionsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v2/collections\x12\xab\x01\n\x10\x44\x65leteCollection\x12\x36.aruna.api.storage.services.v2.DeleteCollectionRequest\x1a\x37.aruna.api.storage.services.v2.DeleteCollectionResponse\"&\x82\xd3\xe4\x93\x02 *\x1e/v2/collection/{collection_id}\x12\xbf\x01\n\x14UpdateCollectionName\x12:.aruna.api.storage.services.v2.UpdateCollectionNameRequest\x1a;.aruna.api.storage.services.v2.UpdateCollectionNameResponse\".\x82\xd3\xe4\x93\x02(2#/v2/collection/{collection_id}/name:\x01*\x12\xdb\x01\n\x1bUpdateCollectionDescription\x12\x41.aruna.api.storage.services.v2.UpdateCollectionDescriptionRequest\x1a\x42.aruna.api.storage.services.v2.UpdateCollectionDescriptionResponse\"5\x82\xd3\xe4\x93\x02/2*/v2/collection/{collection_id}/description:\x01*\x12\xd4\x01\n\x19UpdateCollectionKeyValues\x12?.aruna.api.storage.services.v2.UpdateCollectionKeyValuesRequest\x1a@.aruna.api.storage.services.v2.UpdateCollectionKeyValuesResponse\"4\x82\xd3\xe4\x93\x02.2)/v2/collection/{collection_id}/key_values:\x01*\x12\xd4\x01\n\x19UpdateCollectionDataClass\x12?.aruna.api.storage.services.v2.UpdateCollectionDataClassRequest\x1a@.aruna.api.storage.services.v2.UpdateCollectionDataClassResponse\"4\x82\xd3\xe4\x93\x02.2)/v2/collection/{collection_id}/data_class:\x01*\x12\xbd\x01\n\x12SnapshotCollection\x12\x38.aruna.api.storage.services.v2.SnapshotCollectionRequest\x1a\x39.aruna.api.storage.services.v2.SnapshotCollectionResponse\"2\x82\xd3\xe4\x93\x02,\"\'/v2/collection/{collection_id}/snapshot:\x01*B\x93\x01\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v2B\x11\x43ollectionServiceP\x01Z<github.com/ArunaStorage/go-api/aruna/api/storage/services/v2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6aruna/api/storage/services/v2/collection_service.proto\x12\x1d\x61runa.api.storage.services.v2\x1a(aruna/api/storage/models/v2/models.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/api/visibility.proto\"\xb7\x03\n\x17\x43reateCollectionRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x44\n\nkey_values\x18\x03 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\tkeyValues\x12\x43\n\trelations\x18\x04 \x03(\x0b\x32%.aruna.api.storage.models.v2.RelationR\trelations\x12\x45\n\ndata_class\x18\x05 \x01(\x0e\x32&.aruna.api.storage.models.v2.DataClassR\tdataClass\x12\x1f\n\nproject_id\x18\x06 \x01(\tH\x00R\tprojectId\x12\x30\n\x14metadata_license_tag\x18\x07 \x01(\tR\x12metadataLicenseTag\x12\x37\n\x18\x64\x65\x66\x61ult_data_license_tag\x18\x08 \x01(\tR\x15\x64\x65\x66\x61ultDataLicenseTagB\x08\n\x06parent\"c\n\x18\x43reateCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\";\n\x14GetCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"`\n\x15GetCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\">\n\x15GetCollectionsRequest\x12%\n\x0e\x63ollection_ids\x18\x01 \x03(\tR\rcollectionIds\"c\n\x16GetCollectionsResponse\x12I\n\x0b\x63ollections\x18\x01 \x03(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\x0b\x63ollections\">\n\x17\x44\x65leteCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"\x1a\n\x18\x44\x65leteCollectionResponse\"V\n\x1bUpdateCollectionNameRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"g\n\x1cUpdateCollectionNameResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"k\n\"UpdateCollectionDescriptionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"n\n#UpdateCollectionDescriptionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"\xe7\x01\n UpdateCollectionKeyValuesRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12K\n\x0e\x61\x64\x64_key_values\x18\x02 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\x0c\x61\x64\x64KeyValues\x12Q\n\x11remove_key_values\x18\x03 \x03(\x0b\x32%.aruna.api.storage.models.v2.KeyValueR\x0fremoveKeyValues\"l\n!UpdateCollectionKeyValuesResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"\x8e\x01\n UpdateCollectionDataClassRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12\x45\n\ndata_class\x18\x02 \x01(\x0e\x32&.aruna.api.storage.models.v2.DataClassR\tdataClass\"l\n!UpdateCollectionDataClassResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"@\n\x19SnapshotCollectionRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\"e\n\x1aSnapshotCollectionResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection\"\xb1\x01\n\x1fUpdateCollectionLicensesRequest\x12#\n\rcollection_id\x18\x01 \x01(\tR\x0c\x63ollectionId\x12\x30\n\x14metadata_license_tag\x18\x02 \x01(\tR\x12metadataLicenseTag\x12\x37\n\x18\x64\x65\x66\x61ult_data_license_tag\x18\x03 \x01(\tR\x15\x64\x65\x66\x61ultDataLicenseTag\"k\n UpdateCollectionLicensesResponse\x12G\n\ncollection\x18\x01 \x01(\x0b\x32\'.aruna.api.storage.models.v2.CollectionR\ncollection2\x90\x0f\n\x11\x43ollectionService\x12\x9e\x01\n\x10\x43reateCollection\x12\x36.aruna.api.storage.services.v2.CreateCollectionRequest\x1a\x37.aruna.api.storage.services.v2.CreateCollectionResponse\"\x19\x82\xd3\xe4\x93\x02\x13\"\x0e/v2/collection:\x01*\x12\xa2\x01\n\rGetCollection\x12\x33.aruna.api.storage.services.v2.GetCollectionRequest\x1a\x34.aruna.api.storage.services.v2.GetCollectionResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v2/collection/{collection_id}\x12\x96\x01\n\x0eGetCollections\x12\x34.aruna.api.storage.services.v2.GetCollectionsRequest\x1a\x35.aruna.api.storage.services.v2.GetCollectionsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/v2/collections\x12\xab\x01\n\x10\x44\x65leteCollection\x12\x36.aruna.api.storage.services.v2.DeleteCollectionRequest\x1a\x37.aruna.api.storage.services.v2.DeleteCollectionResponse\"&\x82\xd3\xe4\x93\x02 *\x1e/v2/collection/{collection_id}\x12\xbf\x01\n\x14UpdateCollectionName\x12:.aruna.api.storage.services.v2.UpdateCollectionNameRequest\x1a;.aruna.api.storage.services.v2.UpdateCollectionNameResponse\".\x82\xd3\xe4\x93\x02(2#/v2/collection/{collection_id}/name:\x01*\x12\xdb\x01\n\x1bUpdateCollectionDescription\x12\x41.aruna.api.storage.services.v2.UpdateCollectionDescriptionRequest\x1a\x42.aruna.api.storage.services.v2.UpdateCollectionDescriptionResponse\"5\x82\xd3\xe4\x93\x02/2*/v2/collection/{collection_id}/description:\x01*\x12\xd4\x01\n\x19UpdateCollectionKeyValues\x12?.aruna.api.storage.services.v2.UpdateCollectionKeyValuesRequest\x1a@.aruna.api.storage.services.v2.UpdateCollectionKeyValuesResponse\"4\x82\xd3\xe4\x93\x02.2)/v2/collection/{collection_id}/key_values:\x01*\x12\xd4\x01\n\x19UpdateCollectionDataClass\x12?.aruna.api.storage.services.v2.UpdateCollectionDataClassRequest\x1a@.aruna.api.storage.services.v2.UpdateCollectionDataClassResponse\"4\x82\xd3\xe4\x93\x02.2)/v2/collection/{collection_id}/data_class:\x01*\x12\xbd\x01\n\x12SnapshotCollection\x12\x38.aruna.api.storage.services.v2.SnapshotCollectionRequest\x1a\x39.aruna.api.storage.services.v2.SnapshotCollectionResponse\"2\x82\xd3\xe4\x93\x02,\"\'/v2/collection/{collection_id}/snapshot:\x01*\x12\xcf\x01\n\x18UpdateCollectionLicenses\x12>.aruna.api.storage.services.v2.UpdateCollectionLicensesRequest\x1a?.aruna.api.storage.services.v2.UpdateCollectionLicensesResponse\"2\x82\xd3\xe4\x93\x02,2\'/v2/collection/{collection_id}/licenses:\x01*\x1a\x0e\xfa\xd2\xe4\x93\x02\x08\x12\x06SERVERB\x96\x01\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v2B\x11\x43ollectionServiceP\x01Z?github.com/ArunaStorage/go-api/v2/aruna/api/storage/services/v2b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'aruna.api.storage.services.v2.collection_service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v2B\021CollectionServiceP\001Z<github.com/ArunaStorage/go-api/aruna/api/storage/services/v2'
+  _globals['DESCRIPTOR']._serialized_options = b'\n>com.github.ArunaStorage.java_api.aruna.api.storage.services.v2B\021CollectionServiceP\001Z?github.com/ArunaStorage/go-api/v2/aruna/api/storage/services/v2'
+  _globals['_COLLECTIONSERVICE']._options = None
+  _globals['_COLLECTIONSERVICE']._serialized_options = b'\372\322\344\223\002\010\022\006SERVER'
   _globals['_COLLECTIONSERVICE'].methods_by_name['CreateCollection']._options = None
   _globals['_COLLECTIONSERVICE'].methods_by_name['CreateCollection']._serialized_options = b'\202\323\344\223\002\023\"\016/v2/collection:\001*'
   _globals['_COLLECTIONSERVICE'].methods_by_name['GetCollection']._options = None
@@ -41,42 +44,48 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_COLLECTIONSERVICE'].methods_by_name['UpdateCollectionDataClass']._serialized_options = b'\202\323\344\223\002.2)/v2/collection/{collection_id}/data_class:\001*'
   _globals['_COLLECTIONSERVICE'].methods_by_name['SnapshotCollection']._options = None
   _globals['_COLLECTIONSERVICE'].methods_by_name['SnapshotCollection']._serialized_options = b'\202\323\344\223\002,\"\'/v2/collection/{collection_id}/snapshot:\001*'
-  _globals['_CREATECOLLECTIONREQUEST']._serialized_start=162
-  _globals['_CREATECOLLECTIONREQUEST']._serialized_end=519
-  _globals['_CREATECOLLECTIONRESPONSE']._serialized_start=521
-  _globals['_CREATECOLLECTIONRESPONSE']._serialized_end=620
-  _globals['_GETCOLLECTIONREQUEST']._serialized_start=622
-  _globals['_GETCOLLECTIONREQUEST']._serialized_end=681
-  _globals['_GETCOLLECTIONRESPONSE']._serialized_start=683
-  _globals['_GETCOLLECTIONRESPONSE']._serialized_end=779
-  _globals['_GETCOLLECTIONSREQUEST']._serialized_start=781
-  _globals['_GETCOLLECTIONSREQUEST']._serialized_end=843
-  _globals['_GETCOLLECTIONSRESPONSE']._serialized_start=845
-  _globals['_GETCOLLECTIONSRESPONSE']._serialized_end=944
-  _globals['_DELETECOLLECTIONREQUEST']._serialized_start=946
-  _globals['_DELETECOLLECTIONREQUEST']._serialized_end=1008
-  _globals['_DELETECOLLECTIONRESPONSE']._serialized_start=1010
-  _globals['_DELETECOLLECTIONRESPONSE']._serialized_end=1036
-  _globals['_UPDATECOLLECTIONNAMEREQUEST']._serialized_start=1038
-  _globals['_UPDATECOLLECTIONNAMEREQUEST']._serialized_end=1124
-  _globals['_UPDATECOLLECTIONNAMERESPONSE']._serialized_start=1126
-  _globals['_UPDATECOLLECTIONNAMERESPONSE']._serialized_end=1229
-  _globals['_UPDATECOLLECTIONDESCRIPTIONREQUEST']._serialized_start=1231
-  _globals['_UPDATECOLLECTIONDESCRIPTIONREQUEST']._serialized_end=1338
-  _globals['_UPDATECOLLECTIONDESCRIPTIONRESPONSE']._serialized_start=1340
-  _globals['_UPDATECOLLECTIONDESCRIPTIONRESPONSE']._serialized_end=1450
-  _globals['_UPDATECOLLECTIONKEYVALUESREQUEST']._serialized_start=1453
-  _globals['_UPDATECOLLECTIONKEYVALUESREQUEST']._serialized_end=1684
-  _globals['_UPDATECOLLECTIONKEYVALUESRESPONSE']._serialized_start=1686
-  _globals['_UPDATECOLLECTIONKEYVALUESRESPONSE']._serialized_end=1794
-  _globals['_UPDATECOLLECTIONDATACLASSREQUEST']._serialized_start=1797
-  _globals['_UPDATECOLLECTIONDATACLASSREQUEST']._serialized_end=1939
-  _globals['_UPDATECOLLECTIONDATACLASSRESPONSE']._serialized_start=1941
-  _globals['_UPDATECOLLECTIONDATACLASSRESPONSE']._serialized_end=2049
-  _globals['_SNAPSHOTCOLLECTIONREQUEST']._serialized_start=2051
-  _globals['_SNAPSHOTCOLLECTIONREQUEST']._serialized_end=2115
-  _globals['_SNAPSHOTCOLLECTIONRESPONSE']._serialized_start=2117
-  _globals['_SNAPSHOTCOLLECTIONRESPONSE']._serialized_end=2218
-  _globals['_COLLECTIONSERVICE']._serialized_start=2221
-  _globals['_COLLECTIONSERVICE']._serialized_end=3931
+  _globals['_COLLECTIONSERVICE'].methods_by_name['UpdateCollectionLicenses']._options = None
+  _globals['_COLLECTIONSERVICE'].methods_by_name['UpdateCollectionLicenses']._serialized_options = b'\202\323\344\223\002,2\'/v2/collection/{collection_id}/licenses:\001*'
+  _globals['_CREATECOLLECTIONREQUEST']._serialized_start=191
+  _globals['_CREATECOLLECTIONREQUEST']._serialized_end=630
+  _globals['_CREATECOLLECTIONRESPONSE']._serialized_start=632
+  _globals['_CREATECOLLECTIONRESPONSE']._serialized_end=731
+  _globals['_GETCOLLECTIONREQUEST']._serialized_start=733
+  _globals['_GETCOLLECTIONREQUEST']._serialized_end=792
+  _globals['_GETCOLLECTIONRESPONSE']._serialized_start=794
+  _globals['_GETCOLLECTIONRESPONSE']._serialized_end=890
+  _globals['_GETCOLLECTIONSREQUEST']._serialized_start=892
+  _globals['_GETCOLLECTIONSREQUEST']._serialized_end=954
+  _globals['_GETCOLLECTIONSRESPONSE']._serialized_start=956
+  _globals['_GETCOLLECTIONSRESPONSE']._serialized_end=1055
+  _globals['_DELETECOLLECTIONREQUEST']._serialized_start=1057
+  _globals['_DELETECOLLECTIONREQUEST']._serialized_end=1119
+  _globals['_DELETECOLLECTIONRESPONSE']._serialized_start=1121
+  _globals['_DELETECOLLECTIONRESPONSE']._serialized_end=1147
+  _globals['_UPDATECOLLECTIONNAMEREQUEST']._serialized_start=1149
+  _globals['_UPDATECOLLECTIONNAMEREQUEST']._serialized_end=1235
+  _globals['_UPDATECOLLECTIONNAMERESPONSE']._serialized_start=1237
+  _globals['_UPDATECOLLECTIONNAMERESPONSE']._serialized_end=1340
+  _globals['_UPDATECOLLECTIONDESCRIPTIONREQUEST']._serialized_start=1342
+  _globals['_UPDATECOLLECTIONDESCRIPTIONREQUEST']._serialized_end=1449
+  _globals['_UPDATECOLLECTIONDESCRIPTIONRESPONSE']._serialized_start=1451
+  _globals['_UPDATECOLLECTIONDESCRIPTIONRESPONSE']._serialized_end=1561
+  _globals['_UPDATECOLLECTIONKEYVALUESREQUEST']._serialized_start=1564
+  _globals['_UPDATECOLLECTIONKEYVALUESREQUEST']._serialized_end=1795
+  _globals['_UPDATECOLLECTIONKEYVALUESRESPONSE']._serialized_start=1797
+  _globals['_UPDATECOLLECTIONKEYVALUESRESPONSE']._serialized_end=1905
+  _globals['_UPDATECOLLECTIONDATACLASSREQUEST']._serialized_start=1908
+  _globals['_UPDATECOLLECTIONDATACLASSREQUEST']._serialized_end=2050
+  _globals['_UPDATECOLLECTIONDATACLASSRESPONSE']._serialized_start=2052
+  _globals['_UPDATECOLLECTIONDATACLASSRESPONSE']._serialized_end=2160
+  _globals['_SNAPSHOTCOLLECTIONREQUEST']._serialized_start=2162
+  _globals['_SNAPSHOTCOLLECTIONREQUEST']._serialized_end=2226
+  _globals['_SNAPSHOTCOLLECTIONRESPONSE']._serialized_start=2228
+  _globals['_SNAPSHOTCOLLECTIONRESPONSE']._serialized_end=2329
+  _globals['_UPDATECOLLECTIONLICENSESREQUEST']._serialized_start=2332
+  _globals['_UPDATECOLLECTIONLICENSESREQUEST']._serialized_end=2509
+  _globals['_UPDATECOLLECTIONLICENSESRESPONSE']._serialized_start=2511
+  _globals['_UPDATECOLLECTIONLICENSESRESPONSE']._serialized_end=2618
+  _globals['_COLLECTIONSERVICE']._serialized_start=2621
+  _globals['_COLLECTIONSERVICE']._serialized_end=4557
 # @@protoc_insertion_point(module_scope)

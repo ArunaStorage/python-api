@@ -1,5 +1,6 @@
 from aruna.api.storage.models.v2 import models_pb2 as _models_pb2
 from google.api import annotations_pb2 as _annotations_pb2
+from google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -8,26 +9,30 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateObjectRequest(_message.Message):
-    __slots__ = ["name", "description", "key_values", "external_relations", "data_class", "project_id", "collection_id", "dataset_id", "hashes"]
+    __slots__ = ["name", "description", "key_values", "relations", "data_class", "project_id", "collection_id", "dataset_id", "hashes", "metadata_license_tag", "data_license_tag"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
-    EXTERNAL_RELATIONS_FIELD_NUMBER: _ClassVar[int]
+    RELATIONS_FIELD_NUMBER: _ClassVar[int]
     DATA_CLASS_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     DATASET_ID_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     key_values: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
-    external_relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.ExternalRelation]
+    relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.Relation]
     data_class: _models_pb2.DataClass
     project_id: str
     collection_id: str
     dataset_id: str
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., external_relations: _Optional[_Iterable[_Union[_models_pb2.ExternalRelation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ...) -> None: ...
+    metadata_license_tag: str
+    data_license_tag: str
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ...) -> None: ...
 
 class CreateObjectResponse(_message.Message):
     __slots__ = ["object"]
@@ -90,7 +95,7 @@ class FinishObjectStagingResponse(_message.Message):
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
 
 class UpdateObjectRequest(_message.Message):
-    __slots__ = ["object_id", "name", "description", "add_key_values", "remove_key_values", "data_class", "project_id", "collection_id", "dataset_id", "hashes", "force_revision"]
+    __slots__ = ["object_id", "name", "description", "add_key_values", "remove_key_values", "data_class", "project_id", "collection_id", "dataset_id", "hashes", "force_revision", "metadata_license_tag", "data_license_tag"]
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -102,6 +107,8 @@ class UpdateObjectRequest(_message.Message):
     DATASET_ID_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
     FORCE_REVISION_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     object_id: str
     name: str
     description: str
@@ -113,7 +120,9 @@ class UpdateObjectRequest(_message.Message):
     dataset_id: str
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
     force_revision: bool
-    def __init__(self, object_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., add_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., remove_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., force_revision: bool = ...) -> None: ...
+    metadata_license_tag: str
+    data_license_tag: str
+    def __init__(self, object_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., add_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., remove_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., force_revision: bool = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ...) -> None: ...
 
 class UpdateObjectResponse(_message.Message):
     __slots__ = ["object", "new_revision"]

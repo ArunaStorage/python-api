@@ -62,6 +62,11 @@ class CollectionServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionResponse.FromString,
                 )
+        self.UpdateCollectionLicenses = channel.unary_unary(
+                '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionLicenses',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.FromString,
+                )
 
 
 class CollectionServiceServicer(object):
@@ -169,6 +174,17 @@ class CollectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateCollectionLicenses(self, request, context):
+        """UpdateLicenses
+
+        Status: BETA
+
+        Updates the collections metadata license and/or default data license.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CollectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -216,6 +232,11 @@ def add_CollectionServiceServicer_to_server(servicer, server):
                     servicer.SnapshotCollection,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionResponse.SerializeToString,
+            ),
+            'UpdateCollectionLicenses': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCollectionLicenses,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -380,5 +401,22 @@ class CollectionService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.CollectionService/SnapshotCollection',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.SnapshotCollectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCollectionLicenses(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionLicenses',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
