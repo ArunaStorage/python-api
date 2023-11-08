@@ -1,5 +1,7 @@
 name: generate_lint_release_build_publish
-on: repository_dispatch
+on: 
+  - repository_dispatch
+  - workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
