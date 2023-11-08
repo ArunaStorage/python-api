@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateLicenseRequest(_message.Message):
-    __slots__ = ["tag", "name", "text", "url"]
+    __slots__ = ("tag", "name", "text", "url")
     TAG_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
@@ -21,29 +21,29 @@ class CreateLicenseRequest(_message.Message):
     def __init__(self, tag: _Optional[str] = ..., name: _Optional[str] = ..., text: _Optional[str] = ..., url: _Optional[str] = ...) -> None: ...
 
 class CreateLicenseResponse(_message.Message):
-    __slots__ = ["tag"]
+    __slots__ = ("tag",)
     TAG_FIELD_NUMBER: _ClassVar[int]
     tag: str
     def __init__(self, tag: _Optional[str] = ...) -> None: ...
 
 class GetLicenseRequest(_message.Message):
-    __slots__ = ["tag"]
+    __slots__ = ("tag",)
     TAG_FIELD_NUMBER: _ClassVar[int]
     tag: str
     def __init__(self, tag: _Optional[str] = ...) -> None: ...
 
 class GetLicenseResponse(_message.Message):
-    __slots__ = ["license"]
+    __slots__ = ("license",)
     LICENSE_FIELD_NUMBER: _ClassVar[int]
     license: _models_pb2.License
     def __init__(self, license: _Optional[_Union[_models_pb2.License, _Mapping]] = ...) -> None: ...
 
 class ListLicensesRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListLicensesResponse(_message.Message):
-    __slots__ = ["licenses"]
+    __slots__ = ("licenses",)
     LICENSES_FIELD_NUMBER: _ClassVar[int]
     licenses: _containers.RepeatedCompositeFieldContainer[_models_pb2.License]
     def __init__(self, licenses: _Optional[_Iterable[_Union[_models_pb2.License, _Mapping]]] = ...) -> None: ...

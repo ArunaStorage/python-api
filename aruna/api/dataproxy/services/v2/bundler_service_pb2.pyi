@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateBundleRequest(_message.Message):
-    __slots__ = ["resource_id", "filename", "expires_at"]
+    __slots__ = ("resource_id", "filename", "expires_at")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
@@ -19,7 +19,7 @@ class CreateBundleRequest(_message.Message):
     def __init__(self, resource_id: _Optional[_Iterable[str]] = ..., filename: _Optional[str] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class CreateBundleResponse(_message.Message):
-    __slots__ = ["bundle_id", "bundle_url"]
+    __slots__ = ("bundle_id", "bundle_url")
     BUNDLE_ID_FIELD_NUMBER: _ClassVar[int]
     BUNDLE_URL_FIELD_NUMBER: _ClassVar[int]
     bundle_id: str
@@ -27,11 +27,11 @@ class CreateBundleResponse(_message.Message):
     def __init__(self, bundle_id: _Optional[str] = ..., bundle_url: _Optional[str] = ...) -> None: ...
 
 class DeleteBundleRequest(_message.Message):
-    __slots__ = ["bundle_id"]
+    __slots__ = ("bundle_id",)
     BUNDLE_ID_FIELD_NUMBER: _ClassVar[int]
     bundle_id: str
     def __init__(self, bundle_id: _Optional[str] = ...) -> None: ...
 
 class DeleteBundleResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...

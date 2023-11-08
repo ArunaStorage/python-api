@@ -64,10 +64,10 @@ class ServiceAccountServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountResponse.FromString,
                 )
-        self.GetDataproxyTokenSvcAccount = channel.unary_unary(
-                '/aruna.api.storage.services.v2.ServiceAccountService/GetDataproxyTokenSvcAccount',
-                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountResponse.FromString,
+        self.CreateDataproxyTokenSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/CreateDataproxyTokenSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.FromString,
                 )
 
 
@@ -184,7 +184,7 @@ class ServiceAccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetDataproxyTokenSvcAccount(self, request, context):
+    def CreateDataproxyTokenSvcAccount(self, request, context):
         """GetDataproxyToken
 
         Status: ALPHA
@@ -243,10 +243,10 @@ def add_ServiceAccountServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountResponse.SerializeToString,
             ),
-            'GetDataproxyTokenSvcAccount': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDataproxyTokenSvcAccount,
-                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountResponse.SerializeToString,
+            'CreateDataproxyTokenSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateDataproxyTokenSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -417,7 +417,7 @@ class ServiceAccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetDataproxyTokenSvcAccount(request,
+    def CreateDataproxyTokenSvcAccount(request,
             target,
             options=(),
             channel_credentials=None,
@@ -427,8 +427,8 @@ class ServiceAccountService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/GetDataproxyTokenSvcAccount',
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountRequest.SerializeToString,
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetDataproxyTokenSvcAccountResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/CreateDataproxyTokenSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

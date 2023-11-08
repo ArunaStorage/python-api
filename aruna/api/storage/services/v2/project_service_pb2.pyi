@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateProjectRequest(_message.Message):
-    __slots__ = ["name", "description", "key_values", "relations", "data_class", "preferred_endpoint", "metadata_license_tag", "default_data_license_tag"]
+    __slots__ = ("name", "description", "key_values", "relations", "data_class", "preferred_endpoint", "metadata_license_tag", "default_data_license_tag")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
@@ -30,47 +30,47 @@ class CreateProjectRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., preferred_endpoint: _Optional[str] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class CreateProjectResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class GetProjectRequest(_message.Message):
-    __slots__ = ["project_id"]
+    __slots__ = ("project_id",)
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     def __init__(self, project_id: _Optional[str] = ...) -> None: ...
 
 class GetProjectResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class GetProjectsRequest(_message.Message):
-    __slots__ = ["project_ids"]
+    __slots__ = ("project_ids",)
     PROJECT_IDS_FIELD_NUMBER: _ClassVar[int]
     project_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, project_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetProjectsResponse(_message.Message):
-    __slots__ = ["projects"]
+    __slots__ = ("projects",)
     PROJECTS_FIELD_NUMBER: _ClassVar[int]
     projects: _containers.RepeatedCompositeFieldContainer[_models_pb2.Project]
     def __init__(self, projects: _Optional[_Iterable[_Union[_models_pb2.Project, _Mapping]]] = ...) -> None: ...
 
 class DeleteProjectRequest(_message.Message):
-    __slots__ = ["project_id"]
+    __slots__ = ("project_id",)
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     def __init__(self, project_id: _Optional[str] = ...) -> None: ...
 
 class DeleteProjectResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class UpdateProjectNameRequest(_message.Message):
-    __slots__ = ["project_id", "name"]
+    __slots__ = ("project_id", "name")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     project_id: str
@@ -78,13 +78,13 @@ class UpdateProjectNameRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
 
 class UpdateProjectNameResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class UpdateProjectDescriptionRequest(_message.Message):
-    __slots__ = ["project_id", "description"]
+    __slots__ = ("project_id", "description")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     project_id: str
@@ -92,13 +92,13 @@ class UpdateProjectDescriptionRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class UpdateProjectDescriptionResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class UpdateProjectKeyValuesRequest(_message.Message):
-    __slots__ = ["project_id", "add_key_values", "remove_key_values"]
+    __slots__ = ("project_id", "add_key_values", "remove_key_values")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     ADD_KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
     REMOVE_KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
@@ -108,13 +108,13 @@ class UpdateProjectKeyValuesRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., add_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., remove_key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ...) -> None: ...
 
 class UpdateProjectKeyValuesResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class UpdateProjectDataClassRequest(_message.Message):
-    __slots__ = ["project_id", "data_class"]
+    __slots__ = ("project_id", "data_class")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     DATA_CLASS_FIELD_NUMBER: _ClassVar[int]
     project_id: str
@@ -122,25 +122,25 @@ class UpdateProjectDataClassRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ...) -> None: ...
 
 class UpdateProjectDataClassResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class ArchiveProjectRequest(_message.Message):
-    __slots__ = ["project_id"]
+    __slots__ = ("project_id",)
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     def __init__(self, project_id: _Optional[str] = ...) -> None: ...
 
 class ArchiveProjectResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class UpdateProjectLicensesRequest(_message.Message):
-    __slots__ = ["project_id", "metadata_license_tag", "default_data_license_tag"]
+    __slots__ = ("project_id", "metadata_license_tag", "default_data_license_tag")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
@@ -150,7 +150,7 @@ class UpdateProjectLicensesRequest(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class UpdateProjectLicensesResponse(_message.Message):
-    __slots__ = ["project"]
+    __slots__ = ("project",)
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     project: _models_pb2.Project
     def __init__(self, project: _Optional[_Union[_models_pb2.Project, _Mapping]] = ...) -> None: ...

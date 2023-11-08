@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UserPermission(_message.Message):
-    __slots__ = ["user_id", "user_name", "permission_level"]
+    __slots__ = ("user_id", "user_name", "permission_level")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USER_NAME_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_LEVEL_FIELD_NUMBER: _ClassVar[int]
@@ -18,7 +18,7 @@ class UserPermission(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., permission_level: _Optional[_Union[_models_pb2.PermissionLevel, str]] = ...) -> None: ...
 
 class ResourceAuthorization(_message.Message):
-    __slots__ = ["resource_id", "user_permission"]
+    __slots__ = ("resource_id", "user_permission")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_PERMISSION_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -26,7 +26,7 @@ class ResourceAuthorization(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., user_permission: _Optional[_Iterable[_Union[UserPermission, _Mapping]]] = ...) -> None: ...
 
 class CreateAuthorizationRequest(_message.Message):
-    __slots__ = ["resource_id", "user_id", "permission_level"]
+    __slots__ = ("resource_id", "user_id", "permission_level")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_LEVEL_FIELD_NUMBER: _ClassVar[int]
@@ -36,7 +36,7 @@ class CreateAuthorizationRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., user_id: _Optional[str] = ..., permission_level: _Optional[_Union[_models_pb2.PermissionLevel, str]] = ...) -> None: ...
 
 class CreateAuthorizationResponse(_message.Message):
-    __slots__ = ["resource_id", "user_id", "user_name", "permission_level"]
+    __slots__ = ("resource_id", "user_id", "user_name", "permission_level")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USER_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -48,7 +48,7 @@ class CreateAuthorizationResponse(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., permission_level: _Optional[_Union[_models_pb2.PermissionLevel, str]] = ...) -> None: ...
 
 class GetAuthorizationsRequest(_message.Message):
-    __slots__ = ["resource_id", "recursive"]
+    __slots__ = ("resource_id", "recursive")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     RECURSIVE_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -56,13 +56,13 @@ class GetAuthorizationsRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., recursive: bool = ...) -> None: ...
 
 class GetAuthorizationsResponse(_message.Message):
-    __slots__ = ["authorizations"]
+    __slots__ = ("authorizations",)
     AUTHORIZATIONS_FIELD_NUMBER: _ClassVar[int]
     authorizations: _containers.RepeatedCompositeFieldContainer[ResourceAuthorization]
     def __init__(self, authorizations: _Optional[_Iterable[_Union[ResourceAuthorization, _Mapping]]] = ...) -> None: ...
 
 class DeleteAuthorizationRequest(_message.Message):
-    __slots__ = ["resource_id", "user_id"]
+    __slots__ = ("resource_id", "user_id")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -70,11 +70,11 @@ class DeleteAuthorizationRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class DeleteAuthorizationResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class UpdateAuthorizationRequest(_message.Message):
-    __slots__ = ["resource_id", "user_id", "permission_level"]
+    __slots__ = ("resource_id", "user_id", "permission_level")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_LEVEL_FIELD_NUMBER: _ClassVar[int]
@@ -84,7 +84,7 @@ class UpdateAuthorizationRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., user_id: _Optional[str] = ..., permission_level: _Optional[_Union[_models_pb2.PermissionLevel, str]] = ...) -> None: ...
 
 class UpdateAuthorizationResponse(_message.Message):
-    __slots__ = ["user_permission"]
+    __slots__ = ("user_permission",)
     USER_PERMISSION_FIELD_NUMBER: _ClassVar[int]
     user_permission: UserPermission
     def __init__(self, user_permission: _Optional[_Union[UserPermission, _Mapping]] = ...) -> None: ...

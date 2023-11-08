@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ModifyRelationsRequest(_message.Message):
-    __slots__ = ["resource_id", "add_relations", "remove_relations"]
+    __slots__ = ("resource_id", "add_relations", "remove_relations")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     ADD_RELATIONS_FIELD_NUMBER: _ClassVar[int]
     REMOVE_RELATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -18,17 +18,17 @@ class ModifyRelationsRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., add_relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., remove_relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ...) -> None: ...
 
 class ModifyRelationsResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetHierarchyRequest(_message.Message):
-    __slots__ = ["resource_id"]
+    __slots__ = ("resource_id",)
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
 
 class DatasetRelations(_message.Message):
-    __slots__ = ["origin", "object_children"]
+    __slots__ = ("origin", "object_children")
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     OBJECT_CHILDREN_FIELD_NUMBER: _ClassVar[int]
     origin: str
@@ -36,7 +36,7 @@ class DatasetRelations(_message.Message):
     def __init__(self, origin: _Optional[str] = ..., object_children: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CollectionRelations(_message.Message):
-    __slots__ = ["origin", "dataset_children", "object_children"]
+    __slots__ = ("origin", "dataset_children", "object_children")
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     DATASET_CHILDREN_FIELD_NUMBER: _ClassVar[int]
     OBJECT_CHILDREN_FIELD_NUMBER: _ClassVar[int]
@@ -46,7 +46,7 @@ class CollectionRelations(_message.Message):
     def __init__(self, origin: _Optional[str] = ..., dataset_children: _Optional[_Iterable[_Union[DatasetRelations, _Mapping]]] = ..., object_children: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ProjectRelations(_message.Message):
-    __slots__ = ["origin", "collection_children", "dataset_children", "object_children"]
+    __slots__ = ("origin", "collection_children", "dataset_children", "object_children")
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_CHILDREN_FIELD_NUMBER: _ClassVar[int]
     DATASET_CHILDREN_FIELD_NUMBER: _ClassVar[int]
@@ -58,7 +58,7 @@ class ProjectRelations(_message.Message):
     def __init__(self, origin: _Optional[str] = ..., collection_children: _Optional[_Iterable[_Union[CollectionRelations, _Mapping]]] = ..., dataset_children: _Optional[_Iterable[_Union[DatasetRelations, _Mapping]]] = ..., object_children: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetHierarchyResponse(_message.Message):
-    __slots__ = ["project", "collection", "dataset"]
+    __slots__ = ("project", "collection", "dataset")
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_FIELD_NUMBER: _ClassVar[int]
     DATASET_FIELD_NUMBER: _ClassVar[int]

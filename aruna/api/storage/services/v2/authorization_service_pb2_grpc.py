@@ -73,7 +73,7 @@ class AuthorizationServiceServicer(object):
 
         Status: BETA
 
-        This creates a user-specific attribute that handles permission for a
+        This deletes a user-specific attribute that handles permission for a
         specific resource 
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

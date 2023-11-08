@@ -8,61 +8,61 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateWorkspaceTemplateRequest(_message.Message):
-    __slots__ = ["owner_id", "prefix", "name", "hook_ids", "description", "endpoint_id"]
+    __slots__ = ("owner_id", "prefix", "name", "hook_ids", "description", "endpoint_ids")
     OWNER_ID_FIELD_NUMBER: _ClassVar[int]
     PREFIX_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     HOOK_IDS_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
-    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    ENDPOINT_IDS_FIELD_NUMBER: _ClassVar[int]
     owner_id: str
     prefix: str
     name: str
     hook_ids: _containers.RepeatedScalarFieldContainer[str]
     description: str
-    endpoint_id: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, owner_id: _Optional[str] = ..., prefix: _Optional[str] = ..., name: _Optional[str] = ..., hook_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., endpoint_id: _Optional[_Iterable[str]] = ...) -> None: ...
+    endpoint_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, owner_id: _Optional[str] = ..., prefix: _Optional[str] = ..., name: _Optional[str] = ..., hook_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., endpoint_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CreateWorkspaceTemplateResponse(_message.Message):
-    __slots__ = ["template_id"]
+    __slots__ = ("template_id",)
     TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     template_id: str
     def __init__(self, template_id: _Optional[str] = ...) -> None: ...
 
 class GetWorkspaceTemplateRequest(_message.Message):
-    __slots__ = ["template_id"]
+    __slots__ = ("template_id",)
     TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     template_id: str
     def __init__(self, template_id: _Optional[str] = ...) -> None: ...
 
 class GetWorkspaceTemplateResponse(_message.Message):
-    __slots__ = ["workspace"]
+    __slots__ = ("workspace",)
     WORKSPACE_FIELD_NUMBER: _ClassVar[int]
     workspace: WorkspaceInfo
     def __init__(self, workspace: _Optional[_Union[WorkspaceInfo, _Mapping]] = ...) -> None: ...
 
 class DeleteWorkspaceTemplateRequest(_message.Message):
-    __slots__ = ["template_id"]
+    __slots__ = ("template_id",)
     TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     template_id: str
     def __init__(self, template_id: _Optional[str] = ...) -> None: ...
 
 class DeleteWorkspaceTemplateResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListOwnedWorkspaceTemplatesRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListOwnedWorkspaceTemplatesResponse(_message.Message):
-    __slots__ = ["workspaces"]
+    __slots__ = ("workspaces",)
     WORKSPACES_FIELD_NUMBER: _ClassVar[int]
     workspaces: _containers.RepeatedCompositeFieldContainer[WorkspaceInfo]
     def __init__(self, workspaces: _Optional[_Iterable[_Union[WorkspaceInfo, _Mapping]]] = ...) -> None: ...
 
 class WorkspaceInfo(_message.Message):
-    __slots__ = ["workspace_id", "name", "description", "owner", "prefix", "hook_ids", "endpoint_ids"]
+    __slots__ = ("workspace_id", "name", "description", "owner", "prefix", "hook_ids", "endpoint_ids")
     WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -80,7 +80,7 @@ class WorkspaceInfo(_message.Message):
     def __init__(self, workspace_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., owner: _Optional[str] = ..., prefix: _Optional[str] = ..., hook_ids: _Optional[str] = ..., endpoint_ids: _Optional[str] = ...) -> None: ...
 
 class CreateWorkspaceRequest(_message.Message):
-    __slots__ = ["workspace_template", "description"]
+    __slots__ = ("workspace_template", "description")
     WORKSPACE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     workspace_template: str
@@ -88,7 +88,7 @@ class CreateWorkspaceRequest(_message.Message):
     def __init__(self, workspace_template: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class CreateWorkspaceResponse(_message.Message):
-    __slots__ = ["workspace_id", "token", "access_key", "secret_key"]
+    __slots__ = ("workspace_id", "token", "access_key", "secret_key")
     WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -100,17 +100,17 @@ class CreateWorkspaceResponse(_message.Message):
     def __init__(self, workspace_id: _Optional[str] = ..., token: _Optional[str] = ..., access_key: _Optional[str] = ..., secret_key: _Optional[str] = ...) -> None: ...
 
 class DeleteWorkspaceRequest(_message.Message):
-    __slots__ = ["workspace_id"]
+    __slots__ = ("workspace_id",)
     WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
     workspace_id: str
     def __init__(self, workspace_id: _Optional[str] = ...) -> None: ...
 
 class DeleteWorkspaceResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ClaimWorkspaceRequest(_message.Message):
-    __slots__ = ["workspace_id", "token"]
+    __slots__ = ("workspace_id", "token")
     WORKSPACE_ID_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     workspace_id: str
@@ -118,5 +118,5 @@ class ClaimWorkspaceRequest(_message.Message):
     def __init__(self, workspace_id: _Optional[str] = ..., token: _Optional[str] = ...) -> None: ...
 
 class ClaimWorkspaceResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...

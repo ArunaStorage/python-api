@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DataClass(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DATA_CLASS_UNSPECIFIED: _ClassVar[DataClass]
     DATA_CLASS_PUBLIC: _ClassVar[DataClass]
     DATA_CLASS_PRIVATE: _ClassVar[DataClass]
@@ -16,19 +16,19 @@ class DataClass(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATA_CLASS_CONFIDENTIAL: _ClassVar[DataClass]
 
 class EndpointVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ENDPOINT_VARIANT_UNSPECIFIED: _ClassVar[EndpointVariant]
     ENDPOINT_VARIANT_PERSISTENT: _ClassVar[EndpointVariant]
     ENDPOINT_VARIANT_VOLATILE: _ClassVar[EndpointVariant]
 
 class EndpointHostVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ENDPOINT_HOST_VARIANT_UNSPECIFIED: _ClassVar[EndpointHostVariant]
     ENDPOINT_HOST_VARIANT_GRPC: _ClassVar[EndpointHostVariant]
     ENDPOINT_HOST_VARIANT_S3: _ClassVar[EndpointHostVariant]
 
 class PermissionLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PERMISSION_LEVEL_UNSPECIFIED: _ClassVar[PermissionLevel]
     PERMISSION_LEVEL_NONE: _ClassVar[PermissionLevel]
     PERMISSION_LEVEL_READ: _ClassVar[PermissionLevel]
@@ -37,7 +37,7 @@ class PermissionLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_LEVEL_ADMIN: _ClassVar[PermissionLevel]
 
 class KeyValueVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     KEY_VALUE_VARIANT_UNSPECIFIED: _ClassVar[KeyValueVariant]
     KEY_VALUE_VARIANT_LABEL: _ClassVar[KeyValueVariant]
     KEY_VALUE_VARIANT_STATIC_LABEL: _ClassVar[KeyValueVariant]
@@ -45,14 +45,14 @@ class KeyValueVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     KEY_VALUE_VARIANT_HOOK_STATUS: _ClassVar[KeyValueVariant]
 
 class ExternalRelationVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     EXTERNAL_RELATION_VARIANT_UNSPECIFIED: _ClassVar[ExternalRelationVariant]
     EXTERNAL_RELATION_VARIANT_URL: _ClassVar[ExternalRelationVariant]
     EXTERNAL_RELATION_VARIANT_IDENTIFIER: _ClassVar[ExternalRelationVariant]
     EXTERNAL_RELATION_VARIANT_CUSTOM: _ClassVar[ExternalRelationVariant]
 
 class InternalRelationVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INTERNAL_RELATION_VARIANT_UNSPECIFIED: _ClassVar[InternalRelationVariant]
     INTERNAL_RELATION_VARIANT_BELONGS_TO: _ClassVar[InternalRelationVariant]
     INTERNAL_RELATION_VARIANT_ORIGIN: _ClassVar[InternalRelationVariant]
@@ -62,13 +62,13 @@ class InternalRelationVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     INTERNAL_RELATION_VARIANT_CUSTOM: _ClassVar[InternalRelationVariant]
 
 class RelationDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RELATION_DIRECTION_UNSPECIFIED: _ClassVar[RelationDirection]
     RELATION_DIRECTION_INBOUND: _ClassVar[RelationDirection]
     RELATION_DIRECTION_OUTBOUND: _ClassVar[RelationDirection]
 
 class ResourceAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RESOURCE_ACTION_UNSPECIFIED: _ClassVar[ResourceAction]
     RESOURCE_ACTION_CREATE: _ClassVar[ResourceAction]
     RESOURCE_ACTION_APPEND: _ClassVar[ResourceAction]
@@ -77,7 +77,7 @@ class ResourceAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESOURCE_ACTION_DELETE: _ClassVar[ResourceAction]
 
 class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     STATUS_UNSPECIFIED: _ClassVar[Status]
     STATUS_INITIALIZING: _ClassVar[Status]
     STATUS_VALIDATING: _ClassVar[Status]
@@ -87,7 +87,7 @@ class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STATUS_DELETED: _ClassVar[Status]
 
 class ComponentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COMPONENT_STATUS_UNSPECIFIED: _ClassVar[ComponentStatus]
     COMPONENT_STATUS_INITIALIZING: _ClassVar[ComponentStatus]
     COMPONENT_STATUS_AVAILABLE: _ClassVar[ComponentStatus]
@@ -96,13 +96,13 @@ class ComponentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPONENT_STATUS_MAINTENANCE: _ClassVar[ComponentStatus]
 
 class Hashalgorithm(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     HASHALGORITHM_UNSPECIFIED: _ClassVar[Hashalgorithm]
     HASHALGORITHM_MD5: _ClassVar[Hashalgorithm]
     HASHALGORITHM_SHA256: _ClassVar[Hashalgorithm]
 
 class ResourceVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RESOURCE_VARIANT_UNSPECIFIED: _ClassVar[ResourceVariant]
     RESOURCE_VARIANT_PROJECT: _ClassVar[ResourceVariant]
     RESOURCE_VARIANT_COLLECTION: _ClassVar[ResourceVariant]
@@ -173,7 +173,7 @@ RESOURCE_VARIANT_DATASET: ResourceVariant
 RESOURCE_VARIANT_OBJECT: ResourceVariant
 
 class User(_message.Message):
-    __slots__ = ["id", "external_id", "display_name", "active", "email", "attributes"]
+    __slots__ = ("id", "external_id", "display_name", "active", "email", "attributes")
     ID_FIELD_NUMBER: _ClassVar[int]
     EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -189,7 +189,7 @@ class User(_message.Message):
     def __init__(self, id: _Optional[str] = ..., external_id: _Optional[str] = ..., display_name: _Optional[str] = ..., active: bool = ..., email: _Optional[str] = ..., attributes: _Optional[_Union[UserAttributes, _Mapping]] = ...) -> None: ...
 
 class Permission(_message.Message):
-    __slots__ = ["project_id", "collection_id", "dataset_id", "object_id", "permission_level"]
+    __slots__ = ("project_id", "collection_id", "dataset_id", "object_id", "permission_level")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     DATASET_ID_FIELD_NUMBER: _ClassVar[int]
@@ -203,7 +203,7 @@ class Permission(_message.Message):
     def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., object_id: _Optional[str] = ..., permission_level: _Optional[_Union[PermissionLevel, str]] = ...) -> None: ...
 
 class Token(_message.Message):
-    __slots__ = ["id", "name", "created_at", "expires_at", "permission"]
+    __slots__ = ("id", "name", "created_at", "expires_at", "permission")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -217,7 +217,7 @@ class Token(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., permission: _Optional[_Union[Permission, _Mapping]] = ...) -> None: ...
 
 class Pubkey(_message.Message):
-    __slots__ = ["id", "key", "location"]
+    __slots__ = ("id", "key", "location")
     ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
     LOCATION_FIELD_NUMBER: _ClassVar[int]
@@ -227,7 +227,7 @@ class Pubkey(_message.Message):
     def __init__(self, id: _Optional[int] = ..., key: _Optional[str] = ..., location: _Optional[str] = ...) -> None: ...
 
 class CustomAttributes(_message.Message):
-    __slots__ = ["attribute_name", "attribute_value"]
+    __slots__ = ("attribute_name", "attribute_value")
     ATTRIBUTE_NAME_FIELD_NUMBER: _ClassVar[int]
     ATTRIBUTE_VALUE_FIELD_NUMBER: _ClassVar[int]
     attribute_name: str
@@ -235,7 +235,7 @@ class CustomAttributes(_message.Message):
     def __init__(self, attribute_name: _Optional[str] = ..., attribute_value: _Optional[str] = ...) -> None: ...
 
 class UserAttributes(_message.Message):
-    __slots__ = ["global_admin", "service_account", "tokens", "trusted_endpoints", "custom_attributes", "personal_permissions"]
+    __slots__ = ("global_admin", "service_account", "tokens", "trusted_endpoints", "custom_attributes", "personal_permissions")
     GLOBAL_ADMIN_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
     TOKENS_FIELD_NUMBER: _ClassVar[int]
@@ -251,7 +251,7 @@ class UserAttributes(_message.Message):
     def __init__(self, global_admin: bool = ..., service_account: bool = ..., tokens: _Optional[_Iterable[_Union[Token, _Mapping]]] = ..., trusted_endpoints: _Optional[_Iterable[str]] = ..., custom_attributes: _Optional[_Iterable[_Union[CustomAttributes, _Mapping]]] = ..., personal_permissions: _Optional[_Iterable[_Union[Permission, _Mapping]]] = ...) -> None: ...
 
 class KeyValue(_message.Message):
-    __slots__ = ["key", "value", "variant"]
+    __slots__ = ("key", "value", "variant")
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     VARIANT_FIELD_NUMBER: _ClassVar[int]
@@ -261,7 +261,7 @@ class KeyValue(_message.Message):
     def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ..., variant: _Optional[_Union[KeyValueVariant, str]] = ...) -> None: ...
 
 class Relation(_message.Message):
-    __slots__ = ["external", "internal"]
+    __slots__ = ("external", "internal")
     EXTERNAL_FIELD_NUMBER: _ClassVar[int]
     INTERNAL_FIELD_NUMBER: _ClassVar[int]
     external: ExternalRelation
@@ -269,7 +269,7 @@ class Relation(_message.Message):
     def __init__(self, external: _Optional[_Union[ExternalRelation, _Mapping]] = ..., internal: _Optional[_Union[InternalRelation, _Mapping]] = ...) -> None: ...
 
 class ExternalRelation(_message.Message):
-    __slots__ = ["identifier", "defined_variant", "custom_variant"]
+    __slots__ = ("identifier", "defined_variant", "custom_variant")
     IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     DEFINED_VARIANT_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_VARIANT_FIELD_NUMBER: _ClassVar[int]
@@ -279,7 +279,7 @@ class ExternalRelation(_message.Message):
     def __init__(self, identifier: _Optional[str] = ..., defined_variant: _Optional[_Union[ExternalRelationVariant, str]] = ..., custom_variant: _Optional[str] = ...) -> None: ...
 
 class InternalRelation(_message.Message):
-    __slots__ = ["resource_id", "resource_variant", "defined_variant", "custom_variant", "direction"]
+    __slots__ = ("resource_id", "resource_variant", "defined_variant", "custom_variant", "direction")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_VARIANT_FIELD_NUMBER: _ClassVar[int]
     DEFINED_VARIANT_FIELD_NUMBER: _ClassVar[int]
@@ -293,7 +293,7 @@ class InternalRelation(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., resource_variant: _Optional[_Union[ResourceVariant, str]] = ..., defined_variant: _Optional[_Union[InternalRelationVariant, str]] = ..., custom_variant: _Optional[str] = ..., direction: _Optional[_Union[RelationDirection, str]] = ...) -> None: ...
 
 class PageRequest(_message.Message):
-    __slots__ = ["start_after", "page_size"]
+    __slots__ = ("start_after", "page_size")
     START_AFTER_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     start_after: str
@@ -301,7 +301,7 @@ class PageRequest(_message.Message):
     def __init__(self, start_after: _Optional[str] = ..., page_size: _Optional[int] = ...) -> None: ...
 
 class Stats(_message.Message):
-    __slots__ = ["count", "size", "last_updated"]
+    __slots__ = ("count", "size", "last_updated")
     COUNT_FIELD_NUMBER: _ClassVar[int]
     SIZE_FIELD_NUMBER: _ClassVar[int]
     LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
@@ -311,7 +311,7 @@ class Stats(_message.Message):
     def __init__(self, count: _Optional[int] = ..., size: _Optional[int] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Hash(_message.Message):
-    __slots__ = ["alg", "hash"]
+    __slots__ = ("alg", "hash")
     ALG_FIELD_NUMBER: _ClassVar[int]
     HASH_FIELD_NUMBER: _ClassVar[int]
     alg: Hashalgorithm
@@ -319,7 +319,7 @@ class Hash(_message.Message):
     def __init__(self, alg: _Optional[_Union[Hashalgorithm, str]] = ..., hash: _Optional[str] = ...) -> None: ...
 
 class EndpointHostConfig(_message.Message):
-    __slots__ = ["url", "is_primary", "ssl", "public", "host_variant"]
+    __slots__ = ("url", "is_primary", "ssl", "public", "host_variant")
     URL_FIELD_NUMBER: _ClassVar[int]
     IS_PRIMARY_FIELD_NUMBER: _ClassVar[int]
     SSL_FIELD_NUMBER: _ClassVar[int]
@@ -333,7 +333,7 @@ class EndpointHostConfig(_message.Message):
     def __init__(self, url: _Optional[str] = ..., is_primary: bool = ..., ssl: bool = ..., public: bool = ..., host_variant: _Optional[_Union[EndpointHostVariant, str]] = ...) -> None: ...
 
 class Endpoint(_message.Message):
-    __slots__ = ["id", "ep_variant", "name", "is_public", "status", "host_configs"]
+    __slots__ = ("id", "ep_variant", "name", "is_public", "status", "host_configs")
     ID_FIELD_NUMBER: _ClassVar[int]
     EP_VARIANT_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -349,7 +349,7 @@ class Endpoint(_message.Message):
     def __init__(self, id: _Optional[str] = ..., ep_variant: _Optional[_Union[EndpointVariant, str]] = ..., name: _Optional[str] = ..., is_public: bool = ..., status: _Optional[_Union[ComponentStatus, str]] = ..., host_configs: _Optional[_Iterable[_Union[EndpointHostConfig, _Mapping]]] = ...) -> None: ...
 
 class DataEndpoint(_message.Message):
-    __slots__ = ["id", "full_synced"]
+    __slots__ = ("id", "full_synced")
     ID_FIELD_NUMBER: _ClassVar[int]
     FULL_SYNCED_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -357,7 +357,7 @@ class DataEndpoint(_message.Message):
     def __init__(self, id: _Optional[str] = ..., full_synced: bool = ...) -> None: ...
 
 class Copy(_message.Message):
-    __slots__ = ["resource", "target_endpoint", "push"]
+    __slots__ = ("resource", "target_endpoint", "push")
     RESOURCE_FIELD_NUMBER: _ClassVar[int]
     TARGET_ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     PUSH_FIELD_NUMBER: _ClassVar[int]
@@ -367,7 +367,7 @@ class Copy(_message.Message):
     def __init__(self, resource: _Optional[str] = ..., target_endpoint: _Optional[str] = ..., push: bool = ...) -> None: ...
 
 class Context(_message.Message):
-    __slots__ = ["s3_credentials", "copy"]
+    __slots__ = ("s3_credentials", "copy")
     S3_CREDENTIALS_FIELD_NUMBER: _ClassVar[int]
     COPY_FIELD_NUMBER: _ClassVar[int]
     s3_credentials: bool
@@ -375,7 +375,7 @@ class Context(_message.Message):
     def __init__(self, s3_credentials: bool = ..., copy: _Optional[_Union[Copy, _Mapping]] = ...) -> None: ...
 
 class License(_message.Message):
-    __slots__ = ["tag", "name", "text", "url"]
+    __slots__ = ("tag", "name", "text", "url")
     TAG_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
@@ -387,7 +387,7 @@ class License(_message.Message):
     def __init__(self, tag: _Optional[str] = ..., name: _Optional[str] = ..., text: _Optional[str] = ..., url: _Optional[str] = ...) -> None: ...
 
 class GenericResource(_message.Message):
-    __slots__ = ["project", "collection", "dataset", "object"]
+    __slots__ = ("project", "collection", "dataset", "object")
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_FIELD_NUMBER: _ClassVar[int]
     DATASET_FIELD_NUMBER: _ClassVar[int]
@@ -399,7 +399,7 @@ class GenericResource(_message.Message):
     def __init__(self, project: _Optional[_Union[Project, _Mapping]] = ..., collection: _Optional[_Union[Collection, _Mapping]] = ..., dataset: _Optional[_Union[Dataset, _Mapping]] = ..., object: _Optional[_Union[Object, _Mapping]] = ...) -> None: ...
 
 class Project(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
+    __slots__ = ("id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -431,7 +431,7 @@ class Project(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Collection(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
+    __slots__ = ("id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -463,7 +463,7 @@ class Collection(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Dataset(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag"]
+    __slots__ = ("id", "name", "description", "key_values", "relations", "stats", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "metadata_license_tag", "default_data_license_tag")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -495,7 +495,7 @@ class Dataset(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[Relation, _Mapping]]] = ..., stats: _Optional[_Union[Stats, _Mapping]] = ..., data_class: _Optional[_Union[DataClass, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., status: _Optional[_Union[Status, str]] = ..., dynamic: bool = ..., endpoints: _Optional[_Iterable[_Union[DataEndpoint, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., default_data_license_tag: _Optional[str] = ...) -> None: ...
 
 class Object(_message.Message):
-    __slots__ = ["id", "name", "description", "key_values", "relations", "content_len", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "hashes", "metadata_license_tag", "data_license_tag"]
+    __slots__ = ("id", "name", "description", "key_values", "relations", "content_len", "data_class", "created_at", "created_by", "status", "dynamic", "endpoints", "hashes", "metadata_license_tag", "data_license_tag")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
