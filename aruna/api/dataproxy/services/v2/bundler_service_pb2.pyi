@@ -9,14 +9,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateBundleRequest(_message.Message):
-    __slots__ = ("resource_id", "filename", "expires_at")
-    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("resource_ids", "filename", "expires_at")
+    RESOURCE_IDS_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
     EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
-    resource_id: _containers.RepeatedScalarFieldContainer[str]
+    resource_ids: _containers.RepeatedScalarFieldContainer[str]
     filename: str
     expires_at: _timestamp_pb2.Timestamp
-    def __init__(self, resource_id: _Optional[_Iterable[str]] = ..., filename: _Optional[str] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, resource_ids: _Optional[_Iterable[str]] = ..., filename: _Optional[str] = ..., expires_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class CreateBundleResponse(_message.Message):
     __slots__ = ("bundle_id", "bundle_url")

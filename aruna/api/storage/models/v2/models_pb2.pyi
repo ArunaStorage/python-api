@@ -173,20 +173,18 @@ RESOURCE_VARIANT_DATASET: ResourceVariant
 RESOURCE_VARIANT_OBJECT: ResourceVariant
 
 class User(_message.Message):
-    __slots__ = ("id", "external_id", "display_name", "active", "email", "attributes")
+    __slots__ = ("id", "display_name", "active", "email", "attributes")
     ID_FIELD_NUMBER: _ClassVar[int]
-    EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     ATTRIBUTES_FIELD_NUMBER: _ClassVar[int]
     id: str
-    external_id: str
     display_name: str
     active: bool
     email: str
     attributes: UserAttributes
-    def __init__(self, id: _Optional[str] = ..., external_id: _Optional[str] = ..., display_name: _Optional[str] = ..., active: bool = ..., email: _Optional[str] = ..., attributes: _Optional[_Union[UserAttributes, _Mapping]] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., display_name: _Optional[str] = ..., active: bool = ..., email: _Optional[str] = ..., attributes: _Optional[_Union[UserAttributes, _Mapping]] = ...) -> None: ...
 
 class Permission(_message.Message):
     __slots__ = ("project_id", "collection_id", "dataset_id", "object_id", "permission_level")
@@ -234,21 +232,31 @@ class CustomAttributes(_message.Message):
     attribute_value: str
     def __init__(self, attribute_name: _Optional[str] = ..., attribute_value: _Optional[str] = ...) -> None: ...
 
+class OidcMapping(_message.Message):
+    __slots__ = ("external_id", "oidc_url")
+    EXTERNAL_ID_FIELD_NUMBER: _ClassVar[int]
+    OIDC_URL_FIELD_NUMBER: _ClassVar[int]
+    external_id: str
+    oidc_url: str
+    def __init__(self, external_id: _Optional[str] = ..., oidc_url: _Optional[str] = ...) -> None: ...
+
 class UserAttributes(_message.Message):
-    __slots__ = ("global_admin", "service_account", "tokens", "trusted_endpoints", "custom_attributes", "personal_permissions")
+    __slots__ = ("global_admin", "service_account", "tokens", "trusted_endpoints", "custom_attributes", "personal_permissions", "external_ids")
     GLOBAL_ADMIN_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
     TOKENS_FIELD_NUMBER: _ClassVar[int]
     TRUSTED_ENDPOINTS_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_ATTRIBUTES_FIELD_NUMBER: _ClassVar[int]
     PERSONAL_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    EXTERNAL_IDS_FIELD_NUMBER: _ClassVar[int]
     global_admin: bool
     service_account: bool
     tokens: _containers.RepeatedCompositeFieldContainer[Token]
     trusted_endpoints: _containers.RepeatedScalarFieldContainer[str]
     custom_attributes: _containers.RepeatedCompositeFieldContainer[CustomAttributes]
     personal_permissions: _containers.RepeatedCompositeFieldContainer[Permission]
-    def __init__(self, global_admin: bool = ..., service_account: bool = ..., tokens: _Optional[_Iterable[_Union[Token, _Mapping]]] = ..., trusted_endpoints: _Optional[_Iterable[str]] = ..., custom_attributes: _Optional[_Iterable[_Union[CustomAttributes, _Mapping]]] = ..., personal_permissions: _Optional[_Iterable[_Union[Permission, _Mapping]]] = ...) -> None: ...
+    external_ids: _containers.RepeatedCompositeFieldContainer[OidcMapping]
+    def __init__(self, global_admin: bool = ..., service_account: bool = ..., tokens: _Optional[_Iterable[_Union[Token, _Mapping]]] = ..., trusted_endpoints: _Optional[_Iterable[str]] = ..., custom_attributes: _Optional[_Iterable[_Union[CustomAttributes, _Mapping]]] = ..., personal_permissions: _Optional[_Iterable[_Union[Permission, _Mapping]]] = ..., external_ids: _Optional[_Iterable[_Union[OidcMapping, _Mapping]]] = ...) -> None: ...
 
 class KeyValue(_message.Message):
     __slots__ = ("key", "value", "variant")

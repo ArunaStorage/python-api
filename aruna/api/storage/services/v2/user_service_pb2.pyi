@@ -275,3 +275,27 @@ class PersonalNotification(_message.Message):
     message: str
     refs: _containers.RepeatedCompositeFieldContainer[Reference]
     def __init__(self, id: _Optional[str] = ..., variant: _Optional[_Union[PersonalNotificationVariant, str]] = ..., message: _Optional[str] = ..., refs: _Optional[_Iterable[_Union[Reference, _Mapping]]] = ...) -> None: ...
+
+class AddOidcProviderRequest(_message.Message):
+    __slots__ = ("new_access_token",)
+    NEW_ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    new_access_token: str
+    def __init__(self, new_access_token: _Optional[str] = ...) -> None: ...
+
+class AddOidcProviderResponse(_message.Message):
+    __slots__ = ("user",)
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _models_pb2.User
+    def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
+
+class RemoveOidcProviderRequest(_message.Message):
+    __slots__ = ("provider_url",)
+    PROVIDER_URL_FIELD_NUMBER: _ClassVar[int]
+    provider_url: str
+    def __init__(self, provider_url: _Optional[str] = ...) -> None: ...
+
+class RemoveOidcProviderResponse(_message.Message):
+    __slots__ = ("user",)
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _models_pb2.User
+    def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
