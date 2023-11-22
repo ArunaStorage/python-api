@@ -6,7 +6,12 @@ from aruna.api.dataproxy.services.v2 import bundler_service_pb2 as aruna_dot_api
 
 
 class BundlerServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """BundlerService
+
+    Status: ALPHA
+
+    Dataproxy specific service for creating and deleting bundles.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -27,16 +32,31 @@ class BundlerServiceStub(object):
 
 
 class BundlerServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """BundlerService
+
+    Status: ALPHA
+
+    Dataproxy specific service for creating and deleting bundles.
+    """
 
     def CreateBundle(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """CreateBundle
+
+        Status: ALPHA
+
+        Creates a bundle with multiple resources, dataproxy only.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteBundle(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """DeleteBundle
+
+        Status: ALPHA
+
+        Delete an existing bundle, dataproxy only.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -62,7 +82,12 @@ def add_BundlerServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class BundlerService(object):
-    """Missing associated documentation comment in .proto file."""
+    """BundlerService
+
+    Status: ALPHA
+
+    Dataproxy specific service for creating and deleting bundles.
+    """
 
     @staticmethod
     def CreateBundle(request,

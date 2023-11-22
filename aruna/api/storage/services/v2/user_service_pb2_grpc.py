@@ -8,8 +8,9 @@ from aruna.api.storage.services.v2 import user_service_pb2 as aruna_dot_api_dot_
 class UserServiceStub(object):
     """UserService
 
-    Contains all methods that get/create or update Users and associated resource
-    including all autorization methods
+    Status: BETA
+
+    Contains all CRUD methods for users and associated resource
     """
 
     def __init__(self, channel):
@@ -108,8 +109,8 @@ class UserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AcknowledgePersonalNotificationsRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AcknowledgePersonalNotificationsResponse.FromString,
                 )
-        self.AddOidcProvier = channel.unary_unary(
-                '/aruna.api.storage.services.v2.UserService/AddOidcProvier',
+        self.AddOidcProvider = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/AddOidcProvider',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderResponse.FromString,
                 )
@@ -123,8 +124,9 @@ class UserServiceStub(object):
 class UserServiceServicer(object):
     """UserService
 
-    Contains all methods that get/create or update Users and associated resource
-    including all autorization methods
+    Status: BETA
+
+    Contains all CRUD methods for users and associated resource
     """
 
     def RegisterUser(self, request, context):
@@ -328,14 +330,25 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AddOidcProvier(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+    def AddOidcProvider(self, request, context):
+        """AddOidcProvider
+
+        Status: BETA
+
+        Add alternative oidc login method for user
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RemoveOidcProvider(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """RemoveOidcProvider
+
+        Status: BETA
+
+        Remove alternative oidc login method from user
+        (Only works if user has more than one oidc provider)
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -433,8 +446,8 @@ def add_UserServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AcknowledgePersonalNotificationsRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AcknowledgePersonalNotificationsResponse.SerializeToString,
             ),
-            'AddOidcProvier': grpc.unary_unary_rpc_method_handler(
-                    servicer.AddOidcProvier,
+            'AddOidcProvider': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddOidcProvider,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderResponse.SerializeToString,
             ),
@@ -453,8 +466,9 @@ def add_UserServiceServicer_to_server(servicer, server):
 class UserService(object):
     """UserService
 
-    Contains all methods that get/create or update Users and associated resource
-    including all autorization methods
+    Status: BETA
+
+    Contains all CRUD methods for users and associated resource
     """
 
     @staticmethod
@@ -764,7 +778,7 @@ class UserService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddOidcProvier(request,
+    def AddOidcProvider(request,
             target,
             options=(),
             channel_credentials=None,
@@ -774,7 +788,7 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/AddOidcProvier',
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/AddOidcProvider',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddOidcProviderResponse.FromString,
             options, channel_credentials,

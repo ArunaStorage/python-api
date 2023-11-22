@@ -8,7 +8,9 @@ from aruna.api.storage.services.v2 import object_service_pb2 as aruna_dot_api_do
 class ObjectServiceStub(object):
     """ObjectService
 
-    Contains all methods that get/create or update Objects and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update objects and associated resources
     """
 
     def __init__(self, channel):
@@ -67,7 +69,9 @@ class ObjectServiceStub(object):
 class ObjectServiceServicer(object):
     """ObjectService
 
-    Contains all methods that get/create or update Objects and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update objects and associated resources
     """
 
     def CreateObject(self, request, context):
@@ -75,8 +79,9 @@ class ObjectServiceServicer(object):
 
         Status: BETA
 
-        This creates a new object
-        Initializing an object will put it in a staging area.
+        This creates a new object and puts it in a staging area.
+        Staging objects have an "INITIALIZING" status
+        and need to be finished either manually or by uploading data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -241,7 +246,9 @@ def add_ObjectServiceServicer_to_server(servicer, server):
 class ObjectService(object):
     """ObjectService
 
-    Contains all methods that get/create or update Objects and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update objects and associated resources
     """
 
     @staticmethod

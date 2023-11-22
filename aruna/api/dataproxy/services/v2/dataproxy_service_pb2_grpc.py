@@ -6,7 +6,12 @@ from aruna.api.dataproxy.services.v2 import dataproxy_service_pb2 as aruna_dot_a
 
 
 class DataproxyServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """DataproxyService
+
+    Status: ALPHA
+
+    Service for data replication between data-proxies
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -27,12 +32,17 @@ class DataproxyServiceStub(object):
 
 
 class DataproxyServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """DataproxyService
+
+    Status: ALPHA
+
+    Service for data replication between data-proxies
+    """
 
     def RequestReplication(self, request, context):
         """RequestReplication
 
-        Status: BETA
+        Status: ALPHA
 
         Creates a replication request
         """
@@ -43,7 +53,7 @@ class DataproxyServiceServicer(object):
     def InitReplication(self, request, context):
         """InitReplication
 
-        Status: BETA
+        Status: ALPHA
 
         Provides the necessary url to init replication
         """
@@ -72,7 +82,12 @@ def add_DataproxyServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class DataproxyService(object):
-    """Missing associated documentation comment in .proto file."""
+    """DataproxyService
+
+    Status: ALPHA
+
+    Service for data replication between data-proxies
+    """
 
     @staticmethod
     def RequestReplication(request,

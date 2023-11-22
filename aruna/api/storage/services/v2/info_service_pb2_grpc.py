@@ -8,9 +8,11 @@ from aruna.api.storage.services.v2 import info_service_pb2 as aruna_dot_api_dot_
 class StorageStatusServiceStub(object):
     """StorageStatusService
 
+    Status: BETA
+
     This is a generic service that contains utility functions 
     these functions are used to query additional meta-information
-    about the status of the overall storage architecture
+    about the status of storage components
     """
 
     def __init__(self, channel):
@@ -49,9 +51,11 @@ class StorageStatusServiceStub(object):
 class StorageStatusServiceServicer(object):
     """StorageStatusService
 
+    Status: BETA
+
     This is a generic service that contains utility functions 
     these functions are used to query additional meta-information
-    about the status of the overall storage architecture
+    about the status of storage components
     """
 
     def GetStorageVersion(self, request, context):
@@ -78,19 +82,34 @@ class StorageStatusServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetPubkeys(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """GetPubkeys
+
+        Status: BETA
+
+        Get all public keys of all storage components
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAnnouncements(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """GetAnnouncements
+
+        Status: BETA
+
+        Query global announcements
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SetAnnouncements(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """SetAnnouncements
+
+        Status: BETA
+
+        Update / add global announcements
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -133,9 +152,11 @@ def add_StorageStatusServiceServicer_to_server(servicer, server):
 class StorageStatusService(object):
     """StorageStatusService
 
+    Status: BETA
+
     This is a generic service that contains utility functions 
     these functions are used to query additional meta-information
-    about the status of the overall storage architecture
+    about the status of storage components
     """
 
     @staticmethod

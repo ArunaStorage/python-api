@@ -8,6 +8,8 @@ from aruna.api.storage.services.v2 import project_service_pb2 as aruna_dot_api_d
 class ProjectServiceStub(object):
     """ProjectService
 
+    Status: BETA
+
     Contains all methods that get/create or update Projects and associated resources
     """
 
@@ -71,6 +73,8 @@ class ProjectServiceStub(object):
 
 class ProjectServiceServicer(object):
     """ProjectService
+
+    Status: BETA
 
     Contains all methods that get/create or update Projects and associated resources
     """
@@ -247,6 +251,8 @@ def add_ProjectServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class ProjectService(object):
     """ProjectService
+
+    Status: BETA
 
     Contains all methods that get/create or update Projects and associated resources
     """

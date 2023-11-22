@@ -8,7 +8,9 @@ from aruna.api.storage.services.v2 import license_service_pb2 as aruna_dot_api_d
 class LicenseServiceStub(object):
     """LicenseService
 
-    Contains all methods to add, get or list licenses
+    Status: BETA
+
+    Contains all methods to add, get or list (custom) licenses
     """
 
     def __init__(self, channel):
@@ -37,7 +39,9 @@ class LicenseServiceStub(object):
 class LicenseServiceServicer(object):
     """LicenseService
 
-    Contains all methods to add, get or list licenses
+    Status: BETA
+
+    Contains all methods to add, get or list (custom) licenses
     """
 
     def CreateLicense(self, request, context):
@@ -101,7 +105,9 @@ def add_LicenseServiceServicer_to_server(servicer, server):
 class LicenseService(object):
     """LicenseService
 
-    Contains all methods to add, get or list licenses
+    Status: BETA
+
+    Contains all methods to add, get or list (custom) licenses
     """
 
     @staticmethod

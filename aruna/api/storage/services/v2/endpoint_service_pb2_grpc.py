@@ -8,7 +8,9 @@ from aruna.api.storage.services.v2 import endpoint_service_pb2 as aruna_dot_api_
 class EndpointServiceStub(object):
     """EndpointService
 
-    Contains all methods that get/create or update Endpoint and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update Endpoint (Dataproxies) and associated resources
     """
 
     def __init__(self, channel):
@@ -26,6 +28,11 @@ class EndpointServiceStub(object):
                 '/aruna.api.storage.services.v2.EndpointService/FullSyncEndpoint',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointResponse.FromString,
+                )
+        self.SetEndpointStatus = channel.unary_unary(
+                '/aruna.api.storage.services.v2.EndpointService/SetEndpointStatus',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusResponse.FromString,
                 )
         self.GetEndpoint = channel.unary_unary(
                 '/aruna.api.storage.services.v2.EndpointService/GetEndpoint',
@@ -52,7 +59,9 @@ class EndpointServiceStub(object):
 class EndpointServiceServicer(object):
     """EndpointService
 
-    Contains all methods that get/create or update Endpoint and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update Endpoint (Dataproxies) and associated resources
     """
 
     def CreateEndpoint(self, request, context):
@@ -61,7 +70,7 @@ class EndpointServiceServicer(object):
         Status: BETA
 
         Registers a new Endpoint (Aruna DataProxy) to the server
-        Needs admin permissions
+        requires admin permissions
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -73,6 +82,17 @@ class EndpointServiceServicer(object):
         Status: BETA
 
         Requests a full sync of all endpoint related data
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetEndpointStatus(self, request, context):
+        """SetEndpointStatus
+
+        Status: BETA
+
+        This request sets the status of a specific Endpoint
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -137,6 +157,11 @@ def add_EndpointServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointResponse.SerializeToString,
             ),
+            'SetEndpointStatus': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetEndpointStatus,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusResponse.SerializeToString,
+            ),
             'GetEndpoint': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEndpoint,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.GetEndpointRequest.FromString,
@@ -167,7 +192,9 @@ def add_EndpointServiceServicer_to_server(servicer, server):
 class EndpointService(object):
     """EndpointService
 
-    Contains all methods that get/create or update Endpoint and associated resources
+    Status: BETA
+
+    Contains all methods that get/create or update Endpoint (Dataproxies) and associated resources
     """
 
     @staticmethod
@@ -201,6 +228,23 @@ class EndpointService(object):
         return grpc.experimental.unary_stream(request, target, '/aruna.api.storage.services.v2.EndpointService/FullSyncEndpoint',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.FullSyncEndpointResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetEndpointStatus(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.EndpointService/SetEndpointStatus',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_endpoint__service__pb2.SetEndpointStatusResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

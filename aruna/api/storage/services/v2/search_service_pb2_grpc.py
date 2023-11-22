@@ -6,7 +6,12 @@ from aruna.api.storage.services.v2 import search_service_pb2 as aruna_dot_api_do
 
 
 class SearchServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """SearchService
+
+    Status: BETA
+
+    SearchService is used to query resources in the index and get a public view of them.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -37,7 +42,12 @@ class SearchServiceStub(object):
 
 
 class SearchServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """SearchService
+
+    Status: BETA
+
+    SearchService is used to query resources in the index and get a public view of them.
+    """
 
     def SearchResources(self, request, context):
         """SearchResources
@@ -114,7 +124,12 @@ def add_SearchServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class SearchService(object):
-    """Missing associated documentation comment in .proto file."""
+    """SearchService
+
+    Status: BETA
+
+    SearchService is used to query resources in the index and get a public view of them.
+    """
 
     @staticmethod
     def SearchResources(request,

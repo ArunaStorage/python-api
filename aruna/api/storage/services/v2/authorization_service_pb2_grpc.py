@@ -8,6 +8,8 @@ from aruna.api.storage.services.v2 import authorization_service_pb2 as aruna_dot
 class AuthorizationServiceStub(object):
     """AuthorizationService
 
+    Status: BETA
+
     Contains all methods to edit and change user authorization
     """
 
@@ -41,6 +43,8 @@ class AuthorizationServiceStub(object):
 
 class AuthorizationServiceServicer(object):
     """AuthorizationService
+
+    Status: BETA
 
     Contains all methods to edit and change user authorization
     """
@@ -124,6 +128,8 @@ def add_AuthorizationServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class AuthorizationService(object):
     """AuthorizationService
+
+    Status: BETA
 
     Contains all methods to edit and change user authorization
     """

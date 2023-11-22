@@ -84,3 +84,17 @@ class GetDefaultEndpointResponse(_message.Message):
     ENDPOINT_FIELD_NUMBER: _ClassVar[int]
     endpoint: _models_pb2.Endpoint
     def __init__(self, endpoint: _Optional[_Union[_models_pb2.Endpoint, _Mapping]] = ...) -> None: ...
+
+class SetEndpointStatusRequest(_message.Message):
+    __slots__ = ("endpoint_id", "status")
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    status: _models_pb2.ComponentStatus
+    def __init__(self, endpoint_id: _Optional[str] = ..., status: _Optional[_Union[_models_pb2.ComponentStatus, str]] = ...) -> None: ...
+
+class SetEndpointStatusResponse(_message.Message):
+    __slots__ = ("endpoint",)
+    ENDPOINT_FIELD_NUMBER: _ClassVar[int]
+    endpoint: _models_pb2.Endpoint
+    def __init__(self, endpoint: _Optional[_Union[_models_pb2.Endpoint, _Mapping]] = ...) -> None: ...

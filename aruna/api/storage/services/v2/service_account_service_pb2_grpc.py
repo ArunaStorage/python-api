@@ -8,9 +8,10 @@ from aruna.api.storage.services.v2 import service_account_service_pb2 as aruna_d
 class ServiceAccountServiceStub(object):
     """ServiceAccountService
 
-    Service that contains all methods for service_accounts, these are Accounts that are
-    project specific (or global) and can be used for automation. 
-    Service account users will always contain (bot) behind their name
+    Status: BETA
+
+    Service that contains CRUD operations for service_accounts.
+    Service accounts are project specific accounts that can be used for automation. 
     """
 
     def __init__(self, channel):
@@ -74,9 +75,10 @@ class ServiceAccountServiceStub(object):
 class ServiceAccountServiceServicer(object):
     """ServiceAccountService
 
-    Service that contains all methods for service_accounts, these are Accounts that are
-    project specific (or global) and can be used for automation. 
-    Service account users will always contain (bot) behind their name
+    Status: BETA
+
+    Service that contains CRUD operations for service_accounts.
+    Service accounts are project specific accounts that can be used for automation. 
     """
 
     def CreateServiceAccount(self, request, context):
@@ -99,7 +101,7 @@ class ServiceAccountServiceServicer(object):
 
         Creates a token for a service account
         Each service account can only have one permission -> The token will have the same permission as the
-        service account
+        service account or a subset of it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -258,9 +260,10 @@ def add_ServiceAccountServiceServicer_to_server(servicer, server):
 class ServiceAccountService(object):
     """ServiceAccountService
 
-    Service that contains all methods for service_accounts, these are Accounts that are
-    project specific (or global) and can be used for automation. 
-    Service account users will always contain (bot) behind their name
+    Status: BETA
+
+    Service that contains CRUD operations for service_accounts.
+    Service accounts are project specific accounts that can be used for automation. 
     """
 
     @staticmethod

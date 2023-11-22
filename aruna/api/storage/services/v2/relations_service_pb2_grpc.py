@@ -8,6 +8,8 @@ from aruna.api.storage.services.v2 import relations_service_pb2 as aruna_dot_api
 class RelationsServiceStub(object):
     """RelationsService
 
+    Status: BETA
+
     Contains all methods to edit and change resource relations
     """
 
@@ -32,6 +34,8 @@ class RelationsServiceStub(object):
 class RelationsServiceServicer(object):
     """RelationsService
 
+    Status: BETA
+
     Contains all methods to edit and change resource relations
     """
 
@@ -40,7 +44,8 @@ class RelationsServiceServicer(object):
 
         Status: BETA
 
-        Modifys all relations to / from a resource
+        Add/Remove/Modifies all relation types to / from a resource
+        Works for internal and external relations
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,6 +57,7 @@ class RelationsServiceServicer(object):
         Status: BETA
 
         Gets all downstream hierarchy relations from a resource
+        results in a tree structure
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -79,6 +85,8 @@ def add_RelationsServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class RelationsService(object):
     """RelationsService
+
+    Status: BETA
 
     Contains all methods to edit and change resource relations
     """

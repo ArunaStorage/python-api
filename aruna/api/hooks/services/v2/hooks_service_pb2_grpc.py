@@ -60,38 +60,69 @@ class HooksServiceServicer(object):
     """
 
     def CreateHook(self, request, context):
-        """Created Hooks are always associated with the owner that creates the hook
+        """CreateHook
+
+        Status: ALPHA
+
+        Creates a replication request
+        Hooks are always associated with the owner that created the hook
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AddProjectsToHook(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """AddProjectsToHook
+
+        Status: ALPHA
+
+        Assigns a hook to a project
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListProjectHooks(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ListProjectHooks
+
+        Status: ALPHA
+
+        List all hooks assigned to a project
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOwnedHooks(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ListOwnedHooks
+
+        Status: ALPHA
+
+        List all hooks created by a user
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteHook(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """DeleteHook
+
+        Status: ALPHA
+
+        Delete a hook by id
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def HookCallback(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Callback API
+
+        Status: ALPHA
+
+        Externally triggered hooks should respond to this endpoint to
+        signal completion or failure and to provide additional flags for the object
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

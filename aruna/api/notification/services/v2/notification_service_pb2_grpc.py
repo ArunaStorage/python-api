@@ -8,7 +8,9 @@ from aruna.api.notification.services.v2 import notification_service_pb2 as aruna
 class EventNotificationServiceStub(object):
     """EventNotificationService
 
-    A service to receive events in the AOS storage
+    Status: BETA
+
+    A service to receive events for CRUD operations on resources (users, resources etc.)
     """
 
     def __init__(self, channel):
@@ -47,11 +49,15 @@ class EventNotificationServiceStub(object):
 class EventNotificationServiceServicer(object):
     """EventNotificationService
 
-    A service to receive events in the AOS storage
+    Status: BETA
+
+    A service to receive events for CRUD operations on resources (users, resources etc.)
     """
 
     def CreateStreamConsumer(self, request, context):
         """CreateStreamConsumer
+
+        Status: BETA
 
         Creates a new event stream consumer.
         """
@@ -61,6 +67,8 @@ class EventNotificationServiceServicer(object):
 
     def GetEventMessageBatch(self, request, context):
         """GetEventMessageBatch
+
+        Status: BETA
 
         Reads a set of messages from a given stream group 
         Each message contains a separate acknowledgement message thatis protected by a salt and an hmac for verification.
@@ -73,6 +81,8 @@ class EventNotificationServiceServicer(object):
     def GetEventMessageStream(self, request, context):
         """GetEventMessageBatch
 
+        Status: BETA
+
         Opens a stream which pushes each received notification individual and just-in-time.
         Each message contains a separate acknowledgement message that is protected by a salt and an hmac for verification.
         The message can be send directly through the AcknowledgeMessageBatch call to acknowledge the message.
@@ -84,6 +94,8 @@ class EventNotificationServiceServicer(object):
     def AcknowledgeMessageBatch(self, request, context):
         """AcknowledgeMessageBatch
 
+        Status: BETA
+
         List of messages to acknowledge
         Each reply is protected by a salt and and hmac that verifies the message
         """
@@ -93,6 +105,8 @@ class EventNotificationServiceServicer(object):
 
     def DeleteStreamConsumer(self, request, context):
         """DeleteEventStreamingGroup
+
+        Status: BETA
 
         Deletes an existing event stream consumer by ID.
         """
@@ -138,7 +152,9 @@ def add_EventNotificationServiceServicer_to_server(servicer, server):
 class EventNotificationService(object):
     """EventNotificationService
 
-    A service to receive events in the AOS storage
+    Status: BETA
+
+    A service to receive events for CRUD operations on resources (users, resources etc.)
     """
 
     @staticmethod

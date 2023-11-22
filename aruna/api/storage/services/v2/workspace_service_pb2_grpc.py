@@ -6,7 +6,11 @@ from aruna.api.storage.services.v2 import workspace_service_pb2 as aruna_dot_api
 
 
 class WorkspaceServiceStub(object):
-    """Service to manage "special" anonymous collections / workspaces 
+    """WorkspaceService
+
+    Status: BETA
+
+    Service to manage anonymous "scratch" projects / workspaces 
     """
 
     def __init__(self, channel):
@@ -53,7 +57,11 @@ class WorkspaceServiceStub(object):
 
 
 class WorkspaceServiceServicer(object):
-    """Service to manage "special" anonymous collections / workspaces 
+    """WorkspaceService
+
+    Status: BETA
+
+    Service to manage anonymous "scratch" projects / workspaces 
     """
 
     def CreateWorkspaceTemplate(self, request, context):
@@ -105,7 +113,7 @@ class WorkspaceServiceServicer(object):
 
         Status: ALPHA
 
-        A new request to create a personal anonymous workspace
+        Create a personal anonymous workspace
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -179,7 +187,11 @@ def add_WorkspaceServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class WorkspaceService(object):
-    """Service to manage "special" anonymous collections / workspaces 
+    """WorkspaceService
+
+    Status: BETA
+
+    Service to manage anonymous "scratch" projects / workspaces 
     """
 
     @staticmethod

@@ -59,6 +59,7 @@ class InternalRelationVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     INTERNAL_RELATION_VARIANT_VERSION: _ClassVar[InternalRelationVariant]
     INTERNAL_RELATION_VARIANT_METADATA: _ClassVar[InternalRelationVariant]
     INTERNAL_RELATION_VARIANT_POLICY: _ClassVar[InternalRelationVariant]
+    INTERNAL_RELATION_VARIANT_DELETED: _ClassVar[InternalRelationVariant]
     INTERNAL_RELATION_VARIANT_CUSTOM: _ClassVar[InternalRelationVariant]
 
 class RelationDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
@@ -140,6 +141,7 @@ INTERNAL_RELATION_VARIANT_ORIGIN: InternalRelationVariant
 INTERNAL_RELATION_VARIANT_VERSION: InternalRelationVariant
 INTERNAL_RELATION_VARIANT_METADATA: InternalRelationVariant
 INTERNAL_RELATION_VARIANT_POLICY: InternalRelationVariant
+INTERNAL_RELATION_VARIANT_DELETED: InternalRelationVariant
 INTERNAL_RELATION_VARIANT_CUSTOM: InternalRelationVariant
 RELATION_DIRECTION_UNSPECIFIED: RelationDirection
 RELATION_DIRECTION_INBOUND: RelationDirection

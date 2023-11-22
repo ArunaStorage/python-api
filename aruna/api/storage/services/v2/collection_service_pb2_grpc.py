@@ -8,6 +8,8 @@ from aruna.api.storage.services.v2 import collection_service_pb2 as aruna_dot_ap
 class CollectionServiceStub(object):
     """CollectionService
 
+    Status: BETA
+
     Contains all methods that get/create or update Collection and associated resources
     """
 
@@ -71,6 +73,8 @@ class CollectionServiceStub(object):
 
 class CollectionServiceServicer(object):
     """CollectionService
+
+    Status: BETA
 
     Contains all methods that get/create or update Collection and associated resources
     """
@@ -247,6 +251,8 @@ def add_CollectionServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class CollectionService(object):
     """CollectionService
+
+    Status: BETA
 
     Contains all methods that get/create or update Collection and associated resources
     """
