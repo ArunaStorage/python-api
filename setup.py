@@ -32,7 +32,7 @@ setup(
                   'protoc_gen_openapiv2.options': ['*.pyi'],
                 },
     install_requires=[
-        'protobuf==3.20.3',
+        'protobuf',
         'grpcio',
         'google-api-python-client'
     ],
