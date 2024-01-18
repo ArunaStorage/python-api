@@ -7,7 +7,6 @@ from aruna.api.storage.services.v2 import data_replication_service_pb2 as aruna_
 
 class DataReplicationServiceStub(object):
     """DataReplicationService
-
     Endpoint specific methods for syncing data
     """
 
@@ -46,7 +45,6 @@ class DataReplicationServiceStub(object):
 
 class DataReplicationServiceServicer(object):
     """DataReplicationService
-
     Endpoint specific methods for syncing data
     """
 
@@ -142,7 +140,6 @@ def add_DataReplicationServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class DataReplicationService(object):
     """DataReplicationService
-
     Endpoint specific methods for syncing data
     """
 

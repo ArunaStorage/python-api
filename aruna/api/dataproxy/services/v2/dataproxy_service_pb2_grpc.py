@@ -5,7 +5,7 @@ import grpc
 from aruna.api.dataproxy.services.v2 import dataproxy_service_pb2 as aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2
 
 
-class DataproxyServiceStub(object):
+class DataproxyReplicationServiceStub(object):
     """DataproxyService
 
     Status: ALPHA
@@ -19,19 +19,19 @@ class DataproxyServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.RequestReplication = channel.unary_unary(
-                '/aruna.api.dataproxy.services.v2.DataproxyService/RequestReplication',
-                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationResponse.FromString,
+        self.PullReplication = channel.stream_stream(
+                '/aruna.api.dataproxy.services.v2.DataproxyReplicationService/PullReplication',
+                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationResponse.FromString,
                 )
-        self.InitReplication = channel.unary_unary(
-                '/aruna.api.dataproxy.services.v2.DataproxyService/InitReplication',
-                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationResponse.FromString,
+        self.PushReplication = channel.unary_unary(
+                '/aruna.api.dataproxy.services.v2.DataproxyReplicationService/PushReplication',
+                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationResponse.FromString,
                 )
 
 
-class DataproxyServiceServicer(object):
+class DataproxyReplicationServiceServicer(object):
     """DataproxyService
 
     Status: ALPHA
@@ -39,18 +39,18 @@ class DataproxyServiceServicer(object):
     Service for data replication between data-proxies
     """
 
-    def RequestReplication(self, request, context):
+    def PullReplication(self, request_iterator, context):
         """RequestReplication
 
         Status: ALPHA
 
-        Creates a replication request
+        Creates a replication stream
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def InitReplication(self, request, context):
+    def PushReplication(self, request, context):
         """InitReplication
 
         Status: ALPHA
@@ -62,26 +62,26 @@ class DataproxyServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_DataproxyServiceServicer_to_server(servicer, server):
+def add_DataproxyReplicationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'RequestReplication': grpc.unary_unary_rpc_method_handler(
-                    servicer.RequestReplication,
-                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationResponse.SerializeToString,
+            'PullReplication': grpc.stream_stream_rpc_method_handler(
+                    servicer.PullReplication,
+                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationResponse.SerializeToString,
             ),
-            'InitReplication': grpc.unary_unary_rpc_method_handler(
-                    servicer.InitReplication,
-                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationResponse.SerializeToString,
+            'PushReplication': grpc.unary_unary_rpc_method_handler(
+                    servicer.PushReplication,
+                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'aruna.api.dataproxy.services.v2.DataproxyService', rpc_method_handlers)
+            'aruna.api.dataproxy.services.v2.DataproxyReplicationService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class DataproxyService(object):
+class DataproxyReplicationService(object):
     """DataproxyService
 
     Status: ALPHA
@@ -90,7 +90,7 @@ class DataproxyService(object):
     """
 
     @staticmethod
-    def RequestReplication(request,
+    def PullReplication(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -100,14 +100,14 @@ class DataproxyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyService/RequestReplication',
-            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationRequest.SerializeToString,
-            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RequestReplicationResponse.FromString,
+        return grpc.experimental.stream_stream(request_iterator, target, '/aruna.api.dataproxy.services.v2.DataproxyReplicationService/PullReplication',
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationRequest.SerializeToString,
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PullReplicationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def InitReplication(request,
+    def PushReplication(request,
             target,
             options=(),
             channel_credentials=None,
@@ -117,9 +117,9 @@ class DataproxyService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyService/InitReplication',
-            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationRequest.SerializeToString,
-            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.InitReplicationResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyReplicationService/PushReplication',
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationRequest.SerializeToString,
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

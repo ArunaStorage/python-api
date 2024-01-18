@@ -109,6 +109,14 @@ class ResourceVariant(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RESOURCE_VARIANT_COLLECTION: _ClassVar[ResourceVariant]
     RESOURCE_VARIANT_DATASET: _ClassVar[ResourceVariant]
     RESOURCE_VARIANT_OBJECT: _ClassVar[ResourceVariant]
+
+class ReplicationStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    REPLICATION_STATUS_UNSPECIFIED: _ClassVar[ReplicationStatus]
+    REPLICATION_STATUS_WAITING: _ClassVar[ReplicationStatus]
+    REPLICATION_STATUS_RUNNING: _ClassVar[ReplicationStatus]
+    REPLICATION_STATUS_FINISHED: _ClassVar[ReplicationStatus]
+    REPLICATION_STATUS_ERROR: _ClassVar[ReplicationStatus]
 DATA_CLASS_UNSPECIFIED: DataClass
 DATA_CLASS_PUBLIC: DataClass
 DATA_CLASS_PRIVATE: DataClass
@@ -173,6 +181,11 @@ RESOURCE_VARIANT_PROJECT: ResourceVariant
 RESOURCE_VARIANT_COLLECTION: ResourceVariant
 RESOURCE_VARIANT_DATASET: ResourceVariant
 RESOURCE_VARIANT_OBJECT: ResourceVariant
+REPLICATION_STATUS_UNSPECIFIED: ReplicationStatus
+REPLICATION_STATUS_WAITING: ReplicationStatus
+REPLICATION_STATUS_RUNNING: ReplicationStatus
+REPLICATION_STATUS_FINISHED: ReplicationStatus
+REPLICATION_STATUS_ERROR: ReplicationStatus
 
 class User(_message.Message):
     __slots__ = ("id", "display_name", "active", "email", "attributes")
@@ -359,12 +372,34 @@ class Endpoint(_message.Message):
     def __init__(self, id: _Optional[str] = ..., ep_variant: _Optional[_Union[EndpointVariant, str]] = ..., name: _Optional[str] = ..., is_public: bool = ..., status: _Optional[_Union[ComponentStatus, str]] = ..., host_configs: _Optional[_Iterable[_Union[EndpointHostConfig, _Mapping]]] = ...) -> None: ...
 
 class DataEndpoint(_message.Message):
-    __slots__ = ("id", "full_synced")
+    __slots__ = ("id", "full_sync", "partial_sync", "status")
     ID_FIELD_NUMBER: _ClassVar[int]
-    FULL_SYNCED_FIELD_NUMBER: _ClassVar[int]
+    FULL_SYNC_FIELD_NUMBER: _ClassVar[int]
+    PARTIAL_SYNC_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
     id: str
-    full_synced: bool
-    def __init__(self, id: _Optional[str] = ..., full_synced: bool = ...) -> None: ...
+    full_sync: FullSync
+    partial_sync: PartialSync
+    status: ReplicationStatus
+    def __init__(self, id: _Optional[str] = ..., full_sync: _Optional[_Union[FullSync, _Mapping]] = ..., partial_sync: _Optional[_Union[PartialSync, _Mapping]] = ..., status: _Optional[_Union[ReplicationStatus, str]] = ...) -> None: ...
+
+class FullSync(_message.Message):
+    __slots__ = ("project_id",)
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    def __init__(self, project_id: _Optional[str] = ...) -> None: ...
+
+class PartialSync(_message.Message):
+    __slots__ = ("project_id", "collection_id", "dataset_id", "object_id")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    DATASET_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    collection_id: str
+    dataset_id: str
+    object_id: str
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., object_id: _Optional[str] = ...) -> None: ...
 
 class Copy(_message.Message):
     __slots__ = ("resource", "target_endpoint", "push")

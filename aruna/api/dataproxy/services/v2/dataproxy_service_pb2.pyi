@@ -21,21 +21,99 @@ REPLICATION_STATUS_RUNNING: ReplicationStatus
 REPLICATION_STATUS_FINISHED: ReplicationStatus
 REPLICATION_STATUS_ERROR: ReplicationStatus
 
-class DataProxyInfo(_message.Message):
-    __slots__ = ("dataproxy_id", "available_space")
+class InitMessage(_message.Message):
+    __slots__ = ("dataproxy_id", "object_ids")
     DATAPROXY_ID_FIELD_NUMBER: _ClassVar[int]
-    AVAILABLE_SPACE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_IDS_FIELD_NUMBER: _ClassVar[int]
     dataproxy_id: str
-    available_space: int
-    def __init__(self, dataproxy_id: _Optional[str] = ..., available_space: _Optional[int] = ...) -> None: ...
+    object_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, dataproxy_id: _Optional[str] = ..., object_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class RequestReplicationRequest(_message.Message):
-    __slots__ = ("info", "user_initialized")
-    INFO_FIELD_NUMBER: _ClassVar[int]
-    USER_INITIALIZED_FIELD_NUMBER: _ClassVar[int]
-    info: DataProxyInfo
-    user_initialized: bool
-    def __init__(self, info: _Optional[_Union[DataProxyInfo, _Mapping]] = ..., user_initialized: bool = ...) -> None: ...
+class InfoAckMessage(_message.Message):
+    __slots__ = ("object_id",)
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    def __init__(self, object_id: _Optional[str] = ...) -> None: ...
+
+class ChunkAckMessage(_message.Message):
+    __slots__ = ("object_id", "chunk_idx")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_IDX_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    chunk_idx: int
+    def __init__(self, object_id: _Optional[str] = ..., chunk_idx: _Optional[int] = ...) -> None: ...
+
+class RetryChunkMessage(_message.Message):
+    __slots__ = ("object_id", "chunk_idx")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_IDX_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    chunk_idx: int
+    def __init__(self, object_id: _Optional[str] = ..., chunk_idx: _Optional[int] = ...) -> None: ...
+
+class Empty(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ErrorMessage(_message.Message):
+    __slots__ = ("retry_chunk", "abort", "retry_object_id")
+    RETRY_CHUNK_FIELD_NUMBER: _ClassVar[int]
+    ABORT_FIELD_NUMBER: _ClassVar[int]
+    RETRY_OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    retry_chunk: RetryChunkMessage
+    abort: Empty
+    retry_object_id: str
+    def __init__(self, retry_chunk: _Optional[_Union[RetryChunkMessage, _Mapping]] = ..., abort: _Optional[_Union[Empty, _Mapping]] = ..., retry_object_id: _Optional[str] = ...) -> None: ...
+
+class PullReplicationRequest(_message.Message):
+    __slots__ = ("init_message", "info_ack_message", "chunk_ack_message", "error_message", "finish_message")
+    INIT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    INFO_ACK_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_ACK_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    FINISH_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    init_message: InitMessage
+    info_ack_message: InfoAckMessage
+    chunk_ack_message: ChunkAckMessage
+    error_message: ErrorMessage
+    finish_message: Empty
+    def __init__(self, init_message: _Optional[_Union[InitMessage, _Mapping]] = ..., info_ack_message: _Optional[_Union[InfoAckMessage, _Mapping]] = ..., chunk_ack_message: _Optional[_Union[ChunkAckMessage, _Mapping]] = ..., error_message: _Optional[_Union[ErrorMessage, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ...) -> None: ...
+
+class ObjectInfo(_message.Message):
+    __slots__ = ("object_id", "chunks", "raw_size", "block_list", "extra")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNKS_FIELD_NUMBER: _ClassVar[int]
+    RAW_SIZE_FIELD_NUMBER: _ClassVar[int]
+    BLOCK_LIST_FIELD_NUMBER: _ClassVar[int]
+    EXTRA_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    chunks: int
+    raw_size: int
+    block_list: _containers.RepeatedScalarFieldContainer[int]
+    extra: str
+    def __init__(self, object_id: _Optional[str] = ..., chunks: _Optional[int] = ..., raw_size: _Optional[int] = ..., block_list: _Optional[_Iterable[int]] = ..., extra: _Optional[str] = ...) -> None: ...
+
+class Chunk(_message.Message):
+    __slots__ = ("object_id", "chunk_idx", "data", "checksum")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_IDX_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    CHECKSUM_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    chunk_idx: int
+    data: bytes
+    checksum: str
+    def __init__(self, object_id: _Optional[str] = ..., chunk_idx: _Optional[int] = ..., data: _Optional[bytes] = ..., checksum: _Optional[str] = ...) -> None: ...
+
+class PullReplicationResponse(_message.Message):
+    __slots__ = ("object_info", "chunk", "finish_message")
+    OBJECT_INFO_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_FIELD_NUMBER: _ClassVar[int]
+    FINISH_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    object_info: ObjectInfo
+    chunk: Chunk
+    finish_message: Empty
+    def __init__(self, object_info: _Optional[_Union[ObjectInfo, _Mapping]] = ..., chunk: _Optional[_Union[Chunk, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ...) -> None: ...
 
 class DataInfo(_message.Message):
     __slots__ = ("object_id", "download_url", "encryption_key", "is_compressed")
@@ -55,21 +133,13 @@ class DataInfos(_message.Message):
     data_info: _containers.RepeatedCompositeFieldContainer[DataInfo]
     def __init__(self, data_info: _Optional[_Iterable[_Union[DataInfo, _Mapping]]] = ...) -> None: ...
 
-class RequestReplicationResponse(_message.Message):
-    __slots__ = ("data_infos", "ack")
-    DATA_INFOS_FIELD_NUMBER: _ClassVar[int]
-    ACK_FIELD_NUMBER: _ClassVar[int]
-    data_infos: DataInfos
-    ack: bool
-    def __init__(self, data_infos: _Optional[_Union[DataInfos, _Mapping]] = ..., ack: bool = ...) -> None: ...
-
-class InitReplicationRequest(_message.Message):
+class PushReplicationRequest(_message.Message):
     __slots__ = ("data_infos",)
     DATA_INFOS_FIELD_NUMBER: _ClassVar[int]
     data_infos: DataInfos
     def __init__(self, data_infos: _Optional[_Union[DataInfos, _Mapping]] = ...) -> None: ...
 
-class InitReplicationResponse(_message.Message):
+class PushReplicationResponse(_message.Message):
     __slots__ = ("ack",)
     ACK_FIELD_NUMBER: _ClassVar[int]
     ack: bool
@@ -96,14 +166,14 @@ class S3Path(_message.Message):
     def __init__(self, bucket: _Optional[str] = ..., key: _Optional[str] = ...) -> None: ...
 
 class PushReplicaRequest(_message.Message):
-    __slots__ = ("resource_id", "s3_path", "target_location")
+    __slots__ = ("resource_id", "s3_path", "target_endpoint_id")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     S3_PATH_FIELD_NUMBER: _ClassVar[int]
-    TARGET_LOCATION_FIELD_NUMBER: _ClassVar[int]
+    TARGET_ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     s3_path: S3Path
-    target_location: str
-    def __init__(self, resource_id: _Optional[str] = ..., s3_path: _Optional[_Union[S3Path, _Mapping]] = ..., target_location: _Optional[str] = ...) -> None: ...
+    target_endpoint_id: str
+    def __init__(self, resource_id: _Optional[str] = ..., s3_path: _Optional[_Union[S3Path, _Mapping]] = ..., target_endpoint_id: _Optional[str] = ...) -> None: ...
 
 class PushReplicaResponse(_message.Message):
     __slots__ = ("replication_id",)
