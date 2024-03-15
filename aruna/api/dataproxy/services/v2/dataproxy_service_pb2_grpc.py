@@ -53,7 +53,7 @@ class DataproxyReplicationServiceServicer(object):
     def PushReplication(self, request, context):
         """InitReplication
 
-        Status: ALPHA
+        Status: UNIMPLEMENTED
 
         Provides the necessary url to init replication
         """
@@ -496,6 +496,16 @@ class DataproxyUserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsResponse.FromString,
                 )
+        self.CreateOrUpdateCredentials = channel.unary_unary(
+                '/aruna.api.dataproxy.services.v2.DataproxyUserService/CreateOrUpdateCredentials',
+                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsResponse.FromString,
+                )
+        self.RevokeCredentials = channel.unary_unary(
+                '/aruna.api.dataproxy.services.v2.DataproxyUserService/RevokeCredentials',
+                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsResponse.FromString,
+                )
         self.PushReplica = channel.unary_unary(
                 '/aruna.api.dataproxy.services.v2.DataproxyUserService/PushReplica',
                 request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.PushReplicaRequest.SerializeToString,
@@ -528,10 +538,34 @@ class DataproxyUserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateOrUpdateCredentials(self, request, context):
+        """CreateOrUpdateCredentials
+
+        Status: BETA
+
+        Authorized method that needs a aruna-token to exchange for dataproxy
+        specific S3AccessKey and S3SecretKey
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RevokeCredentials(self, request, context):
+        """RevokeCredentials
+
+        Status: BETA
+
+        Authorized method that needs a aruna-token
+        Revokes the current credentials
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def PushReplica(self, request, context):
         """PushReplica
 
-        Status: BETA
+        Status: UNIMPLEMENTED
 
         Manually transfers a replica to another data-proxy
         """
@@ -542,7 +576,7 @@ class DataproxyUserServiceServicer(object):
     def PullReplica(self, request, context):
         """PullReplica
 
-        Status: BETA
+        Status: UNIMPLEMENTED
 
         Manually request data to be transferred to this data-proxy
         """
@@ -551,9 +585,9 @@ class DataproxyUserServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ReplicationStatus(self, request, context):
-        """PullReplica
+        """ReplicationStatus
 
-        Status: BETA
+        Status: UNIMPLEMENTED
 
         Status of the previous replication request
         """
@@ -568,6 +602,16 @@ def add_DataproxyUserServiceServicer_to_server(servicer, server):
                     servicer.GetCredentials,
                     request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsRequest.FromString,
                     response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsResponse.SerializeToString,
+            ),
+            'CreateOrUpdateCredentials': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateOrUpdateCredentials,
+                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsResponse.SerializeToString,
+            ),
+            'RevokeCredentials': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeCredentials,
+                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsResponse.SerializeToString,
             ),
             'PushReplica': grpc.unary_unary_rpc_method_handler(
                     servicer.PushReplica,
@@ -608,6 +652,40 @@ class DataproxyUserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyUserService/GetCredentials',
             aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsRequest.SerializeToString,
             aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.GetCredentialsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateOrUpdateCredentials(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyUserService/CreateOrUpdateCredentials',
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsRequest.SerializeToString,
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.CreateOrUpdateCredentialsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeCredentials(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyUserService/RevokeCredentials',
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsRequest.SerializeToString,
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.RevokeCredentialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -659,5 +737,71 @@ class DataproxyUserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyUserService/ReplicationStatus',
             aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.ReplicationStatusRequest.SerializeToString,
             aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.ReplicationStatusResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class DataproxyIngestionServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.IngestExistingObject = channel.unary_unary(
+                '/aruna.api.dataproxy.services.v2.DataproxyIngestionService/IngestExistingObject',
+                request_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectResponse.FromString,
+                )
+
+
+class DataproxyIngestionServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def IngestExistingObject(self, request, context):
+        """IngestExistingObject
+
+        Status: ALPHA
+
+        Ingest an existing object into backend
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_DataproxyIngestionServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'IngestExistingObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.IngestExistingObject,
+                    request_deserializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'aruna.api.dataproxy.services.v2.DataproxyIngestionService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class DataproxyIngestionService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def IngestExistingObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.dataproxy.services.v2.DataproxyIngestionService/IngestExistingObject',
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectRequest.SerializeToString,
+            aruna_dot_api_dot_dataproxy_dot_services_dot_v2_dot_dataproxy__service__pb2.IngestExistingObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

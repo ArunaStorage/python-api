@@ -10,12 +10,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateServiceAccountRequest(_message.Message):
-    __slots__ = ("name", "permission")
+    __slots__ = ("name", "project_id", "permission_level")
     NAME_FIELD_NUMBER: _ClassVar[int]
-    PERMISSION_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_LEVEL_FIELD_NUMBER: _ClassVar[int]
     name: str
-    permission: _models_pb2.Permission
-    def __init__(self, name: _Optional[str] = ..., permission: _Optional[_Union[_models_pb2.Permission, _Mapping]] = ...) -> None: ...
+    project_id: str
+    permission_level: _models_pb2.PermissionLevel
+    def __init__(self, name: _Optional[str] = ..., project_id: _Optional[str] = ..., permission_level: _Optional[_Union[_models_pb2.PermissionLevel, str]] = ...) -> None: ...
 
 class ServiceAccount(_message.Message):
     __slots__ = ("svc_account_id", "name", "permission")
@@ -52,20 +54,6 @@ class CreateServiceAccountTokenResponse(_message.Message):
     token: _models_pb2.Token
     token_secret: str
     def __init__(self, token: _Optional[_Union[_models_pb2.Token, _Mapping]] = ..., token_secret: _Optional[str] = ...) -> None: ...
-
-class SetServiceAccountPermissionRequest(_message.Message):
-    __slots__ = ("svc_account_id", "permission")
-    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
-    PERMISSION_FIELD_NUMBER: _ClassVar[int]
-    svc_account_id: str
-    permission: _models_pb2.Permission
-    def __init__(self, svc_account_id: _Optional[str] = ..., permission: _Optional[_Union[_models_pb2.Permission, _Mapping]] = ...) -> None: ...
-
-class SetServiceAccountPermissionResponse(_message.Message):
-    __slots__ = ("service_account",)
-    SERVICE_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
-    service_account: ServiceAccount
-    def __init__(self, service_account: _Optional[_Union[ServiceAccount, _Mapping]] = ...) -> None: ...
 
 class GetServiceAccountTokenRequest(_message.Message):
     __slots__ = ("svc_account_id", "token_id")
@@ -125,6 +113,24 @@ class DeleteServiceAccountResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class CreateS3CredentialsSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "endpoint_id")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    endpoint_id: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+
+class CreateS3CredentialsSvcAccountResponse(_message.Message):
+    __slots__ = ("s3_access_key", "s3_secret_key", "s3_endpoint_url")
+    S3_ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    S3_SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
+    S3_ENDPOINT_URL_FIELD_NUMBER: _ClassVar[int]
+    s3_access_key: str
+    s3_secret_key: str
+    s3_endpoint_url: str
+    def __init__(self, s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ..., s3_endpoint_url: _Optional[str] = ...) -> None: ...
+
 class GetS3CredentialsSvcAccountRequest(_message.Message):
     __slots__ = ("svc_account_id", "endpoint_id")
     SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -143,18 +149,92 @@ class GetS3CredentialsSvcAccountResponse(_message.Message):
     s3_endpoint_url: str
     def __init__(self, s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ..., s3_endpoint_url: _Optional[str] = ...) -> None: ...
 
-class CreateDataproxyTokenSvcAccountRequest(_message.Message):
-    __slots__ = ("svc_account_id", "endpoint_id", "context")
+class DeleteS3CredentialsSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "endpoint_id")
     SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
     ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
-    CONTEXT_FIELD_NUMBER: _ClassVar[int]
     svc_account_id: str
     endpoint_id: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+
+class DeleteS3CredentialsSvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateDataproxyTokenSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "context", "endpoint_id")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
     context: _models_pb2.Context
-    def __init__(self, svc_account_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ..., context: _Optional[_Union[_models_pb2.Context, _Mapping]] = ...) -> None: ...
+    endpoint_id: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., context: _Optional[_Union[_models_pb2.Context, _Mapping]] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
 
 class CreateDataproxyTokenSvcAccountResponse(_message.Message):
     __slots__ = ("token",)
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     token: str
     def __init__(self, token: _Optional[str] = ...) -> None: ...
+
+class AddPubkeySvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "public_key")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    public_key: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., public_key: _Optional[str] = ...) -> None: ...
+
+class AddPubkeySvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class AddTrustedEndpointsSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "endpoint_id")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    endpoint_id: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+
+class AddTrustedEndpointsSvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RemoveTrustedEndpointsSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "endpoint_id")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    endpoint_id: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+
+class RemoveTrustedEndpointsSvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class AddDataProxyAttributeSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "attribute")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    ATTRIBUTE_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    attribute: _models_pb2.DataProxyAttribute
+    def __init__(self, svc_account_id: _Optional[str] = ..., attribute: _Optional[_Union[_models_pb2.DataProxyAttribute, _Mapping]] = ...) -> None: ...
+
+class AddDataProxyAttributeSvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RemoveDataProxyAttributeSvcAccountRequest(_message.Message):
+    __slots__ = ("svc_account_id", "dataproxy_id", "attribute_name")
+    SVC_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    DATAPROXY_ID_FIELD_NUMBER: _ClassVar[int]
+    ATTRIBUTE_NAME_FIELD_NUMBER: _ClassVar[int]
+    svc_account_id: str
+    dataproxy_id: str
+    attribute_name: str
+    def __init__(self, svc_account_id: _Optional[str] = ..., dataproxy_id: _Optional[str] = ..., attribute_name: _Optional[str] = ...) -> None: ...
+
+class RemoveDataProxyAttributeSvcAccountResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

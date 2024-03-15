@@ -89,10 +89,20 @@ class UserServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetAllUsersRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetAllUsersResponse.FromString,
                 )
-        self.GetS3CredentialsUser = channel.unary_unary(
-                '/aruna.api.storage.services.v2.UserService/GetS3CredentialsUser',
-                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserResponse.FromString,
+        self.CreateS3CredentialsUserToken = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/CreateS3CredentialsUserToken',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenResponse.FromString,
+                )
+        self.GetS3CredentialsUserToken = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/GetS3CredentialsUserToken',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenResponse.FromString,
+                )
+        self.DeleteS3CredentialsUserToken = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/DeleteS3CredentialsUserToken',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserTokenRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserResponse.FromString,
                 )
         self.GetDataproxyTokenUser = channel.unary_unary(
                 '/aruna.api.storage.services.v2.UserService/GetDataproxyTokenUser',
@@ -118,6 +128,31 @@ class UserServiceStub(object):
                 '/aruna.api.storage.services.v2.UserService/RemoveOidcProvider',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderResponse.FromString,
+                )
+        self.AddPubkeyUser = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/AddPubkeyUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserResponse.FromString,
+                )
+        self.AddTrustedEndpointsUser = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/AddTrustedEndpointsUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserResponse.FromString,
+                )
+        self.RemoveTrustedEndpointsUser = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/RemoveTrustedEndpointsUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserResponse.FromString,
+                )
+        self.AddDataProxyAttributeUser = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/AddDataProxyAttributeUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserResponse.FromString,
+                )
+        self.RemoveDataProxyAttributeUser = channel.unary_unary(
+                '/aruna.api.storage.services.v2.UserService/RemoveDataProxyAttributeUser',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserResponse.FromString,
                 )
 
 
@@ -286,12 +321,34 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetS3CredentialsUser(self, request, context):
-        """GetS3Credentials
+    def CreateS3CredentialsUserToken(self, request, context):
+        """CreateS3CredentialsUserToken
 
         Status: ALPHA
 
-        Gets s3 credentials for a specific user and data_proxy
+        Creates or updates S3 credentials for a specific user and data_proxy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetS3CredentialsUserToken(self, request, context):
+        """GetS3CredentialsUserToken
+
+        Status: ALPHA
+
+        Gets S3 credentials for a specific token and data_proxy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteS3CredentialsUserToken(self, request, context):
+        """DeleteS3CredentialsUserToken
+
+        Status: ALPHA
+
+        Revokes existing S3 credentials for a specific user and data_proxy
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -348,6 +405,61 @@ class UserServiceServicer(object):
 
         Remove alternative oidc login method from user
         (Only works if user has more than one oidc provider)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddPubkeyUser(self, request, context):
+        """AddPubkeyUser
+
+        Status: ALPHA
+
+        Adds an ED25519 public key for the user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddTrustedEndpointsUser(self, request, context):
+        """AddTrustedEndpointsUser
+
+        Status: ALPHA
+
+        Adds an endpoint to the trusted endpoints list of the user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveTrustedEndpointsUser(self, request, context):
+        """RemoveTrustedEndpointsUser
+
+        Status: ALPHA
+
+        Removes an endpoint from the trusted endpoints list of the user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddDataProxyAttributeUser(self, request, context):
+        """AddDataProxyAttributeUser
+
+        Status: ALPHA
+
+        Adds an data proxy specific attribute to the user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveDataProxyAttributeUser(self, request, context):
+        """RemoveDataProxyAttributeUser
+
+        Status: ALPHA
+
+        Removes an data proxy specific attribute from the user
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -426,10 +538,20 @@ def add_UserServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetAllUsersRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetAllUsersResponse.SerializeToString,
             ),
-            'GetS3CredentialsUser': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetS3CredentialsUser,
-                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserResponse.SerializeToString,
+            'CreateS3CredentialsUserToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateS3CredentialsUserToken,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenResponse.SerializeToString,
+            ),
+            'GetS3CredentialsUserToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetS3CredentialsUserToken,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenResponse.SerializeToString,
+            ),
+            'DeleteS3CredentialsUserToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteS3CredentialsUserToken,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserTokenRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserResponse.SerializeToString,
             ),
             'GetDataproxyTokenUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDataproxyTokenUser,
@@ -455,6 +577,31 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.RemoveOidcProvider,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderResponse.SerializeToString,
+            ),
+            'AddPubkeyUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddPubkeyUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserResponse.SerializeToString,
+            ),
+            'AddTrustedEndpointsUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddTrustedEndpointsUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserResponse.SerializeToString,
+            ),
+            'RemoveTrustedEndpointsUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveTrustedEndpointsUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserResponse.SerializeToString,
+            ),
+            'AddDataProxyAttributeUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddDataProxyAttributeUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserResponse.SerializeToString,
+            ),
+            'RemoveDataProxyAttributeUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveDataProxyAttributeUser,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -710,7 +857,7 @@ class UserService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetS3CredentialsUser(request,
+    def CreateS3CredentialsUserToken(request,
             target,
             options=(),
             channel_credentials=None,
@@ -720,9 +867,43 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/GetS3CredentialsUser',
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserRequest.SerializeToString,
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/CreateS3CredentialsUserToken',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.CreateS3CredentialsUserTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetS3CredentialsUserToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/GetS3CredentialsUserToken',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.GetS3CredentialsUserTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteS3CredentialsUserToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/DeleteS3CredentialsUserToken',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserTokenRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.DeleteS3CredentialsUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -808,5 +989,90 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/RemoveOidcProvider',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveOidcProviderResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddPubkeyUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/AddPubkeyUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddPubkeyUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddTrustedEndpointsUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/AddTrustedEndpointsUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddTrustedEndpointsUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveTrustedEndpointsUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/RemoveTrustedEndpointsUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveTrustedEndpointsUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddDataProxyAttributeUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/AddDataProxyAttributeUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.AddDataProxyAttributeUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveDataProxyAttributeUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.UserService/RemoveDataProxyAttributeUser',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_user__service__pb2.RemoveDataProxyAttributeUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

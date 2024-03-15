@@ -9,8 +9,9 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateObjectRequest(_message.Message):
-    __slots__ = ("name", "description", "key_values", "relations", "data_class", "project_id", "collection_id", "dataset_id", "hashes", "metadata_license_tag", "data_license_tag")
+    __slots__ = ("name", "title", "description", "key_values", "relations", "data_class", "project_id", "collection_id", "dataset_id", "hashes", "metadata_license_tag", "data_license_tag", "authors")
     NAME_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
     RELATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -21,7 +22,9 @@ class CreateObjectRequest(_message.Message):
     HASHES_FIELD_NUMBER: _ClassVar[int]
     METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
     DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    AUTHORS_FIELD_NUMBER: _ClassVar[int]
     name: str
+    title: str
     description: str
     key_values: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
     relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.Relation]
@@ -32,7 +35,8 @@ class CreateObjectRequest(_message.Message):
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
     metadata_license_tag: str
     data_license_tag: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ...) -> None: ...
+    authors: _containers.RepeatedCompositeFieldContainer[_models_pb2.Author]
+    def __init__(self, name: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., dataset_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ..., authors: _Optional[_Iterable[_Union[_models_pb2.Author, _Mapping]]] = ...) -> None: ...
 
 class CreateObjectResponse(_message.Message):
     __slots__ = ("object",)
@@ -217,3 +221,47 @@ class GetObjectEndpointsRequest(_message.Message):
     collection_id: str
     object_id: str
     def __init__(self, collection_id: _Optional[str] = ..., object_id: _Optional[str] = ...) -> None: ...
+
+class UpdateObjectTitleRequest(_message.Message):
+    __slots__ = ("object_id", "title")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    title: str
+    def __init__(self, object_id: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
+
+class UpdateObjectTitleResponse(_message.Message):
+    __slots__ = ("object",)
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    object: _models_pb2.Object
+    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
+
+class UpdateObjectAuthorsRequest(_message.Message):
+    __slots__ = ("object_id", "add_authors", "remove_authors")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    ADD_AUTHORS_FIELD_NUMBER: _ClassVar[int]
+    REMOVE_AUTHORS_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    add_authors: _containers.RepeatedCompositeFieldContainer[_models_pb2.Author]
+    remove_authors: _containers.RepeatedCompositeFieldContainer[_models_pb2.Author]
+    def __init__(self, object_id: _Optional[str] = ..., add_authors: _Optional[_Iterable[_Union[_models_pb2.Author, _Mapping]]] = ..., remove_authors: _Optional[_Iterable[_Union[_models_pb2.Author, _Mapping]]] = ...) -> None: ...
+
+class UpdateObjectAuthorsResponse(_message.Message):
+    __slots__ = ("object",)
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    object: _models_pb2.Object
+    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
+
+class SetObjectHashesRequest(_message.Message):
+    __slots__ = ("object_id", "hashes")
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    HASHES_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
+    def __init__(self, object_id: _Optional[str] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ...) -> None: ...
+
+class SetObjectHashesResponse(_message.Message):
+    __slots__ = ("object",)
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    object: _models_pb2.Object
+    def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...

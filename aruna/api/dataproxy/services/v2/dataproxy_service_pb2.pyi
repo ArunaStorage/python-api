@@ -1,5 +1,6 @@
 from google.api import annotations_pb2 as _annotations_pb2
 from google.api import visibility_pb2 as _visibility_pb2
+from aruna.api.storage.models.v2 import models_pb2 as _models_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -80,18 +81,18 @@ class PullReplicationRequest(_message.Message):
     def __init__(self, init_message: _Optional[_Union[InitMessage, _Mapping]] = ..., info_ack_message: _Optional[_Union[InfoAckMessage, _Mapping]] = ..., chunk_ack_message: _Optional[_Union[ChunkAckMessage, _Mapping]] = ..., error_message: _Optional[_Union[ErrorMessage, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ...) -> None: ...
 
 class ObjectInfo(_message.Message):
-    __slots__ = ("object_id", "chunks", "raw_size", "block_list", "extra")
+    __slots__ = ("object_id", "chunks", "raw_size", "compressed_size", "extra")
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     CHUNKS_FIELD_NUMBER: _ClassVar[int]
     RAW_SIZE_FIELD_NUMBER: _ClassVar[int]
-    BLOCK_LIST_FIELD_NUMBER: _ClassVar[int]
+    COMPRESSED_SIZE_FIELD_NUMBER: _ClassVar[int]
     EXTRA_FIELD_NUMBER: _ClassVar[int]
     object_id: str
     chunks: int
     raw_size: int
-    block_list: _containers.RepeatedScalarFieldContainer[int]
+    compressed_size: int
     extra: str
-    def __init__(self, object_id: _Optional[str] = ..., chunks: _Optional[int] = ..., raw_size: _Optional[int] = ..., block_list: _Optional[_Iterable[int]] = ..., extra: _Optional[str] = ...) -> None: ...
+    def __init__(self, object_id: _Optional[str] = ..., chunks: _Optional[int] = ..., raw_size: _Optional[int] = ..., compressed_size: _Optional[int] = ..., extra: _Optional[str] = ...) -> None: ...
 
 class Chunk(_message.Message):
     __slots__ = ("object_id", "chunk_idx", "data", "checksum")
@@ -156,6 +157,26 @@ class GetCredentialsResponse(_message.Message):
     access_key: str
     secret_key: str
     def __init__(self, access_key: _Optional[str] = ..., secret_key: _Optional[str] = ...) -> None: ...
+
+class CreateOrUpdateCredentialsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateOrUpdateCredentialsResponse(_message.Message):
+    __slots__ = ("access_key", "secret_key")
+    ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
+    access_key: str
+    secret_key: str
+    def __init__(self, access_key: _Optional[str] = ..., secret_key: _Optional[str] = ...) -> None: ...
+
+class RevokeCredentialsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RevokeCredentialsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class S3Path(_message.Message):
     __slots__ = ("bucket", "key")
@@ -352,3 +373,51 @@ class InitLocationResponse(_message.Message):
     LOCATION_FIELD_NUMBER: _ClassVar[int]
     location: ObjectLocation
     def __init__(self, location: _Optional[_Union[ObjectLocation, _Mapping]] = ...) -> None: ...
+
+class IngestResource(_message.Message):
+    __slots__ = ("name", "title", "description", "authors", "key_values", "relations", "data_class", "hashes", "metadata_license_tag", "data_license_tag")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    AUTHORS_FIELD_NUMBER: _ClassVar[int]
+    KEY_VALUES_FIELD_NUMBER: _ClassVar[int]
+    RELATIONS_FIELD_NUMBER: _ClassVar[int]
+    DATA_CLASS_FIELD_NUMBER: _ClassVar[int]
+    HASHES_FIELD_NUMBER: _ClassVar[int]
+    METADATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    DATA_LICENSE_TAG_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    title: str
+    description: str
+    authors: _containers.RepeatedCompositeFieldContainer[_models_pb2.Author]
+    key_values: _containers.RepeatedCompositeFieldContainer[_models_pb2.KeyValue]
+    relations: _containers.RepeatedCompositeFieldContainer[_models_pb2.Relation]
+    data_class: _models_pb2.DataClass
+    hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
+    metadata_license_tag: str
+    data_license_tag: str
+    def __init__(self, name: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., authors: _Optional[_Iterable[_Union[_models_pb2.Author, _Mapping]]] = ..., key_values: _Optional[_Iterable[_Union[_models_pb2.KeyValue, _Mapping]]] = ..., relations: _Optional[_Iterable[_Union[_models_pb2.Relation, _Mapping]]] = ..., data_class: _Optional[_Union[_models_pb2.DataClass, str]] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., metadata_license_tag: _Optional[str] = ..., data_license_tag: _Optional[str] = ...) -> None: ...
+
+class IngestExistingObjectRequest(_message.Message):
+    __slots__ = ("project_id", "collection_id", "collection_resource", "dataset_id", "dataset_resource", "object", "path")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    COLLECTION_RESOURCE_FIELD_NUMBER: _ClassVar[int]
+    DATASET_ID_FIELD_NUMBER: _ClassVar[int]
+    DATASET_RESOURCE_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    collection_id: str
+    collection_resource: IngestResource
+    dataset_id: str
+    dataset_resource: IngestResource
+    object: IngestResource
+    path: str
+    def __init__(self, project_id: _Optional[str] = ..., collection_id: _Optional[str] = ..., collection_resource: _Optional[_Union[IngestResource, _Mapping]] = ..., dataset_id: _Optional[str] = ..., dataset_resource: _Optional[_Union[IngestResource, _Mapping]] = ..., object: _Optional[_Union[IngestResource, _Mapping]] = ..., path: _Optional[str] = ...) -> None: ...
+
+class IngestExistingObjectResponse(_message.Message):
+    __slots__ = ("object_id",)
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    def __init__(self, object_id: _Optional[str] = ...) -> None: ...

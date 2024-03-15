@@ -69,6 +69,16 @@ class ProjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectResponse.FromString,
                 )
+        self.UpdateProjectTitle = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ProjectService/UpdateProjectTitle',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleResponse.FromString,
+                )
+        self.UpdateProjectAuthors = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ProjectService/UpdateProjectAuthors',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsResponse.FromString,
+                )
 
 
 class ProjectServiceServicer(object):
@@ -189,6 +199,28 @@ class ProjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateProjectTitle(self, request, context):
+        """UpdateTitle
+
+        Status: ALPHA
+
+        This method updates the title of a project
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateProjectAuthors(self, request, context):
+        """UpdateAuthors
+
+        Status: ALPHA
+
+        This method updates the authors of an object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProjectServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -241,6 +273,16 @@ def add_ProjectServiceServicer_to_server(servicer, server):
                     servicer.ArchiveProject,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectResponse.SerializeToString,
+            ),
+            'UpdateProjectTitle': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateProjectTitle,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleResponse.SerializeToString,
+            ),
+            'UpdateProjectAuthors': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateProjectAuthors,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -424,5 +466,39 @@ class ProjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ProjectService/ArchiveProject',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.ArchiveProjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateProjectTitle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ProjectService/UpdateProjectTitle',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectTitleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateProjectAuthors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ProjectService/UpdateProjectAuthors',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_project__service__pb2.UpdateProjectAuthorsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

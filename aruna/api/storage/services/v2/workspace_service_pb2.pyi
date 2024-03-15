@@ -8,20 +8,22 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateWorkspaceTemplateRequest(_message.Message):
-    __slots__ = ("owner_id", "prefix", "name", "hook_ids", "description", "endpoint_ids")
+    __slots__ = ("owner_id", "prefix", "name", "hook_ids", "description", "endpoint_ids", "rules")
     OWNER_ID_FIELD_NUMBER: _ClassVar[int]
     PREFIX_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     HOOK_IDS_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     ENDPOINT_IDS_FIELD_NUMBER: _ClassVar[int]
+    RULES_FIELD_NUMBER: _ClassVar[int]
     owner_id: str
     prefix: str
     name: str
     hook_ids: _containers.RepeatedScalarFieldContainer[str]
     description: str
     endpoint_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, owner_id: _Optional[str] = ..., prefix: _Optional[str] = ..., name: _Optional[str] = ..., hook_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., endpoint_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    rules: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, owner_id: _Optional[str] = ..., prefix: _Optional[str] = ..., name: _Optional[str] = ..., hook_ids: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., endpoint_ids: _Optional[_Iterable[str]] = ..., rules: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CreateWorkspaceTemplateResponse(_message.Message):
     __slots__ = ("template_id",)

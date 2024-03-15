@@ -69,6 +69,16 @@ class CollectionServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.FromString,
                 )
+        self.UpdateCollectionTitle = channel.unary_unary(
+                '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionTitle',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleResponse.FromString,
+                )
+        self.UpdateCollectionAuthors = channel.unary_unary(
+                '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionAuthors',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsResponse.FromString,
+                )
 
 
 class CollectionServiceServicer(object):
@@ -189,6 +199,28 @@ class CollectionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateCollectionTitle(self, request, context):
+        """UpdateTitle
+
+        Status: ALPHA
+
+        Updates the collections metadata title.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateCollectionAuthors(self, request, context):
+        """UpdateAuthors
+
+        Status: ALPHA
+
+        Updates the collections metadata title.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CollectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -241,6 +273,16 @@ def add_CollectionServiceServicer_to_server(servicer, server):
                     servicer.UpdateCollectionLicenses,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.SerializeToString,
+            ),
+            'UpdateCollectionTitle': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCollectionTitle,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleResponse.SerializeToString,
+            ),
+            'UpdateCollectionAuthors': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCollectionAuthors,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -424,5 +466,39 @@ class CollectionService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionLicenses',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionLicensesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCollectionTitle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionTitle',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionTitleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCollectionAuthors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.CollectionService/UpdateCollectionAuthors',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_collection__service__pb2.UpdateCollectionAuthorsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

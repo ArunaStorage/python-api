@@ -30,11 +30,6 @@ class ServiceAccountServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenResponse.FromString,
                 )
-        self.SetServiceAccountPermission = channel.unary_unary(
-                '/aruna.api.storage.services.v2.ServiceAccountService/SetServiceAccountPermission',
-                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.SerializeToString,
-                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.FromString,
-                )
         self.GetServiceAccountToken = channel.unary_unary(
                 '/aruna.api.storage.services.v2.ServiceAccountService/GetServiceAccountToken',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetServiceAccountTokenRequest.SerializeToString,
@@ -60,15 +55,50 @@ class ServiceAccountServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteServiceAccountRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteServiceAccountResponse.FromString,
                 )
+        self.CreateS3CredentialsSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/CreateS3CredentialsSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountResponse.FromString,
+                )
         self.GetS3CredentialsSvcAccount = channel.unary_unary(
                 '/aruna.api.storage.services.v2.ServiceAccountService/GetS3CredentialsSvcAccount',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountResponse.FromString,
                 )
+        self.DeleteS3CredentialsSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/DeleteS3CredentialsSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountResponse.FromString,
+                )
         self.CreateDataproxyTokenSvcAccount = channel.unary_unary(
                 '/aruna.api.storage.services.v2.ServiceAccountService/CreateDataproxyTokenSvcAccount',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.FromString,
+                )
+        self.AddPubkeySvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/AddPubkeySvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountResponse.FromString,
+                )
+        self.AddTrustedEndpointsSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/AddTrustedEndpointsSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountResponse.FromString,
+                )
+        self.RemoveTrustedEndpointsSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/RemoveTrustedEndpointsSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountResponse.FromString,
+                )
+        self.AddDataProxyAttributeSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/AddDataProxyAttributeSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountResponse.FromString,
+                )
+        self.RemoveDataProxyAttributeSvcAccount = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ServiceAccountService/RemoveDataProxyAttributeSvcAccount',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountResponse.FromString,
                 )
 
 
@@ -102,17 +132,6 @@ class ServiceAccountServiceServicer(object):
         Creates a token for a service account
         Each service account can only have one permission -> The token will have the same permission as the
         service account or a subset of it.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SetServiceAccountPermission(self, request, context):
-        """SetServiceAccountPermission
-
-        Status: BETA
-
-        Overwrites the project specific permissions for a service account
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -175,12 +194,34 @@ class ServiceAccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetS3CredentialsSvcAccount(self, request, context):
-        """GetS3Credentials
+    def CreateS3CredentialsSvcAccount(self, request, context):
+        """CreateS3CredentialsSvcAccount
 
         Status: ALPHA
 
-        Gets s3 credentials for a specific user and data_proxy
+        Creates or updates S3 credentials for a specific SvcAccount and data_proxy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetS3CredentialsSvcAccount(self, request, context):
+        """GetS3CredentialsSvcAccount
+
+        Status: ALPHA
+
+        Gets S3 credentials for a specific svc_account and data_proxy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteS3CredentialsSvcAccount(self, request, context):
+        """DeleteS3CredentialsSvcAccount
+
+        Status: ALPHA
+
+        Revokes existing S3 credentials for a specific user and data_proxy
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -191,7 +232,62 @@ class ServiceAccountServiceServicer(object):
 
         Status: ALPHA
 
-        Gets token for a specific user and data_proxy
+        Gets token for a specific SvcAccount and data_proxy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddPubkeySvcAccount(self, request, context):
+        """AddPubkeySvcAccount
+
+        Status: ALPHA
+
+        Adds an ED25519 public key for the SvcAccount
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddTrustedEndpointsSvcAccount(self, request, context):
+        """AddTrustedEndpointsSvcAccount
+
+        Status: ALPHA
+
+        Adds an endpoint to the trusted endpoints list of the SvcAccount
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveTrustedEndpointsSvcAccount(self, request, context):
+        """RemoveTrustedEndpointsSvcAccount
+
+        Status: ALPHA
+
+        Removes an endpoint from the trusted endpoints list of the SvcAccount
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddDataProxyAttributeSvcAccount(self, request, context):
+        """AddDataProxyAttributeSvcAccount
+
+        Status: ALPHA
+
+        Adds an data proxy specific attribute to the SvcAccount
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveDataProxyAttributeSvcAccount(self, request, context):
+        """RemoveDataProxyAttributeSvcAccount
+
+        Status: ALPHA
+
+        Removes an data proxy specific attribute from the SvcAccount
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -209,11 +305,6 @@ def add_ServiceAccountServiceServicer_to_server(servicer, server):
                     servicer.CreateServiceAccountToken,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenResponse.SerializeToString,
-            ),
-            'SetServiceAccountPermission': grpc.unary_unary_rpc_method_handler(
-                    servicer.SetServiceAccountPermission,
-                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.FromString,
-                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.SerializeToString,
             ),
             'GetServiceAccountToken': grpc.unary_unary_rpc_method_handler(
                     servicer.GetServiceAccountToken,
@@ -240,15 +331,50 @@ def add_ServiceAccountServiceServicer_to_server(servicer, server):
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteServiceAccountRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteServiceAccountResponse.SerializeToString,
             ),
+            'CreateS3CredentialsSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateS3CredentialsSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountResponse.SerializeToString,
+            ),
             'GetS3CredentialsSvcAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.GetS3CredentialsSvcAccount,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.GetS3CredentialsSvcAccountResponse.SerializeToString,
             ),
+            'DeleteS3CredentialsSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteS3CredentialsSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountResponse.SerializeToString,
+            ),
             'CreateDataproxyTokenSvcAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDataproxyTokenSvcAccount,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.SerializeToString,
+            ),
+            'AddPubkeySvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddPubkeySvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountResponse.SerializeToString,
+            ),
+            'AddTrustedEndpointsSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddTrustedEndpointsSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountResponse.SerializeToString,
+            ),
+            'RemoveTrustedEndpointsSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveTrustedEndpointsSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountResponse.SerializeToString,
+            ),
+            'AddDataProxyAttributeSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddDataProxyAttributeSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountResponse.SerializeToString,
+            ),
+            'RemoveDataProxyAttributeSvcAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveDataProxyAttributeSvcAccount,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -297,23 +423,6 @@ class ServiceAccountService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/CreateServiceAccountToken',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateServiceAccountTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SetServiceAccountPermission(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/SetServiceAccountPermission',
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionRequest.SerializeToString,
-            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.SetServiceAccountPermissionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -403,6 +512,23 @@ class ServiceAccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateS3CredentialsSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/CreateS3CredentialsSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateS3CredentialsSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetS3CredentialsSvcAccount(request,
             target,
             options=(),
@@ -420,6 +546,23 @@ class ServiceAccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteS3CredentialsSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/DeleteS3CredentialsSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.DeleteS3CredentialsSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateDataproxyTokenSvcAccount(request,
             target,
             options=(),
@@ -433,5 +576,90 @@ class ServiceAccountService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/CreateDataproxyTokenSvcAccount',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.CreateDataproxyTokenSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddPubkeySvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/AddPubkeySvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddPubkeySvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddTrustedEndpointsSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/AddTrustedEndpointsSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddTrustedEndpointsSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveTrustedEndpointsSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/RemoveTrustedEndpointsSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveTrustedEndpointsSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddDataProxyAttributeSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/AddDataProxyAttributeSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.AddDataProxyAttributeSvcAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveDataProxyAttributeSvcAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ServiceAccountService/RemoveDataProxyAttributeSvcAccount',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_service__account__service__pb2.RemoveDataProxyAttributeSvcAccountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

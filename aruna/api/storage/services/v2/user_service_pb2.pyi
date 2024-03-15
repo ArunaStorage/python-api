@@ -200,15 +200,13 @@ class UpdateUserEmailResponse(_message.Message):
     user: _models_pb2.User
     def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
 
-class GetS3CredentialsUserRequest(_message.Message):
-    __slots__ = ("user_id", "endpoint_id")
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
+class CreateS3CredentialsUserTokenRequest(_message.Message):
+    __slots__ = ("endpoint_id",)
     ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
-    user_id: str
     endpoint_id: str
-    def __init__(self, user_id: _Optional[str] = ..., endpoint_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
 
-class GetS3CredentialsUserResponse(_message.Message):
+class CreateS3CredentialsUserTokenResponse(_message.Message):
     __slots__ = ("s3_access_key", "s3_secret_key", "s3_endpoint_url")
     S3_ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
     S3_SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -217,6 +215,32 @@ class GetS3CredentialsUserResponse(_message.Message):
     s3_secret_key: str
     s3_endpoint_url: str
     def __init__(self, s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ..., s3_endpoint_url: _Optional[str] = ...) -> None: ...
+
+class GetS3CredentialsUserTokenRequest(_message.Message):
+    __slots__ = ("endpoint_id",)
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
+
+class GetS3CredentialsUserTokenResponse(_message.Message):
+    __slots__ = ("s3_access_key", "s3_secret_key", "s3_endpoint_url")
+    S3_ACCESS_KEY_FIELD_NUMBER: _ClassVar[int]
+    S3_SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
+    S3_ENDPOINT_URL_FIELD_NUMBER: _ClassVar[int]
+    s3_access_key: str
+    s3_secret_key: str
+    s3_endpoint_url: str
+    def __init__(self, s3_access_key: _Optional[str] = ..., s3_secret_key: _Optional[str] = ..., s3_endpoint_url: _Optional[str] = ...) -> None: ...
+
+class DeleteS3CredentialsUserTokenRequest(_message.Message):
+    __slots__ = ("endpoint_id",)
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
+
+class DeleteS3CredentialsUserResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class GetDataproxyTokenUserRequest(_message.Message):
     __slots__ = ("user_id", "endpoint_id", "context")
@@ -299,3 +323,65 @@ class RemoveOidcProviderResponse(_message.Message):
     USER_FIELD_NUMBER: _ClassVar[int]
     user: _models_pb2.User
     def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
+
+class AddPubkeyUserRequest(_message.Message):
+    __slots__ = ("public_key",)
+    PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
+    public_key: str
+    def __init__(self, public_key: _Optional[str] = ...) -> None: ...
+
+class AddPubkeyUserResponse(_message.Message):
+    __slots__ = ("user",)
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _models_pb2.User
+    def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
+
+class AddTrustedEndpointsUserRequest(_message.Message):
+    __slots__ = ("endpoint_id",)
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
+
+class AddTrustedEndpointsUserResponse(_message.Message):
+    __slots__ = ("user",)
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _models_pb2.User
+    def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
+
+class RemoveTrustedEndpointsUserRequest(_message.Message):
+    __slots__ = ("endpoint_id",)
+    ENDPOINT_ID_FIELD_NUMBER: _ClassVar[int]
+    endpoint_id: str
+    def __init__(self, endpoint_id: _Optional[str] = ...) -> None: ...
+
+class RemoveTrustedEndpointsUserResponse(_message.Message):
+    __slots__ = ("user",)
+    USER_FIELD_NUMBER: _ClassVar[int]
+    user: _models_pb2.User
+    def __init__(self, user: _Optional[_Union[_models_pb2.User, _Mapping]] = ...) -> None: ...
+
+class AddDataProxyAttributeUserRequest(_message.Message):
+    __slots__ = ("user_id", "attribute")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ATTRIBUTE_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    attribute: _models_pb2.DataProxyAttribute
+    def __init__(self, user_id: _Optional[str] = ..., attribute: _Optional[_Union[_models_pb2.DataProxyAttribute, _Mapping]] = ...) -> None: ...
+
+class AddDataProxyAttributeUserResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RemoveDataProxyAttributeUserRequest(_message.Message):
+    __slots__ = ("user_id", "dataproxy_id", "attribute_name")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    DATAPROXY_ID_FIELD_NUMBER: _ClassVar[int]
+    ATTRIBUTE_NAME_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    dataproxy_id: str
+    attribute_name: str
+    def __init__(self, user_id: _Optional[str] = ..., dataproxy_id: _Optional[str] = ..., attribute_name: _Optional[str] = ...) -> None: ...
+
+class RemoveDataProxyAttributeUserResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

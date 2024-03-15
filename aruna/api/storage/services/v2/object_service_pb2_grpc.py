@@ -64,6 +64,21 @@ class ObjectServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsResponse.FromString,
                 )
+        self.UpdateObjectTitle = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ObjectService/UpdateObjectTitle',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleResponse.FromString,
+                )
+        self.UpdateObjectAuthors = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ObjectService/UpdateObjectAuthors',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsResponse.FromString,
+                )
+        self.SetObjectHashes = channel.unary_unary(
+                '/aruna.api.storage.services.v2.ObjectService/SetObjectHashes',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesResponse.FromString,
+                )
 
 
 class ObjectServiceServicer(object):
@@ -188,6 +203,41 @@ class ObjectServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateObjectTitle(self, request, context):
+        """UpdateTitle
+
+        Status: ALPHA
+
+        This method updates the title of an object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateObjectAuthors(self, request, context):
+        """UpdateAuthors
+
+        Status: ALPHA
+
+        This method updates the authors of an object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetObjectHashes(self, request, context):
+        """SetObjectHashes
+
+        Status: ALPHA
+
+        This method sets the object hashes if not already set
+        if a hash is already set, it will be compared to the new hash and
+        set the status to ERROR if they do not match
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ObjectServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -235,6 +285,21 @@ def add_ObjectServiceServicer_to_server(servicer, server):
                     servicer.GetObjects,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsResponse.SerializeToString,
+            ),
+            'UpdateObjectTitle': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateObjectTitle,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleResponse.SerializeToString,
+            ),
+            'UpdateObjectAuthors': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateObjectAuthors,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsResponse.SerializeToString,
+            ),
+            'SetObjectHashes': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetObjectHashes,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -401,5 +466,56 @@ class ObjectService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ObjectService/GetObjects',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.GetObjectsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateObjectTitle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ObjectService/UpdateObjectTitle',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectTitleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateObjectAuthors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ObjectService/UpdateObjectAuthors',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.UpdateObjectAuthorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetObjectHashes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.ObjectService/SetObjectHashes',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_object__service__pb2.SetObjectHashesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
