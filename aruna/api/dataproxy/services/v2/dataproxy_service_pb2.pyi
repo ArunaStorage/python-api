@@ -80,6 +80,16 @@ class PullReplicationRequest(_message.Message):
     finish_message: Empty
     def __init__(self, init_message: _Optional[_Union[InitMessage, _Mapping]] = ..., info_ack_message: _Optional[_Union[InfoAckMessage, _Mapping]] = ..., chunk_ack_message: _Optional[_Union[ChunkAckMessage, _Mapping]] = ..., error_message: _Optional[_Union[ErrorMessage, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ...) -> None: ...
 
+class Handshake(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class Skip(_message.Message):
+    __slots__ = ("object_id",)
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    object_id: str
+    def __init__(self, object_id: _Optional[str] = ...) -> None: ...
+
 class ObjectInfo(_message.Message):
     __slots__ = ("object_id", "chunks", "raw_size", "compressed_size", "extra")
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -107,14 +117,18 @@ class Chunk(_message.Message):
     def __init__(self, object_id: _Optional[str] = ..., chunk_idx: _Optional[int] = ..., data: _Optional[bytes] = ..., checksum: _Optional[str] = ...) -> None: ...
 
 class PullReplicationResponse(_message.Message):
-    __slots__ = ("object_info", "chunk", "finish_message")
+    __slots__ = ("handshake", "object_info", "chunk", "finish_message", "skip")
+    HANDSHAKE_FIELD_NUMBER: _ClassVar[int]
     OBJECT_INFO_FIELD_NUMBER: _ClassVar[int]
     CHUNK_FIELD_NUMBER: _ClassVar[int]
     FINISH_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    SKIP_FIELD_NUMBER: _ClassVar[int]
+    handshake: Handshake
     object_info: ObjectInfo
     chunk: Chunk
     finish_message: Empty
-    def __init__(self, object_info: _Optional[_Union[ObjectInfo, _Mapping]] = ..., chunk: _Optional[_Union[Chunk, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ...) -> None: ...
+    skip: Skip
+    def __init__(self, handshake: _Optional[_Union[Handshake, _Mapping]] = ..., object_info: _Optional[_Union[ObjectInfo, _Mapping]] = ..., chunk: _Optional[_Union[Chunk, _Mapping]] = ..., finish_message: _Optional[_Union[Empty, _Mapping]] = ..., skip: _Optional[_Union[Skip, _Mapping]] = ...) -> None: ...
 
 class DataInfo(_message.Message):
     __slots__ = ("object_id", "download_url", "encryption_key", "is_compressed")
