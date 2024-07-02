@@ -41,6 +41,16 @@ class StorageStatusServiceStub(object):
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsRequest.SerializeToString,
                 response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsResponse.FromString,
                 )
+        self.GetAnnouncementsByType = channel.unary_unary(
+                '/aruna.api.storage.services.v2.StorageStatusService/GetAnnouncementsByType',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeResponse.FromString,
+                )
+        self.GetAnnouncement = channel.unary_unary(
+                '/aruna.api.storage.services.v2.StorageStatusService/GetAnnouncement',
+                request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementRequest.SerializeToString,
+                response_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementResponse.FromString,
+                )
         self.SetAnnouncements = channel.unary_unary(
                 '/aruna.api.storage.services.v2.StorageStatusService/SetAnnouncements',
                 request_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.SetAnnouncementsRequest.SerializeToString,
@@ -93,11 +103,35 @@ class StorageStatusServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetAnnouncements(self, request, context):
-        """GetAnnouncements
+        """Get Announcements
 
         Status: BETA
 
-        Query global announcements
+        Query global announcements optionally filtered by specific ids. 
+        - Returns all announcements if no ids are provided
+        - Returns only the specific announcements if ids are provided
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAnnouncementsByType(self, request, context):
+        """GetAnnouncementsByType
+
+        Status: BETA
+
+        Query global announcements by type
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAnnouncement(self, request, context):
+        """Get a specific Announcement
+
+        Status: BETA
+
+        Query a specific global announcement by its id
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -136,6 +170,16 @@ def add_StorageStatusServiceServicer_to_server(servicer, server):
                     servicer.GetAnnouncements,
                     request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsRequest.FromString,
                     response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsResponse.SerializeToString,
+            ),
+            'GetAnnouncementsByType': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAnnouncementsByType,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeResponse.SerializeToString,
+            ),
+            'GetAnnouncement': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAnnouncement,
+                    request_deserializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementRequest.FromString,
+                    response_serializer=aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementResponse.SerializeToString,
             ),
             'SetAnnouncements': grpc.unary_unary_rpc_method_handler(
                     servicer.SetAnnouncements,
@@ -224,6 +268,40 @@ class StorageStatusService(object):
         return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.StorageStatusService/GetAnnouncements',
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsRequest.SerializeToString,
             aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnnouncementsByType(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.StorageStatusService/GetAnnouncementsByType',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementsByTypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnnouncement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/aruna.api.storage.services.v2.StorageStatusService/GetAnnouncement',
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementRequest.SerializeToString,
+            aruna_dot_api_dot_storage_dot_services_dot_v2_dot_info__service__pb2.GetAnnouncementResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

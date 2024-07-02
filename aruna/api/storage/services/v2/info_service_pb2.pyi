@@ -85,24 +85,28 @@ class GetPubkeysResponse(_message.Message):
     def __init__(self, pubkeys: _Optional[_Iterable[_Union[_models_pb2.Pubkey, _Mapping]]] = ...) -> None: ...
 
 class Announcement(_message.Message):
-    __slots__ = ("id", "content", "created_at")
-    ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("announcement_id", "announcement_type", "title", "teaser", "image_url", "content", "created_by", "created_at", "modified_by", "modified_at")
+    ANNOUNCEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    ANNOUNCEMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    TEASER_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_URL_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
-    id: str
+    MODIFIED_BY_FIELD_NUMBER: _ClassVar[int]
+    MODIFIED_AT_FIELD_NUMBER: _ClassVar[int]
+    announcement_id: str
+    announcement_type: _models_pb2.AnnouncementType
+    title: str
+    teaser: str
+    image_url: str
     content: str
+    created_by: str
     created_at: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., content: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
-
-class GetAnnouncementsRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
-class GetAnnouncementsResponse(_message.Message):
-    __slots__ = ("announcements",)
-    ANNOUNCEMENTS_FIELD_NUMBER: _ClassVar[int]
-    announcements: _containers.RepeatedCompositeFieldContainer[Announcement]
-    def __init__(self, announcements: _Optional[_Iterable[_Union[Announcement, _Mapping]]] = ...) -> None: ...
+    modified_by: str
+    modified_at: _timestamp_pb2.Timestamp
+    def __init__(self, announcement_id: _Optional[str] = ..., announcement_type: _Optional[_Union[_models_pb2.AnnouncementType, str]] = ..., title: _Optional[str] = ..., teaser: _Optional[str] = ..., image_url: _Optional[str] = ..., content: _Optional[str] = ..., created_by: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., modified_by: _Optional[str] = ..., modified_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class SetAnnouncementsRequest(_message.Message):
     __slots__ = ("announcements_upsert", "announcements_delete")
@@ -117,3 +121,43 @@ class SetAnnouncementsResponse(_message.Message):
     ANNOUNCEMENTS_FIELD_NUMBER: _ClassVar[int]
     announcements: _containers.RepeatedCompositeFieldContainer[Announcement]
     def __init__(self, announcements: _Optional[_Iterable[_Union[Announcement, _Mapping]]] = ...) -> None: ...
+
+class GetAnnouncementsRequest(_message.Message):
+    __slots__ = ("announcement_ids", "page")
+    ANNOUNCEMENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    PAGE_FIELD_NUMBER: _ClassVar[int]
+    announcement_ids: _containers.RepeatedScalarFieldContainer[str]
+    page: _models_pb2.PageRequest
+    def __init__(self, announcement_ids: _Optional[_Iterable[str]] = ..., page: _Optional[_Union[_models_pb2.PageRequest, _Mapping]] = ...) -> None: ...
+
+class GetAnnouncementsResponse(_message.Message):
+    __slots__ = ("announcements",)
+    ANNOUNCEMENTS_FIELD_NUMBER: _ClassVar[int]
+    announcements: _containers.RepeatedCompositeFieldContainer[Announcement]
+    def __init__(self, announcements: _Optional[_Iterable[_Union[Announcement, _Mapping]]] = ...) -> None: ...
+
+class GetAnnouncementsByTypeRequest(_message.Message):
+    __slots__ = ("announcement_type", "page")
+    ANNOUNCEMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PAGE_FIELD_NUMBER: _ClassVar[int]
+    announcement_type: _models_pb2.AnnouncementType
+    page: _models_pb2.PageRequest
+    def __init__(self, announcement_type: _Optional[_Union[_models_pb2.AnnouncementType, str]] = ..., page: _Optional[_Union[_models_pb2.PageRequest, _Mapping]] = ...) -> None: ...
+
+class GetAnnouncementsByTypeResponse(_message.Message):
+    __slots__ = ("announcements",)
+    ANNOUNCEMENTS_FIELD_NUMBER: _ClassVar[int]
+    announcements: _containers.RepeatedCompositeFieldContainer[Announcement]
+    def __init__(self, announcements: _Optional[_Iterable[_Union[Announcement, _Mapping]]] = ...) -> None: ...
+
+class GetAnnouncementRequest(_message.Message):
+    __slots__ = ("announcement_id",)
+    ANNOUNCEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    announcement_id: str
+    def __init__(self, announcement_id: _Optional[str] = ...) -> None: ...
+
+class GetAnnouncementResponse(_message.Message):
+    __slots__ = ("announcement",)
+    ANNOUNCEMENT_FIELD_NUMBER: _ClassVar[int]
+    announcement: Announcement
+    def __init__(self, announcement: _Optional[_Union[Announcement, _Mapping]] = ...) -> None: ...

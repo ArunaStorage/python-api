@@ -7,6 +7,15 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class AnnouncementType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ANNOUNCEMENT_TYPE_UNSPECIFIED: _ClassVar[AnnouncementType]
+    ANNOUNCEMENT_TYPE_ORGA: _ClassVar[AnnouncementType]
+    ANNOUNCEMENT_TYPE_RELEASE: _ClassVar[AnnouncementType]
+    ANNOUNCEMENT_TYPE_UPDATE: _ClassVar[AnnouncementType]
+    ANNOUNCEMENT_TYPE_MAINTENANCE: _ClassVar[AnnouncementType]
+    ANNOUNCEMENT_TYPE_BLOG: _ClassVar[AnnouncementType]
+
 class DataClass(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     DATA_CLASS_UNSPECIFIED: _ClassVar[DataClass]
@@ -117,6 +126,12 @@ class ReplicationStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REPLICATION_STATUS_RUNNING: _ClassVar[ReplicationStatus]
     REPLICATION_STATUS_FINISHED: _ClassVar[ReplicationStatus]
     REPLICATION_STATUS_ERROR: _ClassVar[ReplicationStatus]
+ANNOUNCEMENT_TYPE_UNSPECIFIED: AnnouncementType
+ANNOUNCEMENT_TYPE_ORGA: AnnouncementType
+ANNOUNCEMENT_TYPE_RELEASE: AnnouncementType
+ANNOUNCEMENT_TYPE_UPDATE: AnnouncementType
+ANNOUNCEMENT_TYPE_MAINTENANCE: AnnouncementType
+ANNOUNCEMENT_TYPE_BLOG: AnnouncementType
 DATA_CLASS_UNSPECIFIED: DataClass
 DATA_CLASS_PUBLIC: DataClass
 DATA_CLASS_PRIVATE: DataClass
