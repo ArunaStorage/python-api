@@ -45,20 +45,24 @@ class CreateObjectResponse(_message.Message):
     def __init__(self, object: _Optional[_Union[_models_pb2.Object, _Mapping]] = ...) -> None: ...
 
 class GetUploadURLRequest(_message.Message):
-    __slots__ = ("object_id", "multipart", "part_number")
+    __slots__ = ("object_id", "multipart", "part_number", "upload_id")
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     MULTIPART_FIELD_NUMBER: _ClassVar[int]
     PART_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    UPLOAD_ID_FIELD_NUMBER: _ClassVar[int]
     object_id: str
     multipart: bool
     part_number: int
-    def __init__(self, object_id: _Optional[str] = ..., multipart: bool = ..., part_number: _Optional[int] = ...) -> None: ...
+    upload_id: str
+    def __init__(self, object_id: _Optional[str] = ..., multipart: bool = ..., part_number: _Optional[int] = ..., upload_id: _Optional[str] = ...) -> None: ...
 
 class GetUploadURLResponse(_message.Message):
-    __slots__ = ("url",)
+    __slots__ = ("url", "upload_id")
     URL_FIELD_NUMBER: _ClassVar[int]
+    UPLOAD_ID_FIELD_NUMBER: _ClassVar[int]
     url: str
-    def __init__(self, url: _Optional[str] = ...) -> None: ...
+    upload_id: str
+    def __init__(self, url: _Optional[str] = ..., upload_id: _Optional[str] = ...) -> None: ...
 
 class GetDownloadURLRequest(_message.Message):
     __slots__ = ("object_id",)
