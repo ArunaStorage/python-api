@@ -85,16 +85,18 @@ class CompletedPart(_message.Message):
     def __init__(self, etag: _Optional[str] = ..., part: _Optional[int] = ...) -> None: ...
 
 class FinishObjectStagingRequest(_message.Message):
-    __slots__ = ("object_id", "content_len", "hashes", "completed_parts")
+    __slots__ = ("object_id", "content_len", "hashes", "completed_parts", "upload_id")
     OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_LEN_FIELD_NUMBER: _ClassVar[int]
     HASHES_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_PARTS_FIELD_NUMBER: _ClassVar[int]
+    UPLOAD_ID_FIELD_NUMBER: _ClassVar[int]
     object_id: str
     content_len: int
     hashes: _containers.RepeatedCompositeFieldContainer[_models_pb2.Hash]
     completed_parts: _containers.RepeatedCompositeFieldContainer[CompletedPart]
-    def __init__(self, object_id: _Optional[str] = ..., content_len: _Optional[int] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., completed_parts: _Optional[_Iterable[_Union[CompletedPart, _Mapping]]] = ...) -> None: ...
+    upload_id: str
+    def __init__(self, object_id: _Optional[str] = ..., content_len: _Optional[int] = ..., hashes: _Optional[_Iterable[_Union[_models_pb2.Hash, _Mapping]]] = ..., completed_parts: _Optional[_Iterable[_Union[CompletedPart, _Mapping]]] = ..., upload_id: _Optional[str] = ...) -> None: ...
 
 class FinishObjectStagingResponse(_message.Message):
     __slots__ = ("object",)
